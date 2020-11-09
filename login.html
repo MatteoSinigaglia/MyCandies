@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>loginPage</title>
+	<meta charset="utf-8">
+	<!-- QUESTE COSE LE HO MESSE A CASO PER ORA -->
+	<meta name="title" content="project" />
+	<meta name="description" content="Pagina realizzata per gestire l'accesso utente/admin" />
+	<meta name="author" content= "TecWeb Group" />
+	<meta />
+
+	<link />
+</head>
+
+<body id="loginPage">
+
+<div id="header">
+	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCand's Sei spacciato"/>
+	<form class="serchButton" action="" method="get">
+		<input type="text" id="productSearchBar" name="productSearchBar" value="Cerca una droga" maxlength="30" />
+		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" />
+	</form>
+	
+	<p id="username">nomeUtente</p> <!-- hidden -->
+	<button id="logoutButton">Logout</button> <!-- hidden -->
+	<button id="loginButton">Accedi</button>
+	<button id="shopButton">Carrello</button>
+	
+	<ul>
+		<li xml:lang="en">Home</li>
+		<li>Droghe</li>
+		<li>Accessori</li> 
+		<li>FAQ</li>
+		<li>Lavora con noi</li>
+	</ul>
+</div>
+
+<div id="loginContent">
+	<form class="login" action="" method="post">
+		<fieldset id="loginFieldset">
+			<!-- Legenda -->
+				<legend id="loginLegend">Nome Utente e Password</legend>
+			<!-- Campo user -->	
+				<label for="loginUsername">Nome Utente:</label>
+				<input type="text" id="loginUsername" name="loginUsername" value="Nome Utente" maxlength="40" />
+			<!-- Campo password -->	
+				<label for="loginPassword">Password:</label>
+				<input type="password" id="loginPassword" name="loginPassword" value="Password" maxlength="50" />
+			<!-- Buttons -->	
+				<input type="submit" id="usernameButton" name="usernameButton" value="Accedi" />	
+				<input type="reset" id="loginReset" name="loginReset" value="Cancella" />	
+		</fieldset>
+	</form>
+	
+	<!-- link recupero credenziali -->
+	<a href="">Hai dimenticato come utente o password?</a> <!-- AGGIUNGERE LINK -->
+	
+</div>
+
+</body>
+</html>
