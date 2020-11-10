@@ -11,33 +11,36 @@
 	<meta name="author" content="MyCandies&co" />
 	<meta />
 
-	<link />
+	<link rel="stylesheet" href="../backend/style.css" />
 </head>
 
 <body id="productPage">
 
 <div id="header">
+
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCand's Sei spacciato"/>
 	<form class="serchButton" action="" method="get">
-		<input type="text" id="productSearchBar" name="productSearchBar" value="Cerca una droga" maxlength="30" />
-		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" />
+		<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 	</form>
+
+	<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+	<button id="logoutButton" class="buttons">Logout</button> <!-- hidden -->
+	<button id="loginButton" class="buttons">Accedi</button>
+	<button id="cartButton" class="buttons">Carrello</button>
 	
-	<p id="username">nomeUtente</p> <!-- hidden -->
-	<button id="logoutButton">Logout</button> <!-- hidden -->
-	<button id="loginButton">Accedi</button>
-	<button id="shopButton">Carrello</button>
-	
-	<ul> <!-- ESTENDERE MENU -->
-		<li xml:lang="en">Home</li>
-		<li>Droghe</li>
-		<li>Accessori</li>
-		<li>FAQ</li>
-		<li>Lavora con noi</li>
-	</ul>
+	<div id="headerMenu">
+		<ul> <!-- ESTENDERE MENU -->
+			<li xml:lang="en">Home</li>
+			<li>Droghe</li>
+			<li>Accessori</li>
+			<li>FAQ</li>
+			<li>Lavora con noi</li>
+		</ul>
+	</div>
 </div>
 	
-<div id="productContent">
+<div id="productContent" class="generalContent">
 	<h2>Descrizione prodotto: </h2>
 	<dl id="productDefinition">
 		<dt><strong>Nome temporaneo</strong></dt>
