@@ -7,7 +7,12 @@ html {
     width: 100%;
 }
 
-/* FORM */
+body {
+    margin:auto;
+}
+/*    HEADER   */
+
+/*    SEARCH    */
 
 #header {
     color: white;
@@ -31,41 +36,35 @@ html {
 
 #header form input[type=text] {
     margin: 1.5em 0.5em;
-    border: none;
-    padding: 9px 315px;
-    box-sizing: border-box;
-    border-radius: 4px;
     margin-right: 0;
+    padding: 0.7em 25em;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
 } 
 
 #header form input[type=submit] {
-    margin-right: 2em;
     margin-left: 0;
-}
-
-#headerUsername {
-    float: left;
-    display: none;
-}
-
-#logoutButton {
-    float: left;
-    display: none;
 }
 
 #cartButton {
     float: right;
-    margin-right: 2em;
+    margin-right: 0.4em;
 }
 
 #loginButton {
     float: right;
 }
 
+#headerUsername {
+    float: right;
+    display: none;
+}
+
 .buttons {
-    margin: 1.8em 0.3em;
-    padding: 9px 21px;
-    border: none;
+    margin: 1.5em 0.3em;
+    padding: 0.7em 1.7em;
+    border: 1px solid transparent;
     border-radius: 4px;
     background-color: #6A994E;
     color: white;
@@ -74,11 +73,11 @@ html {
 
 .buttons:hover {
     border: 1px solid white;
-    padding: 8px 20px;
+    padding: 0.7em 1.7em;
+    background-color: #A7C957;
 }
 
-
-/* MENU */
+/*    MENU    */
 
 #header ul {
     clear: left; 
@@ -90,12 +89,96 @@ html {
 
 #header ul li {
     display: inline;
-    padding: 4px 12px;
+    padding: 0.2em 0.8em;
     margin: 0.2em;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 #header ul li:hover {
     border: 1px solid #DDD;
-    border-radius: 4px;
-    padding: 3px 11px;
+    background-color: #A7C957;
+}
+
+/*    PRODOTTO    */
+
+.generalContent {
+    padding: 1em;
+    margin: 0.5em 1.5em;
+}
+
+.generalContent h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.7em;
+}
+
+#productDefinition dt {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+
+#productDefinition dd {
+    border: 1px solid #DDD;
+    min-height: 12em;
+}
+
+#productDefinition dd img {
+    float: left;
+    width: 20%;
+    margin: 0.7em 0.5em;
+}
+
+#productDefinition dd p {
+    width: 75%;
+    padding: 0.7em 1em;
+    margin-left: 22%;
+}
+
+#productCharacteristic {
+    clear: left;
+    padding: 0.5em 0;
+    margin-top: 1em;
+}
+
+#productContent table {
+    width: 60%;
+    margin: 0 20%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#productContent table tr, td, th {
+    border: 1px solid #000;
+    padding: 0.5em 2em;
+}
+
+#productContent table th {
+    background-color: #6A994E;
+}
+
+#productContent table td {
+    background-color: #A7C957;
+}
+
+#yourReview {
+    width: 85%;
+    margin-left: 9%;
+}
+
+#yourReview label {
+    float: left;
+    margin: 1em 1em 1em 0;
+}
+
+#yourReview input[type=text] {
+    clear: left;
+    padding: 5% 50% 20% 5%;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+#yourReview input[type=submit] {
+    margin-left: 7%;
 }
