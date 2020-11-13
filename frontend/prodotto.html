@@ -16,16 +16,15 @@
 <body>
 
 <div id="header">
-
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCand's Sei spacciato"/>
 	<form class="serchButton" action="" method="get">
 		<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
+		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" />
 	</form>
 
-	<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 	<button id="cartButton" class="buttons">Carrello</button>
 	<button id="loginButton" class="buttons">Accedi</button>
+	<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 
 	<ul> <!-- ESTENDERE MENU -->
 		<li xml:lang="en">Home</li>
@@ -71,7 +70,7 @@
 		</dd>
 	</dl>
 
-	<h2 id="productCharacteristic">Caratteristiche</h2>
+	<h2>Caratteristiche</h2>
 	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta">
 		<tr>
 			<th>Categoria</th>
@@ -103,7 +102,7 @@
 		</tr>
 	</table>
 
-	<h2 id="productReviews">Recensioni</h2>
+	<h2>Recensioni</h2>
 	<form id="yourReview">
 		<label for="review">La tua recensione:</label>
 		<input type="text" id="review" name="review" value="" maxlength="1000" />
