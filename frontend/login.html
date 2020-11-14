@@ -15,45 +15,51 @@
 <body>
 
 <div id="header">
-	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCand's Sei spacciato"/>
-	<form class="serchButton" action="" method="get">
-		<input type="text" id="productSearchBar" name="productSearchBar" value="Cerca una droga" maxlength="30" />
-		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" />
-	</form>
+	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 	
-	<p id="username">nomeUtente</p> <!-- hidden -->
-	<button id="logoutButton">Logout</button> <!-- hidden -->
-	<button id="loginButton">Accedi</button>
-	<button id="shopButton">Carrello</button>
-	
-	<ul>
-		<li xml:lang="en">Home</li>
-		<li>Droghe</li>
-		<li>Accessori</li> 
-		<li>FAQ</li>
-		<li>Lavora con noi</li>
-	</ul>
+	<div id="headerSearchBar">
+		<form class="serchButton" action="" method="get">
+			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
+		</form>
+	</div>
+
+	<div id="headerButtons">
+		<button id="loginButton" class="buttons">Accedi</button>
+		<button id="cartButton" class="buttons">Carrello</button>
+		<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+	</div>
+
+	<div id="headerMenu">
+		<ul> <!-- ESTENDERE MENU -->
+			<li xml:lang="en">Home</li>
+			<li>Droghe</li>
+			<li>Accessori</li>
+			<li>FAQ</li>
+			<li>Lavora con noi</li>
+		</ul>
+	</div>
 </div>
 
 <div id="loginContent">
 	<form class="login" action="" method="post">
 		<fieldset id="loginFieldset">
 			<!-- Legenda -->
-				<legend id="loginLegend">Nome Utente e Password</legend>
+				<legend id="loginLegend"> Nome Utente e Password </legend>
 			<!-- Campo user -->	
 				<label for="loginUsername">Nome Utente:</label>
-				<input type="text" id="loginUsername" name="loginUsername" value="Nome Utente" maxlength="40" />
+				<input type="text" id="loginUsername" name="loginUsername" value="" maxlength="40" />
 			<!-- Campo password -->	
 				<label for="loginPassword">Password:</label>
-				<input type="password" id="loginPassword" name="loginPassword" value="Password" maxlength="50" />
+				<input type="password" id="loginPassword" name="loginPassword" value="" maxlength="50" />
 			<!-- Buttons -->	
-				<input type="submit" id="usernameButton" name="usernameButton" value="Accedi" />	
-				<input type="reset" id="loginReset" name="loginReset" value="Cancella" />	
+				<input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />	
+				<input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />	
 		</fieldset>
 	</form>
 	
 	<!-- link recupero credenziali -->
-	<a href="">Hai dimenticato come utente o password?</a> <!-- AGGIUNGERE LINK -->
+	<a href="">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
 	
 </div>
 
