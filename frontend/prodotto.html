@@ -10,29 +10,36 @@
 	<meta name="author" content="MyCandies&co" />
 	<meta />
 
-	<link rel="stylesheet" href="../backend/style.css" media="heandheld, screen" />
+	<link rel="stylesheet" href="../backend/style.css" media="" />
 </head>
 
 <body>
 
 <div id="header">
-	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCand's Sei spacciato"/>
-	<form class="serchButton" action="" method="get">
-		<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-		<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" />
-	</form>
+	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+	
+	<div id="headerSearchBar">
+		<form class="serchButton" action="" method="get">
+			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
+		</form>
+	</div>
 
-	<button id="cartButton" class="buttons">Carrello</button>
-	<button id="loginButton" class="buttons">Accedi</button>
-	<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+	<div id="headerButtons">
+		<button id="loginButton" class="buttons">Accedi</button>
+		<button id="cartButton" class="buttons">Carrello</button>
+		<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+	</div>
 
-	<ul> <!-- ESTENDERE MENU -->
-		<li xml:lang="en">Home</li>
-		<li>Droghe</li>
-		<li>Accessori</li>
-		<li>FAQ</li>
-		<li>Lavora con noi</li>
-	</ul>
+	<div id="headerMenu">
+		<ul> <!-- ESTENDERE MENU -->
+			<li xml:lang="en">Home</li>
+			<li>Droghe</li>
+			<li>Accessori</li>
+			<li>FAQ</li>
+			<li>Lavora con noi</li>
+		</ul>
+	</div>
 </div>
 	
 <div id="productContent" class="generalContent">
@@ -104,8 +111,8 @@
 
 	<h2>Recensioni</h2>
 	<form id="yourReview">
-		<label for="review">La tua recensione:</label>
-		<input type="text" id="review" name="review" value="" maxlength="1000" />
+		<label for="reviewBox">La tua recensione:</label>
+		<input type="text" id="reviewBox" name="reviewBox" value="" maxlength="1000" />
 		<input type="submit" id="submitReview" name="submitReview" value="Recensisci" class="buttons" />
 	</form>
 	<p>qui andranno inserite le recensioni in qualche modo</p>
