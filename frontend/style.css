@@ -30,6 +30,7 @@ body {
     margin: 0 1% 0 0.5%;
     width: 14%;
     max-width: 14%;
+    min-height: 4em;
 }
 
 /*  questo si riferisce all'intero form per la ricerca  */
@@ -37,11 +38,12 @@ body {
     float: left;
     width: 65%;
     margin-top: 1.5%;
+    min-height: 4em;
 }
 
 /*  questo si riferisce alla sola barra di ricerca  */
 #productSearchBar {
-    padding: 0.7em 22em;
+    padding: 0.7em 45em 0.7em 0.2em;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -92,6 +94,11 @@ body {
 #headerMenu li:hover {
     border: 1px solid #DDD;
     background-color: #A7C957;
+}
+
+#headerMenu a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: white;
 }
 /*--------- FINE HEADER -------------------------------------------------------------------------*/
 

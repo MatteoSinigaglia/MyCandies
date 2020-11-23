@@ -10,7 +10,7 @@
 	<meta name="author" content="MyCandies&co" />
 	<meta />
 
-	<link rel="stylesheet" href="../backend/style.css" media="" />
+	<link rel="stylesheet" href="../frontend/style.css" media="" />
 </head>
 
 <body>
@@ -19,8 +19,8 @@
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 	
 	<div id="headerSearchBar">
-		<form class="serchButton" action="" method="get">
-			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+		<form role="search" class="serchButton" action="" method="get">
+			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
 			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 		</form>
 	</div>
@@ -33,11 +33,11 @@
 
 	<div id="headerMenu">
 		<ul> <!-- ESTENDERE MENU -->
-			<li xml:lang="en">Home</li>
-			<li>Droghe</li>
-			<li>Accessori</li>
-			<li>FAQ</li>
-			<li>Lavora con noi</li>
+			<li xml:lang="en"><a href="#">Home</a></li>
+			<li><a href="#">Droghe</a></li>
+			<li><a href="#">Accessori</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Lavora con noi</a></li>
 		</ul>
 	</div>
 </div>
@@ -78,34 +78,35 @@
 	</dl>
 
 	<h2>Caratteristiche</h2>
-	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta">
+	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali">
+		<caption>Caratteristiche della droga</caption>
 		<tr>
-			<th>Categoria</th>
-			<td>valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<th id="tableDrugCategory" scope="col">Categoria</th>
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
-			<th>Tipologia</th>
-			<td>valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+			<th id="tableDrugType" scope="col">Tipologia</th>
+			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
 		</tr>
 		<tr>
-			<th>Componenti attivi</th>
-			<td>valore</td> 
+			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
+			<td headers="tableDrugComponents">valore</td> 
 		</tr>
 		<tr>
-			<th>Effetti</th>
-			<td>valore</td>
+			<th id="tableDrugEffects" scope="col">Effetti</th>
+			<td headers="tableDrugEffects">valore</td>
 		</tr>
 		<tr>
-			<th>Effetti collaterali</th>
-			<td>valore</td>
+			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
+			<td headers="tableDrugSideEffects">valore</td>
 		</tr>
 		<tr>
-			<th>Tossicità</th>
-			<td>valore</td>
+			<th id="tableDrugToxicity" scope="col">Tossicità</th>
+			<td headers="tableDrugToxicity">valore</td>
 		</tr>
 		<tr>
-			<th>Danni fisici e mentali</th>
-			<td>valore</td>
+			<th id="tableDrugDamage" scope="col">Danni fisici e mentali</th>
+			<td id="tableDrugDamage">valore</td>
 		</tr>
 	</table>
 
