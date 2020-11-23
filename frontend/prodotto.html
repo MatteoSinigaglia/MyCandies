@@ -63,55 +63,59 @@
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			</p>
 		</dd>
 	</dl>
 
-	<h2>Caratteristiche</h2>
+<div id="tableContent">
 	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali">
-		<caption>Caratteristiche della droga</caption>
 		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
+		</tr>
+		<tr>
 			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
 			<th id="tableDrugType" scope="col">Tipologia</th>
+		</tr>
+		<tr>
 			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
 		</tr>
 		<tr>
 			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
-			<td headers="tableDrugComponents">valore</td> 
+		</tr>
+		<tr>
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
+		</tr>
+		<tr>
 			<td headers="tableDrugEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
+		</tr>
+		<tr>
 			<td headers="tableDrugSideEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugToxicity" scope="col">Tossicità</th>
+		</tr>
+		<tr>
 			<td headers="tableDrugToxicity">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugDamage" scope="col">Danni fisici e mentali</th>
+		</tr>
+		<tr>
 			<td id="tableDrugDamage">valore</td>
 		</tr>
 	</table>
+</div>
 
-	<h2>Recensioni</h2>
-	<form id="yourReview">
+	<h2 id="reviewTitle">Recensioni</h2>
+	<form id="review">
 		<label for="reviewBox">La tua recensione:</label>
 		<input type="text" id="reviewBox" name="reviewBox" value="" maxlength="1000" />
 		<input type="submit" id="submitReview" name="submitReview" value="Recensisci" class="buttons" />
