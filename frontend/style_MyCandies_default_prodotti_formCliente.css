@@ -1,128 +1,141 @@
 * {
-    padding: 0em;
-    margin: 0em;
+  padding: 0em;
+  margin: 0em;
 }
 
 html {
-    background-color: #ffffff;
-    width: 100%;
+  background-color: #ffffff;
+  width: 100%;
 }
 
 body {
-    max-width: 1280px;
-    margin: auto;
-    background-color: white;
-    font-family: "Arial", cursive, sans-serif;
+  max-width: 1280px;
+  margin: auto;
+  background-color: white;
+  font-family: "Arial", cursive, sans-serif;
+}
+
+input[type="checkbox"]:hover,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 #breadcrumb {
-    background-color: red;
-    text-align: left;
-    padding: 1.5em 1.5em 1.5em 1.5em;
-    border-bottom: 1px solid #DDD;
-    font-weight: bold;
+  text-align: left;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  background-color: #a7c957;
+}
+
+h1 {
+  font-size: 1.1em;
+  font-weight: 500;
+  text-align: center;
 }
 
 #filters {
-    float: left;
-    max-width: 20%;
-    min-width: 150px;
-    padding: 1.5em;
+  float: left;
+  max-width: 20%;
+  min-width: 150px;
+  padding: 1.5em;
+  border: 1px solid #ddd;
+  border-top: none;
 }
 
-#filters div{
+#filters div {
   text-align: right;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
-#filters form, fieldset {
-    border: none;
+#filters form,
+fieldset {
+  border: none;
 }
 
-#filters input[type=text], label {
-    text-align: right;
-    padding: 0.5em;
-}
-
-#filters input[type=text], label {
+#filters input[type="text"],
+label {
   text-align: right;
   padding: 0.5em;
 }
 
-#filters input[type=text] {
-    width: 4em;
-    border: 1px solid #DDD;
-    border-radius: 5px;
-    margin-right: 2em;
+#filters input[type="text"],
+label {
+  text-align: right;
+  padding: 0.5em;
 }
 
-#filters input[type=submit] {
-    border: 1px solid #DDD;
-    padding: 0.5em;
-    margin: 1em;
-    border-radius: 5px;
+#filters input[type="text"] {
+  width: 4em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 2em;
+}
+
+#filters input[type="submit"] {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  margin: 1em;
+  border-radius: 5px;
 }
 
 #filters #averageStarsFilter {
-  text-align:center;
+  text-align: center;
 }
 
 #filters #averageStarsFilter div {
-    display: inline-block;
+  display: inline-block;
 }
-#filters #averageStarsFilter input[type=checkbox] {
-  background-image: url(happy_leaf.png);
-}
-
 
 /* nascondo i label in modo che rimangano visibili per gli screen reader
     da inserire un'immagine al posto del "quadratino" */
 #filters #averageStarsFilter label {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 #rightSideContent {
-    overflow: hidden;
-    padding: 1em;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+  overflow: hidden;
+  padding: 1em;
 }
 
 #rightSideContent div {
-    overflow: hidden;
-}
-
-#rightSideContent ul {
-    list-style-type: none;
+  overflow: hidden;
 }
 
 #upperRightSideContent {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1em;
 }
 
-.fakeButton h2 {
-    border: 1px solid #DDD;
-    padding: 0.3em;
-    background-color: #f2e8cf;
-    border-radius: 5px;
+.fakeButton label {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
-.fakeButton h2:hover {
-    background-color: #bc4749;
+.fakeButton select {
+  padding: 0.3em;
+  border-radius: 5px;
+  background-color: #c5c4c4;
+}
+
+.fakeButton .hiddenChoice {
+  display: none;
 }
 
 #orderBy {
-    float: left;
-    text-align: left;
+  float: left;
+  text-align: left;
 }
 
 #productsPerPage {
-    float: right;
+  float: right;
 }
 
 #productsList {
@@ -131,30 +144,30 @@ body {
 }
 /* queste regole che seguono sono in previsione di oggetti per il negozio */
 .singleProduct {
-    display: flex;
-    flex-direction: row;
-    padding: 2em;
-    border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  border: 1px solid #ddd;
 }
 
 .singleProduct img {
-    text-align: center;
-    padding: 1em;
+  text-align: center;
+  padding: 1em;
 }
 
 /* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h3, p {
-    text-align: left;
+.singleProduct h3,
+p {
+  text-align: left;
 }
 
 #productsPageNumber {
-    text-align: center;
-    display: inline-block; 
-    width: 100%;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
 }
 
 #footer {
-    clear: both;
-    background-color: black;
+  clear: both;
+  background-color: black;
 }
-
