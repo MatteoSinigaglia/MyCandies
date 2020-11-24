@@ -15,7 +15,7 @@
 
 <body>
 
-<div id="header">
+<header id="header">
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 	
 	<div id="headerSearchBar">
@@ -26,13 +26,13 @@
 	</div>
 
 	<div id="headerButtons">
-		<button id="loginButton" class="buttons">Accedi</button>
-		<button id="cartButton" class="buttons">Carrello</button>
+		<input type="submit" id="loginButton" value="Accedi" class="buttons" />
+		<input type="submit" id="cartButton" value="Carrello" class="buttons" />
 		<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 	</div>
 
 	<div id="headerMenu">
-		<ul> <!-- ESTENDERE MENU -->
+		<ul role="menu"> <!-- ESTENDERE MENU -->
 			<li xml:lang="en"><a href="#">Home</a></li>
 			<li><a href="#">Droghe</a></li>
 			<li><a href="#">Accessori</a></li>
@@ -40,12 +40,13 @@
 			<li><a href="#">Lavora con noi</a></li>
 		</ul>
 	</div>
-</div>
+</header>
 	
 <div id="productContent" class="generalContent">
 
-	<h2>Descrizione prodotto: </h2>
-	<dl id="productDefinition">
+<h2>Descrizione prodotto: </h2>
+<div id="productContenitor">
+	<dl>
 		<dt><strong>Nome temporaneo</strong></dt>
 		<dd>
 			<img src="../img/out_of_stock.jpg" alt="insieme di pasticche bianche" />
@@ -66,8 +67,10 @@
 			</p>
 		</dd>
 	</dl>
+	<input type="submit" id="addToCartButton" name="addToCartButton" value="Aggiungi al carrello" class="buttons" />
+</div>
 
-<div id="tableContent">
+<div id="productTableContent">
 	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali">
 		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
@@ -114,13 +117,16 @@
 	</table>
 </div>
 
+<div id="reviewBox">
 	<h2 id="reviewTitle">Recensioni</h2>
-	<form id="review">
-		<label for="reviewBox">La tua recensione:</label>
-		<input type="text" id="reviewBox" name="reviewBox" value="" maxlength="1000" />
+	<form>
+		<label for="commentBox">La tua recensione:</label>
+		<textarea id="commentBox" rows="10" cols="50" name="commentBox"></textarea>
 		<input type="submit" id="submitReview" name="submitReview" value="Recensisci" class="buttons" />
 	</form>
 	<p>qui andranno inserite le recensioni in qualche modo</p>
+</div>
+
 </div>
 
 </body>
