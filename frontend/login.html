@@ -14,12 +14,12 @@
 
 <body>
 
-<div id="header">
+<header id="header">
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 	
 	<div id="headerSearchBar">
-		<form class="serchButton" action="" method="get">
-			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+		<form role="search" class="serchButton" action="" method="get">
+			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
 			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 		</form>
 	</div>
@@ -31,15 +31,15 @@
 	</div>
 
 	<div id="headerMenu">
-		<ul> <!-- ESTENDERE MENU -->
-			<li xml:lang="en">Home</li>
-			<li>Droghe</li>
-			<li>Accessori</li>
-			<li>FAQ</li>
-			<li>Lavora con noi</li>
+		<ul role="menu"> <!-- ESTENDERE MENU -->
+			<li xml:lang="en"><a href="#">Home</a></li>
+			<li><a href="#">Droghe</a></li>
+			<li><a href="#">Accessori</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Lavora con noi</a></li>
 		</ul>
 	</div>
-</div>
+</header>
 
 <div id="loginContent">
 	<form class="login" action="" method="post">
