@@ -15,6 +15,16 @@ body {
   font-family: "Arial", cursive, sans-serif;
 }
 
+/* nascondo i label in modo che rimangano visibili per gli screen reader
+    da inserire un'immagine al posto del "quadratino" */
+.hiddenHelp {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 input[type="checkbox"]:hover,
 input[type="submit"] {
   cursor: pointer;
@@ -44,24 +54,21 @@ h1 {
 }
 
 #filters div {
-  text-align: right;
+  text-align: center;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
-#filters form,
-fieldset {
+
+#filters fieldset {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border: none;
+  border-top: 1px solid #ddd;
 }
 
-#filters input[type="text"],
-label {
-  text-align: right;
-  padding: 0.5em;
-}
-
-#filters input[type="text"],
-label {
-  text-align: right;
+#filters legend {
+  float:left;
+  width: 100%;
   padding: 0.5em;
 }
 
@@ -69,7 +76,8 @@ label {
   width: 4em;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-right: 2em;
+  padding: 0.5em;
+
 }
 
 #filters input[type="submit"] {
@@ -79,23 +87,6 @@ label {
   border-radius: 5px;
 }
 
-#filters #averageStarsFilter {
-  text-align: center;
-}
-
-#filters #averageStarsFilter div {
-  display: inline-block;
-}
-
-/* nascondo i label in modo che rimangano visibili per gli screen reader
-    da inserire un'immagine al posto del "quadratino" */
-#filters #averageStarsFilter label {
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
 
 #rightSideContent {
   overflow: hidden;
@@ -111,14 +102,6 @@ label {
   padding-bottom: 1em;
 }
 
-.fakeButton label {
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
 .fakeButton select {
   padding: 0.3em;
   border-radius: 5px;
@@ -131,11 +114,10 @@ label {
 
 #orderBy {
   float: left;
-  text-align: left;
 }
 
 #productsPerPage {
-  float: right;
+  text-align: right;
 }
 
 #productsList {
@@ -156,7 +138,7 @@ label {
 }
 
 /* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h3,
+.singleProduct h2,
 p {
   text-align: left;
 }

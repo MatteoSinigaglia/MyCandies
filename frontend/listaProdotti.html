@@ -41,51 +41,40 @@
                 <fieldset id="averageStarsFilter">
                     <legend>Valutazione minima</legend>
                     <div>
-                        <label for="1star">1 stella</label>
-                        <input type="checkbox" name="1star" id="1star" value="1star" />
-                    </div>
-                    <div>
-                        <label for="2star">2 stelle</label>
-
-                        <input type="checkbox" name="2star" id="2star" value="2star" />
-                    </div>
-                    <div>
-                        <label for="3star">3 stelle</label>
-
-                        <input type="checkbox" name="3star" id="3star" value="3star" />
-                    </div>
-                    <div>
-                        <label for="4star">4 stelle</label>
-
-                        <input type="checkbox" name="4star" id="4star" value="4star" />
-                    </div>
-                    <div>
-                        <label for="5star">5 stelle</label>
-                        <input type="checkbox" name="5star" id="5star" value="5star" />
+                    <label for="1star" class="hiddenHelp">1 stella</label>
+                    <input type="radio" name="stars" id="1star" value="1star" />
+                    <label for="2star" class="hiddenHelp">2 stelle</label>
+                    <input type="radio" name="stars" id="2star" value="2star" />
+                    <label for="3star" class="hiddenHelp">3 stelle</label>
+                    <input type="radio" name="stars" id="3star" value="3star" />
+                    <label for="4star" class="hiddenHelp">4 stelle</label>
+                    <input type="radio" name="stars" id="4star" value="4star" />
+                    <label for="5star" class="hiddenHelp">5 stelle</label>
+                    <input type="radio" name="stars" id="5star" value="5star" />
                     </div>
                 </fieldset>
-                <fieldset id="activePrincipleFilter"></fieldset>
-                <fieldset id="sideEffectsFilter"></fieldset>
+                <fieldset id="activePrincipleFilter">
+                    <legend>Percentuale principio attivo</legend>
+                </fieldset>
+                <fieldset id="sideEffectsFilter">
+                    <legend>Effetti collaterali</legend>
+                </fieldset>
                 <fieldset id="activePrincipleQuantityFilter">
                     <legend>Percentuale principio attivo</legend>
                     <div>
-                        <label for="minActivePrinciple">Min</label>
-                        <input type="text" name="minActivePrinciple" id="minActivePrinciple" />
-                    </div>
-                    <div>
-                        <label for="maxActivePrinciple">Max</label>
-                        <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" />
+                        <label for="minActivePrinciple" class="hiddenHelp">Percentuale minima</label>
+                        <input type="text" name="minActivePrinciple" id="minActivePrinciple" placeholder="Min"/>
+                        <label for="maxActivePrinciple" class="hiddenHelp">Percentuale massima</label>
+                        <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" placeholder="Max"/>
                     </div>
                 </fieldset>
                 <fieldset id="priceFilter">
                     <legend>Prezzo</legend>
                     <div>
-                        <label for="minPrice">Min</label>
-                        <input type="text" name="minPrice" id="minPrice" />
-                    </div>
-                    <div>
-                        <label for="maxPrice">Max</label>
-                        <input type="text" name="maxPrice" id="maxPrice" />
+                        <label for="minPrice" class="hiddenHelp">Prezzo minimo</label>
+                        <input type="text" name="minPrice" id="minPrice" placeholder="Min"/>
+                        <label for="maxPrice" class="hiddenHelp">Prezzo massimo</label>
+                        <input type="text" name="maxPrice" id="maxPrice" placeholder="Max"/>
                     </div>
                 </fieldset>
                 <input type="submit" value="Vai" id="confirmFilter" />
@@ -94,7 +83,7 @@
         <div id="rightSideContent">
             <div id="upperRightSideContent">
                 <div id="orderBy" class="fakeButton">
-                    <label for="orderBuySelect">Ordina per</label>
+                    <label for="orderBuySelect" class="hiddenHelp">Ordina per</label>
                     <select name="orderBuySelect" id="oderBuySelect">
                         <option class="hiddenChoice">Ordina per</option>
                         <option>Media recensioni clienti</option>
@@ -104,7 +93,7 @@
                     </select>
                 </div>
                 <div id="productsPerPage" class="fakeButton">
-                    <label for="productsPerPageSelect">Prodotti per pagina</label>
+                    <label for="productsPerPageSelect" class="hiddenHelp">Prodotti per pagina</label>
                     <select name="productsPerPageSelect" id="productsPerPageSelect" value="ordina per">
                         <option class="hiddenChoice">Prodotti per pagina</option>
                         <option>5</option>
