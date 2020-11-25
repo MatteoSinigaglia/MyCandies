@@ -76,14 +76,22 @@ body {
 
 /*----------- MENU ---------------------------------------------------------------------------*/
 
-#headerMenu {
+.helps{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+#navigation{
     clear: both; 
     background-color: #6A994E;
     padding: 0.5% 30%;
     list-style-type: none;
 }
 
-#headerMenu li {
+#navigation li{
     display: inline;
     padding: 0.3% 1%;
     margin: 0.2% 1.5%;
@@ -91,12 +99,12 @@ body {
     border-radius: 4px;
 }
 
-#headerMenu li:hover {
+#navigation li:hover{
     border: 1px solid #DDD;
     background-color: #A7C957;
 }
 
-#headerMenu a:link, a:hover, a:visited, a:active {
+#navigation a:link, a:hover, a:visited, a:active{
     text-decoration: none;
     color: white;
 }
