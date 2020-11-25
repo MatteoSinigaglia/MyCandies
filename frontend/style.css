@@ -100,11 +100,10 @@ body {
 }
 
 #navigation li:hover{
-    border: 1px solid #DDD;
-    background-color: #A7C957;
+    text-decoration: underline;
 }
 
-#navigation a:link, a:hover, a:visited, a:active{
+#navigation a:link, a:visited, a:active{
     text-decoration: none;
     color: white;
 }
