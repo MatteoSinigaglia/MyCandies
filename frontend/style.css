@@ -30,6 +30,7 @@ body {
     margin: 0 1% 0 0.5%;
     width: 14%;
     max-width: 14%;
+    min-height: 4em;
 }
 
 /*  questo si riferisce all'intero form per la ricerca  */
@@ -37,11 +38,12 @@ body {
     float: left;
     width: 65%;
     margin-top: 1.5%;
+    min-height: 4em;
 }
 
 /*  questo si riferisce alla sola barra di ricerca  */
 #productSearchBar {
-    padding: 0.7em 22em;
+    padding: 0.7em 45em 0.7em 0.2em;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -74,14 +76,22 @@ body {
 
 /*----------- MENU ---------------------------------------------------------------------------*/
 
-#headerMenu {
-    clear: left; 
+.helps{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+#navigation{
+    clear: both; 
     background-color: #6A994E;
     padding: 0.5% 30%;
     list-style-type: none;
 }
 
-#headerMenu li {
+#navigation li{
     display: inline;
     padding: 0.3% 1%;
     margin: 0.2% 1.5%;
@@ -89,9 +99,13 @@ body {
     border-radius: 4px;
 }
 
-#headerMenu li:hover {
-    border: 1px solid #DDD;
-    background-color: #A7C957;
+#navigation li:hover{
+    text-decoration: underline;
+}
+
+#navigation a:link, a:visited, a:active{
+    text-decoration: none;
+    color: white;
 }
 /*--------- FINE HEADER -------------------------------------------------------------------------*/
 
@@ -99,91 +113,110 @@ body {
 
 #productContent {
     padding: 1em;
-    margin: 0 7.5%;
-    border-right: 1px solid #DDD;
-    border-left: 1px solid #DDD;
+    margin: 0 2em;
 }
 
 #productContent h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 1.5% 0;
+    margin: 0.5em 0;
 }
 
-#productDefinition dt {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 0.3em;
-}
-
-#productDefinition dd {
-    border: 1px solid #DDD;
-    border-radius: 5px;
+#productContenitor {
+    float:left;
+    width: 70%;
     background-color: #F2E8CF;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+#productContenitor dl dt {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-left: 0.6em;
+}
+
+#productContenitor dl dd {
     min-height: 12em;
 }
 
-#productDefinition dd img {
+#productContenitor dl dd img {
     float: left;
     width: 20%;
-    margin: 1% 0 0 1%;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
-#productDefinition dd p {
+#productContenitor dl dd p {
     width: 75%;
-    padding: 0.7% 1%;
+    padding: 0.5em 1em;
     margin-left: 22%;
 }
 
-#productContent table {
-    width: 60%;
-    margin: 0 20%;
+#addToCartButton {
+    float: right;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 2.5em;
+}
+
+/*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
+
+#productTableContent {
+    float: right;
+    width: 20%;
+    border-radius: 10px;
+    background-color: #6A994E;
+    margin: 0em 3em;
+    margin-bottom: 1em;
+}
+
+#productTableContent table {
+    margin: 1em 2.5em;
     text-align: center;
     border-collapse: collapse;
 }
 
-#productContent table tr, td, th {
-    border: 1px solid #000;
-    padding: 1.5% 0.5%;
+#productTableContent tr, td, th {
+    padding: 0.3em 0.5em;
 }
 
-#productContent table th {
+#productTableContent th {
     background-color: #6A994E;
+    border-bottom: 1px solid #DDD;
 }
 
-#productContent table td {
-    background-color: #F2E8CF;
+#productTableContent td {
+    color: white;
 }
+
+
+/*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
 
 /*---------- RECENSIONI ------------------------------------------------------------------------*/
 
-#yourReview {
-    width: 80%;
-    margin: 0 20% 5% 20%;
-}
-
-#yourReview label {
-    float: left;
-    font-weight: bold;
-}
-
 #reviewBox {
-    clear: left;
-    margin: 1em 20em 1em 0;
-    padding: 0.5em 37em 6em 0.5em;
-    border: 1px solid grey;
-    border-radius: 10px;
+    clear: both;
+    border-top: 1px solid #DDD;
 }
 
-#reviewBox:hover{
-    border: 1px solid #000;
+#reviewBox form {
+    width: 40%;
 }
 
-#submitReview:hover {
-    border: 1px solid #000;
+#reviewBox textarea {
+    padding-left: 0.3em;
+    padding-top: 0.3em;
 }
 
-/*
+#reviewBox p {
+    float: right;
+    width: 40%;
+}
+
+/*--------- FINE RECENSIONI PRODOTTO -------------------------------------------------------*/
 
 /*   LOGIN   */
 
@@ -222,6 +255,7 @@ body {
 #loginContent a:visited {
     color:#6A994E;
 }
+/*---------- FINE LOGIN ------------------------------------------------------------------------*/
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
 
@@ -239,10 +273,31 @@ body {
 
 #selectedProduct {
     clear: left;
-    border: 1px solid #DDD;
-    border-radius: 5px;
+    margin: 0em 3em;
+    border-radius: 10px;
     background-color: #F2E8CF;
-    padding: 20em;
-    margin: 1em 3em;
+}
+
+#selectedProduct table {
+    margin: 1em 7em;
+    width: 75%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#selectedProduct table td{
+    padding: 0.5em 0.5em;
+    border: 1px solid #000;
+}
+
+#selectedProduct table th {
+    background-color: #6A994E;
+    border: 1px solid #000;
+}
+
+#purchaseButton {
+    margin-top: 0.5em;
+    margin-left: 56em;
+    margin-bottom: 0.5em;
 }
 

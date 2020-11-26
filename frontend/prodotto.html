@@ -10,17 +10,17 @@
 	<meta name="author" content="MyCandies&co" />
 	<meta />
 
-	<link rel="stylesheet" href="../backend/style.css" media="" />
+	<link rel="stylesheet" href="../frontend/style.css" media="" />
 </head>
 
 <body>
 
-<div id="header">
+<header id="header">
 	<img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 	
 	<div id="headerSearchBar">
-		<form class="serchButton" action="" method="get">
-			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+		<form role="search" class="serchButton" action="" method="get">
+			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
 			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 		</form>
 	</div>
@@ -31,22 +31,24 @@
 		<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 	</div>
 
-	<div id="headerMenu">
-		<ul> <!-- ESTENDERE MENU -->
-			<li xml:lang="en">Home</li>
-			<li>Droghe</li>
-			<li>Accessori</li>
-			<li>FAQ</li>
-			<li>Lavora con noi</li>
+	<a class="helps" href="#productContent">Salta la navigazione</a>
+	<nav id="navigation">
+		<ul role="menu"> <!-- ESTENDERE MENU -->
+			<li xml:lang="en"><a href="#">Home</a></li>
+			<li><a href="#">Droghe</a></li>
+			<li><a href="#">Accessori</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Lavora con noi</a></li>
 		</ul>
-	</div>
-</div>
+	</nav>
+</header>
 	
 <div id="productContent" class="generalContent">
 
-	<h2>Descrizione prodotto: </h2>
-	<dl id="productDefinition">
-		<dt><strong>Nome temporaneo</strong></dt>
+<h2 tabindex="0">Descrizione prodotto: </h2>
+<div id="productContenitor">
+	<dl>
+		<dt tabindex="0"><strong>Nome temporaneo</strong></dt>
 		<dd>
 			<img src="../img/out_of_stock.jpg" alt="insieme di pasticche bianche" />
 			<p>Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
@@ -63,59 +65,69 @@
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
 			</p>
 		</dd>
 	</dl>
+	<button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button>
+</div>
 
-	<h2>Caratteristiche</h2>
-	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta">
+<div id="productTableContent">
+	<table id="productTable" summary="Tabella caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali">
 		<tr>
-			<th>Categoria</th>
-			<td>valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
 		<tr>
-			<th>Tipologia</th>
-			<td>valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
-			<th>Componenti attivi</th>
-			<td>valore</td> 
+			<th id="tableDrugType" scope="col">Tipologia</th>
 		</tr>
 		<tr>
-			<th>Effetti</th>
-			<td>valore</td>
+			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
 		</tr>
 		<tr>
-			<th>Effetti collaterali</th>
-			<td>valore</td>
+			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
 		</tr>
 		<tr>
-			<th>Tossicità</th>
-			<td>valore</td>
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
-			<th>Danni fisici e mentali</th>
-			<td>valore</td>
+			<th id="tableDrugEffects" scope="col">Effetti</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugEffects">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugSideEffects">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugToxicity" scope="col">Tossicità</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugToxicity">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugDamage" scope="col">Danni fisici e mentali</th>
+		</tr>
+		<tr>
+			<td id="tableDrugDamage">valore</td>
 		</tr>
 	</table>
+</div>
 
-	<h2>Recensioni</h2>
-	<form id="yourReview">
-		<label for="reviewBox">La tua recensione:</label>
-		<input type="text" id="reviewBox" name="reviewBox" value="" maxlength="1000" />
+<div id="reviewBox">
+	<h2 id="reviewTitle" tabindex="0">Recensioni</h2>
+	<form>
+		<label for="commentBox">La tua recensione:</label>
+		<textarea id="commentBox" rows="10" cols="50" name="commentBox"></textarea>
 		<input type="submit" id="submitReview" name="submitReview" value="Recensisci" class="buttons" />
 	</form>
 	<p>qui andranno inserite le recensioni in qualche modo</p>
+</div>
+
 </div>
 
 </body>
