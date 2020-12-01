@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
-  <head>
-    <!-- Creare un header unico per tutti i file html -->
-    <meta charset="utf-8" />
-    <title>Iscriviti - My candies</title>
-    <link rel="stylesheet" type="text/css" href="style_MyCandies_default.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="#" media="print" />
-  </head>
-  <body>
-    <header></header>
-    <main>
-    <form action="#" method="post">
+
+<head>
+  <title>Registrazione - My candies</title>
+  <meta http-equiv="content-language" content="it" />
+  <meta charset="utf-8" />
+  <meta name="title" content="Registrazione - MyCandies" />
+  <meta name="description" content="Questo è il form di registrazione di My Candies" />
+  <meta name="author" content="MyCandies&co" />
+  <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
+  <link rel="stylesheet" type="text/css" href="style_MyCandies_default_prodotti_formCliente.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="#" media="print" />
+  <link rel="stylesheet" type="text/css" href="#"
+    media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
+</head>
+
+<body>
+  <header></header>
+  <main>
+    <h1>Iscriviti</h1>
+    <form action="#" method="post" class="inputForm">
       <fieldset id="mandatoryFields">
-        <legend>Iscriviti</legend>
-        <label for="email">E-mail</label>
-        <input type="text" name="email" id="email" required maxlenght="20" />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          maxlenght="16"
-          required
-        />
-        <label for="confirmPassword">Conferma password</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          id="confirmPassword"
-          maxlenght="16"
-          required
-        />
+        <div>
+          <label for="email">E-mail</label>
+          <input type="text" name="email" id="email" required maxlenght="20" placeholder="E-mail" class = "input-wide"/>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" maxlenght="16" required placeholder="Password" />
+        </div>
+        <div>
+          <label for="confirmPassword">Conferma password</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" maxlenght="16" required
+            placeholder="Conferma password" />
+        </div>
       </fieldset>
       <fieldset>
-        <label for="name">Nome</label>
-        <input type="text" name="name" id="name" />
-        <label for="surname">Cognome</label>
-        <input type="text" name="surname" id="surname" />
+        <legend>Dati personali</legend>
+        <div>
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" placeholder="Nome" />
+        </div>
+        <div>
+          <label for="surname">Cognome</label>
+          <input type="text" name="surname" id="surname" placeholder="Cognome" />
+        </div>
+        <div>
+          <label for="address">Indirizzo e civico</label>
+          <input type="text" name="address" id="address" placeholder="Indirizzo e civico" />
+        </div>
+        <div>
+          <label for="area">Provincia</label>
+          <input type="text" name="area" id="area" placeholder="Provincia" />
+        </div>
+        <div>
+          <label for="city">Città</label>
+          <input type="text" name="city" id="city" placeholder="Città" />
+        </div>
+        <div>
+          <label for="cap">CAP</label>
+          <input type="text" name="cap" id="cap" placeholder="CAP" />
+        </div>
       </fieldset>
-      <fieldset id="paymentMethod">
-        <legend>Metodo di pagamento</legend>
-        <label for="chooseMethod">Scegli un metodo di pagamento</label>
-        <select name="chooseMethod" id="chooseMethod">
-          <option>Carta di credito</option>
-          <option>Conto corrente</option>
-        </select>
-        <!-- I campi successivi dovrebbero nascondersi a seconda che scelga un metodo di pagamento o l'altro -->
-      </fieldset>
-      <fieldset id="shippingAddress">
-        <legend>Indirizzo di spedizione</legend>
-        <label for="address">Indirizzo e civico</label>
-        <input type="text" name="address" id="address" />
-        <label for="area">Provincia</label>
-        <input type="text" name="area" id="area" />
-        <label for="city">Città</label>
-        <input type="text" name="city" id="city" />
-        <label for="cap">CAP</label>
-        <input type="text" name="cap" id="cap" />
-      </fieldset>
-      <input type="submit" value="Conferma" id="confirmSubscribe" />
+      <input type="submit" value="Registrati" id="confirmSubscribe" />
     </form>
     <main>
-    <footer></footer>
-  </body>
+      <footer></footer>
+</body>
+</body>
+
+</html>
+</body>
+
 </html>

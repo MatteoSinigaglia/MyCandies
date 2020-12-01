@@ -4,10 +4,10 @@
 <head>
     <title>Prodotti - My candies</title>
     <!-- Cambiare nome -->
-    <meta http-equiv="”content-language”" content="”it”" />
+    <meta http-equiv="content-language" content="it" />
     <meta charset="utf-8" />
     <!-- QUESTE COSE LE HO MESSE A CASO PER ORA -->
-    <meta name="title" content="MyCandies - Prodotti" />
+    <meta name="title" content="Prodotti - MyCandies" />
     <meta name="description"
         content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo" />
     <meta name="author" content="MyCandies&co" />
@@ -23,7 +23,8 @@
     <section id="breadcrumb">
         <p>
             <a href="#">Home</a>
-            / Prodotti</p>
+            / Prodotti
+        </p>
     </section>
     <main>
         <section id="filters">
@@ -33,7 +34,6 @@
                     <legend>Categoria</legend>
                     <div>
                         <input type="checkbox" name="marijuana" id="marijuana" value="marijuana" />
-
                         <label for="marijuana">Marijuana</label>
                     </div>
                     <!-- da inserire dei checkbox -->
@@ -41,16 +41,16 @@
                 <fieldset id="averageStarsFilter">
                     <legend>Valutazione minima</legend>
                     <div>
-                    <label for="1star" class="hiddenHelp">1 stella</label>
-                    <input type="radio" name="stars" id="1star" value="1star" />
-                    <label for="2star" class="hiddenHelp">2 stelle</label>
-                    <input type="radio" name="stars" id="2star" value="2star" />
-                    <label for="3star" class="hiddenHelp">3 stelle</label>
-                    <input type="radio" name="stars" id="3star" value="3star" />
-                    <label for="4star" class="hiddenHelp">4 stelle</label>
-                    <input type="radio" name="stars" id="4star" value="4star" />
-                    <label for="5star" class="hiddenHelp">5 stelle</label>
-                    <input type="radio" name="stars" id="5star" value="5star" />
+                        <label for="1star" class="hiddenHelp">1 stella</label>
+                        <input type="radio" name="stars" id="1star" value="1star" />
+                        <label for="2star" class="hiddenHelp">2 stelle</label>
+                        <input type="radio" name="stars" id="2star" value="2star" />
+                        <label for="3star" class="hiddenHelp">3 stelle</label>
+                        <input type="radio" name="stars" id="3star" value="3star" />
+                        <label for="4star" class="hiddenHelp">4 stelle</label>
+                        <input type="radio" name="stars" id="4star" value="4star" />
+                        <label for="5star" class="hiddenHelp">5 stelle</label>
+                        <input type="radio" name="stars" id="5star" value="5star" />
                     </div>
                 </fieldset>
                 <fieldset id="activePrincipleFilter">
@@ -59,22 +59,22 @@
                 <fieldset id="sideEffectsFilter">
                     <legend>Effetti collaterali</legend>
                 </fieldset>
-                <fieldset id="activePrincipleQuantityFilter">
+                <fieldset>
                     <legend>Percentuale principio attivo</legend>
                     <div>
                         <label for="minActivePrinciple" class="hiddenHelp">Percentuale minima</label>
-                        <input type="text" name="minActivePrinciple" id="minActivePrinciple" placeholder="Min"/>
+                        <input type="text" name="minActivePrinciple" id="minActivePrinciple" placeholder="Min" />
                         <label for="maxActivePrinciple" class="hiddenHelp">Percentuale massima</label>
-                        <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" placeholder="Max"/>
+                        <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" placeholder="Max" />
                     </div>
                 </fieldset>
-                <fieldset id="priceFilter">
+                <fieldset>
                     <legend>Prezzo</legend>
                     <div>
                         <label for="minPrice" class="hiddenHelp">Prezzo minimo</label>
-                        <input type="text" name="minPrice" id="minPrice" placeholder="Min"/>
+                        <input type="text" name="minPrice" id="minPrice" placeholder="Min" />
                         <label for="maxPrice" class="hiddenHelp">Prezzo massimo</label>
-                        <input type="text" name="maxPrice" id="maxPrice" placeholder="Max"/>
+                        <input type="text" name="maxPrice" id="maxPrice" placeholder="Max" />
                     </div>
                 </fieldset>
                 <input type="submit" value="Vai" id="confirmFilter" />
@@ -103,15 +103,17 @@
                     </select>
                 </div>
             </div>
-                <article id="productsList">
-                    <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
+            <article id="productsList">
+                <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
 
-                    <div id="productsPageNumber"></div>
-                </article>
-            </div>
+                <div id="productsPageNumber"></div>
+            </article>
+        </div>
     </main>
     <footer id="footer">Qui c'e' il footer</footer>
 </body>
+
+</html>
 </body>
 
 </html>

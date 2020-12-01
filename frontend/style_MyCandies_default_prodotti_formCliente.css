@@ -15,8 +15,6 @@ body {
   font-family: "Arial", cursive, sans-serif;
 }
 
-/* nascondo i label in modo che rimangano visibili per gli screen reader
-    da inserire un'immagine al posto del "quadratino" */
 .hiddenHelp {
   position: absolute;
   height: 1px;
@@ -26,7 +24,7 @@ body {
 }
 
 input[type="checkbox"]:hover,
-input[type="submit"] {
+input[type="submit"], input[type="radio"]:hover, select {
   cursor: pointer;
 }
 
@@ -39,11 +37,54 @@ input[type="submit"] {
 }
 
 h1 {
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.5em;
+  font-weight: 700;
   text-align: center;
 }
 
+fieldset {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+label, legend {
+  display: block;
+  font-weight: 700;
+  padding: 0.5em;
+}
+
+legend {
+  float:left;
+  text-align: center;
+  width: 100%;
+  padding: 0.5em;
+}
+
+input[type="submit"], input[type="text"], input[type="password"]{
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 0.8em;
+  border-radius: 5px;
+}
+
+/*
+==================================Registrazione cliente========================
+*/
+
+.inputForm {
+  width: 30%;
+  border-radius: 5px;
+  margin: auto;
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+
+/*
+==================================Lista prodotti================================
+*/
 #filters {
   float: left;
   max-width: 20%;
@@ -53,40 +94,19 @@ h1 {
   border-top: none;
 }
 
-#filters div {
+#filters form div {
   text-align: center;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
 
-#filters fieldset {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  border: none;
-  border-top: 1px solid #ddd;
-}
-
-#filters legend {
-  float:left;
-  width: 100%;
-  padding: 0.5em;
+#filters label {
+  display: inline;
 }
 
 #filters input[type="text"] {
   width: 4em;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 0.5em;
-
 }
-
-#filters input[type="submit"] {
-  border: 1px solid #ddd;
-  padding: 0.5em;
-  margin: 1em;
-  border-radius: 5px;
-}
-
 
 #rightSideContent {
   overflow: hidden;
