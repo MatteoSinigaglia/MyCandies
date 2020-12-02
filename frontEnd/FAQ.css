@@ -1,0 +1,91 @@
+body{margin: 0;
+}
+
+#breadcrumb{
+  background-color: #020E0A;
+  color:#FFFFFF;
+  padding:0.25em;
+  margin-top: 0;
+}
+#footer {
+    background-color: #051C0B;
+    color: white;
+    height:10em;
+    padding-bottom: 1em;
+    margin-top: 2em;
+}
+#contacts {
+    padding-left:2em;
+    padding-top: 0.5em;
+    float:left;
+    height: auto;
+    width:10%;
+    text-align: left;
+
+}
+#contacts li{
+  padding-bottom: 0.2em;
+}
+
+#contacts a:link {
+  color:#CCCCCC;
+    text-decoration: none;
+}
+#contacts a:visited {
+  color:#CCCCCC;
+    text-decoration: none;
+}
+#contacts ul{
+  list-style-type: none;
+      text-indent: -2.5em;
+}
+#stores {
+    float: left;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.5em;
+    height: auto;
+    width:70%;
+    text-align: center;
+}
+#stores ul {
+float:left;
+padding-left:9em;
+list-style-type: none;
+    text-indent: -2.5em;
+
+}
+#social{
+    float:left;
+    padding-left: 5em;
+    padding-top: 0.5em;
+    height: auto;
+    width:10%;
+    text-align: left;
+}
+#social a:link{
+  text-decoration: none;
+  color:#CCCCCC
+}
+#social a:visited{
+  text-decoration: none;
+  color:#CCCCCC
+}
+#social img{
+  width:8%;
+}
+#social ul{
+  list-style-type: none;
+      text-indent: -2.5em;
+}
+#social li{padding-bottom: 0.2em;}
+#diritti{
+  color: #FFFFFF;
+  background-color: #020E0A;
+  text-align:center;
+  padding: 1em;
+
+}
+#contacts h2{font-size: 14pt;}
+#stores h2 {font-size: 14pt;}
+#social h2 {font-size: 14pt;}
