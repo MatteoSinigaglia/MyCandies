@@ -9,44 +9,46 @@ body {
   padding:0.25em;
   margin-top: 0;
 }
-#contentHome{width: 85%;
-margin-left: 7.5%;
-margin-right: 7.5%;
-background-color: #F2E8CF;
-height: 50em;
-margin-top: 2em;
+
+#contentHome{
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  background-color: #F2E8CF;
+  height: 50em;
+  margin-top: 2em;
 }
 
-#offerte{width:20%;
-        border:1px solid;
-        padding-top: 7.5em;
-        padding-bottom: 7.5em;
-        text-align: center;
-        float:left;
-        margin-left: 20%;
-        margin-top:1em;
+#offerte{
+  width:20%;
+  border:1px solid;
+  padding-top: 7.5em;
+  padding-bottom: 7.5em;
+  text-align: center;
+  float:left;
+  margin-left: 20%;
+  margin-top:1em;
+}
+#newArrival {
+  width:20%;
+  border:1px solid;
+  padding-top: 7.5em;
+  padding-bottom: 7.5em;
+  text-align: center;
+  float:right;
+  margin-right: 20%;
+  margin-top:1em;
+  margin-bottom: 2em;
+}
 
-      }
-#newArrival {width:20%;
-        border:1px solid;
-        padding-top: 7.5em;
-        padding-bottom: 7.5em;
-        text-align: center;
-        float:right;
-        margin-right: 20%;
-        margin-top:1em;
-
-
-            }
 #topSold{
-width: 60%;
-border: 1px solid;
-clear: both;
-margin-top:40em;
- /*??????*/
-margin-left:20%;
-text-align: center;
+  width: 60%;
+  border: 1px solid;
+  clear: both;
+  margin-left:20%;
+  text-align: center;
 }
+
 #companyHistory{
  text-align: center;
  font-size: 18px;
@@ -54,60 +56,59 @@ text-align: center;
 }
 
 #footer {
-    background-color: #051C0B;
-    color: white;
-    height:10em;
-    padding-bottom: 1em;
-    margin-top: 2em;
+  background-color: #051C0B;
+  color: white;
+  height:10em;
+  padding-bottom: 1em;
+  margin-top: 2em;
 }
 #contacts {
-    padding-left:2em;
-    padding-top: 0.5em;
-    float:left;
-    height: auto;
-    width:10%;
-    text-align: left;
-
+  padding-left:2em;
+  padding-top: 0.5em;
+  float:left;
+  height: auto;
+  width:10%;
+  text-align: left;
 }
+
 #contacts li{
   padding-bottom: 0.2em;
 }
 
 #contacts a:link {
   color:#CCCCCC;
-    text-decoration: none;
+  text-decoration: none;
 }
 #contacts a:visited {
   color:#CCCCCC;
-    text-decoration: none;
+  text-decoration: none;
 }
 #contacts ul{
   list-style-type: none;
-      text-indent: -2.5em;
+  text-indent: -2.5em;
 }
 #stores {
-    float: left;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 0.5em;
-    height: auto;
-    width:70%;
-    text-align: center;
+  float: left;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.5em;
+  height: auto;
+  width:70%;
+  text-align: center;
 }
 #stores ul {
-float:left;
-padding-left:9em;
-list-style-type: none;
-    text-indent: -2.5em;
-
+  float:left;
+  padding-left:9em;
+  list-style-type: none;
+  text-indent: -2.5em;
 }
 #social{
-    float:left;
-    padding-left: 5em;
-    padding-top: 0.5em;
-    height: auto;
-    width:10%;
-    text-align: left;
+  float:left;
+  padding-left: 5em;
+  padding-top: 0.5em;
+  height: auto;
+  width:10%;
+  text-align: left;
 }
 #social a:link{
   text-decoration: none;
@@ -122,15 +123,17 @@ list-style-type: none;
 }
 #social ul{
   list-style-type: none;
-      text-indent: -2.5em;
+  text-indent: -2.5em;
 }
-#social li{padding-bottom: 0.2em;}
+#social li{
+  padding-bottom: 0.2em;
+}
+
 #diritti{
   color: #FFFFFF;
   background-color: #020E0A;
   text-align:center;
   padding: 1em;
-
 }
 #contacts h2{font-size: 14pt;}
 #stores h2 {font-size: 14pt;}

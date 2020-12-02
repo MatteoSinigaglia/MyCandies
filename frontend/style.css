@@ -274,7 +274,7 @@ body {
 #cartContent {
     margin: 0 7.5%;
     border-right: 1px solid #DDD;
-    border-left: 1px solid #DDD;    
+    border-left: 1px solid #DDD; 
 }
 
 #cartContent img {
@@ -285,6 +285,7 @@ body {
 
 #selectedProduct {
     clear: left;
+    padding-top: 0.5em;
     margin: 0em 3em;
     border-radius: 10px;
     background-color: #F2E8CF;
