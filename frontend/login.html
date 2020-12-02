@@ -19,7 +19,7 @@
 	
 	<div id="headerSearchBar">
 		<form role="search" class="serchButton" action="" method="get">
-			<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
+			<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
 			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 		</form>
 	</div>
@@ -30,7 +30,7 @@
 		<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 	</div>
 
-	<a class="helps" href="#loginContent">Salta la navigazione</a>
+	<a class="helps" href="#productContent">Salta la navigazione</a>
 	<nav id="navigation">
 		<ul role="menu"> <!-- ESTENDERE MENU -->
 			<li xml:lang="en"><a href="#">Home</a></li>
@@ -46,13 +46,13 @@
 	<form class="login" action="" method="post">
 		<fieldset id="loginFieldset">
 			<!-- Legenda -->
-				<legend id="loginLegend"> Nome Utente e Password </legend>
+				<legend id="loginLegend"> Email e Password </legend>
 			<!-- Campo user -->	
-				<label for="loginUsername">Nome Utente:</label>
-				<input type="text" id="loginUsername" name="loginUsername" value="" maxlength="40" />
+				<label for="loginEmail">Email:</label>
+				<input type="email" id="loginEmail" name="loginEmail" value="" maxlength="40" required/>
 			<!-- Campo password -->	
 				<label for="loginPassword">Password:</label>
-				<input type="password" id="loginPassword" name="loginPassword" value="" maxlength="50" />
+				<input type="password" id="loginPassword" name="loginPassword" value="" maxlength="50" required/>
 			<!-- Buttons -->	
 				<input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />	
 				<input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />	
