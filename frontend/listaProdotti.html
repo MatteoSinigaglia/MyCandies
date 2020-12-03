@@ -12,7 +12,7 @@
         content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo" />
     <meta name="author" content="MyCandies&co" />
     <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana" />
-    <link rel="stylesheet" type="text/css" href="style_MyCandies_default_prodotti_formCliente.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="#" media="print" />
     <link rel="stylesheet" type="text/css" href="#"
         media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
@@ -41,15 +41,15 @@
                 <fieldset id="averageStarsFilter">
                     <legend>Valutazione minima</legend>
                     <div>
-                        <label for="1star" class="hiddenHelp">1 stella</label>
+                        <label for="1star" class="helps">1 stella</label>
                         <input type="radio" name="stars" id="1star" value="1star" />
-                        <label for="2star" class="hiddenHelp">2 stelle</label>
+                        <label for="2star" class="helps">2 stelle</label>
                         <input type="radio" name="stars" id="2star" value="2star" />
-                        <label for="3star" class="hiddenHelp">3 stelle</label>
+                        <label for="3star" class="helps">3 stelle</label>
                         <input type="radio" name="stars" id="3star" value="3star" />
-                        <label for="4star" class="hiddenHelp">4 stelle</label>
+                        <label for="4star" class="helps">4 stelle</label>
                         <input type="radio" name="stars" id="4star" value="4star" />
-                        <label for="5star" class="hiddenHelp">5 stelle</label>
+                        <label for="5star" class="helps">5 stelle</label>
                         <input type="radio" name="stars" id="5star" value="5star" />
                     </div>
                 </fieldset>
@@ -62,28 +62,28 @@
                 <fieldset>
                     <legend>Percentuale principio attivo</legend>
                     <div>
-                        <label for="minActivePrinciple" class="hiddenHelp">Percentuale minima</label>
+                        <label for="minActivePrinciple" class="helps">Percentuale minima</label>
                         <input type="text" name="minActivePrinciple" id="minActivePrinciple" placeholder="Min" />
-                        <label for="maxActivePrinciple" class="hiddenHelp">Percentuale massima</label>
+                        <label for="maxActivePrinciple" class="helps">Percentuale massima</label>
                         <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" placeholder="Max" />
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Prezzo</legend>
                     <div>
-                        <label for="minPrice" class="hiddenHelp">Prezzo minimo</label>
+                        <label for="minPrice" class="helps">Prezzo minimo</label>
                         <input type="text" name="minPrice" id="minPrice" placeholder="Min" />
-                        <label for="maxPrice" class="hiddenHelp">Prezzo massimo</label>
+                        <label for="maxPrice" class="helps">Prezzo massimo</label>
                         <input type="text" name="maxPrice" id="maxPrice" placeholder="Max" />
                     </div>
                 </fieldset>
-                <input type="submit" value="Vai" id="confirmFilter" />
+                <input type="submit" value="Vai" class="buttons" id="confirmFilter" />
             </form>
         </section>
         <div id="rightSideContent">
             <div id="upperRightSideContent">
                 <div id="orderBy" class="fakeButton">
-                    <label for="orderBuySelect" class="hiddenHelp">Ordina per</label>
+                    <label for="orderBuySelect" class="helps">Ordina per</label>
                     <select name="orderBuySelect" id="oderBuySelect">
                         <option class="hiddenChoice">Ordina per</option>
                         <option>Media recensioni clienti</option>
@@ -93,7 +93,7 @@
                     </select>
                 </div>
                 <div id="productsPerPage" class="fakeButton">
-                    <label for="productsPerPageSelect" class="hiddenHelp">Prodotti per pagina</label>
+                    <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
                     <select name="productsPerPageSelect" id="productsPerPageSelect" value="ordina per">
                         <option class="hiddenChoice">Prodotti per pagina</option>
                         <option>5</option>

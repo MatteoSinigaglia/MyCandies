@@ -24,7 +24,7 @@
 			<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons" />
 		</form>
 	</div>
-
+	
 	<div id="headerButtons">
 		<button id="loginButton" class="buttons">Accedi</button>
 		<button id="cartButton" class="buttons">Carrello</button>
@@ -43,7 +43,7 @@
 	</nav>
 </header>
 	
-<div id="productContent" class="generalContent">
+<main id="productContent" class="generalContent">
 
 <h2 tabindex="0">Descrizione prodotto: </h2>
 <div id="productContenitor">
@@ -120,16 +120,16 @@
 
 <div id="reviewBox">
 	<h2 id="reviewTitle" tabindex="0">Recensioni</h2>
-	<form>
+	<form id="commentForm">
 		<label for="commentBox">La tua recensione:</label>
-		<textarea id="commentBox" rows="10" cols="50" name="commentBox"></textarea>
+		<textarea id="commentBox" rows="10" cols="50" name="commentBox" form="commentForm" ></textarea>
 		<input type="submit" id="submitReview" name="submitReview" value="Recensisci" class="buttons" />
 		<input type="reset" id="deleteReview" name="deleteReview" value="Cancella" class="buttons" />
 	</form>
 	<p>qui andranno inserite le recensioni in qualche modo</p>
 </div>
 
-</div>
+</main>
 
 </body>
 </html>
