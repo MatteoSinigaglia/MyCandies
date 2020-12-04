@@ -27,13 +27,6 @@ main {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-/* input[type="checkbox"]:hover,
-input[type="submit"],
-input[type="radio"]:hover,
-select {
-    cursor: pointer;
-} */
-
 #breadcrumb {
     text-align: left;
     padding: 1.5em;
@@ -100,7 +93,7 @@ textarea {
 .inputForm {
     width: 30%;
     border-radius: 5px;
-    margin: auto;
+    margin: 1em auto 1em auto;
     border: 1px solid #ddd;
     padding: 1em;
     background-color: #F2E8CF
@@ -296,26 +289,9 @@ th {
 
 /*------- LOGIN --------------------------------------------------------------------------  */
 
-/* #loginContent {
-    width: 60%;
-    margin: 10% 20%;
-}
-
-#loginLegend {
-    margin-left: 2%;
-    margin-bottom: 2%;
-}
-
-#loginContent label {
-    margin-left: 7%;
-}
-
-#loginContent input[type=submit] {
-    margin: 2% 1% 2% 35%;
-} */
-
 #loginContent a {
     font-weight: bold;
+    display: block;
 }
 
 #loginContent a:hover {
@@ -330,7 +306,6 @@ th {
 /*---------- CARRELLO --------------------------------------------------------------------------*/
 
 #cartContent {
-    margin: 0 7.5%;
     border-right: 1px solid #DDD;
     border-left: 1px solid #DDD;
 }
@@ -343,13 +318,14 @@ th {
 
 #selectedProduct {
     clear: left;
-    margin: 0 3em;
+    padding: 1em;
+    margin: 1em;
     border-radius: 10px;
     background-color: #F2E8CF;
 }
 
 #selectedProduct table {
-    margin: 1em 7em;
+    margin: auto;
     width: 75%;
     text-align: center;
     border-collapse: collapse;
