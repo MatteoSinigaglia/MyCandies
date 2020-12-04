@@ -42,10 +42,8 @@ h1 {
 }
 
 fieldset {
-    padding-top: 0.5em;
     padding-bottom: 0.5em;
     border: none;
-    border-top: 1px solid #ddd;
 }
 
 label,
@@ -57,6 +55,7 @@ legend {
 
 legend {
     float: left;
+    text-align: center;
     width: 100%;
 }
 
