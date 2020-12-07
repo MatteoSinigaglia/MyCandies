@@ -251,37 +251,7 @@ th {
     color: white;
 }
 
-
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
-
-/*---------- RECENSIONI ------------------------------------------------------------------------*/
-
-#reviewBox {
-    clear: both;
-    border-top: 1px solid #DDD;
-}
-
-#commentBox {
-    width: 70%;
-} 
-
-#reviewBox form label {
-    float: left;
-}
-
-#submitReview,
-#deleteReview {
-    clear: right;
-    float:right;
-    text-align: center;
-}
-
-#reviewBox p {
-    float: right;
-    width: 45%;
-}
-
-/*--------- FINE RECENSIONI PRODOTTO -------------------------------------------------------*/
 
 /*------- LOGIN --------------------------------------------------------------------------  */
 
@@ -434,3 +404,5 @@ p {
     clear: both;
     background-color: black;
 }
+
+/*------------ DASHBOARD ADMIN -----------------------------------------------------------------*/
