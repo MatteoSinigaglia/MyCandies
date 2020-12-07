@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>Modifica credenziali - MyCandies</title>
+	<meta charset="utf-8">
+	<meta name="title" content="MyCandies" />
+	<meta name="description" content="Pagina realizzata per gestire l'accesso utente/admin" />
+	<meta name="author" content="MyCandies&co" />
+	<meta />
+
+	<link rel="stylesheet" href="../frontend/style.css" />
+</head>
+
+<body>
+	<main id="credentialChange">
+		<form action="" method="post" class="inputForm">
+			<fieldset>
+				<!-- Legenda -->
+				<legend> Recupero Email e Password </legend>
+				<!-- Campo e-mail -->
+				<label for="changeEmail">Email:</label>
+				<input type="email" id="changeEmail" name="changeEmail" value="" maxlength="40" required />
+				<!-- Campo password -->
+				<label for="changePassword">Password:</label>
+				<input type="text" id="changePassword" name="changePassword" value="" maxlength="50" required />
+				<!-- Buttons -->
+				<input type="submit" id="credentialChangeConfirm" name="credentialChangeConfirm" value="Modifica" class="buttons" />
+				<input type="reset" id="credentialChangeReset" name="credentialChangeReset" value="Cancella" class="buttons" />
+			</fieldset>
+		</form>
+    </main>
+</body>
+</html>

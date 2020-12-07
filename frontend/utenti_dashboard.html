@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>Dashboard Visualizza Utenti- MyCandies</title> <!-- Cambiare nome -->
+	<meta http-equiv=”content-language” content=”it”>
+	<meta charset="utf-8">
+	<meta name="title" content="MyCandies" />
+	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
+	<meta name="author" content="MyCandies&co" />
+	<meta />
+
+	<link rel="stylesheet" href="../frontend/style.css" media="" />
+</head>
+
+<body>
+    <nav id="dashboardMenu">
+        <ul>
+            <li><a href="riepilogoAcquisti_dashboard.html">Riempilogo acquisti</a></li>
+            <li><a href="#utentiDashboard">Utenti</a></li>
+            <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
+            <li><a href="prodotti_dashboard.html">Prodotti</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumb">
+        <p><span xml:lang="en">Dashboard</span>> Utenti</p>
+    </div>
+
+    <main id="utentiDashboard">
+        <table>
+            <thead>
+                <tr>
+                    <th id="mail" scope="col">mail</th>
+                    <th id="name" scope="col">Nome</th>
+                    <th id="surname" scope="col">Cognome</th>
+                    <th id="password" scope="col">Password</th>
+                    <th id="dateOfBirth" scope="col">Data di nascita</th>
+                    <th id="sex" scope="col">Sesso</th>
+                    <th id="actions" scope="col">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td headers="mail" scope="row">null</td>
+                    <td headers="name" scope="row">null</td>
+                    <td headers="surname" scope="row">null</td>
+                    <td headers="password" scope="row">null</td>
+                    <td headers="dateOfBirth" scope="row">null</td>
+                    <td headers="sex" scope="row">null</td>
+                    <td headers="actions" scope="row"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
