@@ -14,17 +14,19 @@
 </head>
 
 <body>
-    <nav id="dashboardMenu">
-        <ul>
-            <li><a href="riepilogoAcquisti_dashboard.html">Riempilogo acquisti</a></li>
-            <li><a href="utenti_dashboard.html">Utenti</a></li>
-            <li><a href="#inserisciProdottoDashboard">Inserisci prodotto</a></li>
-            <li><a href="prodotti_dashboard.html">Prodotti</a></li>
-        </ul>
-    </nav>
+    <header id="header">
+        <nav id="navigation">
+            <ul>
+                <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
+                <li><a href="utenti_dashboard.html">Utenti</a></li>
+                <li><a href="#inserisciProdottoDashboard">Inserisci prodotto</a></li>
+                <li><a href="prodotti_dashboard.html">Prodotti</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="breadcrumb">
-        <p><span xml:lang="en">Dashboard</span>> Inserisci prodotto</p>
+    <div id="breadcrumb">
+        <p><span xml:lang="en">Dashboard</span> > Inserisci prodotto</p>
     </div>
 
     <main id="inserisciProdottoDashboard">
@@ -33,16 +35,16 @@
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>
                 <!-- Nome prodotto -->
-                <lable for="productName">Nome prodotto:</lable>
+                <label for="productName">Nome prodotto:</labe;>
                     <input type="text" id="productName" name="productName" value="" maxlength="30" required />
                 <!-- Descrizione prodotto -->
-                <lable for="productDescription">Descrizione prodotto:</lable>
+                <label for="productDescription">Descrizione prodotto:</label>
                     <textarea id="productDescription" name="productDescription" value="" rows="5" cols="40" required></textarea>
                 <!-- Immagine prodotto -->
-                <lable for="productImage">Immagine prodotto:</lable>
+                <label for="productImage">Immagine prodotto:</label>
                     <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" />
                 <!-- Prezzo -->
-                <lable for="productPrice">Prezzo:</lable>
+                <label for="productPrice">Prezzo:</label>
                     <input type="number" id="productPrice" name="productPrice" value="" step="0.10" required />
                 <!-- Categoria -->
                 <label for="category">Categoria:</label>

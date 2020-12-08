@@ -32,6 +32,7 @@ main {
     padding: 1.5em;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
+    color: black;
     background-color: #a7c957;
 }
 
@@ -62,6 +63,7 @@ legend {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
@@ -98,13 +100,32 @@ textarea {
     background-color: #F2E8CF
 }
 
+/*
+==================================TABELLE======================
+*/
+
+table {
+    margin: 3em auto 3em auto;
+    width: 75%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 0.5em;
+    border: 1px solid #000;
+}
+
+table th {
+    background-color: #a7c957;
+    border: 1px solid #000;
+}
 /*------- HEADER -------------------------------------------------------------------------------*/
 
 #header {
     width: 100%;
     color: white;
     font-weight: bold;
-    border-bottom: 1px solid #DDD;
     background-color: #051C0B;
 }
 
@@ -290,23 +311,6 @@ th {
     background-color: #F2E8CF;
 }
 
-#selectedProduct table {
-    margin: auto;
-    width: 75%;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-#selectedProduct table td {
-    padding: 0.5em;
-    border: 1px solid #000;
-}
-
-#selectedProduct table th {
-    background-color: #6A994E;
-    border: 1px solid #000;
-}
-
 #purchaseButton {
     margin-top: 0.5em;
     margin-left: 56em;
@@ -404,5 +408,3 @@ p {
     clear: both;
     background-color: black;
 }
-
-/*------------ DASHBOARD ADMIN -----------------------------------------------------------------*/
