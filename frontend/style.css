@@ -87,6 +87,10 @@ textarea {
     background-color: #A7C957;
 }
 
+abbr {
+    text-decoration: none;
+}
+
 /*
 ==================================FORMS========================
 */
@@ -111,15 +115,10 @@ table {
     border-collapse: collapse;
 }
 
-table td {
+table td, th{
     padding: 0.5em;
-    border: 1px solid #000;
 }
 
-table th {
-    background-color: #a7c957;
-    border: 1px solid #000;
-}
 /*------- HEADER -------------------------------------------------------------------------------*/
 
 #header {
@@ -257,7 +256,7 @@ table th {
 }
 
 #productTableContent table {
-    margin: 1em 2.5em;
+    margin: 1em 2em;
     text-align: center;
     border-collapse: collapse;
 }
@@ -411,4 +410,38 @@ p {
 #footer {
     clear: both;
     background-color: black;
+}
+
+/*
+============== SU DI NOI =====================================================================
+*/
+
+#suDiNoiContainer {
+    width: 90%;
+    margin: 3em auto;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    background-color: #F2E8CF;
+}
+
+#suDiNoiContainer h1 {
+    margin-top: 0.5em;
+}
+
+#companyHistory {
+    padding: 0.5em 1em;
+}
+
+#drugsImages {
+    margin: auto;
+}
+
+#img1,
+#img2,
+#img3 {
+    max-width: 25em;
+    max-height: 12em;
+    margin: 0 3em;
+    border: 1px solid #DDD;
+    border-radius: 10px;
 }
