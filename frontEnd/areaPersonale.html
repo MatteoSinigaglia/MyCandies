@@ -2,54 +2,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-	<title>MyCandies - Area Personale </title>
+	<title>Area Personale - MyCandies</title>
 	<meta http-equiv="content-language" content="it">
 	<meta charset="utf-8">
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per l'area contenente i dati del cliente" />
 	<meta name="author" content="MyCandies&co" />
-	<meta />
+
   <link rel="stylesheet" href="areaPersonale.css" media="screen" />
 </head>
 
 <body id="personalArea">
   <div id="breadcrumb">
-    <p>Ti trovi in: <a href="Home.html"><span xml:lang="en">Home</span></a>/Area personale</p>
+    <p>Ti trovi in: <a href="Home.html"><span xml:lang="en" lang="en">Home</span></a>/ Area personale</p>
   </div>
 
 <form id="dati" action="todo" method="post"> <!-- da fare tag action per php-->
   <fieldset>
+    <!-- Legenda -->
     <legend>I miei dati:</legend>
+    <!-- Nome -->
     <label for="Nome">Nome:</label>
     <input type="text" id="Nome" name="Nome" /> <!-- value/placeholder??-->
+    <!-- Cognome -->
     <label for="Cognome">Cognome:</label>
     <input type="text" id="Cognome" name="Cognome" />
+    <!-- Nazione -->
     <label for="Nazione">Nazione:</label>
     <input type="text" id="Nazione" name="Nazione" />
+    <!-- Città -->
     <label for="Citta">Città:</label>
     <input type="text" id="Citta" name="Citta" />
+    <!-- Indirizzo -->
     <label for="Indirizzo">Indirizzo:</label>
     <input type="text" id="Indirizzo" name="Indirizzo" />
+    <!-- CAP -->
     <label for="CAP">CAP:</label>
     <input type="text" id="CAP" name="CAP" maxlength="5" minlength="5" /> <!--number è HTML5-->
+    <!-- Telefono -->
     <label for="Telefono">Telefono:</label>
     <input type="number" id="Telefono" name="Telefono" />
+    <!-- Email -->
     <label for="mailAddress">Email:</label>
     <input type="email" id="mailAddress" name="mailAddress" /> <!--email è HTML5-->
+    <!-- Sesso: -->
 		<label for="gender">Sesso:</label>
 		<select id="gender" name="gender">
 			<option value="Maschio">Maschio</option>
 			<option value="Femmina">Femmina</option>
 			<option value="Altro">Altro</option>
-		</select>
-		<label for="date">Data di nascita:</label>
-		<input type="date" id="date" name="nascita" value="nascita" />
+    </select>
+    <!-- Data di nascita -->
+    <label for="date">Data di nascita:</label>
+    <!-- Buttons -->
+		<input type="date" id="date" name="nascita" value="" />
 		<input type="submit" name="Conferma" value="Conferma" id="Confirm" />
   </fieldset>
 </form>
 
 
 <footer id="footer">
+
   <div id="contacts">
     <h2>Contatti:</h2>
     <ul>
@@ -60,50 +73,52 @@
     </ul>
   </div>
 
-  <div id="wrap">
-    <div id="stores">
-      <h2>Punti vendita:</h2>
-        <ul>
-          <li class="footerListName">Mestre stazione</li>
-          <li>Orario: 4-20</li>
-          <li>Lunedì chiuso</li>
-          <li>Via Piave 300</li>
-        </ul>
-
-        <ul>
-          <li class="footerListName">Porto Marghera</li>
-          <li>Orario: 4-20</li>
-          <li>Martedì chiuso</li>
-          <li>Via Anelli 400</li>
-        </ul>
-
-        <ul>
-          <li class="footerListName">Padova Luzzatti Paolotti</li>
-          <li>Orario: 4-20</li>
-          <li>Chiuso nei weekend</li>
-          <li>Via Marzolo 600</li>
-        </ul>
-
-        <ul>
-          <li class="footerListName">Padova Portello</li>
-          <li>Orario: 4-20</li>
-          <li>Chiuso nei weekend</li>
-          <li>Via del Portello 800</li>
-        </ul>
-    </div>
-  </div>
-
-    <div id="social">
-      <h2 xml:lang="en">Link social:</h2>
+  <div id="stores">
+    <h2>Punti vendita:</h2>
+    <div id="shop1">
+      <h3>Mestre stazione</h3>
       <ul>
-        <li>Puoi trovarci su:</li>
-        <li><img src="../img/facebook.png"><a href="https://it-it.facebook.com/vascorossi" target="_blank"> Facebook</a> </li>
-        <li><img src="../img/instagram.png"><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" target="_blank"> Instagram</a></li>
-        <li><img src="../img/twitter.png"><a href="https://twitter.com/lapoelkann_" target="_blank"> Twitter<a/></li>
-        <li><img src="../img/youtube.png"><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" target="_blank"> Youtube</a></li>
+        <li>Orario: 4-20</li>
+        <li>Lunedì chiuso</li>
+        <li>Via Piave 300</li>
       </ul>
     </div>
-</footer>
+    <div id="shop2">
+      <h3>Padova Arcella</h3>
+      <ul>
+        <li>Orario: 4-20</li>
+        <li>Martedì chiuso</li>
+        <li>Via Anelli 400</li>
+      </ul>
+    </div>
+    <div id="shop3">
+      <h3>Padova Luzzatti Paolotti</h3>
+      <ul>
+        <li>Orario: 4-20</li>
+        <li>Chiuso nei weekend</li>
+        <li>Via Marzolo 600</li>
+      </ul>
+    </div>
+    <div id="shop4">
+      <h3>Padova Portello</h3>
+      <ul>
+        <li>Orario: 4-20</li>
+        <li>Chiuso nei weekend</li>
+        <li>Via del Portello 800</li>
+      </ul>
+    </div>
+  </div>
+    <div id="social">
+      <h2><span  xml:lang="en" lang="en">Link social:</span></h2>
+      <h3>Puoi trovarci su:</h3>
+      <ul>
+        <li><img src="facebook.png" alt="facebook logo"><a href="https://it-it.facebook.com/vascorossi" target="_blank">Facebook</a></li>
+        <li><img src="instagram.png" alt="instagram logo"><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" target="_blank">Instagram</a></li>
+        <li><img src="twitter.png" alt="twitter logo"><a href="https://twitter.com/lapoelkann_" target="_blank">Twitter</a></li>
+        <li><img src="youtube.png" alt="youtube logo"><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" target="_blank">Youtube</a></li>
+      </ul>
+    </div>
+  </footer>
 <div id="diritti">
   <p>MyCandies&co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
 </div>
