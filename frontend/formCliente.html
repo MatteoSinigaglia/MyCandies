@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<html lang="it">
 
 <head>
   <title>Registrazione - My candies</title>
-  <meta http-equiv="content-language" content="it" />
   <meta charset="utf-8" />
   <meta name="title" content="Registrazione - MyCandies" />
   <meta name="description" content="Questo è il form di registrazione di My Candies" />
@@ -16,22 +15,50 @@
 </head>
 
 <body>
-  <header></header>
+  <header id="header">
+		<div id="headerLogoAndUtility">
+			<div id="imageContainer">
+				<img id="logo" src="../img/logo.jpeg"
+					alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+			</div>
+			<div id="utilityBar">
+				<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+					<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
+					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+						class="buttons" />
+				</form>
+
+				<button id="loginButton" class="buttons">Accedi</button>
+				<button id="cartButton" class="buttons">Carrello</button>
+				<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+			</div>
+			<a class="helps" href="#productContent">Salta la navigazione</a>
+		</div>
+		<nav id="navigation">
+			<ul role="menu">
+				<li lang="en"><a href="#">Home</a></li>
+				<li><a href="#">Droghe</a></li>
+				<li><a href="#">Accessori</a></li>
+				<li><a href="#"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+				<li><a href="suDiNoi.html">Su Di Noi</a></li>
+			</ul>
+		</nav>
+	</header> 
   <main>
     <h1>Iscriviti</h1>
     <form action="#" method="post" class="inputForm">
       <fieldset id="mandatoryFields">
         <div>
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" required maxlenght="20" placeholder="E-mail" class = "input-wide"/>
+          <input type="email" name="email" id="email" required placeholder="E-mail" class = "input-wide"/>
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" maxlenght="16" required placeholder="Password" />
+          <input type="password" name="password" id="password" maxlength="16" required placeholder="Password" />
         </div>
         <div>
           <label for="confirmPassword">Conferma password</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" maxlenght="16" required
+          <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16" required
             placeholder="Conferma password" />
         </div>
       </fieldset>
@@ -64,12 +91,8 @@
       </fieldset>
       <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
     </form>
-    <main>
+  </main>
       <footer></footer>
-</body>
-</body>
-
-</html>
 </body>
 
 </html>
