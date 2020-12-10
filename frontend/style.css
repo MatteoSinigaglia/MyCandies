@@ -360,13 +360,13 @@ th {
     padding-bottom: 1em;
 }
 
-.fakeButton select {
+select {
     padding: 0.3em;
     border-radius: 5px;
     background-color: #c5c4c4;
 }
 
-.fakeButton .hiddenChoice {
+.hiddenChoice {
     display: none;
 }
 

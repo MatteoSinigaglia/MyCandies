@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<html lang="it">
 
 <head>
     <title>Prodotti - My candies</title>
-    <!-- Cambiare nome -->
-    <meta http-equiv="content-language" content="it" />
     <meta charset="utf-8" />
-    <!-- QUESTE COSE LE HO MESSE A CASO PER ORA -->
     <meta name="title" content="Prodotti - MyCandies" />
     <meta name="description"
         content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo" />
     <meta name="author" content="MyCandies&co" />
     <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana" />
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="#" media="print" />
-    <link rel="stylesheet" type="text/css" href="#"
+    <link rel="stylesheet" href="style.css" media="screen" />
+    <link rel="stylesheet" href="#" media="print" />
+    <link rel="stylesheet" href="#"
         media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
 </head>
 
 <body>
-    <header></header>
-    <section id="breadcrumb">
+    <header id="header">
+		<div id="headerLogoAndUtility">
+			<div id="imageContainer">
+				<img id="logo" src="../img/logo.jpeg"
+					alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+			</div>
+			<div id="utilityBar">
+				<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+					<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
+					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+						class="buttons" />
+				</form>
+
+				<button id="loginButton" class="buttons">Accedi</button>
+				<button id="cartButton" class="buttons">Carrello</button>
+				<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+			</div>
+			<a class="helps" href="#productContent">Salta la navigazione</a>
+		</div>
+		<nav id="navigation">
+			<ul role="menu">
+				<li lang="en"><a href="#">Home</a></li>
+				<li><a href="#">Droghe</a></li>
+				<li><a href="#">Accessori</a></li>
+				<li><a href="#"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+				<li><a href="suDiNoi.html">Su Di Noi</a></li>
+			</ul>
+		</nav>
+	</header> 
+    <div id="breadcrumb">
         <p>
             <a href="#">Home</a>
-            / Prodotti
+            > Prodotti
         </p>
-    </section>
+    </div>
     <main>
-        <section id="filters">
+        <div id="filters">
             <h1>Filtri di Ricerca</h1>
             <form action="#" method="post" id="filtersForm">
                 <fieldset id="categoryFilter">
@@ -79,12 +104,12 @@
                 </fieldset>
                 <input type="submit" value="Vai" class="buttons" id="confirmFilter" />
             </form>
-        </section>
+        </div>
         <div id="rightSideContent">
             <div id="upperRightSideContent">
-                <div id="orderBy" class="fakeButton">
+                <div id="orderBy" class="buttons">
                     <label for="orderBuySelect" class="helps">Ordina per</label>
-                    <select name="orderBuySelect" id="oderBuySelect">
+                    <select name="orderBuySelect" id="orderBuySelect">
                         <option class="hiddenChoice">Ordina per</option>
                         <option>Media recensioni clienti</option>
                         <option>Prezzo: crescente</option>
@@ -92,9 +117,9 @@
                         <option>Popolarità</option>
                     </select>
                 </div>
-                <div id="productsPerPage" class="fakeButton">
+                <div id="productsPerPage" class="buttons">
                     <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
-                    <select name="productsPerPageSelect" id="productsPerPageSelect" value="ordina per">
+                    <select name="productsPerPageSelect" id="productsPerPageSelect">
                         <option class="hiddenChoice">Prodotti per pagina</option>
                         <option>5</option>
                         <option>10</option>
@@ -103,17 +128,14 @@
                     </select>
                 </div>
             </div>
-            <article id="productsList">
+            <div id="productsList">
                 <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
 
                 <div id="productsPageNumber"></div>
-            </article>
+            </div>
         </div>
     </main>
     <footer id="footer">Qui c'e' il footer</footer>
-</body>
-
-</html>
 </body>
 
 </html>
