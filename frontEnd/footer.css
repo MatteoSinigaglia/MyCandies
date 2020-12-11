@@ -1,4 +1,6 @@
-/*-------- FOOTER -----------------------------------------------------------------------------*/
+/*
+============ FOOTER ===========================================================================
+*/
 #footer {
   background-color: #051C0B;
   color: white;
@@ -13,7 +15,19 @@ margin-bottom: 0.5em;
 font-size: 14pt;
 }
 
-/* CONTATTI*/
+#footer h3 {
+font-size: 11pt;
+text-align: center;
+margin-bottom: 0.5em;
+}
+
+ul li {
+margin-bottom: 0.2em;
+}
+
+/*
+=================== CONTATTI ===================================================================
+*/
 #contacts {
 float: left;
 width: 10%;
@@ -21,12 +35,8 @@ margin-left: 1em;
 text-align: left;
 }
 
-#contacts li{
-padding-bottom: 0.2em;
-}
-
 #contacts a:link, a:visited, a:hover{
-color:#CCCCCC;
+color: white;
 text-decoration: none;
 }
 
@@ -34,51 +44,51 @@ text-decoration: none;
 text-decoration: underline;
 }
 
-/* PUNTI VENDITA */
-.footerListName {
-text-decoration: underline;
-font-weight: bold;
-color:#DDD;
-}
-
+/* 
+================== PUNTI VENDITA ==============================================================
+*/
 #stores {
-float: left;
+display: inline-block;
 text-align: center;
-width: 70%;
+margin: 0 5%;
+width: 60%;
 }
 
-#stores ul {
+#shop1,
+#shop2,
+#shop3,
+#shop4 {
 display: inline-block;
 padding-left: 2em;
 list-style-type: none;
 }
 
-#stores ul li{
-margin-bottom: 0.2em;
-}
-
-/* SOCIAL */
+/* 
+=============== SOCIAL ==========================================================================
+*/
 #social{
 float: right;
 width: 10%;
 text-align: left;
-margin-bottom: 0.5em;
+margin-right: 0.5em;
+}
+
+#social h3 {
+text-align: left;
 }
 
 #social a:link{
 text-decoration: none;
-color:#CCCCCC;
+color: white;
 }
 
 #social img{
 width: 8%;
-}
-
-#social li{
-padding-bottom: 0.2em;
+margin-right: 0.1em;
 }
 
 #diritti{
+clear: both;
 color: #FFFFFF;
 background-color: #020E0A;
 text-align: center;
