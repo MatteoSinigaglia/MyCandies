@@ -16,34 +16,35 @@
 
 <body>
   <header id="header">
-		<div id="headerLogoAndUtility">
-			<div id="imageContainer">
-				<img id="logo" src="../img/logo.jpeg"
-					alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
-			</div>
-			<div id="utilityBar">
-				<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-					<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
-					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-						class="buttons" />
-				</form>
-
-				<button id="loginButton" class="buttons">Accedi</button>
-				<button id="cartButton" class="buttons">Carrello</button>
-				<p id="headerUsername">nomeUtente</p> <!-- hidden -->
-			</div>
-			<a class="helps" href="#productContent">Salta la navigazione</a>
-		</div>
-		<nav id="navigation">
-			<ul role="menu">
-				<li lang="en"><a href="#">Home</a></li>
-				<li><a href="#">Droghe</a></li>
-				<li><a href="#">Accessori</a></li>
-				<li><a href="#"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-				<li><a href="suDiNoi.html">Su Di Noi</a></li>
-			</ul>
-		</nav>
-	</header> 
+    <a class="helps" href="#loginForm" class="hiddenHelp">Vai al <span lang="en">form</span> di <span lang="en">login</span></a>
+    <a class="helps" href="#registrationForm" class="hiddenHelp">Vai al form di registrazione</a>
+    <div id="headerLogoAndUtility">
+      <div id="imageContainer">
+        <img id="logo" src="../img/logo.jpeg"
+          alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+      </div>
+      <div id="utilityBar">
+        <form role="search" class="serchButton" id="headerSearchBar" action="" method="get">
+          <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
+          <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+            class="buttons" />
+        </form>
+  
+        <a href="#loginAndRegistrationContent" id="loginButton" class="buttons">Accedi/Registrati</a>
+        <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+        <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+      </div>
+    </div>
+    <nav id="navigation">
+      <ul role="menu">
+        <li lang="en"><a href="#">Home</a></li>
+        <li><a href="listaProdotti.html">Droghe</a></li>
+        <li><a href="#">Accessori</a></li>
+        <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
+        <li><a href="suDiNoi.html">Su Di Noi</a></li>
+      </ul>
+    </nav>
+  </header> 
   <main id="loginAndRegistrationContent">
     <div class="formContainer">
       <h1>Registrati</h1>

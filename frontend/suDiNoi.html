@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<html lang="it">
 
 <head>
 	<title>MyCandies - Prodotti</title> <!-- Cambiare nome -->
-	<meta http-equiv=”content-language” content=”it”>
+	<meta content=”it”>
 	<meta charset="utf-8">
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
@@ -16,6 +16,7 @@
 <body>
 
 <header id="header">
+    <a class="helps" href="#suDiNoiContent" class="hiddenHelp">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
             <img id="logo" src="../img/logo.jpeg"
@@ -28,16 +29,15 @@
                     class="buttons" />
             </form>
 
-            <button id="loginButton" class="buttons">Accedi</button>
-            <button id="cartButton" class="buttons">Carrello</button>
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+            <a href="#cartContent" id="cartButton" class="buttons">Carrello</a>
             <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
-        <a class="helps" href="#productContent" class="hiddenHelp">Salta la navigazione</a>
     </div>
     <nav id="navigation">
         <ul role="menu">
-            <li xml:lang="en"><a href="#">Home</a></li>
-            <li><a href="#">Droghe</a></li>
+            <li lang="en"><a href="#">Home</a></li>
+            <li><a href="listaProdotti.html">Droghe</a></li>
             <li><a href="#">Accessori</a></li>
             <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
             <li><a href="#suDiNoiContent">Su Di Noi</a></li>

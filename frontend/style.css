@@ -81,6 +81,10 @@ textarea {
     background-color: #6A994E;
     color: white;
     font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+
 }
 
 .buttons:hover {
