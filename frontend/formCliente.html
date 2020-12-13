@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
   <title>Registrazione - My candies</title>
@@ -16,15 +16,15 @@
 
 <body>
   <header id="header">
-    <a class="helps" href="#loginForm" class="hiddenHelp">Vai al <span lang="en">form</span> di <span lang="en">login</span></a>
-    <a class="helps" href="#registrationForm" class="hiddenHelp">Vai al form di registrazione</a>
+    <a class="helps" href="#loginForm">Vai al <span xml:lang="en" lang="en">form</span> di <span xml:lang="en" lang="en">login</span></a>
+    <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
     <div id="headerLogoAndUtility">
       <div id="imageContainer">
         <img id="logo" src="../img/logo.jpeg"
           alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
       </div>
       <div id="utilityBar">
-        <form role="search" class="serchButton" id="headerSearchBar" action="" method="get">
+        <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
           <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
           <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
             class="buttons" />
@@ -37,7 +37,7 @@
     </div>
     <nav id="navigation">
       <ul role="menu">
-        <li lang="en"><a href="#">Home</a></li>
+        <li xml:lang="en" lang="en"><a href="#">Home</a></li>
         <li><a href="listaProdotti.html">Droghe</a></li>
         <li><a href="#">Accessori</a></li>
         <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
@@ -48,16 +48,16 @@
   <main id="loginAndRegistrationContent">
     <div class="formContainer">
       <h1>Registrati</h1>
-      <form action="" method="post" id="loginForm" class="inputForm">
+      <form action="#" method="post" id="loginForm" class="inputForm">
         <fieldset id="loginFieldset">
           <!-- Legenda -->
           <legend id="loginLegend"> Email e Password </legend>
           <!-- Campo user -->
           <label for="loginEmail">Email:</label>
-          <input type="email" id="loginEmail" name="loginEmail" value="" maxlength="40" required />
+          <input type="email" id="loginEmail" name="loginEmail" maxlength="40" required />
           <!-- Campo password -->
           <label for="loginPassword">Password:</label>
-          <input type="password" id="loginPassword" name="loginPassword" value="" maxlength="50" required />
+          <input type="password" id="loginPassword" name="loginPassword" maxlength="50" required />
           <!-- link recupero credenziali -->
           <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
           <!-- Buttons -->
