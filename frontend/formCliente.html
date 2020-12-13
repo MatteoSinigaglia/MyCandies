@@ -44,9 +44,30 @@
 			</ul>
 		</nav>
 	</header> 
-  <main>
+  <main id="loginAndRegistrationContent">
+    <div class="formContainer">
+      <h1>Registrati</h1>
+      <form action="" method="post" id="loginForm" class="inputForm">
+        <fieldset id="loginFieldset">
+          <!-- Legenda -->
+          <legend id="loginLegend"> Email e Password </legend>
+          <!-- Campo user -->
+          <label for="loginEmail">Email:</label>
+          <input type="email" id="loginEmail" name="loginEmail" value="" maxlength="40" required />
+          <!-- Campo password -->
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="loginPassword" name="loginPassword" value="" maxlength="50" required />
+          <!-- link recupero credenziali -->
+          <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
+          <!-- Buttons -->
+          <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
+          <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
+        </fieldset>
+      </form>
+      </div>
+    <div class="formContainer">
     <h1>Iscriviti</h1>
-    <form action="#" method="post" class="inputForm">
+    <form action="#" method="post" id="registrationForm" class="inputForm">
       <fieldset id="mandatoryFields">
         <div>
           <label for="email">E-mail</label>
@@ -91,6 +112,7 @@
       </fieldset>
       <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
     </form>
+    </div>
   </main>
       <footer></footer>
 </body>

@@ -40,6 +40,7 @@ h1 {
     font-size: 1.5em;
     font-weight: 700;
     text-align: center;
+    margin: 0.5em;
 }
 
 fieldset {
@@ -96,14 +97,26 @@ abbr {
 */
 
 .inputForm {
-    max-width: 25em;
+    text-align: left;
+    min-width: 20em;
     border-radius: 5px;
-    margin: 1em auto 1em auto;
     border: 1px solid #ddd;
     padding: 1em;
     background-color: #F2E8CF
 }
 
+.inputForm a {
+    font-weight: bold;
+    display: block;
+}
+
+.inputForm a:hover {
+    color: red;
+}
+
+.inputForm a:visited {
+    color: #6A994E;
+}
 /*
 ==================================TABELLE======================
 */
@@ -277,21 +290,20 @@ th {
 
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
 
-/*------- LOGIN --------------------------------------------------------------------------  */
-
-#loginContent a {
-    font-weight: bold;
-    display: block;
+/*-------------------LOGIN/REGISTRAZIONE-----------------  */
+#loginAndRegistrationContent {
+    margin: auto;
+    text-align: center;
+    padding: 3em;
 }
 
-#loginContent a:hover {
-    color: red;
+.formContainer {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1em 3em auto 3em;
 }
 
-#loginContent a:visited {
-    color: #6A994E;
-}
-/*---------- FINE LOGIN ------------------------------------------------------------------------*/
+/*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
 
