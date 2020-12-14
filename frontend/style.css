@@ -134,6 +134,12 @@ table {
 
 table td, th{
     padding: 0.5em;
+    border: 1px solid #000;
+}
+
+table th {
+    background-color: #a7c957;
+    border: 1px solid #000;
 }
 
 /*------- HEADER -------------------------------------------------------------------------------*/
