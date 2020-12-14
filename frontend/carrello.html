@@ -3,7 +3,6 @@
 
 <head>
 	<title>Carrello - My Candies</title>
-	<meta content=”it”>
 	<meta charset="utf-8">
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per gestire il carrello" />
@@ -51,28 +50,28 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Nome prodotto</th>
-					<th>Codice</th>
-					<th>Quantità</th>
-					<th>Aggiungi/rimuovi</th>
-					<th>Totale prodotto</th>
+					<th id="productName" scope="col">Nome prodotto</th>
+					<th id="productCode" scope="col">Codice</th>
+					<th id="quantity" scope="col">Quantità</th>
+					<th id="actions" scope="col">Aggiungi/rimuovi</th>
+					<th id="total" scope="col">Totale prodotto</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<th colspan="4">Totale carrello</th>
-					<td>0.0$</td>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td headers="productName"></td>
+					<td headers="productCode"></td>
+					<td headers="quantity"></td>
+					<td headers="actions"></td>
+					<td headers="total"></td>
 				</tr>
 			</tbody>
+			<tfoot>
+				<tr>
+					<th id="totalCart" scope="row" colspan="4">Totale carrello</th>
+					<td headers="totalCart">0.0$</td>
+				</tr>
+			</tfoot>
 		</table>
 		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
 	</div>

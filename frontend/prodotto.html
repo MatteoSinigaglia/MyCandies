@@ -3,12 +3,10 @@
 
 <head>
 	<title>Informazioni prodotto - My Candies</title>
-	<meta content=”it”>
 	<meta charset="utf-8">
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&co" />
-	<meta />
 
 	<link rel="stylesheet" href="../frontend/style.css" />
 </head>
@@ -24,7 +22,7 @@
 		</div>
 		<div id="utilityBar">
 			<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-				<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
+				<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
 				<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
 					class="buttons" />
 			</form>
@@ -74,48 +72,48 @@
 </div>
 
 <div id="productTableContent">
-	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali.">
+	<table id="productTable">
 		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugCategory" scope="row">valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
 			<th id="tableDrugType" scope="col">Tipologia</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugType" scope="row">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
 		</tr>
 		<tr>
 			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents" scope="row">valore</td>
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugEffects" scope="row">valore</td>
+			<td headers="tableDrugEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugSideEffects" scope="row">valore</td>
+			<td headers="tableDrugSideEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugToxicity" scope="col">Tossicità</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugToxicity" scope="row">valore</td>
+			<td headers="tableDrugToxicity">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugDamage" scope="col">Danni fisici e mentali</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugDamage" scope="row">valore</td>
+			<td headers="tableDrugDamage">valore</td>
 		</tr>
 	</table>
 </div>
