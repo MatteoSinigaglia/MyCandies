@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>Carrello - My Candies</title>
+	<meta charset="utf-8">
+	<meta name="title" content="MyCandies" />
+	<meta name="description" content="Pagina realizzata per gestire il carrello" />
+	<meta name="author" content="MyCandies&co" />
+
+	<link rel="stylesheet" href="../frontend/style.css" />
+</head>
+
+<body>
+
+<header id="header">
+	<a class="helps" href="#cartContent">Vai al contenuto</a>
+	<div id="headerLogoAndUtility">
+		<div id="imageContainer">
+			<img id="logo" src="../img/logo.jpeg"
+				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+		</div>
+		<div id="utilityBar">
+			<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+				<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
+				<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+					class="buttons" />
+			</form>
+
+			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+			<a href="#cartContent" id="cartButton" class="buttons">Carrello</a>
+			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+		</div>
+	</div>
+	<nav id="navigation">
+		<ul role="menu">
+			<li xml:lang="en" lang="en"><a href="#">Home</a></li>
+			<li><a href="listaProdotti.html">Droghe</a></li>
+			<li><a href="#">Accessori</a></li>
+			<li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="suDiNoi.html">Su Di Noi</a></li>
+		</ul>
+	</nav>
+</header> 
+
+<main id="cartContent">
+	<img src="../img/cart.png" alt="icona carrello acquisti" />
+
+	<div id="selectedProduct">
+		<table>
+			<thead>
+				<tr>
+					<th id="productName" scope="col">Nome prodotto</th>
+					<th id="productCode" scope="col">Codice</th>
+					<th id="quantity" scope="col">Quantità</th>
+					<th id="actions" scope="col">Aggiungi/rimuovi</th>
+					<th id="total" scope="col">Totale prodotto</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td headers="productName"></td>
+					<td headers="productCode"></td>
+					<td headers="quantity"></td>
+					<td headers="actions"></td>
+					<td headers="total"></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th id="totalCart" scope="row" colspan="4">Totale carrello</th>
+					<td headers="totalCart">0.0$</td>
+				</tr>
+			</tfoot>
+		</table>
+		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
+	</div>
+</main>
+
+</body>
+</html>

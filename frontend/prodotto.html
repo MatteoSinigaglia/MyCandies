@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>Informazioni prodotto - My Candies</title>
+	<meta charset="utf-8">
+	<meta name="title" content="MyCandies" />
+	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
+	<meta name="author" content="MyCandies&co" />
+
+	<link rel="stylesheet" href="../frontend/style.css" />
+</head>
+
+<body>
+
+<header id="header">
+	<a class="helps" href="#productContent">Vai al contenuto</a>
+	<div id="headerLogoAndUtility">
+		<div id="imageContainer">
+			<img id="logo" src="../img/logo.jpeg"
+				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+		</div>
+		<div id="utilityBar">
+			<form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+				<input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
+				<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+					class="buttons" />
+			</form>
+
+			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+			<a href="#cartContent" id="cartButton" class="buttons">Carrello</a>
+			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+		</div>
+	</div>
+	<nav id="navigation">
+		<ul role="menu">
+			<li xml:lang="en" lang="en"><a href="#">Home</a></li>
+			<li><a href="listaProdotti.html">Droghe</a></li>
+			<li><a href="#">Accessori</a></li>
+			<li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="suDiNoi.html">Su Di Noi</a></li>
+		</ul>
+	</nav>
+</header> 
+	
+<main id="productContent" class="generalContent">
+
+<h2 tabindex="0">Descrizione prodotto: </h2>
+<div id="productContenitor">
+	<dl>
+		<dt tabindex="0"><strong>Nome temporaneo</strong></dt>
+		<dd>
+			<img src="../img/out_of_stock.jpg" alt="insieme di pasticche bianche" />
+			<p>Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			</p>
+		</dd>
+	</dl>
+	<button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button>
+</div>
+
+<div id="productTableContent">
+	<table id="productTable">
+		<tr>
+			<th id="tableDrugCategory" scope="col">Categoria</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
+		</tr>
+		<tr>
+			<th id="tableDrugType" scope="col">Tipologia</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+		</tr>
+		<tr>
+			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugComponents">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugEffects" scope="col">Effetti</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugEffects">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugSideEffects">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugToxicity" scope="col">Tossicità</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugToxicity">valore</td>
+		</tr>
+		<tr>
+			<th id="tableDrugDamage" scope="col">Danni fisici e mentali</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugDamage">valore</td>
+		</tr>
+	</table>
+</div>
+
+</main>
+
+</body>
+</html>

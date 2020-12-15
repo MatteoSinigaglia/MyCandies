@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+	<title>Dashboard Visualizza Utenti - My Candies</title>
+	<meta charset="utf-8">
+	<meta name="title" content="MyCandies" />
+	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
+	<meta name="author" content="MyCandies&co" />
+
+	<link rel="stylesheet" href="../frontend/style.css" media="" />
+</head>
+
+<body>
+    <header id="header">
+        <nav id="navigation">
+            <ul>
+                <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
+                <li><a href="#utentiDashboard">Utenti</a></li>
+                <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
+                <li><a href="prodotti_dashboard.html">Prodotti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="breadcrumb">
+        <p><span xml:lang="en" lang="en">Dashboard</span> / Utenti</p>
+    </div>
+
+    <main id="utentiDashboard">
+        <table>
+            <thead>
+                <tr>
+                    <th id="mail" scope="col">mail</th>
+                    <th id="name" scope="col">Nome</th>
+                    <th id="surname" scope="col">Cognome</th>
+                    <th id="password" scope="col">Password</th>
+                    <th id="dateOfBirth" scope="col">Data di nascita</th>
+                    <th id="sex" scope="col">Sesso</th>
+                    <th id="actions" scope="col">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td headers="mail">null</td>
+                    <td headers="name">null</td>
+                    <td headers="surname">null</td>
+                    <td headers="password">null</td>
+                    <td headers="dateOfBirth">null</td>
+                    <td headers="sex">null</td>
+                    <td headers="actions"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
