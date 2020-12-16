@@ -108,6 +108,7 @@ abbr {
 */
 
 .inputForm {
+    margin: 2em auto 1em auto;
     text-align: left;
     min-width: 20em;
     border-radius: 5px;
