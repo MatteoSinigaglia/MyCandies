@@ -508,25 +508,26 @@ background-color: #F2E8CF;
 
 #footer div {
     display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #upperFooterContainer {
     width: 100%;
 }
 
-#footer h2 {
-padding-top: 0.5em;
-font-size: 14pt;
-}
-
 #footer h3 {
-font-size: 11pt;
+font-size: 1em;
 margin-bottom: 0.5em;
 }
 
 /*
 =================== CONTATTI ===================================================================
 */
+
+#contacts {
+    margin: 1em;
+}
 
 #contacts a:link, a:visited, a:hover{
 color: white;
@@ -541,13 +542,28 @@ text-decoration: underline;
 ================== PUNTI VENDITA ==============================================================
 */
 
+#stores{
+    min-width: 78%;
+    margin: 1em;
+}
+
 #stores div {
 padding-right: 2em;
+min-width: 11em;
+}
+
+#stores h3 {
+    text-align: left;
 }
 
 /* 
 =============== SOCIAL ==========================================================================
 */
+
+#social {
+    margin: 1em;
+}
+
 #social a:link{
 text-decoration: none;
 color: white;
@@ -566,6 +582,7 @@ background-color: #020E0A;
 
 #diritti p {
     margin: 1em;
+    font-weight: 600;
 }
 /*
 ========================================HOME==========================
