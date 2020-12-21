@@ -1,141 +1,137 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
-<head>
-    <title>Prodotti - My Candies</title>
-    <meta charset="utf-8" />
-    <meta name="title" content="Prodotti - MyCandies" />
-    <meta name="description"
-        content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo" />
-    <meta name="author" content="MyCandies&co" />
-    <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana" />
-    <link rel="stylesheet" href="style.css" media="screen" />
-    <link rel="stylesheet" href="#" media="print" />
-    <link rel="stylesheet" href="#"
-        media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
-</head>
+    <head>
+        <title>Prodotti - MyCandies</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="title" content="Prodotti - MyCandies"/>
+        <meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
+        <meta name="author" content="MyCandies"/>
+        <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="#" media="print"/>
+        <link rel="stylesheet" type="text/css" href="#" media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px"/>
+    </head>
 
-<body>
-    <header id="header">
-        <a class="helps" href="#productList">Vai al contenuto</a>
-        <div id="headerLogoAndUtility">
-            <div id="imageContainer">
-                <img id="logo" src="../img/logo.jpeg"
-                    alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+    <body>
+        <div id="header">
+            <a class="helps" href="#loginForm">Vai al
+                <span xml:lang="en" lang="en">form</span>
+                di
+                <span xml:lang="en" lang="en">login</span>
+            </a>
+            <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
+            <div id="headerLogoAndUtility">
+                <div id="imageContainer">
+                    <img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+                </div>
+                <div id="utilityBar">
+                    <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+                        <div>
+                            <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
+                            <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
+                        </div>
+                    </form>
+                    <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+                    <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+                    <p id="headerUsername">nomeUtente</p>
+                    <!-- hidden -->
+                </div>
             </div>
-            <div id="utilityBar">
-                <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-                    <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
-                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-                        class="buttons" />
+            <div id="navigation">
+                <ul role="menu">
+                    <li xml:lang="en">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#productList">Droghe</a>
+                    </li>
+                    <li>
+                        <a href="#">Accessori</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <abbr title=" Frequently Asked Questions">FAQ</abbr>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="suDiNoi.html">Su Di Noi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main" id="productList">
+            <div id="filters">
+                <h1>Filtri di Ricerca</h1>
+                <form action="#" method="post" id="filtersForm">
+                    <fieldset id="categoryFilter">
+                        <legend>Categoria</legend>
+                        <div>
+                            <input type="checkbox" name="marijuana" id="marijuana" value="marijuana"/>
+                            <label for="marijuana">Marijuana</label>
+                        </div>
+                        <!-- da inserire dei checkbox -->
+                    </fieldset>
+                    <fieldset id="activePrincipleFilter">
+                        <legend>Percentuale principio attivo</legend>
+                    </fieldset>
+                    <fieldset id="sideEffectsFilter">
+                        <legend>Effetti collaterali</legend>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Percentuale principio attivo</legend>
+                        <div>
+                            <label for="minActivePrinciple">Min</label>
+                            <input type="text" name="minActivePrinciple" id="minActivePrinciple"/>
+                            <label for="maxActivePrinciple">Max</label>
+                            <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Prezzo</legend>
+                        <div>
+                            <label for="minPrice">Min</label>
+                            <input type="text" name="minPrice" id="minPrice" />
+                            <label for="maxPrice">Max</label>
+                            <input type="text" name="maxPrice" id="maxPrice" />
+                        </div>
+                    </fieldset>
+                    <div>
+                        <input type="submit" value="Vai" class="buttons" id="confirmFilter"/>
+                    </div>
                 </form>
-    
-                <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-                <a href="#cartContent" id="cartButton" class="buttons">Carrello</a>
-                <p id="headerUsername">nomeUtente</p> <!-- hidden -->
             </div>
-        </div>
-        <nav id="navigation">
-            <ul role="menu">
-                <li xml:lang="en" lang="en"><a href="#">Home</a></li>
-                <li><a href="#productList">Droghe</a></li>
-                <li><a href="#">Accessori</a></li>
-                <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
-                <li><a href="suDiNoi.html">Su Di Noi</a></li>
-            </ul>
-        </nav>
-    </header> 
-    <div id="breadcrumb">
-        <p>
-            <a href="#">Home</a>
-            > Prodotti
-        </p>
-    </div>
-    <main id="productList">
-        <div id="filters">
-            <h1>Filtri di Ricerca</h1>
-            <form action="#" method="post" id="filtersForm">
-                <fieldset id="categoryFilter">
-                    <legend>Categoria</legend>
-                    <div>
-                        <input type="checkbox" name="marijuana" id="marijuana" value="marijuana" />
-                        <label for="marijuana">Marijuana</label>
+            <div id="rightSideContent">
+                <div id="upperRightSideContent">
+                    <div id="orderBy">
+                        <label for="orderBuySelect" class="helps">Ordina per</label>
+                        <select name="orderBuySelect" id="orderBuySelect">
+                            <option class="hiddenChoice">Ordina per</option>
+                            <option>Media recensioni clienti</option>
+                            <option>Prezzo: crescente</option>
+                            <option>Prezzo: decrescente</option>
+                            <option>Popolarità</option>
+                        </select>
                     </div>
-                    <!-- da inserire dei checkbox -->
-                </fieldset>
-                <fieldset id="averageStarsFilter">
-                    <legend>Valutazione minima</legend>
-                    <div>
-                        <label for="1star" class="helps">1 stella</label>
-                        <input type="radio" name="stars" id="1star" value="1star" />
-                        <label for="2star" class="helps">2 stelle</label>
-                        <input type="radio" name="stars" id="2star" value="2star" />
-                        <label for="3star" class="helps">3 stelle</label>
-                        <input type="radio" name="stars" id="3star" value="3star" />
-                        <label for="4star" class="helps">4 stelle</label>
-                        <input type="radio" name="stars" id="4star" value="4star" />
-                        <label for="5star" class="helps">5 stelle</label>
-                        <input type="radio" name="stars" id="5star" value="5star" />
+                    <div id="productsPerPage">
+                        <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
+                        <select name="productsPerPageSelect" id="productsPerPageSelect">
+                            <option class="hiddenChoice">Prodotti per pagina</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                        </select>
                     </div>
-                </fieldset>
-                <fieldset id="activePrincipleFilter">
-                    <legend>Percentuale principio attivo</legend>
-                </fieldset>
-                <fieldset id="sideEffectsFilter">
-                    <legend>Effetti collaterali</legend>
-                </fieldset>
-                <fieldset>
-                    <legend>Percentuale principio attivo</legend>
-                    <div>
-                        <label for="minActivePrinciple" class="helps">Percentuale minima</label>
-                        <input type="text" name="minActivePrinciple" id="minActivePrinciple" placeholder="Min" />
-                        <label for="maxActivePrinciple" class="helps">Percentuale massima</label>
-                        <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" placeholder="Max" />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Prezzo</legend>
-                    <div>
-                        <label for="minPrice" class="helps">Prezzo minimo</label>
-                        <input type="text" name="minPrice" id="minPrice" placeholder="Min" />
-                        <label for="maxPrice" class="helps">Prezzo massimo</label>
-                        <input type="text" name="maxPrice" id="maxPrice" placeholder="Max" />
-                    </div>
-                </fieldset>
-                <input type="submit" value="Vai" class="buttons" id="confirmFilter" />
-            </form>
-        </div>
-        <div id="rightSideContent">
-            <div id="upperRightSideContent">
-                <div id="orderBy" class="buttons">
-                    <label for="orderBuySelect" class="helps">Ordina per</label>
-                    <select name="orderBuySelect" id="orderBuySelect">
-                        <option class="hiddenChoice">Ordina per</option>
-                        <option>Media recensioni clienti</option>
-                        <option>Prezzo: crescente</option>
-                        <option>Prezzo: decrescente</option>
-                        <option>Popolarità</option>
-                    </select>
                 </div>
-                <div id="productsPerPage" class="buttons">
-                    <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
-                    <select name="productsPerPageSelect" id="productsPerPageSelect">
-                        <option class="hiddenChoice">Prodotti per pagina</option>
-                        <option>5</option>
-                        <option>10</option>
-                        <option>15</option>
-                        <option>20</option>
-                    </select>
+                <div
+                    id="productsList">
+                    <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
+
+                    <div id="productsPageNumber"></div>
                 </div>
             </div>
-            <div id="productsList">
-                <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
-
-                <div id="productsPageNumber"></div>
-            </div>
         </div>
-    </main>
-    <footer id="footer">Qui c'e' il footer</footer>
-</body>
-
+    </body>
 </html>

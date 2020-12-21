@@ -14,7 +14,7 @@ body {
     font-family: "Arial", cursive, sans-serif;
 }
 
-main {
+.main {
     margin: auto;
     max-width: 1280px;
 }
@@ -192,6 +192,7 @@ table th {
     width: 50%;
     border: 1px solid transparent;
     border-radius: 4px;
+    min-width: 25em;
 }
 
 #headerUsername {
