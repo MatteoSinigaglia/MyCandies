@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-  <title>Registrazione - My candies</title>
-  <meta charset="utf-8" />
+  <title>Registrazione - MyCandies</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="title" content="Registrazione - MyCandies" />
   <meta name="description" content="Questo è il form di registrazione di My Candies" />
-  <meta name="author" content="MyCandies&co" />
+  <meta name="author" content="MyCandies&amp;co" />
   <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="#" media="print" />
@@ -15,37 +15,39 @@
 </head>
 
 <body>
-  <header id="header">
-    <a class="helps" href="#loginForm">Vai al <span xml:lang="en" lang="en">form</span> di <span xml:lang="en" lang="en">login</span></a>
-    <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
-    <div id="headerLogoAndUtility">
-      <div id="imageContainer">
-        <img id="logo" src="../img/logo.jpeg"
-          alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
-      </div>
-      <div id="utilityBar">
-        <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-          <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
+<div id="header">
+  <a class="helps" href="#loginAndRegistrationContent">Vai al contenuto</a>
+  <div id="headerLogoAndUtility">
+    <div id="imageContainer">
+      <img id="logo" src="../img/logo.jpeg"
+        alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+    </div>
+    <div id="utilityBar">
+      <form class="serchButton" id="headerSearchBar" action="#" method="get">
+        <div>				
+          <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
           <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
             class="buttons" />
-        </form>
-  
-        <a href="#loginAndRegistrationContent" id="loginButton" class="buttons">Accedi/Registrati</a>
-        <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-        <p id="headerUsername">nomeUtente</p> <!-- hidden -->
-      </div>
+        </div>
+      </form>
+
+      <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+      <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+      <p id="headerUsername">nomeUtente</p> <!-- hidden -->
     </div>
-    <nav id="navigation">
-      <ul role="menu">
-        <li xml:lang="en" lang="en"><a href="#">Home</a></li>
-        <li><a href="listaProdotti.html">Droghe</a></li>
-        <li><a href="#">Accessori</a></li>
-        <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
-        <li><a href="suDiNoi.html">Su Di Noi</a></li>
-      </ul>
-    </nav>
-  </header> 
-  <main id="loginAndRegistrationContent">
+  </div>
+  <div id="navigation">
+    <ul>
+      <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+      <li><a href="listaProdotti.html">Droghe</a></li>
+      <li><a href="#">Accessori</a></li>
+      <li><a href="FAQ.html"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
+      <li><a href="suDiNoi.html">Su Di Noi</a></li>
+    </ul>
+  </div>
+</div>  
+
+  <div id="loginAndRegistrationContent">
     <div class="formContainer">
       <h1>Registrati</h1>
       <form action="#" method="post" id="loginForm" class="inputForm">
@@ -54,10 +56,10 @@
           <legend id="loginLegend"> Email e Password </legend>
           <!-- Campo user -->
           <label for="loginEmail">Email:</label>
-          <input type="email" id="loginEmail" name="loginEmail" maxlength="40" required />
+          <input type="text" id="loginEmail" name="loginEmail" maxlength="40" />
           <!-- Campo password -->
           <label for="loginPassword">Password:</label>
-          <input type="password" id="loginPassword" name="loginPassword" maxlength="50" required />
+          <input type="password" id="loginPassword" name="loginPassword" maxlength="50" />
           <!-- link recupero credenziali -->
           <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
           <!-- Buttons -->
@@ -72,16 +74,15 @@
       <fieldset id="mandatoryFields">
         <div>
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" required placeholder="E-mail" class = "input-wide"/>
+          <input type="text" name="email" id="email" placeholder="E-mail" class="input-wide"/>
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" maxlength="16" required placeholder="Password" />
+          <input type="password" name="password" id="password" maxlength="16" placeholder="Password" />
         </div>
         <div>
           <label for="confirmPassword">Conferma password</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16" required
-            placeholder="Conferma password" />
+          <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16" placeholder="Conferma password" />
         </div>
       </fieldset>
       <fieldset>
@@ -109,13 +110,13 @@
         <div>
           <label for="cap">CAP</label>
           <input type="text" name="cap" id="cap" placeholder="CAP" />
+          <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
         </div>
       </fieldset>
-      <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
     </form>
     </div>
-  </main>
-      <footer></footer>
+  </div>
+      <div id="footer"></div>
 </body>
 
 </html>
