@@ -14,7 +14,7 @@ body {
     font-family: "Arial", cursive, sans-serif;
 }
 
-main {
+.main {
     margin: auto;
     max-width: 1280px;
 }
@@ -185,14 +185,26 @@ table th {
 /*  questo si riferisce alla sola barra di ricerca  */
 #productSearchBar {
     padding: 0.7em;
-    width: 50%;
+    width: 70%;
     border: 1px solid transparent;
     border-radius: 4px;
+    min-width: 25em;
 }
 
 #headerUsername {
     float: right;
     display: none;
+}
+
+#loginAccessDiv {
+    display: inline-block;
+}
+
+#header fieldset{
+    display: inline-block;
+    vertical-align: middle;
+    width: 60%;
+    min-width: 25em;
 }
 
 /*----------- MENU ---------------------------------------------------------------------------*/
