@@ -1,58 +1,60 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
 	<title>Su di noi - My Candies</title>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
-	<meta name="author" content="MyCandies&co" />
+	<meta name="author" content="MyCandies&amp;co" />
 
 	<link rel="stylesheet" href="../frontend/style.css" />
 </head>
 
 <body>
 
-<header id="header">
+<div id="header">
     <a class="helps" href="#suDiNoiContent">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
             <img id="logo" src="../img/logo.jpeg"
-                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
+                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </div>
         <div id="utilityBar">
-            <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-                <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-                    class="buttons" />
+            <form class="serchButton" id="headerSearchBar" action="#" method="get">
+                <div>				
+                    <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+                        class="buttons" />
+                </div>
             </form>
 
             <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-            <a href="#cartContent" id="cartButton" class="buttons">Carrello</a>
+            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
             <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
     </div>
-    <nav id="navigation">
-        <ul role="menu">
+    <div id="navigation">
+        <ul>
             <li xml:lang="en" lang="en"><a href="#">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
             <li><a href="#">Accessori</a></li>
-            <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
+            <li><a href="FAQ.html"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
             <li><a href="#suDiNoiContent">Su Di Noi</a></li>
         </ul>
-    </nav>
-</header> 
+    </div>
+</div> 
 
 <div id="breadcrumb">
     <p><span xml:lang="en" lang="en">Dashboard</span> / Su Di Noi</p>
 </div>
 
-<main id="suDiNoiContent">
+<div id="suDiNoiContent">
     <div id="suDiNoiContainer">
         <h1>Chi Siamo</h1>
-        <p id="companyHistory">MyCandies&co è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti i quali,
+        <p id="companyHistory">MyCandies&amp;co è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti i quali,
             dopo aver riconosciuto la loro scarsa attitudine allo studio, cercarono fortuna in un mercato in continua crescita, quello degli stupefacenti. La compagnia ebbe subito un enorme successo, premiando il coraggio dei ragazzi che operavano in barba ad ogni legge.
-            Durante il primo anno di vendite la MyCandies&co bruciò ogni record di profitto di una startup
+            Durante il primo anno di vendite la MyCandies&amp;co bruciò ogni record di profitto di una startup
           al primo anno di attività e, nell'anno successivo, i quattro fondatori divennero i quattro uomini più ricchi del mondo (stime della rivista Forbes). Gli affari
           andavano a gonfie vele ma nel 1990 la compagnia subì la più grande perdita di capitale mai registrata. Le cause di tale tracollo finanziario furono essenzialmente due:
           la prima fu l'approvazione del decreto D.P.R. 309 del 09.10.1990, il quale impediva ai drogati di drogarsi. La causa principale della bancarotta della compagnia fu l'accusa
@@ -65,7 +67,7 @@
         <img id="img2" src="../img/4images_of_drugs.jpg" alt="Quattro immagini raffiguranti diversi tipi di droghe" />
         <img id="img3" src="../img/mix_droghe.jpeg" alt="Mix di droghe composto di piccole pasticche" />
     </div>
-</main>
+</div>
 
 </body>
 </html>
