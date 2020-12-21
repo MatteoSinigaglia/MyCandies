@@ -1,121 +1,143 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
-<head>
-  <title>Registrazione - My candies</title>
-  <meta charset="utf-8" />
-  <meta name="title" content="Registrazione - MyCandies" />
-  <meta name="description" content="Questo è il form di registrazione di My Candies" />
-  <meta name="author" content="MyCandies&co" />
-  <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#" media="print" />
-  <link rel="stylesheet" type="text/css" href="#"
-    media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
-</head>
+    <head>
+        <title>Registrazione - MyCandies</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="title" content="Registrazione - MyCandies"/>
+        <meta name="description" content="Questo è il form di registrazione di My Candies"/>
+        <meta name="author" content="MyCandies"/>
+        <meta name="keywords" content="Registrazione MyCandies, cliente MyCandies, sottoscrizione MyCandies"/>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="#" media="print"/>
+        <link rel="stylesheet" type="text/css" href="#" media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px"/>
+    </head>
 
-<body>
-  <header id="header">
-    <a class="helps" href="#loginForm">Vai al <span xml:lang="en" lang="en">form</span> di <span xml:lang="en" lang="en">login</span></a>
-    <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
-    <div id="headerLogoAndUtility">
-      <div id="imageContainer">
-        <img id="logo" src="../img/logo.jpeg"
-          alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato" />
-      </div>
-      <div id="utilityBar">
-        <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-          <input type="search" id="productSearchBar" name="productSearchBar" maxlength="30" role="search" />
-          <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-            class="buttons" />
-        </form>
-  
-        <a href="#loginAndRegistrationContent" id="loginButton" class="buttons">Accedi/Registrati</a>
-        <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-        <p id="headerUsername">nomeUtente</p> <!-- hidden -->
-      </div>
-    </div>
-    <nav id="navigation">
-      <ul role="menu">
-        <li xml:lang="en" lang="en"><a href="#">Home</a></li>
-        <li><a href="listaProdotti.html">Droghe</a></li>
-        <li><a href="#">Accessori</a></li>
-        <li><a href="#"><abbr title=" Frequently Asked Questions">FAQ</abbr></a></li>
-        <li><a href="suDiNoi.html">Su Di Noi</a></li>
-      </ul>
-    </nav>
-  </header> 
-  <main id="loginAndRegistrationContent">
-    <div class="formContainer">
-      <h1>Registrati</h1>
-      <form action="#" method="post" id="loginForm" class="inputForm">
-        <fieldset id="loginFieldset">
-          <!-- Legenda -->
-          <legend id="loginLegend"> Email e Password </legend>
-          <!-- Campo user -->
-          <label for="loginEmail">Email:</label>
-          <input type="email" id="loginEmail" name="loginEmail" maxlength="40" required />
-          <!-- Campo password -->
-          <label for="loginPassword">Password:</label>
-          <input type="password" id="loginPassword" name="loginPassword" maxlength="50" required />
-          <!-- link recupero credenziali -->
-          <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
-          <!-- Buttons -->
-          <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
-          <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
-        </fieldset>
-      </form>
-      </div>
-    <div class="formContainer">
-    <h1>Iscriviti</h1>
-    <form action="#" method="post" id="registrationForm" class="inputForm">
-      <fieldset id="mandatoryFields">
-        <div>
-          <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" required placeholder="E-mail" class = "input-wide"/>
+    <body>
+        <div id="header">
+            <a class="helps" href="#loginForm">Vai al
+                <span xml:lang="en" lang="en">form</span>
+                di
+                <span xml:lang="en" lang="en">login</span>
+            </a>
+            <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
+            <div id="headerLogoAndUtility">
+                <div id="imageContainer">
+                    <img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+                </div>
+                <div id="utilityBar">
+                    <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+                      <fieldset>
+                        <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
+                        <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
+                      </fieldset>
+                    </form>
+
+                    <a href="#loginAndRegistrationContent" id="loginButton" class="buttons">Accedi/Registrati</a>
+                    <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+                    <p id="headerUsername">nomeUtente</p>
+                    <!-- hidden -->
+                </div>
+            </div>
+            <div id="navigation">
+                <ul role="menu">
+                    <li xml:lang="en">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="listaProdotti.html">Droghe</a>
+                    </li>
+                    <li>
+                        <a href="#">Accessori</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <abbr title=" Frequently Asked Questions">FAQ</abbr>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="suDiNoi.html">Su Di Noi</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div>
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" maxlength="16" required placeholder="Password" />
+        <div class="main" id="loginAndRegistrationContent">
+            <div class="formContainer">
+                <h1>Accesso</h1>
+                <form action="#" method="post" id="loginForm" class="inputForm">
+                    <fieldset
+                        id="loginFieldset">
+                        <!-- Legenda -->
+                        <legend id="loginLegend">
+                            Email e Password
+                        </legend>
+                        <!-- Campo user -->
+                        <label for="loginEmail">Email:</label>
+                        <input
+                        type="text" id="loginEmail" name="loginEmail" maxlength="40"/>
+                        <!-- Campo password -->
+                        <label for="loginPassword">Password:</label>
+                        <input
+                        type="password" id="loginPassword" name="loginPassword" maxlength="50"/>
+                        <!-- link recupero credenziali -->
+                        <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a>
+                        <!-- AGGIUNGERE LINK -->
+                        <!-- Buttons -->
+                        <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons"/>
+                        <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons"/>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="formContainer">
+                <h1>Registrazione</h1>
+                <form action="#" method="post" id="registrationForm" class="inputForm">
+                    <fieldset id="mandatoryFields">
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email" id="email" class="input-wide"/>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" maxlength="16"/>
+                        </div>
+                        <div>
+                            <label for="confirmPassword">Conferma password</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16"/>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Dati personali</legend>
+                        <div>
+                            <label for="name">Nome</label>
+                            <input type="text" name="name" id="name"/>
+                        </div>
+                        <div>
+                            <label for="surname">Cognome</label>
+                            <input type="text" name="surname" id="surname"/>
+                        </div>
+                        <div>
+                            <label for="address">Indirizzo e civico</label>
+                            <input type="text" name="address" id="address"/>
+                        </div>
+                        <div>
+                            <label for="area">Provincia</label>
+                            <input type="text" name="area" id="area"/>
+                        </div>
+                        <div>
+                            <label for="city">Città</label>
+                            <input type="text" name="city" id="city"/>
+                        </div>
+                        <div>
+                            <label for="cap">CAP</label>
+                            <input type="text" name="cap" id="cap"/>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                      <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe"/>
+                    <fieldset>
+                </form>
+            </div>
         </div>
-        <div>
-          <label for="confirmPassword">Conferma password</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16" required
-            placeholder="Conferma password" />
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Dati personali</legend>
-        <div>
-          <label for="name">Nome</label>
-          <input type="text" name="name" id="name" placeholder="Nome" />
-        </div>
-        <div>
-          <label for="surname">Cognome</label>
-          <input type="text" name="surname" id="surname" placeholder="Cognome" />
-        </div>
-        <div>
-          <label for="address">Indirizzo e civico</label>
-          <input type="text" name="address" id="address" placeholder="Indirizzo e civico" />
-        </div>
-        <div>
-          <label for="area">Provincia</label>
-          <input type="text" name="area" id="area" placeholder="Provincia" />
-        </div>
-        <div>
-          <label for="city">Città</label>
-          <input type="text" name="city" id="city" placeholder="Città" />
-        </div>
-        <div>
-          <label for="cap">CAP</label>
-          <input type="text" name="cap" id="cap" placeholder="CAP" />
-        </div>
-      </fieldset>
-      <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
-    </form>
-    </div>
-  </main>
-      <footer></footer>
-</body>
+    </body>
 
 </html>
