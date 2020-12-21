@@ -1,37 +1,38 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
 	<title>Dashboard Riepilogo Acquisti - My Candies</title>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
-	<meta name="author" content="MyCandies&co" />
+	<meta name="author" content="MyCandies&amp;co" />
 
 	<link rel="stylesheet" href="../frontend/style.css" media="screen" />
 </head>
 
 <body>
-    <header id="header">
-        <nav id="navigation">
+    <div id="header">
+        <div id="navigation">
             <ul>
                 <li><a href="#riepilogoAcquistiDashboard">Riepilogo acquisti</a></li>
                 <li><a href="utenti_dashboard.html">Utenti</a></li>
                 <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
                 <li><a href="prodotti_dashboard.html">Prodotti</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
     
     <div id="breadcrumb">
         <p><span xml:lang="en" lang="en">Dashboard</span> / Riepilogo acquisti</p>
     </div>
 
-    <main id="riepilogoAcquistiDashboard">
-        <table>
+    <div id="riepilogoAcquistiDashboard" class="main">
+        <table summary="Tabella riassuntiva degli acquisiti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, quantità e totale">
             <thead>
                 <tr>
                     <th id="user" scope="col">Utente</th>
+                    <th id="productCode" scope="col">Codice prodotto</th>
                     <th id="date" scope="col">Data acquisto</th>
                     <th id="time" scope="col">Ora acquisto</th>
                     <th id="number" scope="col">Numero prodotti</th>
@@ -41,6 +42,7 @@
             <tbody>
                 <tr>
                     <td headers="user">null</td>
+                    <td headers="productCode">null</td>
                     <td headers="date">null</td>
                     <td headers="time">null</td>
                     <td headers="number">null</td>
@@ -48,6 +50,6 @@
                 </tr>
             </tbody>
         </table>
-    </main>
+    </div>
 </body>
 </html>

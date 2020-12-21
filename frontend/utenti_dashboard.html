@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
 	<title>Dashboard Visualizza Utenti - My Candies</title>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
-	<meta name="author" content="MyCandies&co" />
+	<meta name="author" content="MyCandies&amp;co" />
 
 	<link rel="stylesheet" href="../frontend/style.css" media="" />
 </head>
 
 <body>
-    <header id="header">
-        <nav id="navigation">
+    <div id="header">
+        <div id="navigation">
             <ul>
                 <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
                 <li><a href="#utentiDashboard">Utenti</a></li>
                 <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
                 <li><a href="prodotti_dashboard.html">Prodotti</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
 
     <div id="breadcrumb">
         <p><span xml:lang="en" lang="en">Dashboard</span> / Utenti</p>
     </div>
 
-    <main id="utentiDashboard">
-        <table>
+    <div id="utentiDashboard" class="main">
+        <table summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
             <thead>
                 <tr>
                     <th id="mail" scope="col">mail</th>
@@ -42,16 +42,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="mail">null</td>
-                    <td headers="name">null</td>
-                    <td headers="surname">null</td>
-                    <td headers="password">null</td>
-                    <td headers="dateOfBirth">null</td>
-                    <td headers="sex">null</td>
-                    <td headers="actions"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                    <td headers="mail" scope="row">null</td>
+                    <td headers="name" scope="row">null</td>
+                    <td headers="surname" scope="row">null</td>
+                    <td headers="password" scope="row">null</td>
+                    <td headers="dateOfBirth" scope="row">null</td>
+                    <td headers="sex" scope="row">null</td>
+                    <td headers="actions" scope="row"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
                 </tr>
             </tbody>
         </table>
-    </main>
+    </div>
 </body>
 </html>
