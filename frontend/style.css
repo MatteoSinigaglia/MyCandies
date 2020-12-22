@@ -110,6 +110,7 @@ abbr {
     margin: 2em auto 1em auto;
     text-align: left;
     min-width: 20em;
+    max-width: 25em;
     border-radius: 5px;
     border: 1px solid #ddd;
     padding: 1em;
