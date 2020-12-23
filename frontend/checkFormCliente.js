@@ -1,5 +1,5 @@
 var form_login = {
-    "loginEmail": ["Inserisci e-mail", /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta"],
+    "loginEmail": ["Inserisci e-mail", /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta"],
     "loginPassword": ["Inserisci password", /\w{5,20}/,"La password inserita non è corretta"]
 };
 
@@ -72,7 +72,6 @@ function printLoginError(input) {
 };
 
 function validateLoginField(input) {
-
     var parent = input.parentNode;
     if(parent.children.length == 2) {
         parent.removeChild(parent.children[1]);

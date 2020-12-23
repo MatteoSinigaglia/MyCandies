@@ -7,11 +7,11 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per gestire l'accesso utente/admin" />
 	<meta name="author" content="MyCandies&amp;co" />
-
 	<link rel="stylesheet" href="../frontend/style.css" />
+	<script type="text/javascript" src="../frontend/checkModificaCredenziali.js"></script>
 </head>
 
-<body>
+<body onload="load();">
 	<div id="header">
         <div id="navigation">
             <ul>
@@ -28,16 +28,16 @@
 	</div>
 	
 	<div id="credentialChange" class="main">
-		<form action="" method="post" class="inputForm">
+		<form action="" method="post" class="inputForm" onsubmit="return validateForm();" onreset="load();">
 			<fieldset>
 				<!-- Legenda -->
 				<legend> Recupero Email e Password </legend>
 				<!-- Campo e-mail -->
 				<label for="changeEmail">Email:</label>
-				<input type="text" id="changeEmail" name="changeEmail" value="" maxlength="40" />
+				<span><input type="text" id="changeEmail" name="changeEmail" value="" maxlength="40" /></span>
 				<!-- Campo password -->
 				<label for="changePassword">Password:</label>
-				<input type="text" id="changePassword" name="changePassword" value="" maxlength="50" />
+				<span><input type="text" id="changePassword" name="changePassword" value="" maxlength="50" /></span><br/>
 				<!-- Buttons -->
 				<input type="submit" id="credentialChangeConfirm" name="credentialChangeConfirm" value="Modifica" class="buttons" />
 				<input type="reset" id="credentialChangeReset" name="credentialChangeReset" value="Cancella" class="buttons" />
