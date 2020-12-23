@@ -8,13 +8,14 @@
   <meta name="description" content="Questo è il form di registrazione di My Candies" />
   <meta name="author" content="MyCandies&amp;co" />
   <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="#" media="print" />
   <link rel="stylesheet" type="text/css" href="#"
     media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
+  <script type="text/javascript" src="../frontend/checkFormCliente.js"></script>
 </head>
 
-<body>
+<body onload="load();">
 <div id="header">
   <a class="helps" href="#loginAndRegistrationContent">Vai al contenuto</a>
   <div id="headerLogoAndUtility">
@@ -49,17 +50,17 @@
 
   <div id="loginAndRegistrationContent">
     <div class="formContainer">
-      <h1>Registrati</h1>
-      <form action="#" method="post" id="loginForm" class="inputForm">
+      <h1>Accedi</h1>
+      <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();">
         <fieldset id="loginFieldset">
           <!-- Legenda -->
-          <legend id="loginLegend"> Email e Password </legend>
+          <legend id="loginLegend"> E-mail e Password </legend>
           <!-- Campo user -->
-          <label for="loginEmail">Email:</label>
-          <input type="text" id="loginEmail" name="loginEmail" maxlength="40" />
+          <label for="loginEmail">E-mail:</label>
+          <span><input type="text" id="loginEmail" name="loginEmail" maxlength="40" /></span>
           <!-- Campo password -->
           <label for="loginPassword">Password:</label>
-          <input type="password" id="loginPassword" name="loginPassword" maxlength="50" />
+          <span><input type="password" id="loginPassword" name="loginPassword" maxlength="50" /></span>
           <!-- link recupero credenziali -->
           <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
           <!-- Buttons -->
@@ -69,47 +70,47 @@
       </form>
       </div>
     <div class="formContainer">
-    <h1>Iscriviti</h1>
-    <form action="#" method="post" id="registrationForm" class="inputForm">
+    <h1>Registrati</h1>
+    <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
       <fieldset id="mandatoryFields">
         <div>
           <label for="email">E-mail</label>
-          <input type="text" name="email" id="email" class="input-wide"/>
+          <span><input type="text" name="email" id="email" class="input-wide"/></span>
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" maxlength="16"/>
+          <span><input type="password" name="password" id="password" maxlength="16"/></span>
         </div>
         <div>
           <label for="confirmPassword">Conferma password</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" maxlength="16"/>
+          <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="16" /></span>
         </div>
       </fieldset>
       <fieldset>
         <legend>Dati personali</legend>
         <div>
           <label for="name">Nome</label>
-          <input type="text" name="name" id="name"/>
+          <span><input type="text" name="name" id="name"/></span>
         </div>
         <div>
           <label for="surname">Cognome</label>
-          <input type="text" name="surname" id="surname"/>
+          <span><input type="text" name="surname" id="surname"/></span>
         </div>
         <div>
           <label for="address">Indirizzo e civico</label>
-          <input type="text" name="address" id="address"/>
+          <span><input type="text" name="address" id="address"/></span>
         </div>
         <div>
           <label for="area">Provincia</label>
-          <input type="text" name="area" id="area"/>
+          <span><input type="text" name="area" id="area"/></span>
         </div>
         <div>
           <label for="city">Città</label>
-          <input type="text" name="city" id="city" />
+          <span><input type="text" name="city" id="city" /></span>
         </div>
         <div>
           <label for="cap">CAP</label>
-          <input type="text" name="cap" id="cap"/>
+          <span><input type="text" name="cap" id="cap"/></span>
           <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
         </div>
       </fieldset>

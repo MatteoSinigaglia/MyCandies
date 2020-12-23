@@ -27,6 +27,18 @@ body {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+.default-text {
+    color: rgba(10, 8, 8, 0.479);
+}
+
+.formErrors {
+    color: red;
+}
+
+.rightMessage {
+    color: green;
+}
+
 #breadcrumb {
     text-align: left;
     padding: 1.5em;
