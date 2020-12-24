@@ -312,15 +312,21 @@ table th {
 #productTableContent tr,
 td,
 th {
+    border: 1px solid transparent;
     padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
     border-bottom: 1px solid #DDD;
+    background-color: transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
 }
 
 #productTableContent td {
     color: white;
+    border: 1px solid transparent;
 }
 
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
