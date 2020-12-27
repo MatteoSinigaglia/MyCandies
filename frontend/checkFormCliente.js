@@ -11,7 +11,7 @@ var form_registrazione = {
     "surname": ["Inserisci cognome", /\[a-zA-Z]{5,20}/, "Cognome non corretto"],
     "address": ["Inserisci indirizzo", /[a-zA-Z]{3}\s[a-zA-Z]+\s\d+/, "Indirizzo non corretto"],
     "area": ["Inserisci provincia", /[A-Z]{2}/, "Provincia non corretta"],
-    "city": ["Inserisici città", /[a-zA-Z]{2,20}/, "Città non corretta"],
+    "city": ["Inserisci città", /[a-zA-Z]{2,20}/, "Città non corretta"],
     "cap": ["Inserisci CAP", /\d{5}/, "CAP non corretto"]
 };
 
@@ -111,12 +111,13 @@ function printRegError(input) {
 };
 
 function printRightPassword(input) {
+
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "rightMessage";
     element.appendChild(document.createTextNode("Le password corrispondono"));
     parent.appendChild(element);
-}
+};
 
 function validateRegField(input) {
 
