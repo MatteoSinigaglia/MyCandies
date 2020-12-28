@@ -13,15 +13,36 @@
 
 <body onload="load();">
 <div id="header">
+	<a class="helps" href="#productContent">Vai al contenuto</a>
+	<div id="headerLogoAndUtility">
+		<div id="imageContainer">
+			<img id="logo" src="../img/logo.jpeg"
+				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+		</div>
+		<div id="utilityBar">
+			<form class="serchButton" id="headerSearchBar" action="#" method="get">
+				<div>				
+					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+						class="buttons" />
+				</div>
+			</form>
+
+			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+			<a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+		</div>
+	</div>
 	<div id="navigation">
 		<ul>
-			<li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
-			<li><a href="utenti_dashboard.html">Utenti</a></li>
-			<li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
-			<li><a href="prodottiDashboard">Prodotti</a></li>
+			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+			<li><a href="listaProdotti.html">Droghe</a></li>
+			<li><a href="listaProdotti.html">Accessori</a></li>
+			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="suDiNoi.html">Su Di Noi</a></li>
 		</ul>
 	</div>
-</div>
+</div> 
 
 <div id="breadcrumb">
 	<p><span xml:lang="en" lang="en">Dashboard</span> > / Utenti / Nome Utente (placeholder)</p>
