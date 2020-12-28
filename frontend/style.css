@@ -33,6 +33,7 @@ body {
 
 .formErrors {
     color: red;
+    padding: 0.5em;
 }
 
 .rightMessage {
@@ -90,6 +91,7 @@ textarea {
     border: 1px solid #ddd;
     padding: 0.8em;
     border-radius: 5px;
+    resize: none;
 }
 
 .buttons {
@@ -140,6 +142,11 @@ abbr {
 
 .inputForm a:visited {
     color: #6A994E;
+}
+
+.selectForm {
+    background-color: white;
+    border: 1px solid #DDD;
 }
 /*
 ==================================TABELLE======================

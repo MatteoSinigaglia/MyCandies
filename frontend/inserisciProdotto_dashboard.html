@@ -7,11 +7,11 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" media="screen" />
+    <link rel="stylesheet" href="../frontend/style.css" media="screen" />
+    <script type="text/javascript" src="../frontend/checkInserisciProdotto.js"></script>
 </head>
 
-<body>
+<body onload="load();">
     <div id="header">
         <div id="navigation">
             <ul>
@@ -28,43 +28,41 @@
     </div>
 
     <div id="inserisciProdottoDashboard" class="main">
-        <form action="#" method="post" class="inputForm">
+        <form action="#" method="post" class="inputForm" onsubmit = "return validateForm();">
             <fieldset>
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>
                 <!-- Nome prodotto -->
                 <label for="productName">Nome prodotto:</label>
-                    <input type="text" id="productName" name="productName" maxlength="30" />
+                    <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
                 <!-- Descrizione prodotto -->
                 <label for="productDescription">Descrizione prodotto:</label>
-                    <textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea>
+                    <span><textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea></span>
                 <!-- Immagine prodotto -->
                 <label for="productImage">Immagine prodotto:</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" />
+                    <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
-                    <input type="text" id="productPrice" name="productPrice" /> <!-- controlli via php-->
+                    <span><input type="text" id="productPrice" name="productPrice" /></span><!-- controlli via php-->
                 <!-- Categoria -->
                 <label for="category">Categoria:</label>
-                    <input type="text" id="category" name="category" maxlength="20" />
+                    <select id="category" name="category" class="selectForm">
+                        <option value="" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
+                    </select>
                 <!-- Tipologia -->
                 <label for="type">Tipologia:</label>
-                    <input type="text" id="type" name="type" maxlength="20" />
+                    <select id="type" name="type" class="selectForm">
+                        <option value="" selected="selected" disabled="disabled">-- Seleziona tipologia --</option>
+                    </select>
                 <!-- Componenti attivi -->
                 <label for="drugComponents">Componenti Attivi:</label>
-                    <input type="text" id="drugComponents" name="drugComponents" maxlength="40" />
+                    <span><input type="text" id="drugComponents" name="drugComponents" maxlength="40" /></span>
                 <!-- Effetti -->
                 <label for="effects">Effetti:</label>
-                    <input type="text" id="effects" name="effects" maxlength="20" />
+                    <span><input type="text" id="effects" name="effects" maxlength="20" /></span>
                 <!-- Effetti collaterali -->
                 <label for="sideEffects">Effetti collaterali:</label>
-                    <input type="text" id="sideEffects" name="sideEffects" value="" maxlength="20" />
-                <!-- Tossicità -->
-                <label for="toxicity">Tossicità:</label>
-                    <input type="text" id="toxicity" name="toxicity" value="" maxlength="20" />
-                <!-- Danni fisici e mentali -->
-                <label for="damage">Danni fisici e mentali:</label>
-                    <input type="text" id="damage" name="damage" value="" maxlength="20" />
+                    <span><input type="text" id="sideEffects" name="sideEffects" value="" maxlength="20" /></span><br/>
                 <!-- Buttons -->
                 <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
                 <input type="reset" id="cancella" value="Cancella" class="buttons" />
