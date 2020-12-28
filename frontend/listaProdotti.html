@@ -17,51 +17,36 @@
 <body>
 
 <div id="header">
-    <a class="helps" href="#loginForm">Vai al
-        <span xml:lang="en" lang="en">form</span>
-        di
-        <span xml:lang="en" lang="en">login</span>
-    </a>
-    <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
+    <a class="helps" href="#productList">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-            <img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+            <img id="logo" src="../img/logo.jpeg"
+                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </div>
         <div id="utilityBar">
-            <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
-                <div>
-                    <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
-                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
+            <form class="serchButton" id="headerSearchBar" action="#" method="get">
+                <div>				
+                    <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+                        class="buttons" />
                 </div>
             </form>
+
             <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
             <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p>
-            <!-- hidden -->
+            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
     </div>
     <div id="navigation">
-        <ul role="menu">
-            <li xml:lang="en">
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#productList">Droghe</a>
-            </li>
-            <li>
-                <a href="#">Accessori</a>
-            </li>
-            <li>
-                <a href="#">
-                    <abbr title="Frequently Asked Questions">FAQ</abbr>
-                </a>
-            </li>
-            <li>
-                <a href="suDiNoi.html">Su Di Noi</a>
-            </li>
+        <ul>
+            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+            <li><a href="listaProdotti.html">Droghe</a></li>
+            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+            <li><a href="suDiNoi.html">Su Di Noi</a></li>
         </ul>
     </div>
-</div>
+</div> 
 <div class="main" id="productList">
     <div id="filters">
         <h1>Filtri di Ricerca</h1>

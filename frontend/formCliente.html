@@ -17,180 +17,195 @@
 
 <body onload="load();">
 <div id="header">
-  <a class="helps" href="#loginAndRegistrationContent">Vai al contenuto</a>
+  <a class="helps" href="#loginForm">Vai al
+      <span xml:lang="en" lang="en">form</span>
+      di
+      <span xml:lang="en" lang="en">login</span>
+  </a>
+  <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
   <div id="headerLogoAndUtility">
-    <div id="imageContainer">
-      <img id="logo" src="../img/logo.jpeg"
-        alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
-    </div>
-    <div id="utilityBar">
-      <form class="serchButton" id="headerSearchBar" action="#" method="get">
-        <div>				
-          <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-          <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-            class="buttons" />
-        </div>
-      </form>
-
-      <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-      <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-      <p id="headerUsername">nomeUtente</p> <!-- hidden -->
-    </div>
+      <div id="imageContainer">
+          <img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+      </div>
+      <div id="utilityBar">
+          <form role="search" class="serchButton" id="headerSearchBar" action="#" method="get">
+              <div>
+                  <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
+                  <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
+              </div>
+          </form>
+          <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+          <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+          <p id="headerUsername">nomeUtente</p>
+          <!-- hidden -->
+      </div>
   </div>
   <div id="navigation">
-    <ul>
-      <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
-      <li><a href="listaProdotti.html">Droghe</a></li>
-      <li><a href="#">Accessori</a></li>
-      <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-      <li><a href="suDiNoi.html">Su Di Noi</a></li>
-    </ul>
+      <ul role="menu">
+          <li xml:lang="en">
+              <a href="#">Home</a>
+          </li>
+          <li>
+              <a href="#productList">Droghe</a>
+          </li>
+          <li>
+              <a href="#">Accessori</a>
+          </li>
+          <li>
+              <a href="#">
+                  <abbr title="Frequently Asked Questions">FAQ</abbr>
+              </a>
+          </li>
+          <li>
+              <a href="suDiNoi.html">Su Di Noi</a>
+          </li>
+      </ul>
   </div>
 </div>  
 
-  <div id="loginAndRegistrationContent">
-    <div class="formContainer">
-      <h1>Accedi</h1>
-      <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();">
-        <fieldset id="loginFieldset">
-          <!-- Legenda -->
-          <legend id="loginLegend"> E-mail e Password </legend>
-          <!-- Campo user -->
-          <label for="loginEmail">E-mail:</label>
-          <span><input type="text" id="loginEmail" name="loginEmail" maxlength="40" /></span>
-          <!-- Campo password -->
-          <label for="loginPassword">Password:</label>
-          <span><input type="password" id="loginPassword" name="loginPassword" maxlength="50" /></span>
-          <!-- link recupero credenziali -->
-          <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
-          <!-- Buttons -->
-          <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
-          <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
-        </fieldset>
-      </form>
-      </div>
-    <div class="formContainer">
-    <h1>Registrati</h1>
-    <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
-      <fieldset id="mandatoryFields">
-        <div>
-          <label for="email">E-mail</label>
-          <span><input type="text" name="email" id="email" class="input-wide"/></span>
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <span><input type="password" name="password" id="password" maxlength="20"/></span>
-        </div>
-        <div>
-          <label for="confirmPassword">Conferma password</label>
-          <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="20" /></span>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Dati personali</legend>
-        <div>
-          <label for="name">Nome</label>
-          <span><input type="text" name="name" id="name"/></span>
-        </div>
-        <div>
-          <label for="surname">Cognome</label>
-          <span><input type="text" name="surname" id="surname"/></span>
-        </div>
-        <div>
-          <label for="address">Indirizzo e civico</label>
-          <span><input type="text" name="address" id="address"/></span>
-        </div>
-        <div>
-          <label for="area">Provincia</label>
-          <span><input type="text" name="area" id="area"/></span>
-        </div>
-        <div>
-          <label for="city">Città</label>
-          <span><input type="text" name="city" id="city" /></span>
-        </div>
-        <div>
-          <label for="cap">CAP</label>
-          <span><input type="text" name="cap" id="cap" maxlength="5"/></span><br/>
-          <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
-        </div>
+<div id="loginAndRegistrationContent">
+  <div class="formContainer">
+    <h1>Accedi</h1>
+    <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();">
+      <fieldset id="loginFieldset">
+        <!-- Legenda -->
+        <legend id="loginLegend"> E-mail e Password </legend>
+        <!-- Campo user -->
+        <label for="loginEmail">E-mail:</label>
+        <span><input type="text" id="loginEmail" name="loginEmail" maxlength="40" /></span>
+        <!-- Campo password -->
+        <label for="loginPassword">Password:</label>
+        <span><input type="password" id="loginPassword" name="loginPassword" maxlength="50" /></span>
+        <!-- link recupero credenziali -->
+        <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
+        <!-- Buttons -->
+        <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
+        <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
       </fieldset>
     </form>
     </div>
+  <div class="formContainer">
+  <h1>Registrati</h1>
+  <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
+    <fieldset id="mandatoryFields">
+      <div>
+        <label for="email">E-mail</label>
+        <span><input type="text" name="email" id="email" class="input-wide"/></span>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <span><input type="password" name="password" id="password" maxlength="20"/></span>
+      </div>
+      <div>
+        <label for="confirmPassword">Conferma password</label>
+        <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="20" /></span>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Dati personali</legend>
+      <div>
+        <label for="name">Nome</label>
+        <span><input type="text" name="name" id="name"/></span>
+      </div>
+      <div>
+        <label for="surname">Cognome</label>
+        <span><input type="text" name="surname" id="surname"/></span>
+      </div>
+      <div>
+        <label for="address">Indirizzo e civico</label>
+        <span><input type="text" name="address" id="address"/></span>
+      </div>
+      <div>
+        <label for="area">Provincia</label>
+        <span><input type="text" name="area" id="area"/></span>
+      </div>
+      <div>
+        <label for="city">Città</label>
+        <span><input type="text" name="city" id="city" /></span>
+      </div>
+      <div>
+        <label for="cap">CAP</label>
+        <span><input type="text" name="cap" id="cap" maxlength="5"/></span><br/>
+        <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
+      </div>
+    </fieldset>
+  </form>
   </div>
+</div>
 
-  <div id="footer">
-    <div id="upperFooterContainer">
-        <div id="contacts">
-            <h2>Contatti:</h2>
-            <ul class="stylelessList">
-                <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
-                </li>
-                <li>Contatti: +911 112113</li>
-                <li>
-                    <a href="mailto:mycandys@deepweb.com">Scrivici</a>
-                </li>
-            </ul>
-        </div>
+<div id="footer">
+  <div id="upperFooterContainer">
+      <div id="contacts">
+          <h2>Contatti:</h2>
+          <ul class="stylelessList">
+              <li>
+                  <a href="">Chi siamo</a>
+              </li>
+              <li>
+                  <a href="">Centro assistenza</a>
+              </li>
+              <li>Contatti: +911 112113</li>
+              <li>
+                  <a href="mailto:mycandys@deepweb.com">Scrivici</a>
+              </li>
+          </ul>
+      </div>
 
-        <div id="stores">
-            <h2>Punti vendita:</h2>
-            <div>
-                <h3>Mestre stazione</h3>
-                <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
-                    <li>Lunedì chiuso</li>
-                    <li>Via Piave 300</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Padova Arcella</h3>
-                <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
-                    <li>Martedì chiuso</li>
-                    <li>Via Anelli 400</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Padova Luzzatti Paolotti</h3>
-                <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
-                    <li>Chiuso nei weekend</li>
-                    <li>Via Marzolo 600</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Padova Portello</h3>
-                <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
-                    <li>Chiuso nei weekend</li>
-                    <li>Via del Portello 800</li>
-                </ul>
-            </div>
-        </div>
-        <div id="social">
-            <h2>
-                <span xml:lang="en" lang="en">Link social:</span>
-            </h2>
-            <h3>Puoi trovarci su:</h3>
-            <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
-                </li>
-                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
-                </li>
-                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
-                </li>
-                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="diritti">
-        <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
-    </div>
+      <div id="stores">
+          <h2>Punti vendita:</h2>
+          <div>
+              <h3>Mestre stazione</h3>
+              <ul class="stylelessList">
+                  <li>Orario: 4-20</li>
+                  <li>Lunedì chiuso</li>
+                  <li>Via Piave 300</li>
+              </ul>
+          </div>
+          <div>
+              <h3>Padova Arcella</h3>
+              <ul class="stylelessList">
+                  <li>Orario: 4-20</li>
+                  <li>Martedì chiuso</li>
+                  <li>Via Anelli 400</li>
+              </ul>
+          </div>
+          <div>
+              <h3>Padova Luzzatti Paolotti</h3>
+              <ul class="stylelessList">
+                  <li>Orario: 4-20</li>
+                  <li>Chiuso nei weekend</li>
+                  <li>Via Marzolo 600</li>
+              </ul>
+          </div>
+          <div>
+              <h3>Padova Portello</h3>
+              <ul class="stylelessList">
+                  <li>Orario: 4-20</li>
+                  <li>Chiuso nei weekend</li>
+                  <li>Via del Portello 800</li>
+              </ul>
+          </div>
+      </div>
+      <div id="social">
+          <h2>
+              <span xml:lang="en" lang="en">Link social:</span>
+          </h2>
+          <h3>Puoi trovarci su:</h3>
+          <ul class="stylelessList">
+              <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+              </li>
+              <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+              </li>
+              <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+              </li>
+              <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div id="diritti">
+      <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+  </div>
 </div>
 </body>
 </html>
