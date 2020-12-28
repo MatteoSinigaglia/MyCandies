@@ -1,111 +1,142 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
-    <head>
-        <title>Home - MyCandies</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="title" content="Home - MyCandies"/>
-        <meta name="description" content="Pagina realizzata per introdurre il sito"/>
-        <meta name="author" content="MyCandies&amp;co"/>
+<head>
+    <title>Home - MyCandies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Home - MyCandies"/>
+    <meta name="description" content="Pagina realizzata per introdurre il sito"/>
+    <meta name="author" content="MyCandies&amp;co"/>
 
-        <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen"/>
-    </head>
+    <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen"/>
+</head>
 
-    <body>
-        <div id="breadcrumb">
-            <p>Ti trovi in: Home</p>
+<body>
+<div id="header">
+    <a class="helps" href="#contentHome">Vai al contenuto</a>
+    <div id="headerLogoAndUtility">
+        <div id="imageContainer">
+            <img id="logo" src="../img/logo.jpeg"
+                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </div>
-        <div id="contentHome">
-            <div id="offerte">
-                <h1>
-                    <a href="#">Offerte</a>
-                </h1>
+        <div id="utilityBar">
+            <form class="serchButton" id="headerSearchBar" action="#" method="get">
+                <div>				
+                    <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
+                        class="buttons" />
+                </div>
+            </form>
+
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
+            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
+            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+        </div>
+    </div>
+    <div id="navigation">
+        <ul>
+            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+            <li><a href="listaProdotti.html">Droghe</a></li>
+            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+            <li><a href="suDiNoi.html">Su Di Noi</a></li>
+        </ul>
+    </div>
+</div> 
+<div id="breadcrumb">
+    <p>Ti trovi in: Home</p>
+</div>
+<div id="contentHome">
+    <div id="offerte">
+        <h1>
+            <a href="#">Offerte</a>
+        </h1>
+    </div>
+    <div id="newArrival">
+        <h1>
+            <a href="#">Nuovi arrivi</a>
+        </h1>
+    </div>
+    <div id="topSold">
+        <h1>
+            <a href="#">I più venduti</a>
+        </h1>
+    </div>
+</div>
+<div id="footer">
+    <div id="upperFooterContainer">
+        <div id="contacts">
+            <h2>Contatti:</h2>
+            <ul class="stylelessList">
+                <li>
+                    <a href="">Chi siamo</a>
+                </li>
+                <li>
+                    <a href="">Centro assistenza</a>
+                </li>
+                <li>Contatti: +911 112113</li>
+                <li>
+                    <a href="mailto:mycandys@deepweb.com">Scrivici</a>
+                </li>
+            </ul>
+        </div>
+        <div id="stores">
+            <h2>Punti vendita:</h2>
+            <div>
+                <h3>Mestre stazione</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4-20</li>
+                    <li>Lunedì chiuso</li>
+                    <li>Via Piave 300</li>
+                </ul>
             </div>
-            <div id="newArrival">
-                <h1>
-                    <a href="#">Nuovi arrivi</a>
-                </h1>
+            <div>
+                <h3>Padova Arcella</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4-20</li>
+                    <li>Martedì chiuso</li>
+                    <li>Via Anelli 400</li>
+                </ul>
             </div>
-            <div id="topSold">
-                <h1>
-                    <a href="#">I più venduti</a>
-                </h1>
+            <div>
+                <h3>Padova Luzzatti Paolotti</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4-20</li>
+                    <li>Chiuso nei weekend</li>
+                    <li>Via Marzolo 600</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Padova Portello</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4-20</li>
+                    <li>Chiuso nei weekend</li>
+                    <li>Via del Portello 800</li>
+                </ul>
             </div>
         </div>
-        <div id="footer">
-            <div id="upperFooterContainer">
-                <div id="contacts">
-                    <h2>Contatti:</h2>
-                    <ul class="stylelessList">
-                        <li>
-                            <a href="">Chi siamo</a>
-                        </li>
-                        <li>
-                            <a href="">Centro assistenza</a>
-                        </li>
-                        <li>Contatti: +911 112113</li>
-                        <li>
-                            <a href="mailto:mycandys@deepweb.com">Scrivici</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="stores">
-                    <h2>Punti vendita:</h2>
-                    <div>
-                        <h3>Mestre stazione</h3>
-                        <ul class="stylelessList">
-                            <li>Orario: 4-20</li>
-                            <li>Lunedì chiuso</li>
-                            <li>Via Piave 300</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Padova Arcella</h3>
-                        <ul class="stylelessList">
-                            <li>Orario: 4-20</li>
-                            <li>Martedì chiuso</li>
-                            <li>Via Anelli 400</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Padova Luzzatti Paolotti</h3>
-                        <ul class="stylelessList">
-                            <li>Orario: 4-20</li>
-                            <li>Chiuso nei weekend</li>
-                            <li>Via Marzolo 600</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Padova Portello</h3>
-                        <ul class="stylelessList">
-                            <li>Orario: 4-20</li>
-                            <li>Chiuso nei weekend</li>
-                            <li>Via del Portello 800</li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="social">
-                    <h2>
-                        <span xml:lang="en" lang="en">Link social:</span>
-                    </h2>
-                    <h3>Puoi trovarci su:</h3>
-                    <ul class="stylelessList">
-                        <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
-                        </li>
-                        <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
-                        </li>
-                        <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
-                        </li>
-                        <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="diritti">
-                <p>
-                    MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova
-                </p>
-            </div>
+        <div id="social">
+            <h2>
+                <span xml:lang="en" lang="en">Link social:</span>
+            </h2>
+            <h3>Puoi trovarci su:</h3>
+            <ul class="stylelessList">
+                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                </li>
+                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                </li>
+                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                </li>
+                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                </li>
+            </ul>
         </div>
-    </body>
+    </div>
+    <div id="diritti">
+        <p>
+            MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova
+        </p>
+    </div>
+</div>
+</body>
 </html>
