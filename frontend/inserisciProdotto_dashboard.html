@@ -28,7 +28,7 @@
     </div>
 
     <div id="inserisciProdottoDashboard" class="main">
-        <form action="#" method="post" class="inputForm">
+        <form action="../backend/inserisciProdottoPhp.php" method="post" class="inputForm">
             <fieldset>
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>
@@ -46,10 +46,9 @@
                     <input type="text" id="productPrice" name="productPrice" /> <!-- controlli via php-->
                 <!-- Categoria -->
                 <label for="category">Categoria:</label>
-                    <input type="text" id="category" name="category" maxlength="20" />
-                <!-- Tipologia -->
-                <label for="type">Tipologia:</label>
-                    <input type="text" id="type" name="type" maxlength="20" />
+                <select name="category" id="category">
+                    <categoryOptions />
+                </select>
                 <!-- Componenti attivi -->
                 <label for="drugComponents">Componenti Attivi:</label>
                     <input type="text" id="drugComponents" name="drugComponents" maxlength="40" />
