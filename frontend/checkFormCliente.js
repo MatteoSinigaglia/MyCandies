@@ -47,8 +47,12 @@ function load() {
     for(var i in form_login) {
         var input = document.getElementById(i);
         defaultLoginValue(input);
-        input.onfocus = function() {noDefaultLogin(this);};
-        input.onblur = function() {defaultLoginValue(this);};
+        input.onfocus = function() {
+            noDefaultLogin(this);
+        };
+        input.onblur = function() {
+            defaultLoginValue(this);
+        };
     }
 
     for(var i in form_registrazione) {
