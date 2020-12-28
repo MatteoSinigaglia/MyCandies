@@ -15,6 +15,7 @@
                 $categories = array();
                 while($row = mysqli_fetch_array($queryResult)) {
                     $category = array(
+                        "id"          => $row['id'],
                         "name"        => $row['name'], 
                         "description" => $row['description']
                     );
@@ -47,6 +48,18 @@
             }
             $htmlPage = str_replace($placeholder, $categoriesOptions, $htmlPage);
             return $htmlPage;
+        }
+
+        public function getId($name) {
+            $categories = $this->getCategories();
+            $id = null;
+            $i = 0;
+            while(count($categories)>$i && $categories[$i]['name'] != $name) {
+                if($categories[$i]['name'] == $name)
+                    $id = $category['id'];
+                $i=$i+1;
+            }
+            return $id;
         }
     }
 ?>

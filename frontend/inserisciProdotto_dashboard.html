@@ -44,28 +44,19 @@
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
                     <input type="text" id="productPrice" name="productPrice" /> <!-- controlli via php-->
+                <!-- Quantità -->
+                    <label for="productAvail">Quantità:</label>
+                    <input type="text" id="productAvail" name="productAvail" />
                 <!-- Categoria -->
-                <label for="category">Categoria:</label>
-                <select name="category" id="category">
+                <label for="productCategory">Categoria:</label>
+                <select name="productCategory" id="productCategory">
                     <categoryOptions />
                 </select>
                 <!-- Componenti attivi -->
                 <label for="drugComponents">Componenti Attivi:</label>
-                    <input type="text" id="drugComponents" name="drugComponents" maxlength="40" />
-                <!-- Effetti -->
-                <label for="effects">Effetti:</label>
-                    <input type="text" id="effects" name="effects" maxlength="20" />
-                <!-- Effetti collaterali -->
-                <label for="sideEffects">Effetti collaterali:</label>
-                    <input type="text" id="sideEffects" name="sideEffects" value="" maxlength="20" />
-                <!-- Tossicità -->
-                <label for="toxicity">Tossicità:</label>
-                    <input type="text" id="toxicity" name="toxicity" value="" maxlength="20" />
-                <!-- Danni fisici e mentali -->
-                <label for="damage">Danni fisici e mentali:</label>
-                    <input type="text" id="damage" name="damage" value="" maxlength="20" />
+                    <activePrinciples />
                 <!-- Buttons -->
-                <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
+                <input type="submit" id="aggiungi" name="aggiungi" value="Aggiungi Prodotto" class="buttons" />
                 <input type="reset" id="cancella" value="Cancella" class="buttons" />
             </fieldset>
         </form>

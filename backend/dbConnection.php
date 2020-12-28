@@ -28,5 +28,9 @@ DBAccess::PASSWORD, DBAccess::DATABASE_NAME);
   public function getConnection() {
     return $this->connection;
   }
+
+  public function closeConnection() {
+    return $this->connection->close();
+  }
 }
 ?>
