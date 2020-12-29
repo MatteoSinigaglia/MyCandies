@@ -30,7 +30,7 @@ CREATE TABLE `Customers` (
 	`email` varchar(50) NOT NULL,
 	`telephone` char(10),
 	`password` varchar(255) NOT NULL,
-	`sex` enum(`M`, `F`, `O`),
+	`sex` enum('M', 'F', 'O'),
 	`date_of_birth` date NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -46,6 +46,7 @@ CREATE TABLE `Addresses` (
 	`province` varchar(20) NOT NULL,
 	`city` varchar(20) NOT NULL,
 	`CAP` varchar(5) NOT NULL,
+	`street` varchar(30) NOT NULL,
 	`street_number` int(10) NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
