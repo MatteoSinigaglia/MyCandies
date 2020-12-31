@@ -28,7 +28,7 @@
     </div>
 
     <div id="inserisciProdottoDashboard" class="main">
-        <form action="../backend/inserisciProdottoPhp.php" method="post" class="inputForm">
+        <form action="../backend/inserisciProdottoPhp.php" method="post" class="inputForm" enctype="multipart/form-data">
             <fieldset>
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>
@@ -43,7 +43,7 @@
                     <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" />
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
-                    <input type="text" id="productPrice" name="productPrice" /> <!-- controlli via php-->
+                    <input type="text" id="productPrice" name="productPrice" />
                 <!-- Quantità -->
                     <label for="productAvail">Quantità:</label>
                     <input type="text" id="productAvail" name="productAvail" />
