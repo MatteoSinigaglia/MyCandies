@@ -1,15 +1,15 @@
 var form_login = {
-    "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,3})$/, "La mail inserita non è corretta"],
-    "loginPassword": ["password", /\w{5,20}/,"La password inserita non è corretta"]
+    "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,3})$/, "La mail inserita non è corretta"],
+    "password": ["password", /\w{5,20}/,"La password inserita non è corretta"]
 };
 
 var form_registrazione = {
     "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,3})$/ , "La mail inserita non è corretta"],
     "password": ["password", /\w{5,20}/,"La password inserita non è corretta"],
     "confirmPassword": ["password", /\w{5,20}/,"La password non corrisponde"],
-    "name": ["Inserisci nome", /^\[a-zA-Z]{5,20}/ , "Nome non corretto"],
-    "surname": ["Inserisci cognome", /^\[a-zA-Z]{5,20}/, "Cognome non corretto"],
-    "address": ["Inserisci indirizzo", /[a-zA-Z]{3}\s[a-zA-Z]+\s\d+/, "Indirizzo non corretto"],
+    "name]": ["Inserisci nome", /^\[a-zA-Z]{5,20}/ , "Nome non corretto"],
+    "surname]": ["Inserisci cognome", /^\[a-zA-Z]{5,20}/, "Cognome non corretto"],
+    "address]": ["Inserisci indirizzo", /[a-zA-Z]{3}\s[a-zA-Z]+\s\d+/, "Indirizzo non corretto"],
     "area": ["Inserisci provincia", /[A-Z]{2}/, "Provincia non corretta"],
     "city": ["Inserisci città", /[a-zA-Z]{2,20}/, "Città non corretta"],
     "cap": ["Inserisci CAP", /\d{5}/, "CAP non corretto"]
