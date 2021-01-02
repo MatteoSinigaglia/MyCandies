@@ -72,10 +72,10 @@
         <legend id="loginLegend"> E-mail e Password </legend>
         <!-- Campo user -->
         <label for="loginEmail">E-mail:</label>
-        <span><input type="text" id="loginEmail" name="loginEmail" maxlength="40" /></span>
+        <span><input type="text" id="loginEmail" name="loginEmail" /></span>
         <!-- Campo password -->
         <label for="loginPassword">Password:</label>
-        <span><input type="password" id="loginPassword" name="loginPassword" maxlength="50" /></span>
+        <span><input type="password" id="loginPassword" name="loginPassword" maxlength="20" /></span>
         <!-- link recupero credenziali -->
         <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
@@ -112,20 +112,24 @@
         <span><input type="text" name="surname" id="surname"/></span>
       </div>
       <div>
-        <label for="address">Indirizzo e civico</label>
+        <label for="address">Indirizzo</label>
         <span><input type="text" name="address" id="address"/></span>
       </div>
       <div>
-        <label for="area">Provincia</label>
-        <span><input type="text" name="area" id="area"/></span>
+        <label for="address_number">Civico</label>
+        <span><input type="text" name="address_number" id="address_number"/></span>
       </div>
       <div>
         <label for="city">Città</label>
         <span><input type="text" name="city" id="city" /></span>
       </div>
       <div>
+        <label for="area">Provincia</label>
+        <span><input type="text" name="area" id="area"/></span>
+      </div>
+      <div>
         <label for="cap">CAP</label>
-        <span><input type="text" name="cap" id="cap" maxlength="5"/></span><br/>
+        <span><input type="text" name="cap" id="cap" maxlength="5" /></span><br/>
         <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
       </div>
     </fieldset>
