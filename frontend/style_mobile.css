@@ -1,0 +1,660 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+body {
+    margin: auto;
+    background-color: white;
+    font-family: "Arial", cursive, sans-serif;
+}
+
+.main {
+    margin: auto;
+    max-width: 1280px;
+}
+
+.helps {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.default-text {
+    color: rgba(10, 8, 8, 0.479);
+}
+
+.formErrors {
+    color: red;
+    padding: 0.5em;
+}
+
+.rightMessage {
+    color: green;
+}
+
+#breadcrumb {
+    text-align: left;
+    padding: 1.5em;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    color: black;
+    background-color: #a7c957;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    margin: 0.5em;
+}
+
+
+h2 {
+    font-size:1.3em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+fieldset {
+    padding-bottom: 0.5em;
+    border: none;
+}
+
+label,
+legend {
+    display: block;
+    font-weight: 700;
+    padding: 0.5em;
+}
+
+legend {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 0.8em;
+    border-radius: 5px;
+    resize: none;
+}
+
+.buttons {
+    padding: 0.7em 1.5em;
+    margin: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #6A994E;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.buttons:hover {
+    border: 1px solid white;
+    background-color: #A7C957;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+/*
+==================================FORMS========================
+*/
+
+.inputForm {
+    margin: 2em auto 1em auto;
+    text-align: left;
+    min-width: 20em;
+    max-width: 25em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 1em;
+    background-color: #F2E8CF
+}
+
+.inputForm a {
+    font-weight: bold;
+    display: block;
+}
+
+.inputForm a:hover {
+    color: red;
+}
+
+.inputForm a:visited {
+    color: #6A994E;
+}
+
+.selectForm {
+    background-color: white;
+    border: 1px solid #DDD;
+}
+/*
+==================================TABELLE======================
+*/
+
+table {
+    margin: 3em auto 3em auto;
+    width: 75%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table td, th{
+    padding: 0.5em;
+    border: 1px solid #000;
+}
+
+table th {
+    background-color: #a7c957;
+    border: 1px solid #000;
+}
+
+/*------- HEADER -------------------------------------------------------------------------------*/
+
+#header {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    background-color: #051C0B;
+}
+
+#headerLogoAndUtility {
+    display: inline-block;
+    width: 100%;
+}
+
+#logo {
+    width: 100%;
+    height: 100%;
+}
+
+#imageContainer {
+    vertical-align: middle;
+    width: 15%;
+    display: inline-block;
+}
+
+#utilityBar {
+    padding: 1em;
+    display: inline;
+}
+
+#headerSearchBar div {
+    display: inline;
+}
+
+#headerSearchBar {
+    display: inline;
+}
+
+#productSearchBar {
+    padding: 0.7em;
+    width: 50%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    min-width: 25em;
+}
+
+#headerUsername {
+    float: right;
+    display: none;
+}
+
+/*----------- MENU ---------------------------------------------------------------------------*/
+
+#navigation {
+    clear: both;
+    text-align: center;
+    background-color: #6A994E;
+    padding: 0.8em;
+    list-style-type: none;
+}
+
+#navigation li {
+    display: inline;
+    padding: 0.3% 1%;
+    margin: 0.2% 1.5%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+#navigation li:hover {
+    text-decoration: underline;
+}
+
+#navigation a:link {
+    text-decoration: none;
+    color: white;
+}
+
+#navigation a:visited {
+    color: #051C0B;
+}
+
+/*--------- FINE HEADER -------------------------------------------------------------------------*/
+
+/*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
+
+#productContent h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+#productContenitor {
+    background-color: #F2E8CF;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    margin-right: 0.5em;
+}
+
+#productContenitor dl dt {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-left: 0.6em;
+}
+
+#productContenitor dl dd {
+    min-height: 12em;
+}
+
+#productContenitor dl dd img {
+    float: left;
+    width: 20%;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+#productContenitor dl dd p {
+    width: 75%;
+    padding: 0.5em 1em;
+    margin-left: 22%;
+}
+
+#addToCartButton {
+    float: right;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 2.5em;
+}
+
+/*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
+#productTableContent {
+    border-radius: 10px;
+    background-color: #6A994E;
+    margin-bottom: 1em;
+}
+
+#productTableContent table {
+    margin: 1em auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#productTableContent tr,
+td,
+th {
+    border: 1px solid transparent;
+    padding: 0.3em 0.5em;
+}
+
+#productTableContent th {
+    border-bottom: 1px solid #DDD;
+    background-color: transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
+}
+
+#productTableContent td {
+    color: white;
+    border: 1px solid transparent;
+}
+
+/*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
+
+/*-------------------LOGIN/REGISTRAZIONE-----------------  */
+#loginAndRegistrationContent {
+    margin: auto;
+    text-align: center;
+    padding: 3em;
+}
+
+.formContainer {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1em 3em auto 3em;
+}
+
+/*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
+
+/*---------- CARRELLO --------------------------------------------------------------------------*/
+
+#cartContent {
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+}
+
+#cartContent img {
+    float: left;
+    width: 10%;
+    margin: 1em 3em;
+}
+
+#cartContent h1 {
+    float: left;
+    margin-top: 5em;
+}
+
+#selectedProduct {
+    clear: left;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+    background-color: #F2E8CF;
+}
+
+#purchaseButton {
+    margin-top: 0.5em;
+    margin-left: 56em;
+    margin-bottom: 0.5em;
+}
+
+/*
+==================================Lista prodotti================================
+*/
+#filters {
+    float: left;
+    max-width: 20%;
+    min-width: 150px;
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+#filters form div {
+    text-align: center;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+#filters label {
+    display: inline;
+}
+
+#filters input[type="text"] {
+    width: 4em;
+}
+
+#rightSideContent {
+    overflow: hidden;
+    padding: 1em;
+}
+
+#rightSideContent div {
+    overflow: hidden;
+}
+
+#upperRightSideContent {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
+}
+
+select {
+    padding: 0.3em;
+    border-radius: 5px;
+    background-color: #c5c4c4;
+}
+
+.hiddenChoice {
+    display: none;
+}
+
+#orderBy {
+    float: left;
+}
+
+#productsPerPage {
+    text-align: right;
+}
+
+#productsList {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+/* queste regole che seguono sono in previsione di oggetti per il negozio */
+.singleProduct {
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    border: 1px solid #ddd;
+}
+
+.singleProduct img {
+    text-align: center;
+    padding: 1em;
+}
+
+/* titolo del box che contiene il prodotto e descrizione del prodotto*/
+.singleProduct h2,
+p {
+    text-align: left;
+}
+
+#productsPageNumber {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+/*
+============== SU DI NOI =====================================================================
+*/
+
+#suDiNoiContainer {
+    width: 90%;
+    margin: 3em auto;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    background-color: #F2E8CF;
+}
+
+#suDiNoiContainer h1 {
+    margin-top: 0.5em;
+}
+
+#companyHistory {
+    padding: 0.5em 1em;
+}
+
+#drugsImages {
+    margin: auto;
+}
+
+#img1,
+#img2,
+#img3 {
+    max-width: 25em;
+    max-height: 12em;
+    margin: 0 1em;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+}
+
+#img1 {
+    margin-left: 10%;
+}
+
+#img3 {
+    margin-right: 10%;
+}
+
+/*
+====================FAQ=======================================
+*/
+
+.stylelessList {
+list-style-type:none;
+text-align: left;
+}
+
+#contentFAQ li {
+border: 1px solid;
+padding:1em;
+border-radius: 1.5em;
+margin-bottom:2em;
+background-color: #F2E8CF;
+}
+/*
+============ FOOTER ===========================================================================
+*/
+#footer {
+    display: inline-block;
+    width: 100%;
+    background-color: #051C0B;
+    color: white;
+    min-height: 10em;
+    margin-top: 2em;
+}
+
+#footer div {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#upperFooterContainer {
+    width: 100%;
+}
+
+#footer h3 {
+font-size: 1em;
+margin-bottom: 0.5em;
+}
+
+/*
+=================== CONTATTI ===================================================================
+*/
+
+#contacts {
+    margin: 1em;
+}
+
+#contacts a:link, a:visited, a:hover{
+color: white;
+text-decoration: none;
+}
+
+#contacts a:hover {
+text-decoration: underline;
+}
+
+/* 
+================== PUNTI VENDITA ==============================================================
+*/
+
+#stores{
+    min-width: 78%;
+    margin: 1em;
+}
+
+#stores div {
+padding-right: 2em;
+min-width: 11em;
+}
+
+#stores h3 {
+    text-align: left;
+}
+
+/* 
+=============== SOCIAL ==========================================================================
+*/
+
+#social {
+    margin: 1em;
+}
+
+#social a:link{
+text-decoration: none;
+color: white;
+}
+
+#social img{
+width: 1em;
+margin-right: 0.1em;
+}
+
+#diritti{
+width: 100%;
+color: #FFFFFF;
+background-color: #020E0A;
+}
+
+#diritti p {
+    margin: 1em;
+    font-weight: 600;
+}
+/*
+========================================HOME==========================
+*/
+
+#contentHome{
+    background-color: #F2E8CF;
+    height: 50em;
+    margin-top: 2em;
+}
+
+#offerte{
+    width:20%;
+    border:1px solid;
+    padding-top: 7.5em;
+    padding-bottom: 7.5em;
+    text-align: center;
+    float:left;
+    margin-left: 20%;
+    margin-top:1em;
+}
+#newArrival {
+    width:20%;
+    border:1px solid;
+    padding-top: 7.5em;
+    padding-bottom: 7.5em;
+    text-align: center;
+    float:right;
+    margin-right: 20%;
+    margin-top:1em;
+    margin-bottom: 2em;
+}
+
+#topSold{
+    width: 60%;
+    border: 1px solid;
+    clear: both;
+    margin-left:20%;
+    text-align: center;
+}
+
+
