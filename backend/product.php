@@ -9,10 +9,14 @@
         private $availability; // grammi, float
         private $linked_category; // int
         
-        private string $error; 
+        private $error; 
+
+        public function __construct() {
+            $this->error = "";
+        }
 
         public function __toString() {
-            return $error;
+            return $this->error;
         }
 
         /**
@@ -20,35 +24,42 @@
          * l'oggetto stesso invece di essere metodi
          * void.
          */
-        public function setCategory_id($_category_id) {
-            $this->category_id = $_category_id;
+        public function setCategory_id($category_id) {
+            $this->category_id = $category_id;
             return $this;
         }
 
-        public function setName($_name) {
-            $this->name = $_name;
+        public function setName($name) {
+            $this->name = $name;
             return $this;
         }
 
-        public function setDescription($_description) {
-            $this->description = $_description;
+        public function setDescription($description) {
+            $this->description = $description;
             return $this;
         }
 
-        public function setPrice($_price) {
-            $this->price = $_price;
+        public function setPrice($price) {
+            if(!preg_match('/^([1-9][0-9]{1,4}|0)(\.[0-9]{1,2})?$/',$price)) {
+                $this->error .= "<p>Il prezzo deve contenere cifre, al massimo 5 cifre intere e i decimali sono separati dal carattere .</p>";
+                $this->error .= "Valore del prezzo troppo alto";
+            }
+            $this->price = $price;
             return $this;
         }
 
-        public function setAvailability($_availability) {
-            $this->availability = $_availability;
+        public function setAvailability($availability) {
+            if(!preg_match('/^([1-9][0-9]{1,7}|0)$/',$availability))
+                $this->error .= "<p>La quantità di prodotto deve essere un valore numerico intero di al massimo 7 cifre</p>";
+            $this->availability = $availability;
             return $this;
         }   
 
-        public function setLinked_category($_linked_category=0) {
-            $this->linked_category = $_linked_category;
+        public function setLinked_category($linked_category=0) {
+            $this->linked_category = $linked_category;
             return $this;
         }
+
 
         /**
          * getters
