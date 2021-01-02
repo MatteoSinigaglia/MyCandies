@@ -28,17 +28,21 @@ class ProductHandler {
                 {$product->getLinked_category()}
             )"
             ;
-        echo $product->getCategory_id()
-        .$product->getName()
-        .$product->getDescription()
-        .$product->getPrice()
-        .$product->getAvailability()
-        .$product->getLinked_category();
         $queryResult = mysqli_query($this->connection, $insertQuery);
         if(mysqli_affected_rows($this->connection) > 0)
             return true;
         else
             return false;
+    }
+
+    public function getProductId($name) {
+        $selectQuery = "
+            select * from Products where name='{$name}'order by id asc";
+        $queryResult = mysqli_query($this->connection, $selectQuery);    
+        if(mysqli_num_rows($query)==0)
+            return null;
+        $result = mysqli_fetch_array($queryResult);
+        return $result['id'];
     }
 
     private function getProducts() {
