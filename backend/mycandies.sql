@@ -14,60 +14,62 @@ SET @description_size = 300;
 
 
 
-DROP TABLE IF EXISTS Images;
-CREATE TABLE Images (
-	id int NOT NULL AUTO_INCREMENT,
-	img_path text NOT NULL,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `Images`;
+CREATE TABLE `Images` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`img_path` text NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Customers;
-CREATE TABLE Customers (
-	id int NOT NULL AUTO_INCREMENT,
-	first_name varchar(40) NOT NULL,
-	last_name varchar(20) NOT NULL,
-	email varchar(50) NOT NULL,
-	password varchar(16) NOT NULL,
-	sex enum('M', 'F', 'O'),
-	date_of_birth date NOT NULL,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `Customers`;
+CREATE TABLE `Customers` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`first_name` varchar(40) NOT NULL,
+	`last_name` varchar(20) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`telephone` char(10),
+	`password` varchar(255) NOT NULL,
+	`sex` enum('M', 'F', 'O'),
+	`date_of_birth` date NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- TO DO: 
 /* Consider using different tables for countries, regions, province, cities */
-DROP TABLE IF EXISTS Addresses;
-CREATE TABLE Addresses (
-	id int NOT NULL AUTO_INCREMENT,
-	country varchar(20) NOT NULL,
-	region varchar(20) NOT NULL,
-	province varchar(20) NOT NULL,
-	city varchar(20) NOT NULL,
-	CAP varchar(5) NOT NULL,
-	street_number int(10) NOT NULL,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `Addresses`;
+CREATE TABLE `Addresses` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`country` varchar(20) NOT NULL,
+	`region` varchar(20) NOT NULL,
+	`province` varchar(20) NOT NULL,
+	`city` varchar(20) NOT NULL,
+	`CAP` varchar(5) NOT NULL,
+	`street` varchar(30) NOT NULL,
+	`street_number` int(10) NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- TO DO
-DROP TABLE IF EXISTS PaymentMethods;
-CREATE TABLE PaymentMethods (
-	id int NOT NULL AUTO_INCREMENT,
-	type enum('Bitcoin', 'Paypal', 'Credit Card') NOT NULL,
-	identifier varchar(20) NOT NULL,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `PaymentMethods`;
+CREATE TABLE `PaymentMethods` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`type` enum('Bitcoin', 'Paypal', 'Credit Card') NOT NULL,
+	`identifier` varchar(20) NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Categories;
-CREATE TABLE Categories (
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(20) NOT NULL,
-	description text NOT NULL,
-	img_path int NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (img_path) REFERENCES Images(id)
+DROP TABLE IF EXISTS `Categories`;
+CREATE TABLE `Categories` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(20) NOT NULL,
+	`description` text NOT NULL,
+	`img_path` int NOT NULL,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`img_path`) REFERENCES `Images`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO Categories(name, description) VALUES
@@ -76,33 +78,33 @@ CREATE TABLE Categories (
 
 
 -- TO DO: check types
-DROP TABLE IF EXISTS Products;
-CREATE TABLE Products (
-	id int NOT NULL AUTO_INCREMENT,
-	category_id int NOT NULL,
-	name varchar(100) NOT NULL,
-	description text,
-	price float(10) NOT NULL,
+DROP TABLE IF EXISTS `Products`;
+CREATE TABLE `Products` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`category_id` int NOT NULL,
+	`name` varchar(100) NOT NULL,
+	`description` text,
+	`price` float(10) NOT NULL,
 	-- money NOT NULL,
-	avaiability float(20),
-	linked_category int not null,
-	rating float(10) not null default 0,
-	PRIMARY KEY (id),
-	FOREIGN KEY (category_id) REFERENCES Categories(id),
-	FOREIGN KEY (linked_category) REFERENCES Categories(id)
+	`avaiability` float(20),
+	`linked_category` int not null,
+	`rating` float(10) not null default 0,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`category_id`) REFERENCES `Categories`(`id`),
+	FOREIGN KEY (`linked_category`) REFERENCES `Categories`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO 'Products'('category_id', 'name', 'price', 'avaiability', 'linked_category', 'rating', 'description') VALUES
 -- 	(1, 'Nome prodotto', 69.0, 420, 2, 5, 'Prodotto di prova');
 
 
-DROP TABLE IF EXISTS ActivePrinciples;
-CREATE TABLE ActivePrinciples (
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(50) NOT NULL,
-	chemical_formula varchar(50) NOT NULL,
+DROP TABLE IF EXISTS `ActivePrinciples`;
+CREATE TABLE `ActivePrinciples` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(50) NOT NULL,
+	`chemical_formula` varchar(50) NOT NULL,
 	-- img_id int NOT NULL,
-	PRIMARY KEY (id)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO ActivePrinciples(name, chemical_formula) VALUES 
@@ -110,23 +112,23 @@ CREATE TABLE ActivePrinciples (
 -- 	('CBD', 'C_{21}H_{30}/O_{2}');
 
 
-DROP TABLE IF EXISTS Effects;
-CREATE TABLE Effects (
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(100) NOT NULL,
-	description text,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `Effects`;
+CREATE TABLE `Effects` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(100) NOT NULL,
+	`description` text,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
-DROP TABLE IF EXISTS SideEffects;
-CREATE TABLE SideEffects (
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(20) NOT NULL,
-	description text,
+DROP TABLE IF EXISTS `SideEffects`;
+CREATE TABLE `SideEffects` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(20) NOT NULL,
+	`description` text,
 	-- link varchar(512),
-	PRIMARY KEY (id)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO 'SideEffects'('name', 'description') VALUES
@@ -135,126 +137,126 @@ CREATE TABLE SideEffects (
 /* ('', null) */
 
 
-DROP TABLE IF EXISTS CustomersAddresses;
-CREATE TABLE CustomersAddresses (
-	customer_id int,
-	address_id int,
-	address_type enum('Delivery', 'Billing'),
-	PRIMARY KEY (customer_id, address_id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id),
-	FOREIGN KEY (address_id) REFERENCES Addresses(id)
+DROP TABLE IF EXISTS `CustomersAddresses`;
+CREATE TABLE `CustomersAddresses` (
+	`customer_id` int,
+	`address_id` int,
+	`address_type` enum('Delivery', 'Billing'),
+	PRIMARY KEY (`customer_id`, `address_id`),
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
+	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS CustomersPaymentMethods;
-CREATE TABLE CustomersPaymentMethods (
-	customer_id int NOT NULL,
-	payment_method_id int NOT NULL,
-	PRIMARY KEY (customer_id, payment_method_id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id),
-	FOREIGN KEY (payment_method_id) REFERENCES PaymentMethods(id)
+DROP TABLE IF EXISTS `CustomersPaymentMethods`;
+CREATE TABLE `CustomersPaymentMethods` (
+	`customer_id` int NOT NULL,
+	`payment_method_id` int NOT NULL,
+	PRIMARY KEY (`customer_id`, `payment_method_id`),
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
+	FOREIGN KEY (`payment_method_id`) REFERENCES `PaymentMethods`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Carts;
-CREATE TABLE Carts (
-	id int NOT NULL AUTO_INCREMENT,
-	total int NOT NULL,
-	PRIMARY KEY (id)
+DROP TABLE IF EXISTS `Carts`;
+CREATE TABLE `Carts` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`total` int NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS ProductsActivePrinciples;
-CREATE TABLE ProductsActivePrinciples (
-	product_id int NOT NULL,
-	active_principle_id int NOT NULL,
-	percentage float(10) NOT NULL,
-	PRIMARY KEY (product_id, active_principle_id),
-	FOREIGN KEY (product_id) REFERENCES Products(id),
-	FOREIGN KEY (active_principle_id) REFERENCES ActivePrinciples(id)
+DROP TABLE IF EXISTS `ProductsActivePrinciples`;
+CREATE TABLE `ProductsActivePrinciples` (
+	`product_id` int NOT NULL,
+	`active_principle_id` int NOT NULL,
+	`percentage` float(10) NOT NULL,
+	PRIMARY KEY (`product_id`, `active_principle_id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS ActivePrinciplesSideEffects;
-CREATE TABLE ActivePrinciplesSideEffects (
-	active_principle_id int NOT NULL,
-	side_effect_id int NOT NULL,
-	PRIMARY KEY (active_principle_id, side_effect_id),
-	FOREIGN KEY (active_principle_id) REFERENCES ActivePrinciples(id),
-	FOREIGN KEY (side_effect_id) REFERENCES SideEffects(id)
+DROP TABLE IF EXISTS `ActivePrinciplesSideEffects`;
+CREATE TABLE `ActivePrinciplesSideEffects` (
+	`active_principle_id` int NOT NULL,
+	`side_effect_id` int NOT NULL,
+	PRIMARY KEY (`active_principle_id`, `side_effect_id`),
+	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`),
+	FOREIGN KEY (`side_effect_id`) REFERENCES `SideEffects`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Transactions;
-CREATE TABLE Transactions (
-	customer_id int NOT NULL,
-	cart_id int NOT NULL,
-	payment_method_id int NOT NULL,
-	datetime datetime NOT NULL,
-	address_id int NOT NULL,
-	PRIMARY KEY (customer_id, cart_id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id),
-	FOREIGN KEY (cart_id) REFERENCES Carts(id),
-	FOREIGN KEY (address_id) REFERENCES Addresses(id)
+DROP TABLE IF EXISTS `Transactions`;
+CREATE TABLE `Transactions` (
+	`customer_id` int NOT NULL,
+	`cart_id` int NOT NULL,
+	`payment_method_id` int NOT NULL,
+	`datetime` datetime NOT NULL,
+	`address_id` int NOT NULL,
+	PRIMARY KEY (`customer_id`, `cart_id`),
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
+	FOREIGN KEY (`cart_id`) REFERENCES `Carts`(`id`),
+	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Reviews;
-CREATE TABLE Reviews (
-	id int NOT NULL AUTO_INCREMENT,
-	customer_id int NOT NULL,
-	product_id int NOT NULL,
-	rating float(10),
-	comment text NOT NULL,
-	created datetime NOT NULL,
-	last_modified datetime DEFAULT NULL,
-	upvotes int DEFAULT 0,
-	downvotes int DEFAULT 0,
-	PRIMARY KEY (id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id),
-	FOREIGN KEY (product_id) REFERENCES Products(id)
+DROP TABLE IF EXISTS `Reviews`;
+CREATE TABLE `Reviews` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`customer_id` int NOT NULL,
+	`product_id` int NOT NULL,
+	`rating` float(10),
+	`comment` text NOT NULL,
+	`created` datetime NOT NULL,
+	`last_modified` datetime DEFAULT NULL,
+	`upvotes` int DEFAULT 0,
+	`downvotes` int DEFAULT 0,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 -- Tabella inutile(?)
-DROP TABLE IF EXISTS CustomersVotes;
-CREATE TABLE CustomersVotes (
-	review_id int NOT NULL,
-	customer_id int NOT NULL,
-	type boolean NOT NULL,
-	PRIMARY KEY (review_id, customer_id),
-	FOREIGN KEY (review_id) REFERENCES Reviews(id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id)
+DROP TABLE IF EXISTS `CustomersVotes`;
+CREATE TABLE `CustomersVotes` (
+	`review_id` int NOT NULL,
+	`customer_id` int NOT NULL,
+	`type` boolean NOT NULL,
+	PRIMARY KEY (`review_id`, `customer_id`),
+	FOREIGN KEY (`review_id`) REFERENCES `Reviews`(`id`),
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS ProductsImages;
-CREATE TABLE ProductsImages (
-	product_id int NOT NULL,
-	img_id int NOT NULL,
-	PRIMARY KEY (product_id, img_id),
-	FOREIGN KEY (product_id) REFERENCES Products(id),
-	FOREIGN KEY (img_id) REFERENCES Images(id)
+DROP TABLE IF EXISTS `ProductsImages`;
+CREATE TABLE `ProductsImages` (
+	`product_id` int NOT NULL,
+	`img_id` int NOT NULL,
+	PRIMARY KEY (`product_id`, `img_id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`img_id`) REFERENCES `Images`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS ProductsInCarts;
-CREATE TABLE ProductsInCarts (
-	cart_id int NOT NULL,
-	product_id int NOT NULL,
-	quantity float(24) NOT NULL,
-	PRIMARY KEY (cart_id, product_id),
-	FOREIGN KEY (cart_id) REFERENCES Carts(id),
-	FOREIGN KEY (product_id) REFERENCES Products(id)
+DROP TABLE IF EXISTS `ProductsInCarts`;
+CREATE TABLE `ProductsInCarts` (
+	`cart_id` int NOT NULL,
+	`product_id` int NOT NULL,
+	`quantity` float(24) NOT NULL,
+	PRIMARY KEY (`cart_id`, `product_id`),
+	FOREIGN KEY (`cart_id`) REFERENCES `Carts`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-DROP TABLE IF EXISTS Discounts;
-CREATE TABLE Discounts (
-	id int NOT NULL AUTO_INCREMENT,
-	product_id int NOT NULL,
-	value_type tinyint(1) NOT NULL,
-	value float(24) NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (product_id) REFERENCES Products(id)
+DROP TABLE IF EXISTS `Discounts`;
+CREATE TABLE `Discounts` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`product_id` int NOT NULL,
+	`value_type` tinyint(1) NOT NULL,
+	`value` float(24) NOT NULL,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
