@@ -38,13 +38,19 @@ else { // caricamento nel database o mostrare messaggi di errore
     $image->validateUpload();
 
     $htmlPage = file_get_contents(".." . DIRECTORY_SEPARATOR . "frontend" . DIRECTORY_SEPARATOR . "inserisciProdotto_dashboard.html");
+    // ricarica la pagina con messaggi di errore o le congratulazioni 
+    $htmlPage = $cat->printCategoryOptions($htmlPage, "<categoryOptions />");
     if(!$productHandler->insertProduct($product)) {
         $htmlPage = str_replace('<errmsg />', strval($product), $htmlPage);
-        $categories = new Category($dbaccess->getConnection());
-        $htmlPage = $categories->printCategoryOptions($htmlPage, "<categoryOptions />");
     } else {
         $htmlPage = str_replace('<errmsg />', "<p>Prodotto caricato con successo</p>", $htmlPage);
     }
+    echo$product->getCategory_id();
+    echo $product->getName();
+    echo $product->getDescription();
+    echo $product->getPrice();
+    echo $product->getAvailability();
+    echo $product->getLinked_category();
     echo $htmlPage;
 }
 ?>

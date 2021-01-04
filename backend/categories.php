@@ -54,9 +54,12 @@
             $categories = $this->getCategories();
             $id = null;
             $i = 0;
-            while(count($categories)>$i && $categories[$i]['name'] != $name) {
-                if($categories[$i]['name'] == $name)
-                    $id = $category['id'];
+            $found = false;
+            while(count($categories)>$i && !$found) {
+                if($categories[$i]['name'] == $name) {
+                    $id = $categories[$i]['id'];
+                    $found = true;
+                }
                 $i=$i+1;
             }
             return $id;
