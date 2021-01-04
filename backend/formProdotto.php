@@ -10,9 +10,8 @@
         die("Errore nell'apertura del DB");
     else {
         $categories = new Category($dbaccess->getConnection());
-        $htmlPage = file_get_contents("../frontend/inserisciProdotto_dashboard.html");
-        $placeholder = "<categoryOptions />";
-        $htmlPage = $categories->printCategoryOptions($htmlPage, $placeholder);
+        $htmlPage = file_get_contents(".." . DIRECTORY_SEPARATOR ."frontend" . DIRECTORY_SEPARATOR . "inserisciProdotto_dashboard.html");
+        $htmlPage = $categories->printCategoryOptions($htmlPage, "<categoryOptions />");
         echo $htmlPage;
     }
 ?>

@@ -28,7 +28,7 @@ class ProductHandler {
                 {$product->getLinked_category()}
             )"
             ;
-        $queryResult = mysqli_query($this->connection, $insertQuery);
+        mysqli_query($this->connection, $insertQuery);
         if(mysqli_affected_rows($this->connection) > 0)
             return true;
         else
