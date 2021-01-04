@@ -65,11 +65,9 @@ CREATE TABLE `PaymentMethods` (
 DROP TABLE IF EXISTS `Categories`;
 CREATE TABLE `Categories` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(20) NOT NULL,
+	`name` varchar(20) NOT NULL UNIQUE,
 	`description` text NOT NULL,
-	`img_path` int NOT NULL,
-	PRIMARY KEY (`id`),
-	FOREIGN KEY (`img_path`) REFERENCES `Images`(`id`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO Categories(name, description) VALUES
@@ -86,7 +84,7 @@ CREATE TABLE `Products` (
 	`description` text,
 	`price` float(10) NOT NULL,
 	-- money NOT NULL,
-	`avaiability` float(20),
+	`availability` float(20),
 	`linked_category` int not null,
 	`rating` float(10) not null default 0,
 	PRIMARY KEY (`id`),
@@ -101,7 +99,7 @@ CREATE TABLE `Products` (
 DROP TABLE IF EXISTS `ActivePrinciples`;
 CREATE TABLE `ActivePrinciples` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(50) NOT NULL,
+	`name` varchar(50) NOT NULL UNIQUE,
 	`chemical_formula` varchar(50) NOT NULL,
 	-- img_id int NOT NULL,
 	PRIMARY KEY (`id`)
