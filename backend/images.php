@@ -23,7 +23,12 @@
                 $this->error .= "<p>La dimensione massima dell'immagine è 500kb</p>";
                 return false;
             }
-            $this->upload();
+            if($this->uploadOnDb()) {
+                $this->upload();
+            } else {
+                $this->error .= "<p>Errore nell'inserimento dell'immagine: riprova fra qualche minuto.</p>";
+                return false;
+            }
             return true;
         }
 
@@ -35,6 +40,17 @@
             }
         }
 
-        private function uploadOnDb() {}
+        private function uploadOnDb() {
+            $uploadfile = '../img/products/' . $_FILES['productImage']['name'];
+            $insertQuery = "
+            insert into Images(
+                img_path
+            )
+            values(
+                \"{$uploadfile}\"
+            )"
+            ;
+            return  mysqli_query($this->connection, $insertQuery);
+        }
     }
 ?>

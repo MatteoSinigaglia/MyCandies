@@ -28,10 +28,7 @@ class ProductHandler {
                 {$product->getLinked_category()}
             )"
             ;
-        if(mysqli_query($this->connection, $insertQuery))
-            return true;
-        else
-            return false;
+        return mysqli_query($this->connection, $insertQuery);
     }
 
     public function getProductId($name) {
