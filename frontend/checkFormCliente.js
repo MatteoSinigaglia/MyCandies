@@ -9,10 +9,10 @@ var form_registrazione = {
     "confirmPassword": ["", /.{5,20}/,"La password non corrisponde"],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto"],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto"],
-"birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Data non corretta", "Utente minorenne non consentito"],
-    "address": ["Inserisci via", /[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*/, "Indirizzo non corretto"],
+    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Data non corretta", "Utente minorenne non consentito"],
+    "address": ["Inserisci via", /^[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto"],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto"],
-    "city": ["Inserisci città", /^[a-zA-Z]{2,20}$/, "Città non corretta"],
+    "city": ["Inserisci città", /^([a-zA-Z]{2,20}\s?)+$/, "Città non corretta"],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta"],
     "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto"],
     "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto"]
@@ -145,7 +145,7 @@ function validateDate(input) {
         return false; 
     }
     var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    if (anno%4 == 0) { monthLength[1] == 29; }
+    if (anno%4 == 0) { monthLength[1] = 29; }
     return giorno > 0 && giorno <= monthLength[mese - 1];
 };
 
@@ -153,9 +153,7 @@ function otherCheck(input) {
     var value = input.id;
     switch(value) {
         case "birthDate": {  
-            var correct = validateDate(input);
-            console.log("correct:", correct);
-            if (!correct) {
+            if (!validateDate(input)) {
                 printRegError(input);
                 return false;
             } else {
@@ -180,6 +178,7 @@ function otherCheck(input) {
             if(comp[0].toLowerCase() == "via") {
                 return true;
             } else {
+                printRegError(input);
                 return false;
             }
         }
