@@ -9,11 +9,13 @@ var form_registrazione = {
     "confirmPassword": ["", /.{5,20}/,"La password non corrisponde"],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto"],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto"],
+    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}/, "Data non corretta", "Utente minorenne non consentito"],
     "address": ["Inserisci via", /[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*/, "Indirizzo non corretto"],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto"],
     "city": ["Inserisci città", /^[a-zA-Z]{2,20}$/, "Città non corretta"],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta"],
-    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto"]
+    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto"],
+    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto"]
 };
 
 function defaultLoginValue(input) {
@@ -124,6 +126,78 @@ function printRightPassword(input) {
     parent.appendChild(element);
 };
 
+function printUtenteMinorenne(input) {
+    var parent = input.parentNode;
+    var element = document.createElement("strong");
+    element.className = "formErrors";
+    element.appendChild(document.createTextNode(form_registrazione[input.id][3]));
+    parent.appendChild(element);
+};
+
+function validateData(input) {
+    var comp = input.value.split("-");
+    var today = new Date();
+    // controllo validità della data 
+    var giorno = comp[0].parseToInt();
+    var mese = comp[1].parseToInt();
+    var anno = comp[2].parseToInt();
+    if (anno > today.getFullYear() || anno <= 1900 || mese == 0 || mese > 12) { return false; }
+    var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return giorno > 0 && giorno <= monthLength[mese - 1];
+};
+
+function otherCheck(input) {
+    switch(input.id) {
+        case "birthDate": {   /*
+            if (!validateData(input)) {
+                printRegError(input);
+                return false;
+            } else {*/
+                // controllo sull'età del utente solo se la data è accettata
+                var c = input.value.split("-");
+                var t = new Date();
+                var birthDate = new Date(c[2], c[1]-1, c[0]);
+                var age = t.getFullYear() - birthDate.getFullYear();
+                var m = t.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && t.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                if (age <= 18) {
+                    printUtenteMinorenne(input);
+                    return false;
+                }
+                return true;
+          //  }
+        }
+        case "address": {
+            var comp = input.value.split(" ");
+            if(comp[0].toLowerCase() == "via") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        case "confirmPassword": {
+            var psw = document.getElementById('password');
+            if(input.value != psw.value) {
+                printRegError(input);
+                return false;
+            } else {
+                printRightPassword(input);
+                return true;
+            }
+        }
+        case "telefono": {
+            if(input.value.charAt(0) != 3) {
+                printRegError(input);
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+};
+
 function validateRegField(input) {
 
     var parent = input.parentNode;
@@ -136,16 +210,11 @@ function validateRegField(input) {
         printRegError(input);
         return false;
     } else {
-        if(input.id == 'confirmPassword') {
-            var psw = document.getElementById('password');
-            if(input.value != psw.value) {
-                printRegError(input);
-                return false;
-            } else {
-                printRightPassword(input);
-                return true;
-            }
+        var other = true;
+        if(input.id == 'birthDate' || input.id == 'address' || input.id == 'confirmPassword' || input.id == 'telefono') {
+            other = otherCheck(input);
         }
+        return true && other;
     }
 };
 
