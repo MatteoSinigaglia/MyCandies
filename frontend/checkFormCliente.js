@@ -9,7 +9,7 @@ var form_registrazione = {
     "confirmPassword": ["", /.{5,20}/,"La password non corrisponde"],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto"],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto"],
-    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}/, "Data non corretta", "Utente minorenne non consentito"],
+"birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Data non corretta", "Utente minorenne non consentito"],
     "address": ["Inserisci via", /[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*/, "Indirizzo non corretto"],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto"],
     "city": ["Inserisci città", /^[a-zA-Z]{2,20}$/, "Città non corretta"],
@@ -134,25 +134,31 @@ function printUtenteMinorenne(input) {
     parent.appendChild(element);
 };
 
-function validateData(input) {
+function validateDate(input) {
     var comp = input.value.split("-");
     var today = new Date();
     // controllo validità della data 
-    var giorno = comp[0].parseToInt();
-    var mese = comp[1].parseToInt();
-    var anno = comp[2].parseToInt();
-    if (anno > today.getFullYear() || anno <= 1900 || mese == 0 || mese > 12) { return false; }
+    var giorno = parseInt(comp[0]);
+    var mese = parseInt(comp[1]);
+    var anno = parseInt(comp[2]);
+    if (anno > today.getFullYear() || anno <= today.getFullYear()-100 || mese == 0 || mese > 12) { 
+        return false; 
+    }
     var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (anno%4 == 0) { monthLength[1] == 29; }
     return giorno > 0 && giorno <= monthLength[mese - 1];
 };
 
 function otherCheck(input) {
-    switch(input.id) {
-        case "birthDate": {   /*
-            if (!validateData(input)) {
+    var value = input.id;
+    switch(value) {
+        case "birthDate": {  
+            var correct = validateDate(input);
+            console.log("correct:", correct);
+            if (!correct) {
                 printRegError(input);
                 return false;
-            } else {*/
+            } else {
                 // controllo sull'età del utente solo se la data è accettata
                 var c = input.value.split("-");
                 var t = new Date();
@@ -167,8 +173,8 @@ function otherCheck(input) {
                     return false;
                 }
                 return true;
-          //  }
-        }
+            }
+        } 
         case "address": {
             var comp = input.value.split(" ");
             if(comp[0].toLowerCase() == "via") {
@@ -210,11 +216,11 @@ function validateRegField(input) {
         printRegError(input);
         return false;
     } else {
-        var other = true;
-        if(input.id == 'birthDate' || input.id == 'address' || input.id == 'confirmPassword' || input.id == 'telefono') {
-            other = otherCheck(input);
+        if(input.id == "birthDate" || input.id == "address" || input.id == "confirmPassword" || input.id == "telefono") {
+            return otherCheck(input);
+        } else {
+            return true; 
         }
-        return true && other;
     }
 };
 
