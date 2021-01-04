@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . DIRECTORY_SEPARATOR . "categories.php";
 
     class Product {
      
@@ -44,22 +45,21 @@
                 $this->error .= "<p>Il prezzo deve contenere cifre, al massimo 5 cifre intere e i decimali sono separati dal carattere .</p>";
                 $this->error .= "Valore del prezzo troppo alto";
             }
-            $this->price = $price;
+            $this->price = filter_var($price, FILTER_VALIDATE_FLOAT);
             return $this;
         }
 
         public function setAvailability($availability) {
             if(!preg_match('/^([1-9][0-9]{1,7}|0)$/',$availability))
                 $this->error .= "<p>La quantità di prodotto deve essere un valore numerico intero di al massimo 7 cifre</p>";
-            $this->availability = $availability;
+            $this->availability = filter_var($availability, FILTER_VALIDATE_INT);
             return $this;
         }   
 
-        public function setLinked_category($linked_category=0) {
+        public function setLinked_category($linked_category=1) {
             $this->linked_category = $linked_category;
             return $this;
         }
-
 
         /**
          * getters
