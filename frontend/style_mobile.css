@@ -338,27 +338,26 @@ th {
 
 #cartContent img {
     float: left;
-    width: 10%;
+    width: 15%;
     margin: 1em 3em;
 }
 
 #cartContent h1 {
     float: left;
-    margin-top: 5em;
+    margin-top: 2.5em;
 }
 
 #selectedProduct {
     clear: left;
     padding: 1em;
-    margin: 1em;
+    margin: 1em 0.1em;
     border-radius: 10px;
     background-color: #F2E8CF;
 }
 
-#purchaseButton {
-    margin-top: 0.5em;
-    margin-left: 56em;
-    margin-bottom: 0.5em;
+#selectedProduct table {
+    width: 100%;
+    margin: 0.5em auto;
 }
 
 /*
