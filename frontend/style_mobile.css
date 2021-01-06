@@ -95,7 +95,7 @@ textarea {
 }
 
 .buttons {
-    padding: 0.7em 1.5em;
+    padding: 0.5em 1em;
     margin: 0.5em;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -189,12 +189,13 @@ table th {
 }
 
 #imageContainer {
+    float: left;
     vertical-align: middle;
     width: 15%;
-    display: inline-block;
 }
 
 #utilityBar {
+    clear: left;
     padding: 1em;
     display: inline;
 }
@@ -215,15 +216,9 @@ table th {
     min-width: 25em;
 }
 
-#headerUsername {
-    float: right;
-    display: none;
-}
-
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
-    clear: both;
     text-align: center;
     background-color: #6A994E;
     padding: 0.8em;
@@ -231,11 +226,8 @@ table th {
 }
 
 #navigation li {
-    display: inline;
-    padding: 0.3% 1%;
-    margin: 0.2% 1.5%;
-    border: 1px solid transparent;
-    border-radius: 4px;
+    list-style-type: none;
+    margin: 0.3em 0em;
 }
 
 #navigation li:hover {
@@ -258,15 +250,14 @@ table th {
 #productContent h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0.5em 0;
+    margin: 0.5em 0.9em;
 }
 
 #productContenitor {
     background-color: #F2E8CF;
     border: 1px solid #DDD;
     border-radius: 10px;
-    margin-bottom: 1em;
-    margin-right: 0.5em;
+    margin: 0.5em 1.3em;
 }
 
 #productContenitor dl dt {
@@ -281,30 +272,19 @@ table th {
 }
 
 #productContenitor dl dd img {
-    float: left;
-    width: 20%;
-    margin-top: 1em;
-    margin-left: 1em;
+    max-width: 90%;
+    margin: 1em;
 }
 
 #productContenitor dl dd p {
-    width: 75%;
-    padding: 0.5em 1em;
-    margin-left: 22%;
-}
-
-#addToCartButton {
-    float: right;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-right: 2.5em;
+    margin: 0.5em 1em;
 }
 
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
     border-radius: 10px;
+    margin: 0.5em 5em;
     background-color: #6A994E;
-    margin-bottom: 1em;
 }
 
 #productTableContent table {
@@ -317,7 +297,6 @@ table th {
 td,
 th {
     border: 1px solid transparent;
-    padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
@@ -496,19 +475,11 @@ p {
 #img1,
 #img2,
 #img3 {
-    max-width: 25em;
+    max-width: 18em;
     max-height: 12em;
-    margin: 0 1em;
+    margin: 0 3.5em;
     border: 1px solid #DDD;
     border-radius: 10px;
-}
-
-#img1 {
-    margin-left: 10%;
-}
-
-#img3 {
-    margin-right: 10%;
 }
 
 /*
