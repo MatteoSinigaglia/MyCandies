@@ -42,7 +42,7 @@ body {
 
 #breadcrumb {
     text-align: left;
-    padding: 1.5em;
+    padding: 1em;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
     color: black;
@@ -116,6 +116,52 @@ textarea {
 abbr {
     text-decoration: none;
 }
+
+/*
+============= TABELLE RESPONSIVE PER MOBILE =========================
+*/
+.responsiveTable table,
+.responsiveTable thead,
+.responsiveTable tbody,
+.responsiveTable tfoot,
+.responsiveTable th,
+.responsiveTable td,
+.responsiveTable tr {
+    display: block;
+}
+
+.responsiveTable thead tr {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.responsiveTable tr td {
+    border: none;
+    border-bottom: 1px solid rgb(119, 111, 111);
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+    white-space: normal;
+    padding: 1em;
+}
+
+.responsiveTable tr td:before {
+    font-weight: bold;
+    left: 6px;
+    padding-right: 10px;
+    position: absolute;
+    text-align: left;
+    top: 6px;
+    white-space: normal;
+    width: 45%;
+}
+
+.responsiveTable tr td:before {
+    content: attr(title);
+}
+
+
 
 /*
 ==================================FORMS========================
