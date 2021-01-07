@@ -59,32 +59,34 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
+		<table class="responsiveTable summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
 			<thead>
 				<tr>
 					<th id="productName" scope="col">Nome</th>
 					<th id="productCode" scope="col">Codice</th>
 					<th id="quantity" scope="col">Quantità</th>
 					<th id="actions" scope="col">Azioni</th>
-					<th id="total" scope="col">Totale</th>
+					<th id="total" scope="col">Totale prodotto</th>
 				</tr>
 			</thead>
-			<tfoot>
+			<tbody>
 				<tr>
+					<td headers="productName" scope="row" title="Nome"></td>
+					<td headers="productCode" scope="row" title="Codice"></td>
+					<td headers="quantity" scope="row" title="Quantità"></td>
+					<td headers="actions" scope="row" title="Azioni"></td>
+					<td headers="total" scope="row" title="Totale prodotto"></td>
+				</tr>
+			</tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
 					<th id="totalCart" scope="col" colspan="4">Totale carrello</th>
 					<td headers="totalCart" scope="row">0.0$</td>
 				</tr>
-			</tfoot>
-			<tbody>
-				<tr>
-					<td headers="productName" scope="row"></td>
-					<td headers="productCode" scope="row"></td>
-					<td headers="quantity" scope="row"></td>
-					<td headers="actions" scope="row"></td>
-					<td headers="total" scope="row"></td>
-				</tr>
-			</tbody>
-		</table>
+            </tbody>
+        </table>
 		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
 	</div>
 </div>
