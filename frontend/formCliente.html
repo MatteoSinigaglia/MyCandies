@@ -8,10 +8,10 @@
   <meta name="description" content="Questo è il form di registrazione di My Candies" />
   <meta name="author" content="MyCandies&amp;co" />
   <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
-  <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#" media="print" />
-  <link rel="stylesheet" type="text/css" href="#"
-    media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 767px)"/>
+  <link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
+      media="handheld, screen and (min-width:360px) and (max-width:767px), all and (min-device-width: 360px) and (max-device-width:767px)" />
   <script type="text/javascript" src="../frontend/checkFormCliente.js"></script>
 </head>
 
@@ -22,7 +22,7 @@
       di
       <span xml:lang="en" lang="en">login</span>
   </a>
-  <a class="helps" href="#registrationForm">Vai al form di registrazione</a>
+  <a class="helps" href="#registrationForm">Vai al <span xml:lang="en" lang="en">form</span> di registrazione</a>
   <div id="headerLogoAndUtility">
       <div id="imageContainer">
           <img id="logo" src="../img/logo.jpeg" alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
@@ -36,28 +36,26 @@
           </form>
           <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
           <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-          <p id="headerUsername">nomeUtente</p>
-          <!-- hidden -->
       </div>
   </div>
   <div id="navigation">
       <ul role="menu">
           <li xml:lang="en">
-              <a href="#">Home</a>
+              <a href="../frontend/home.html">Home</a>
           </li>
           <li>
-              <a href="#productList">Droghe</a>
+              <a href="../frontend/listaProdotti.html">Droghe</a>
           </li>
           <li>
-              <a href="#">Accessori</a>
+              <a href="../frontend/listaProdotti.html">Accessori</a>
           </li>
           <li>
-              <a href="#">
+              <a href="../frontend/FAQ.html">
                   <abbr title="Frequently Asked Questions">FAQ</abbr>
               </a>
           </li>
           <li>
-              <a href="suDiNoi.html">Su Di Noi</a>
+              <a href="../frontend/suDiNoi.html">Su Di Noi</a>
           </li>
       </ul>
   </div>

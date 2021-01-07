@@ -8,7 +8,10 @@
     <meta name="title" content="Area Personale - MyCandies"/>
     <meta name="description" content="Pagina realizzata per l'area contenente i dati del cliente"/>
     <meta name="author" content="MyCandies&amp;co"/>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 767px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
+    media="handheld, screen and (min-width:360px) and (max-width:767px), all and (min-device-width: 360px) and (max-device-width:767px)" />
 </head>
 
 <div id="header">
@@ -29,7 +32,6 @@
 
             <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
             <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
     </div>
     <div id="navigation">
@@ -97,7 +99,7 @@
             <label for="date">Data di nascita:</label>
             <!-- Buttons -->
             <input type="text" id="date" name="nascita" value=""/>
-            <input type="submit" name="Conferma" value="Conferma" id="Confirm"/>
+            <input type="submit" name="Conferma" value="Conferma" id="Confirm" class="buttons" />
         </fieldset>
     </form>
 </div>
