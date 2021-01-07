@@ -9,9 +9,10 @@
 <meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
 <meta name="author" content="MyCandies&amp;co"/>
 <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
-<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="#" media="print"/>
-<link rel="stylesheet" type="text/css" href="#" media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 767px)"/>
+<link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
+    media="handheld, screen and (min-width:360px) and (max-width:767px), all and (min-device-width: 360px) and (max-device-width:767px)" />
 </head>
 
 <body>
@@ -34,7 +35,6 @@
 
             <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
             <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
     </div>
     <div id="navigation">
@@ -111,8 +111,7 @@
                 </select>
             </div>
         </div>
-        <div
-            id="productsList">
+        <div id="productsList">
             <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
 
             <div id="productsPageNumber"></div>
