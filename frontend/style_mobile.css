@@ -560,13 +560,30 @@ background-color: #F2E8CF;
     vertical-align: middle;
 }
 
+#footer div ul {
+    text-align: center;
+}
+
 #upperFooterContainer {
     width: 100%;
 }
 
 #footer h3 {
     font-size: 1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+#stores div {
+    padding: 0em 1.8em;
+}
+
+#stores div h3,
+#stores div ul {
+    text-align: center;
+}
+
+#stores div ul {
+    margin-bottom: 0.7em;
 }
 
 /*
