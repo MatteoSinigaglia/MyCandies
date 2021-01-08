@@ -10,7 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 750px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
-    media="handheld, screen and (min-width:360px) and (max-width:750px), all and (min-device-width: 360px) and (max-device-width:750px)" />
+        media="handheld, screen and (min-width:360px) and (max-width:750px), all and (min-device-width: 360px) and (max-device-width:750px)" />
+    <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css" 
+			media="handheld, screen and (min-width:360px) and (max-width:750px), all and (min-device-width: 360px) and (max-device-width:750px)" />
+	</noscript>
 </head>
 
 <body>
@@ -36,6 +41,7 @@
         </div>
     </div>
     <div id="navigation">
+        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul>
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
