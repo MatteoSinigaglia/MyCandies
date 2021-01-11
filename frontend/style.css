@@ -27,6 +27,19 @@ body {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+.default-text {
+    color: rgba(10, 8, 8, 0.479);
+}
+
+.formErrors {
+    color: red;
+    padding: 0.5em 0em;
+}
+
+.rightMessage {
+    color: green;
+}
+
 #breadcrumb {
     text-align: left;
     padding: 1.5em;
@@ -78,6 +91,7 @@ textarea {
     border: 1px solid #ddd;
     padding: 0.8em;
     border-radius: 5px;
+    resize: none;
 }
 
 .buttons {
@@ -128,6 +142,11 @@ abbr {
 
 .inputForm a:visited {
     color: #6A994E;
+}
+
+.selectForm {
+    background-color: white;
+    border: 1px solid #DDD;
 }
 /*
 ==================================TABELLE======================
@@ -289,10 +308,11 @@ table th {
     border-radius: 10px;
     background-color: #6A994E;
     margin-bottom: 1em;
+    width: 20%;
 }
 
 #productTableContent table {
-    margin: 1em 2em;
+    margin: 1em auto;
     text-align: center;
     border-collapse: collapse;
 }
@@ -300,15 +320,21 @@ table th {
 #productTableContent tr,
 td,
 th {
+    border: 1px solid transparent;
     padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
     border-bottom: 1px solid #DDD;
+    background-color: transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
 }
 
 #productTableContent td {
     color: white;
+    border: 1px solid transparent;
 }
 
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
@@ -337,8 +363,13 @@ th {
 
 #cartContent img {
     float: left;
-    width: 20%;
-    margin: 0 3em;
+    width: 10%;
+    margin: 1em 3em;
+}
+
+#cartContent h1 {
+    float: left;
+    margin-top: 5em;
 }
 
 #selectedProduct {
