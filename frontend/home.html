@@ -8,17 +8,14 @@
     <meta name="description" content="Pagina realizzata per introdurre il sito"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 767px)"/>
-    <link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
-        media="handheld, screen and (min-width:360px) and (max-width:767px), all and (min-device-width: 360px) and (max-device-width:767px)" />
-    <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
-    <noscript>
-        <link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css" 
-            media="handheld, screen and (min-width:360px) and (max-width:750px), all and (min-device-width: 360px) and (max-device-width:750px)" />
-    </noscript>
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:768px), all and (min-device-width: 280px) and (max-device-width:768px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body>
+<body onload="addStyleSheet();">
 <div id="header">
     <a class="helps" href="#contentHome">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
