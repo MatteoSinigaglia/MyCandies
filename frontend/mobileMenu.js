@@ -5,7 +5,7 @@ function addStyleSheet() {
     link.href = "../frontend/style_mobile.css";
 
     head.appendChild(link);
-}
+};
 
 function mobileMenu() {
     var menu = document.getElementById("navigationMenu");
