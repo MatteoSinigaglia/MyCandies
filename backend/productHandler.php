@@ -84,9 +84,9 @@ class ProductHandler {
             }
         } else {
             $listOfProducts = 
-                '<p>'
+                '<li class=\"failure\">'
                 . 'Non sono ancora stati inseriti prodotti'
-                . '</p>'
+                . '</li>'
                 ;
         }
         $htmlPage = file_get_contents("../frontend/listaProdotti.html");

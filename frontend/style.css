@@ -81,6 +81,14 @@ legend {
     width: 100%;
 }
 
+li.failure {
+    color: red;
+}
+
+li.success {
+    color: green;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],

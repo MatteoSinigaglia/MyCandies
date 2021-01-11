@@ -39,12 +39,6 @@
                         . '</ option>'
                         ;
                 }
-            } else {
-                $categoriesOptions = 
-                    '<p>'
-                    . 'Non esistono ancora categorie'
-                    . '</p>'
-                    ;
             }
             $htmlPage = str_replace($placeholder, $categoriesOptions, $htmlPage);
             return $htmlPage;

@@ -42,7 +42,7 @@
 
         public function setPrice($price) {
             if(!preg_match('/^([1-9][0-9]{1,4}|0)(\.[0-9]{1,2})?$/',$price)) {
-                $this->error .= "<p>Il prezzo deve contenere cifre, al massimo 5 cifre intere e i decimali sono separati dal carattere .</p>";
+                $this->error .= "<li class=\"failure\">Il prezzo deve contenere cifre, al massimo 5 cifre intere e i decimali sono separati dal carattere .</li>";
                 $this->error .= "Valore del prezzo troppo alto";
             }
             $this->price = filter_var($price, FILTER_VALIDATE_FLOAT);
@@ -51,7 +51,7 @@
 
         public function setAvailability($availability) {
             if(!preg_match('/^([1-9][0-9]{1,7}|0)$/',$availability))
-                $this->error .= "<p>La quantità di prodotto deve essere un valore numerico intero di al massimo 7 cifre</p>";
+                $this->error .= "<li class=\"failure\">La quantità di prodotto deve essere un valore numerico intero di al massimo 7 cifre</li>";
             $this->availability = filter_var($availability, FILTER_VALIDATE_INT);
             return $this;
         }   

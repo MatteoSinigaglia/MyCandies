@@ -16,17 +16,17 @@
             $ext = pathinfo($name, PATHINFO_EXTENSION);
             $allowed = array("jpeg", "png", "jpg");
             if(!in_array($ext, $allowed)) {
-                $this->error .= "<p>Il formato dell'immagine deve essere jpeg, png, jpg</p>";
+                $this->error .= "<li class=\"failure\">Il formato dell'immagine deve essere jpeg, png, jpg</li>";
                 return false;
             }
             else if($_FILES['productImage']['size'] >= 512000) {
-                $this->error .= "<p>La dimensione massima dell'immagine è 500kb</p>";
+                $this->error .= "<li class=\"failure\">La dimensione massima dell'immagine è 500kb</li>";
                 return false;
             }
             if($this->uploadOnDb()) {
                 $this->upload();
             } else {
-                $this->error .= "<p>Errore nell'inserimento dell'immagine: riprova fra qualche minuto.</p>";
+                $this->error .= "<li class=\"failure\">Errore nell'inserimento dell'immagine: riprova fra qualche minuto.</li>";
                 return false;
             }
             return true;
@@ -36,7 +36,7 @@
             $uploaddir = '../img/products/';
             $uploadfile = $uploaddir . $_FILES['productImage']['name'];
             if(!move_uploaded_file( $_FILES['productImage']['tmp_name'], $uploadfile)) {
-                $this->error .= "<p>Errore nell'upload dell'immagine</p>";
+                $this->error .= "<li class=\"failure\">Errore nell'upload dell'immagine</li>";
             }
         }
 

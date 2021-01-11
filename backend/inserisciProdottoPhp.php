@@ -40,9 +40,10 @@ else { // caricamento nel database o mostrare messaggi di errore
     // ricarica la pagina con messaggi di errore o le congratulazioni 
     $htmlPage = $cat->printCategoryOptions($htmlPage, "<categoryOptions />");
     if(!$productHandler->insertProduct($product) || !$image->validateUpload()) {
-        $htmlPage = str_replace('<errmsg />', strval($product).strval($image), $htmlPage);
+        $messaggio = "<p>Ci sono stati alcuni errori durante l'inserimento:</p>\n<ul>\n";
+        $htmlPage = str_replace('<errmsg />', strval($product).strval($image)."</ul>", $htmlPage);
     } else {
-        $htmlPage = str_replace('<errmsg />', "<p>Prodotto caricato con successo</p>", $htmlPage);
+        $htmlPage = str_replace('<errmsg />', "<li class=\"success\">Prodotto caricato con successo</li>", $htmlPage);
     }
 
     echo $htmlPage;
