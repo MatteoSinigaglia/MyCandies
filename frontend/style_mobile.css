@@ -166,14 +166,12 @@ abbr {
 */
 
 .inputForm {
-    margin: 2em 1em 1em 1em;
+    margin: 1em 1.5em;
     text-align: left;
-    min-width: 20em;
-    max-width: 25em;
     border-radius: 5px;
     border: 1px solid #ddd;
     padding: 1em;
-    background-color: #F2E8CF
+    background-color: #F2E8CF;
 }
 
 .inputForm a {
@@ -397,13 +395,14 @@ th {
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
 
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
+
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
 }
 
 .formContainer {
-    display: inline-block;
+    display: inline;
     vertical-align: top;
 }
 
@@ -443,15 +442,17 @@ th {
 /*
 ==================================Lista prodotti================================
 */
+#productList {
+    width: 100%;
+}
+
 #filters {
-    border: 1px solid #ddd;
-    border-top: none;
+    width: 95%;
+    border-bottom: 1px solid #ddd;
 }
 
 #filters form div {
     text-align: center;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
 }
 
 #filters label {
@@ -462,18 +463,10 @@ th {
     width: 4em;
 }
 
-#rightSideContent {
-    overflow: hidden;
-    padding: 1em;
-}
-
-#rightSideContent div {
-    overflow: hidden;
-}
-
 #upperRightSideContent {
     border-bottom: 1px solid #ddd;
     padding-bottom: 1em;
+    text-align: center;
 }
 
 select {
@@ -487,11 +480,7 @@ select {
 }
 
 #orderBy {
-    float: left;
-}
-
-#productsPerPage {
-    text-align: right;
+    margin: 0.5em 0em;
 }
 
 #productsList {
@@ -519,7 +508,7 @@ p {
 
 #productsPageNumber {
     text-align: center;
-    display: inline-block;
+    display: inline;
     width: 100%;
 }
 

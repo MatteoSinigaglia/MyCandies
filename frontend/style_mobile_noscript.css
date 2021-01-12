@@ -160,22 +160,17 @@ abbr {
 .responsiveTable tr td:before {
     content: attr(title);
 }
-
-
-
 /*
 ==================================FORMS========================
 */
 
 .inputForm {
-    margin: 2em 1em 1em 1em;
+    margin: 1em 1.5em;
     text-align: left;
-    min-width: 20em;
-    max-width: 25em;
     border-radius: 5px;
     border: 1px solid #ddd;
     padding: 1em;
-    background-color: #F2E8CF
+    background-color: #F2E8CF;
 }
 
 .inputForm a {
@@ -194,8 +189,7 @@ abbr {
 .selectForm {
     background-color: white;
     border: 1px solid #DDD;
-}
-/*
+}/*
 ==================================TABELLE======================
 */
 
@@ -393,10 +387,9 @@ th {
 }
 
 .formContainer {
-    display: inline-block;
+    display: inline;
     vertical-align: top;
 }
-
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
