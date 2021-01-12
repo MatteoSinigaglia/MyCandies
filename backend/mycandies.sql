@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `Products`;
 CREATE TABLE `Products` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`category_id` int NOT NULL,
-	`name` varchar(100) NOT NULL,
+	`name` varchar(100) NOT NULL UNIQUE,
 	`description` text,
 	`price` float(10) NOT NULL,
 	-- money NOT NULL,
