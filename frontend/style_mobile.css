@@ -263,12 +263,22 @@ table th {
     position: absolute;
     top: 0.5em;
     right: 0em;
+    padding: 0.7em 1em;
+    margin: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #6A994E;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
 }
 
 #loginButton {
     position: absolute;
     top: 0.5em;
-    right: 6.5em;
+    right: 3.5em;
 }
 /*----------- MENU ---------------------------------------------------------------------------*/
 
