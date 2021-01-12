@@ -7,8 +7,10 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../frontend/style.css" media="screen and (min-width: 767px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile.css"
+    media="handheld, screen and (min-width:360px) and (max-width:767px), all and (min-device-width: 360px) and (max-device-width:767px)" />
 </head>
 
 <body>
@@ -28,10 +30,10 @@
     </div>
 
     <div id="prodottiDashboard" class="main">
-        <table id="elencoProdotti" summary="Tabella riassuntiva dei prodotti venduti. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, prezzo, quantità e le azioni disponibili.">
+        <table class="responsiveTable" id="elencoProdotti" summary="Tabella riassuntiva dei prodotti venduti. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, prezzo, quantità e le azioni disponibili.">
             <thead>
                 <tr>
-                    <th id="name" scope="col">NomeProdotto</th>
+                    <th id="name" scope="col">Nome prodotto</th>
                     <th id="price" scope="col">Prezzo</th>
                     <th id="quantity" scope="col">Quantità disponibile</th>
                     <th id="actions" scope="col">Azioni</th> 
@@ -39,10 +41,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="name" scope="row">null</td>
-                    <td headers="price" scope="row">null</td>
-                    <td headers="quantity" scope="row">null</td>
-                    <td headers="actions" scope="row"></td> <!-- pulsanti per: aumentare/diminuire quantità, eliminare prodotto-->
+                    <td headers="name" scope="row" title="Nome prodotto">null</td>
+                    <td headers="price" scope="row" title="Prezzo">null</td>
+                    <td headers="quantity" scope="row" title="Quantità disponibile">null</td>
+                    <td headers="actions" scope="row" title="Azioni"></td> <!-- pulsanti per: aumentare/diminuire quantità, eliminare prodotto-->
                 </tr>
             </tbody>
         </table>

@@ -7,11 +7,15 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per gestire l'accesso utente/admin" />
 	<meta name="author" content="MyCandies&amp;co" />
-	<link rel="stylesheet" href="../frontend/style.css" />
-	<script type="text/javascript" src="../frontend/checkModificaCredenziali.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:768px), all and (min-device-width: 280px) and (max-device-width:768px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="load();">
+<body onload="load(); addStyleSheet();">
 <div id="header">
 	<a class="helps" href="#credentialChange">Vai alla modifica credenziali</a>
 	<div id="headerLogoAndUtility">
@@ -30,10 +34,10 @@
 
 			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
 			<a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
 		</div>
 	</div>
 	<div id="navigation">
+        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
 		<ul>
 			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
 			<li><a href="listaProdotti.html">Droghe</a></li>
@@ -66,78 +70,78 @@
 	</form>
 </div>
 <div id="footer">
-	<div id="upperFooterContainer">
-		<div id="contacts">
-			<h2>Contatti:</h2>
-			<ul class="stylelessList">
-				<li>
-					<a href="">Chi siamo</a>
-				</li>
-				<li>
-					<a href="">Centro assistenza</a>
-				</li>
-				<li>Contatti: +911 112113</li>
-				<li>
-					<a href="mailto:mycandys@deepweb.com">Scrivici</a>
-				</li>
-			</ul>
-		</div>
+    <div id="upperFooterContainer">
+        <div id="contacts">
+            <h2>Contatti:</h2>
+            <ul class="stylelessList">
+                <li>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
+                </li>
+                <li>
+                    <a href="">Centro assistenza</a>
+                </li>
+                <li>Contatti: +911 112113</li>
+                <li>
+                    <a href="mailto:mycandys@deepweb.com">Scrivici</a>
+                </li>
+            </ul>
+        </div>
 
-		<div id="stores">
-			<h2>Punti vendita:</h2>
-			<div>
-				<h3>Mestre stazione</h3>
-				<ul class="stylelessList">
-					<li>Orario: 4-20</li>
-					<li>Lunedì chiuso</li>
-					<li>Via Piave 300</li>
-				</ul>
-			</div>
-			<div>
-				<h3>Padova Arcella</h3>
-				<ul class="stylelessList">
-					<li>Orario: 4-20</li>
-					<li>Martedì chiuso</li>
-					<li>Via Anelli 400</li>
-				</ul>
-			</div>
-			<div>
-				<h3>Padova Luzzatti Paolotti</h3>
-				<ul class="stylelessList">
-					<li>Orario: 4-20</li>
-					<li>Chiuso nei weekend</li>
-					<li>Via Marzolo 600</li>
-				</ul>
-			</div>
-			<div>
-				<h3>Padova Portello</h3>
-				<ul class="stylelessList">
-					<li>Orario: 4-20</li>
-					<li>Chiuso nei weekend</li>
-					<li>Via del Portello 800</li>
-				</ul>
-			</div>
-		</div>
-		<div id="social">
-			<h2>
-				<span xml:lang="en" lang="en">Link social:</span>
-			</h2>
-			<h3>Puoi trovarci su:</h3>
-			<ul class="stylelessList">
-				<li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
-				</li>
-				<li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
-				</li>
-				<li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
-				</li>
-				<li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div id="diritti">
-		<p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
-	</div>
+        <div id="stores">
+            <h2>Punti vendita:</h2>
+            <div>
+                <h3>Mestre stazione</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4:00 - 20:00</li>
+                    <li>Lunedì chiuso</li>
+                    <li>Via Piave 300</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Padova Arcella</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4:00 - 20:00</li>
+                    <li>Martedì chiuso</li>
+                    <li>Via Anelli 400</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Padova Luzzatti Paolotti</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 4:00 - 20:00</li>
+                    <li>Chiuso nei weekend</li>
+                    <li>Via Marzolo 600</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Padova Portello</h3>
+                <ul class="stylelessList">
+                    <li>Orario: 06:00 - 22:00</li>
+                    <li>Chiuso nei weekend</li>
+                    <li>Via del Portello 800</li>
+                </ul>
+            </div>
+        </div>
+        <div id="social">
+            <h2>
+                <span xml:lang="en" lang="en">Link social:</span>
+            </h2>
+            <h3>Puoi trovarci su:</h3>
+            <ul class="stylelessList">
+                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                </li>
+                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                </li>
+                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                </li>
+                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="diritti">
+        <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+    </div>
 </div>
 </body>
 </html>

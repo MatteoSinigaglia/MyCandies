@@ -33,7 +33,7 @@ body {
 
 .formErrors {
     color: red;
-    padding: 0.5em 0em;
+    padding: 0.5em;
 }
 
 .rightMessage {
@@ -42,7 +42,7 @@ body {
 
 #breadcrumb {
     text-align: left;
-    padding: 1.5em;
+    padding: 1em;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
     color: black;
@@ -107,7 +107,8 @@ textarea {
     font-size: 1em;
 }
 
-.buttons:hover {
+.buttons:hover, 
+.buttons:active {
     border: 1px solid white;
     background-color: #A7C957;
 }
@@ -117,11 +118,57 @@ abbr {
 }
 
 /*
+============= TABELLE RESPONSIVE PER MOBILE =========================
+*/
+.responsiveTable table,
+.responsiveTable thead,
+.responsiveTable tbody,
+.responsiveTable tfoot,
+.responsiveTable th,
+.responsiveTable td,
+.responsiveTable tr {
+    display: block;
+}
+
+.responsiveTable thead tr {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.responsiveTable tr td {
+    border: none;
+    border-bottom: 1px solid rgb(119, 111, 111);
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+    white-space: normal;
+    padding: 1em;
+}
+
+.responsiveTable tr td:before {
+    font-weight: bold;
+    left: 6px;
+    padding-right: 10px;
+    position: absolute;
+    text-align: left;
+    top: 6px;
+    white-space: normal;
+    width: 45%;
+}
+
+.responsiveTable tr td:before {
+    content: attr(title);
+}
+
+
+
+/*
 ==================================FORMS========================
 */
 
 .inputForm {
-    margin: 2em auto 1em auto;
+    margin: 2em 1em 1em 1em;
     text-align: left;
     min-width: 20em;
     max-width: 25em;
@@ -189,12 +236,13 @@ table th {
 }
 
 #imageContainer {
+    float: left;
     vertical-align: middle;
     width: 15%;
-    display: inline-block;
 }
 
 #utilityBar {
+    clear: left;
     padding: 1em;
     display: inline;
 }
@@ -215,15 +263,9 @@ table th {
     min-width: 25em;
 }
 
-#headerUsername {
-    float: right;
-    display: none;
-}
-
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
-    clear: both;
     text-align: center;
     background-color: #6A994E;
     padding: 0.8em;
@@ -231,11 +273,8 @@ table th {
 }
 
 #navigation li {
-    display: inline;
-    padding: 0.3% 1%;
-    margin: 0.2% 1.5%;
-    border: 1px solid transparent;
-    border-radius: 4px;
+    list-style-type: none;
+    margin: 0.3em 0em;
 }
 
 #navigation li:hover {
@@ -266,17 +305,14 @@ table th {
 #productContent h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0.5em 0;
+    margin: 0.5em 0.9em;
 }
 
 #productContenitor {
-    float: left;
-    width: 75%;
     background-color: #F2E8CF;
     border: 1px solid #DDD;
     border-radius: 10px;
-    margin-bottom: 1em;
-    margin-right: 0.5em;
+    margin: 0.5em 1.3em;
 }
 
 #productContenitor dl dt {
@@ -291,32 +327,19 @@ table th {
 }
 
 #productContenitor dl dd img {
-    float: left;
-    width: 20%;
-    margin-top: 1em;
-    margin-left: 1em;
+    max-width: 90%;
+    margin: 1em;
 }
 
 #productContenitor dl dd p {
-    width: 75%;
-    padding: 0.5em 1em;
-    margin-left: 22%;
-}
-
-#addToCartButton {
-    float: right;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-right: 2.5em;
+    margin: 0.5em 1em;
 }
 
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
-    float: right;
     border-radius: 10px;
+    margin: 0.5em 5em;
     background-color: #6A994E;
-    margin-bottom: 1em;
-    width: 20%;
 }
 
 #productTableContent table {
@@ -329,7 +352,6 @@ table th {
 td,
 th {
     border: 1px solid transparent;
-    padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
@@ -351,13 +373,11 @@ th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
-    padding: 3em;
 }
 
 .formContainer {
     display: inline-block;
     vertical-align: top;
-    margin: 1em 3em auto 3em;
 }
 
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
@@ -371,37 +391,32 @@ th {
 
 #cartContent img {
     float: left;
-    width: 10%;
+    width: 15%;
     margin: 1em 3em;
 }
 
 #cartContent h1 {
     float: left;
-    margin-top: 5em;
+    margin-top: 2.5em;
 }
 
 #selectedProduct {
     clear: left;
     padding: 1em;
-    margin: 1em;
+    margin: 1em 0.1em;
     border-radius: 10px;
     background-color: #F2E8CF;
 }
 
-#purchaseButton {
-    margin-top: 0.5em;
-    margin-left: 56em;
-    margin-bottom: 0.5em;
+#selectedProduct table {
+    width: 100%;
+    margin: 0.5em auto;
 }
 
 /*
 ==================================Lista prodotti================================
 */
 #filters {
-    float: left;
-    max-width: 20%;
-    min-width: 150px;
-    padding: 1.5em;
     border: 1px solid #ddd;
     border-top: none;
 }
@@ -508,19 +523,11 @@ p {
 #img1,
 #img2,
 #img3 {
-    max-width: 25em;
+    max-width: 18em;
     max-height: 12em;
-    margin: 0 1em;
+    margin: 0 3.5em;
     border: 1px solid #DDD;
     border-radius: 10px;
-}
-
-#img1 {
-    margin-left: 10%;
-}
-
-#img3 {
-    margin-right: 10%;
 }
 
 /*
@@ -530,6 +537,10 @@ p {
 .stylelessList {
 list-style-type:none;
 text-align: left;
+}
+
+#contentFAQ ul {
+    margin: 0em 1em;
 }
 
 #contentFAQ li {
@@ -557,13 +568,35 @@ background-color: #F2E8CF;
     vertical-align: middle;
 }
 
+#footer div ul {
+    text-align: center;
+}
+
 #upperFooterContainer {
     width: 100%;
 }
 
 #footer h3 {
-font-size: 1em;
-margin-bottom: 0.5em;
+    font-size: 1em;
+    margin-bottom: 0.2em;
+}
+
+#stores div {
+    padding: 0em 1.8em;
+}
+
+#stores div h3,
+#stores div ul {
+    text-align: center;
+}
+
+#stores div ul {
+    margin-bottom: 0.7em;
+}
+
+#contacts ul li a:hover,
+#contacts ul li a:active {
+    text-decoration: underline;
 }
 
 /*

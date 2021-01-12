@@ -8,8 +8,15 @@
     <meta name="title" content="Area Personale - MyCandies"/>
     <meta name="description" content="Pagina realizzata per l'area contenente i dati del cliente"/>
     <meta name="author" content="MyCandies&amp;co"/>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:768px), all and (min-device-width: 280px) and (max-device-width:768px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+</head> 
+
+<body onload="addStyleSheet();">
 
 <div id="header">
     <a class="helps" href="#personalArea">Vai al contenuto</a>
@@ -29,10 +36,10 @@
 
             <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
             <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
         </div>
     </div>
     <div id="navigation">
+        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul>
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
@@ -41,9 +48,7 @@
             <li><a href="suDiNoi.html">Su Di Noi</a></li>
         </ul>
     </div>
-</div> 
-
-<body id="personalArea">
+</div>
 <div id="breadcrumb">
     <p>Ti trovi in:
         <a href="Home.html">
@@ -97,18 +102,17 @@
             <label for="date">Data di nascita:</label>
             <!-- Buttons -->
             <input type="text" id="date" name="nascita" value=""/>
-            <input type="submit" name="Conferma" value="Conferma" id="Confirm"/>
+            <input type="submit" name="Conferma" value="Conferma" id="Confirm" class="buttons" />
         </fieldset>
     </form>
 </div>
-
 <div id="footer">
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>
                     <a href="">Centro assistenza</a>
@@ -125,7 +129,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -133,7 +137,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -141,7 +145,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -149,7 +153,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>
