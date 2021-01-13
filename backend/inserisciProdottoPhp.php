@@ -33,7 +33,7 @@ else { // caricamento nel database o mostrare messaggi di errore
             ->setAvailability($avail)
             ->setLinked_category();
     
-    $productHandler = new ProductHandler($dbaccess->getConnection(), $product);
+    $productHandler = new ProductHandler($dbaccess->getConnection());
     $image = new Images($connection);
 
     $htmlPage = file_get_contents(".." . DIRECTORY_SEPARATOR . "frontend" . DIRECTORY_SEPARATOR . "inserisciProdotto_dashboard.html");

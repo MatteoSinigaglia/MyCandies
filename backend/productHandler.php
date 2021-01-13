@@ -4,9 +4,8 @@ class ProductHandler {
 
     private $connection;
     
-    public function __construct($connection, $product) {
+    public function __construct($connection) {
         $this->connection = $connection;
-        $this->product = $product;
     }
 
     public function insertProduct($product) {
@@ -41,12 +40,12 @@ class ProductHandler {
         return $result['id'];
     }
 
-    private function getProducts() {
+    public function getProducts($name = null) {
         $selectQuery = "
-            select * from Products order by id asc"
+            select * from Products where name LIKE '%{$name}%' order by id asc"
             ;
         $queryResult = mysqli_query($this->connection, $selectQuery);    
-        if(mysqli_num_rows($query)==0)
+        if(mysqli_num_rows($queryResult)==0)
             return null;
         else {
             $productList = array();
