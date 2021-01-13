@@ -116,7 +116,6 @@ textarea {
 abbr {
     text-decoration: none;
 }
-
 .hidden_helpBackToHeader,
 .displayed_helpBackToHeader {
     width: 100%;
@@ -138,8 +137,6 @@ abbr {
 .backToHeader:hover {
     color: white;
 }
-
-
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
@@ -183,7 +180,6 @@ abbr {
 .responsiveTable tr td:before {
     content: attr(title);
 }
-
 /*
 ==================================FORMS========================
 */
@@ -418,7 +414,6 @@ th {
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
 
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
-
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
@@ -428,7 +423,6 @@ th {
     display: inline;
     vertical-align: top;
 }
-
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
@@ -538,10 +532,9 @@ p {
 /*
 ============== SU DI NOI =====================================================================
 */
-
 #suDiNoiContainer {
     width: 90%;
-    margin: 3em auto;
+    margin: 1em auto;
     border: 1px solid #DDD;
     border-radius: 10px;
     background-color: #F2E8CF;
@@ -556,15 +549,16 @@ p {
 }
 
 #drugsImages {
-    margin: auto;
+    margin: 0em auto;
 }
 
 #img1,
 #img2,
 #img3 {
-    max-width: 18em;
-    max-height: 12em;
-    margin: 0 3.5em;
+    max-width: 60%;
+    max-height: 10%;
+    margin: 0 auto;
+    display: block;
     border: 1px solid #DDD;
     border-radius: 10px;
 }

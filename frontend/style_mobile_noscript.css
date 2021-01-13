@@ -117,6 +117,27 @@ abbr {
     text-decoration: none;
 }
 
+.hidden_helpBackToHeader,
+.displayed_helpBackToHeader {
+    width: 100%;
+    background-color: #A7C957;
+    border: 1px solid #DDD;
+    text-align: center;
+}
+
+.backToHeader,
+.backToHeader:visited {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    color: #051C0B;
+    text-decoration: none;
+    border: none;
+}
+
+.backToHeader:hover {
+    color: white;
+}
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
@@ -189,7 +210,8 @@ abbr {
 .selectForm {
     background-color: white;
     border: 1px solid #DDD;
-}/*
+}
+/*
 ==================================TABELLE======================
 */
 
@@ -288,7 +310,8 @@ table th {
     margin: 0.3em 0em;
 }
 
-#navigation li:hover {
+#navigation li:hover,
+#navigation li:active {
     text-decoration: underline;
 }
 
@@ -426,15 +449,17 @@ th {
 /*
 ==================================Lista prodotti================================
 */
+#productList {
+    width: 100%;
+}
+
 #filters {
-    border: 1px solid #ddd;
-    border-top: none;
+    width: 95%;
+    border-bottom: 1px solid #ddd;
 }
 
 #filters form div {
     text-align: center;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
 }
 
 #filters label {
@@ -445,18 +470,10 @@ th {
     width: 4em;
 }
 
-#rightSideContent {
-    overflow: hidden;
-    padding: 1em;
-}
-
-#rightSideContent div {
-    overflow: hidden;
-}
-
 #upperRightSideContent {
     border-bottom: 1px solid #ddd;
     padding-bottom: 1em;
+    text-align: center;
 }
 
 select {
@@ -470,11 +487,7 @@ select {
 }
 
 #orderBy {
-    float: left;
-}
-
-#productsPerPage {
-    text-align: right;
+    margin: 0.5em 0em;
 }
 
 #productsList {
@@ -502,17 +515,16 @@ p {
 
 #productsPageNumber {
     text-align: center;
-    display: inline-block;
+    display: inline;
     width: 100%;
 }
 
 /*
 ============== SU DI NOI =====================================================================
 */
-
 #suDiNoiContainer {
     width: 90%;
-    margin: 3em auto;
+    margin: 1em auto;
     border: 1px solid #DDD;
     border-radius: 10px;
     background-color: #F2E8CF;
@@ -527,15 +539,16 @@ p {
 }
 
 #drugsImages {
-    margin: auto;
+    margin: 0em auto;
 }
 
 #img1,
 #img2,
 #img3 {
-    max-width: 18em;
-    max-height: 12em;
-    margin: 0 3.5em;
+    max-width: 60%;
+    max-height: 10%;
+    margin: 0 auto;
+    display: block;
     border: 1px solid #DDD;
     border-radius: 10px;
 }
@@ -569,7 +582,7 @@ background-color: #F2E8CF;
     background-color: #051C0B;
     color: white;
     min-height: 10em;
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 
 #footer div {
