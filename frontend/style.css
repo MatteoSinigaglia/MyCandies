@@ -107,6 +107,15 @@ textarea {
     font-size: 1em;
 }
 
+#cartButton {
+    padding: 0.6em 0.7em;
+}
+
+#cartButton span {
+    font-weight: bold;
+    font-family: "Arial", cursive, sans-serif;
+}
+
 .buttons:hover {
     border: 1px solid white;
     background-color: #A7C957;

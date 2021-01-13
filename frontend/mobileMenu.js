@@ -3,14 +3,11 @@ function modifyStylesheet() {
     var link = document.getElementById("mobileStyleSheet");
     link.href = "../frontend/style_mobile.css";
     head.appendChild(link);
-    var carrello = document.getElementById("cartButton");
-    if(window.screen.width < 768) {
-        carrello.className = "fa fa-shopping-cart";
-        carrello.innerHTML = "";
-    } else {
-        carrello.className = "buttons";
-        carrello.innerHTML = "Carrello";
-    }
+};
+
+function setMenuVisible() {
+    var menu = document.getElementById("navigationMenu");
+    menu.style.display = "block";
 };
 
 function mobileMenu() {
