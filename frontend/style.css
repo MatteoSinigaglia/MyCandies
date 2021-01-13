@@ -112,6 +112,36 @@ textarea {
     background-color: #A7C957;
 }
 
+.hidden_helpBackToHeader,
+.displayed_helpBackToHeader {
+    width: 100%;
+    background-color: #A7C957;
+    border: 1px solid #DDD;
+    text-align: center;
+}
+
+.hidden_helpBackToHeader {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.backToHeader,
+.backToHeader:visited {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    color: #051C0B;
+    text-decoration: none;
+    border: none;
+}
+
+.backToHeader:hover {
+    color: white;
+}
+
 abbr {
     text-decoration: none;
 }
@@ -548,7 +578,7 @@ background-color: #F2E8CF;
     background-color: #051C0B;
     color: white;
     min-height: 10em;
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 
 #footer div {
