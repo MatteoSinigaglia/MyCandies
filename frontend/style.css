@@ -271,14 +271,19 @@ table th {
 
 #navigation li {
     display: inline;
-    padding: 0.3% 1%;
-    margin: 0.2% 1.5%;
+    margin: 0.2em 1.5em;
     border: 1px solid transparent;
     border-radius: 4px;
 }
 
-#navigation li:hover {
-    text-decoration: underline;
+#navigation a {
+    padding: 0.4em 0.7em;
+}
+
+#navigation a:hover {
+    background-color: white;
+    border-radius: 4px;
+    color: #051C0B;
 }
 
 #navigation a:link {
