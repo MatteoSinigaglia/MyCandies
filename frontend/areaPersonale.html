@@ -56,11 +56,11 @@
         </a>/ Area personale</p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <div id="avviso_utenteNonLoggato">
+    <div id="avviso_utenteNonLoggato"> <!-- utenteLoggato -->
         <p>Per visualizzare le informazioni dell'area personale è necessario eseguire l'accesso.</p>
         <p>E' possibile effettuare l'accesso o la registrazione cliccando questo link: <a href="formCliente.html">Accedi/registrati.</a></p>
     </div>
-    <form id="formAreaPersonale_hidden" action="#" method="post" class="inputForm">
+    <form id="formAreaPersonale_hidden" action="#" method="post" class="inputForm"> <!-- formAreaPersonale_visible -->
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
@@ -108,6 +108,9 @@
             <input type="submit" name="Conferma" value="Conferma" id="Confirm" class="buttons" />
         </fieldset>
     </form>
+    <div id="logout">
+        <button id="logoutButton_hidden" class="buttons">Logout</button> <!-- logoutButton_visible -->
+    </div>
 </div>
 <div id="footer">
     <div class="displayed_helpBackToHeader">

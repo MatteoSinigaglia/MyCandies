@@ -338,6 +338,20 @@ table th {
     display: none;
 }
 
+#logoutButton_hidden {
+    display: none;
+}
+
+#logout {
+    width: 100%;
+    text-align: center;
+}
+
+#logoutButtons_visible {
+    display: block;
+    text-align: center;
+}
+
 /*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
 
 #productContent h2 {
