@@ -125,7 +125,8 @@ textarea {
 .displayed_helpBackToHeader {
     width: 100%;
     background-color: #A7C957;
-    border: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
     text-align: center;
 }
 
