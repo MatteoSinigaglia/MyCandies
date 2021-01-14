@@ -1,25 +1,20 @@
 <?php
+
+use MyCandies\Controllers\Register;
+
+require_once __DIR__ . DS;
+
+
 //  TODO: Fix paths
 if (!isset($_POST['submitSubscribe'])) {
 	header('location: '.VIEW_PATH.'formCliente.html');
 	die();
 }
 
-$valid = true;
-$user = $_POST['user'];
-
-//	TODO: Do static checks on inputs
-
-$user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
-
-require_once './classes/dbh.php';
-
-use DB\dbh;
-
-$dbh = new dbh();
+$signup = new Register($_POST['user'], $_POST['address']);
 
 try {
-	$dbh->newUser($user);
+	$signup->registration();
 	header('location: ../frontend/home.html');
 	die();
 } catch (InvalidArgumentException $e) {

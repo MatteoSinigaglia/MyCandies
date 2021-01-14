@@ -3,6 +3,7 @@
 namespace DB;
 
 
+use DB\Exceptions\TransactionException;
 use PDO;
 use Exception;
 use PDOException;
@@ -22,9 +23,9 @@ class dbh {
 	public function __construct() {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
-		$this->port = '8080';
-		$this->psw = 'vixxyf-jYtcyq-fyxwi5';
-		$this->user = 'tw';
+		$this->port = '3306';
+		$this->psw = 'root';
+		$this->user = 'root';
 		$this->charset = 'utf8';
 		$this->options = [
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -32,7 +33,7 @@ class dbh {
 		];
 	}
 
-	private function connect() {
+	public function connect() {
 		try {
 
 			$dsn = 'mysql:host='.$this->host.';port='.$this->port.';dbname='.$this->db.';charset='.$this->charset.';';
@@ -47,7 +48,7 @@ class dbh {
 		}
 	}
 
-	private function disconnect() {
+	public function disconnect() {
 		$this->pdo = null;
 	}
 
@@ -57,19 +58,29 @@ class dbh {
 	 * @return mixed
 	 * @throws Exception
 	 */
-	private function query(string $sql, array $parameters = []) {
-		$query = null;
-		try {
-			$query = $this->pdo->prepare($sql);
-			$query->execute($parameters);
-		} catch (PDOException $e) {
-			throw new Exception('Exception in dbh::query()'.$e->getMessage(), $e->getCode());
-		}
+	public function query(string $sql, array $parameters = []) {
+		$query = $this->pdo->prepare($sql);
+		$query->execute($parameters);
 		return $query;
 	}
 
-//	TODO: consider turning function public, requires connection/disconnection and exception handling
-	private function insert(string $table, array $fields) {
+	public function getLastInsertId() : int {
+		return $this->pdo->lastInsertId();
+	}
+
+	public function find(string $table, string $column, mixed $value) {
+		$query = 'SELECT * FROM `'.$table.'` WHERE `'.$column.'`=:value';
+
+		$parameters = [
+			'value' => $value
+		];
+
+		$query = $this->$query($query, $parameters);
+		return $query->fetchAll();
+	}
+
+	public function insert(string $table, array $fields) : int {
+//		Should check if duplicate and return the already present id/insert the element
 		$parameters = $values = '';
 		foreach ($fields as $key => $value) {
 			$parameters .= '`'.$key.'`,';
@@ -82,30 +93,26 @@ class dbh {
 		echo $query;
 		try {
 			$this->query($query, $fields);
+			return $this->pdo->lastInsertId();
 		} catch (Exception $e) {
 			throw new Exception($e->getMessage(), $e->getCode());
 		}
 	}
 
-	private function isEmailAvailable($email) {
-		$sql = 'SELECT count(`id`) as `Users` FROM `Customers` WHERE `email` = :email';
-		try {
-			$result = $this->query($sql, ['email' => $email]);
-			return $result->fetchColumn() != 0;
-		} catch (Exception $e) {
-			throw new Exception('Exception looking for email duplicates'.$e->getMessage(), 1);
-		}
-	}
-
-	public function newUser($user) {
+	public function newUser(array $user) {
 		try {
 			$this->connect();
 
-			if($this->isEmailAvailable($user['email'])) {
+
+			if ($this->find('Customers', 'email', $user['email']) > 0) {
 				throw new InvalidArgumentException('Email already in use', 1);
 			}
 
 			$this->pdo->beginTransaction();
+//			$query = 'CALL insertUser(:first_name,:last_name,:email,:telephone,:password,:sex,:date_of_birth,:country,'.
+//				':region,:province,:city,:CAP,:street,:street_number)';
+
+//			$this->query($query, $user);
 			$table = 'Customers';
 
 //			Take from $user only the Customers' table fields
@@ -116,7 +123,7 @@ class dbh {
 				'password' => $user['password']
 			];
 			$this->insert($table, $customer);
-//            $userId = $this->pdo->lastInsertId();
+            $userId = $this->pdo->lastInsertId();
 
 			$this->pdo->commit();
 
@@ -136,5 +143,25 @@ class dbh {
 		} finally {
 			$this->disconnect();
 		}
+	}
+
+	public function transactionStart() {
+		try {
+			$this->pdo->beginTransaction();
+		} catch (PDOException $e) {
+			throw new TransactionException('Error starting transaction: '.$e->getMessage(), -1);
+		}
+	}
+
+	public function transactionCommit() {
+		try {
+			$this->pdo->commit();
+		} catch (PDOException $e) {
+			throw new TransactionException('No active transaction, unable to commit', -2);
+		}
+	}
+
+	public function transactionRollback() {
+		$this->pdo->rollback();
 	}
 }
