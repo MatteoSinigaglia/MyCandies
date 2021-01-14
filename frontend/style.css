@@ -281,7 +281,7 @@ table th {
 }
 
 #navigation a:hover {
-    background-color: white;
+    background-color: #F2E8CF;
     border-radius: 4px;
     color: #051C0B;
 }
@@ -293,6 +293,10 @@ table th {
 
 #navigation a:visited {
     color: #051C0B;
+}
+
+.hide {
+    display: none;
 }
 
 /*
