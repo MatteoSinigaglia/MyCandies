@@ -4,17 +4,18 @@
 
 <head>
 <title>Prodotti - MyCandies</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="title" content="Prodotti - MyCandies"/>
-<meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
-<meta name="author" content="MyCandies&amp;co"/>
-<meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Prodotti - MyCandies"/>
+    <meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
+    <meta name="author" content="MyCandies&amp;co"/>
+    <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+    <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+    <script type="text/javascript" src="../frontend/checkFiltersListaProdotti.js"></script>
 </head>
 
 <body onload="modifyStylesheet();" onresize="setMenuVisible();">
@@ -53,7 +54,7 @@
 <div class="main" id="productList">
     <div id="filters">
         <h1>Filtri di Ricerca</h1>
-        <form action="#" method="post" id="filtersForm">
+        <form action="#" method="post" id="filtersForm" onsubmit="return validateFilters();">
             <fieldset id="categoryFilter">
                 <legend>Categoria</legend>
                 <div>
@@ -75,15 +76,18 @@
                     <input type="text" name="minActivePrinciple" id="minActivePrinciple"/>
                     <label for="maxActivePrinciple">Max</label>
                     <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" />
+                    <span id="AC_errors"></span>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Prezzo</legend>
                 <div>
+                    <span>
                     <label for="minPrice">Min</label>
                     <input type="text" name="minPrice" id="minPrice" />
                     <label for="maxPrice">Max</label>
                     <input type="text" name="maxPrice" id="maxPrice" />
+                    <span id="PR_errors"></span>
                 </div>
             </fieldset>
             <div>
