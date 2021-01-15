@@ -751,7 +751,7 @@ background-color: #020E0A;
 }
 
 /*
-============== SU DI NOI PROVA ==========================
+============== SU DI NOI ==========================
 */
 
 #aboutUsContent dt {
@@ -761,7 +761,7 @@ background-color: #020E0A;
     background-color: #F2E8CF;
     font-size: 20px;
     border-radius: 4px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(155, 153, 153);
 
 }
 
@@ -771,7 +771,7 @@ background-color: #020E0A;
     margin: 1em auto;
     padding: 1em;
     border-radius: 4px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(155, 153, 153);
     background-color: #F2E8CF;
 }
 
