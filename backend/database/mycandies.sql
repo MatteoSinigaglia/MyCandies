@@ -45,7 +45,7 @@ CREATE TABLE `Addresses` (
 	`region` varchar(20) NOT NULL,
 	`province` varchar(20) NOT NULL,
 	`city` varchar(20) NOT NULL,
-	`CAP` varchar(5) NOT NULL,
+	`CAP` char(5) NOT NULL,
 	`street` varchar(30) NOT NULL,
 	`street_number` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)

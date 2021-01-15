@@ -79,37 +79,37 @@
         <!-- link recupero credenziali -->
         <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
-        <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
+        <input type="submit" id="usernameButton" name="submitLogin" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
       </fieldset>
     </form>
     </div>
   <div class="formContainer">
   <h1>Registrati</h1>
-  <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
+  <form action="../backend/signup.php" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
     <fieldset id="mandatoryFields">
       <div>
         <label for="email">E-mail</label>
-        <span><input type="text" name="email" id="email" class="input-wide"/></span>
+        <span><input type="text" name="user[email]" id="email" class="input-wide"/></span>
       </div>
       <div>
         <label for="password">Password</label>
-        <span><input type="password" name="password" id="password" maxlength="20"/></span>
+        <span><input type="password" name="user[password]" id="password" maxlength="20"/></span>
       </div>
       <div>
         <label for="confirmPassword">Conferma password</label>
-        <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="20" /></span>
+        <span><input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" /></span>
       </div>
     </fieldset>
     <fieldset>
       <legend>Dati personali</legend>
       <div>
         <label for="name">Nome</label>
-        <span><input type="text" name="name" id="name"/></span>
+        <span><input type="text" name="user[first_name]" id="name"/></span>
       </div>
       <div>
         <label for="surname">Cognome</label>
-        <span><input type="text" name="surname" id="surname"/></span>
+        <span><input type="text" name="user[last_name]" id="surname"/></span>
       </div>
       <div>
         <label for="birthDate">Data di nascita</label>
