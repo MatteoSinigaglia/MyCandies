@@ -61,9 +61,13 @@ class dbh {
 	 * @throws Exception
 	 */
 	public function query(string $sql, array $parameters = []) {
-		$query = $this->pdo->prepare($sql);
-		$query->execute($parameters);
-		return $query;
+		try {
+			$query = $this->pdo->prepare($sql);
+			$query->execute($parameters);
+			return $query;
+		} catch (PDOException $e) {
+			throw $e;
+		}
 	}
 
 	public function getLastInsertId() : int {

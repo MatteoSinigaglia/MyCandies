@@ -3,22 +3,23 @@
 
 namespace MyCandies\Entities;
 
-
 use MyCandies\Exceptions\EntityException;
 
 require_once __DIR__.'/../Exceptions/EntityException.php';
 
 class Entity {
 
+	public const DB = 0;
+	public const CONTROLLER = 1;
+
 	protected $id;
 
-	public function __construct(int $id=null) {
-		echo 'Entity';
-		if (isset($id) && !is_int($id)) {
+	public function __construct(int $source, mixed $id=null) {
+		if ($source === self::CONTROLLER && isset($id) && !is_int($id)) {
 			throw new EntityException('The given id is illegal', -1);
-		} else {
-			$this->id = $id;
 		}
+		echo 'Id: '.$id.' _';
+		$this->id = (int)$id;
 	}
 
 	/**

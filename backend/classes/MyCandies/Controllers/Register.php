@@ -13,6 +13,7 @@ use MyCandies\Entities\UsersAddresses;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Exceptions\RegisterException;
 
+require_once __DIR__.'/Authentication.php';
 require_once __DIR__.'/../Entities/User.php';
 require_once __DIR__.'/../Entities/Address.php';
 require_once __DIR__.'/../Entities/UsersAddresses.php';
@@ -21,7 +22,9 @@ require_once __DIR__.'/../Exceptions/RegisterException.php';
 require_once __DIR__.'/../../DB/dbh.php';
 require_once __DIR__.'/../Tables/Table.php';
 
-class Register {
+defined('PATH_TO_ENTITY') || define('PATH_TO_ENTITY', __DIR__.'/../Entities/');
+
+class Register extends Authentication {
 
 	private $tUsers;
 	private $tAddresses;
@@ -31,9 +34,8 @@ class Register {
 	private $userAddress;
 	private $dbh;
 
-	private const PATH_TO_ENTITY = './../Entities/';
 	public function __construct(array $user, array $address) {
-//	                            Table $T_users, Table $T_addresses, Table $T_usersAddresses) {
+		parent::__construct();
 		try {
 			$this->user = new User($user);
 			echo 'User';
@@ -44,13 +46,13 @@ class Register {
 
 			$this->dbh = new dbh();
 			echo 'dbh';
-			$this->tUsers = new Table($this->dbh, 'Customers', 'id', self::PATH_TO_ENTITY.'User');
+			$this->tUsers = new Table($this->dbh, 'Customers', 'id', PATH_TO_ENTITY.'User');
 			echo 'tUser';
 //				$T_users;
-			$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', self::PATH_TO_ENTITY.'Address');
+			$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', PATH_TO_ENTITY.'Address');
 			echo 'tAddress';
 //				$T_addresses;
-			$this->tUsersAddresses = new Table($this->dbh, 'CustomerAddresses', 'id', self::PATH_TO_ENTITY.'UserAddresses');
+			$this->tUsersAddresses = new Table($this->dbh, 'CustomerAddresses', 'id', PATH_TO_ENTITY.'UserAddresses');
 			echo 'tUserAddress';
 //				$T_usersAddresses;
 		} catch (EntityException $e) {

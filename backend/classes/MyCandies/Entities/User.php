@@ -18,13 +18,12 @@ class User extends Entity {
 	private $sex;
 	private $birthdate;
 
-	public function __construct(array $data) {
+	public function __construct(int $source, array $data=[]) {
 		try {
-			echo 'echo 10';
-			parent::__construct();
-			echo 'echo 11';
+			parent::__construct($source, $data['id']);
+			echo 'User'.PHP_EOL;
 			foreach ($data as $k => $v) {
-				echo $k.' => '.$v.' ';
+				echo $k.' => '.$v.PHP_EOL;
 			}
 	//		Only values check, no control on consistency between data and db;
 //			if (isset($data['id'])) {
@@ -34,20 +33,35 @@ class User extends Entity {
 //					throw new EntityException('Invalid id', -1);
 //				}
 //			}
-			if (!isset($data['first_name']) /*|| regex check*/) {
-				throw new EntityException('Nome non corretto', -3);
-			}
-			if (!isset($data['last_name']) /*|| regex check*/) {
-				throw new EntityException('Cognome non corretto', -4);
-			}
-			if (!isset($data['email']) /*|| regex check*/) {
-				throw new EntityException('La email inserita non é corretta', -5);
-			}
-			if (!isset($data['password']) /*|| regex check*/) {
-				throw new EntityException('La password inserita non é corretta', -6);
-			}
-			if ($data['password'] !== $data['confirmPassword']) {
-				throw new EntityException('Le password non corrispondono', -7);
+			switch ($source) {
+				case self::CONTROLLER:
+					if (!isset($data['email']) /*|| regex check*/) {
+						throw new EntityException('La email inserita non é corretta', -5);
+					}
+					if (!isset($data['password']) /*|| regex check*/) {
+						throw new EntityException('La password inserita non é corretta', -6);
+					}
+
+					if (isset($_POST['submitSubscribe'])) {
+						if (!isset($data['first_name']) /*|| regex check*/) {
+							throw new EntityException('Nome non corretto', -3);
+						}
+						if (!isset($data['last_name']) /*|| regex check*/) {
+							throw new EntityException('Cognome non corretto', -4);
+						}
+						if ($data['password'] !== $data['confirmPassword']) {
+							throw new EntityException('Le password non corrispondono', -7);
+						}
+					}
+					$this->first_name = $data['first_name'];
+					$this->last_name = $data['last_name'];
+					$this->email = $data['email'];
+					$this->password = $this->securePassword($data['password']);
+//			$this->birthdate = $data['birthdate'];
+//			$this->telephone = $data['telephone'];
+					break;
+				case self::DB:
+					break;
 			}
 
 //			TODO: remove comment when added in form
@@ -61,12 +75,7 @@ class User extends Entity {
 //				throw new EntityException('Cellulare non corretto', -10);
 //			}
 
-			$this->first_name = $data['first_name'];
-			$this->last_name = $data['last_name'];
-			$this->email = $data['email'];
-			$this->password = $this->securePassword($data['password']);
-//			$this->birthdate = $data['birthdate'];
-//			$this->telephone = $data['telephone'];
+
 
 		} catch (EntityException $e) {
 			throw $e;
@@ -90,7 +99,7 @@ class User extends Entity {
 	}
 
 	public function getValues() : array {
-		$fields = [];
+		$fields = parent::getValues();
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}

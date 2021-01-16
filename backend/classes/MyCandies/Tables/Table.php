@@ -5,8 +5,10 @@ namespace MyCandies\Tables;
 
 use DB\Exceptions;
 use DB\dbh;
+use MyCandies\Entities\Entity;
 
 require_once __DIR__.'/../../DB/dbh.php';
+require_once __DIR__.'/../Entities/User.php';
 
 class Table {
 
@@ -63,34 +65,39 @@ class Table {
 		$query->fetchObject($this->className, $this->constructorArgs);
 	}
 
-	public function find(array $where = null, string $orderBy = null, string $groupBy = null, array $having = null, string $limit = null, string  $offset = null): array {
-		$query = 'SELECT * FROM `'.$this->table.'`';
-		$parameters = [];
+	public function find(array $where = null, string $orderBy = null, string $groupBy = null, array $having = null, string $limit = null, string  $offset = null) {
+		try {
+			$query = 'SELECT * FROM `' . $this->table . '`';
+			$parameters = [];
 
-		if (!empty($where)) {
-			$query .= ' WHERE `' . $where['column'] . '` = :where';
-			$parameters['where'] = $where['value'];
-		}
+			if (!empty($where)) {
+				$query .= ' WHERE `' . $where['column'] . '` = :where';
+				$parameters['where'] = $where['value'];
+			}
 
-		if (!empty($orderBy)) {
-			$query .= ' ORDER BY `'.$orderBy.'`';
-		}
-		if (!empty($groupBy)) {
-			$query .= ' GROUP BY `'.$groupBy.'`';
-		}
-		if (!empty($having)) {
-			$query .= ' HAVING `'.$having['column'].'` = :having';
-			$parameters['having'] = $having['value'];
-		}
-		if (!empty($limit)) {
-			$query .= ' LIMIT `'.$limit.'`';
-		}
-		if (!empty($offset)) {
-			$query .= ' OFFSET `'.$offset.'`';
-		}
+			if (!empty($orderBy)) {
+				$query .= ' ORDER BY `' . $orderBy . '`';
+			}
+			if (!empty($groupBy)) {
+				$query .= ' GROUP BY `' . $groupBy . '`';
+			}
+			if (!empty($having)) {
+				$query .= ' HAVING `' . $having['column'] . '` = :having';
+				$parameters['having'] = $having['value'];
+			}
+			if (!empty($limit)) {
+				$query .= ' LIMIT `' . $limit . '`';
+			}
+			if (!empty($offset)) {
+				$query .= ' OFFSET `' . $offset . '`';
+			}
 
-		$query = $this->dbh->query($query, $parameters);
-		return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
+			$query = $this->dbh->query($query, $parameters);
+			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, [Entity::DB]);
+//			return $query->fetchAll();
+		} catch (\Exception $e) {
+			echo $e;
+		}
 	}
 
 	public function insert(array $fields) : string {
