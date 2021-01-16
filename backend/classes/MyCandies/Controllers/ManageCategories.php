@@ -1,23 +1,28 @@
 <?php
+
 namespace MyCandies\Controllers;
 
+require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Category.php';
+require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
+
+use Exception;
 use DB\dbh;
 use MyCandies\Tables\Table;
-use MyCandies\Entity\Category;
+use MyCandies\Entities\Category;
+use MyCandies\Exceptions\EntityException;
 
-class InsertProduct {
+class ManageCategories {
 
     private $T_categories;
     private $category;
     private $dbh;
-    
-    private const PATH_TO_ENTITY = '.'.DS.'..'.DS.'Entity'.DS;
 
     public function __construct(array $category = null) {
         try{
             $this->dbh = new dbh();
-            $this->category = (isEmpty($category) ? null : $category);
-            $this->T_categories = new Table($this->dbh, 'Categories', 'id', self::PATH_TO_ENTITY.'Category');
+            $this->category = (empty($category) ? null : $category);
+            $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
         } catch (EntityException $e) {
             throw $e;
         }
@@ -36,7 +41,7 @@ class InsertProduct {
     public function getCategories() {
         try{
             $this->dbh->connect();
-            $categories = $this->T_categories->find(['where' => '1']);
+            $categories = $this->T_categories->find();
         } catch (Exception $e ) {
             throw $e;
         } finally {
@@ -46,4 +51,3 @@ class InsertProduct {
         return $categories;
     }
 }
-?>

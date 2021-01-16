@@ -3,7 +3,7 @@
 
 namespace MyCandies\Tables;
 
-
+use DB\Exceptions;
 use DB\dbh;
 
 require_once __DIR__.'/../../DB/dbh.php';
@@ -137,8 +137,12 @@ class Table {
 
 		$fields = $this->processDates($fields);
 
-		$this->query($query, $fields);
-	}
+        try {
+            $this->dbh->query($query, $fields);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 
 	public function delete(int $id) {
 		$query = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->primaryKey . '` = :id';
@@ -146,8 +150,12 @@ class Table {
 			'id' => $id
 		];
 
-		$this->query($query, $parameters);
-	}
+        try {
+            $this->dbh->query($query, $parameters);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 
 	public function deleteWhere(string $column, mixed $value) {
 		$query = 'DELETE FROM `'.$this->table.'` WHERE `'.$column.'` = :value';
@@ -155,7 +163,11 @@ class Table {
 			'value' => $value
 		];
 
-		$this->dbh->query($query, $parameters);
+		try {
+            $this->dbh->query($query, $parameters);
+        } catch(\Exception $e) {
+		    throw $e;
+        }
 	}
 
 	private function processDates(array $fields): array {

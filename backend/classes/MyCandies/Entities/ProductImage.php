@@ -1,6 +1,9 @@
 <?php
 
-    namespace MyCandies\Entity;
+    namespace MyCandies\Entities;
+
+
+    use MyCandies\Exceptions\EntityException;
 
     class ProductImage extends Entity {
 
@@ -8,9 +11,12 @@
         private $image_id;
 
         public function __construct(array $data) {
-            // parent::__construct(null);
+            try {
+                parent::__construct(null);
+            } catch (EntityException $e) {
+                throw $e;
+            }
             $this->product_id = $data['product_id'];
-            $this->$image_id = $data['image_id'];
+            $this->image_id = $data['image_id'];
         }
     }
-?>

@@ -1,21 +1,27 @@
 <?php
-    use DB\dbh;
-    use MyCandies\Entity\Category;
+    // TODO eliminare definizione costanti
+
+    require_once '..'.DIRECTORY_SEPARATOR.'paths_index.php';
+    require_once MYCANDIES_PATH.DS.'Entities'.DS.'Category.php';
+    require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ManageCategories.php';
+
+    use MyCandies\Entities\Category;
     use MyCandies\Controllers\ManageCategories;
-
-    require_once 'lib'.DIRECTORY_SEPARATOR.'paths.php';
-
 
     try {
         $categoryManager = new ManageCategories();
         $categories = $categoryManager->getCategories();
     } catch(Exception $e) {
         // load 404 page, TODO
+        echo $e->getMessage();
         die();
     }
     
-    $htmlPage = file_get_contents(VIEW_PATH."inserisciProdotto_dashboard.html");
+    $htmlPage = file_get_contents(VIEW_PATH.DS."inserisciProdotto_dashboard.html");
     $categoriesOptions = "";
+    foreach ($categories as $k => $v) {
+        echo $k.' => '.$v.PHP_EOL;
+    }
     foreach ($categories as $category) {
         if($category['name'] != null)
         $categoriesOptions .=
@@ -28,5 +34,3 @@
     }
     $htmlPage = str_replace("<categoryOptions />", $categoriesOptions, $htmlPage);
     echo $htmlPage;
-
-?>

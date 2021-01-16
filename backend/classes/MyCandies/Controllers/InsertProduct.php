@@ -23,7 +23,7 @@ class InsertProduct {
     private $image;
     private $dbh;
     
-    private const PATH_TO_ENTITY = '.'.DS.'..'.DS.'Entity'.DS;
+    private const PATH_TO_ENTITY = '.'.DS.'..'.DS.'Entities'.DS;
 
     public function __construct(array $product, array $image) {
         try{

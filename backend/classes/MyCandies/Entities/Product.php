@@ -1,6 +1,6 @@
 <?php
 
-    namespace MyCandies\Entity;
+    namespace MyCandies\Entities;
 
     use MyCandies\Exceptions\EntityException;
 

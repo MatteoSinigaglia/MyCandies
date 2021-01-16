@@ -1,7 +1,10 @@
 <?php
 
+    namespace MyCandies\Entities;
+
+    require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
+
     use MyCandies\Exceptions\EntityException;
-    namespace MyCandies\Entity;
 
     class Image {
         private $img_path;
@@ -9,7 +12,7 @@
         public function __construct(array $data) {
             try {
                 parent::__construct($data['id']);
-                $this->description = $data['description'];
+                $this->img_path = $data['image'];
             } catch(EntityException $e) {
                 throw $e;
             }
@@ -17,7 +20,7 @@
 
         public function setImg_path($img_path) {
             $path = $_FILES['productImage']['name'];
-            $ext = pathinfo($name, PATHINFO_EXTENSION);
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
             $allowed = array("jpeg", "png", "jpg");
             if(!in_array($ext, $allowed)) {
                 throw new EntityException('Il formato dell\'immagine deve essere jpeg, png o jpg');
@@ -29,5 +32,3 @@
             }
         }
     }
-
-?>
