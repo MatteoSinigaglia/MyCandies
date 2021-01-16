@@ -42,12 +42,31 @@ body {
 
 #breadcrumb {
     text-align: left;
-    padding: 1em;
+    padding: 0.6em;
+    border-top: 1px solid #DDD;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
     color: black;
-    background-color: #a7c957;
+    background-color: #244224;
 }
+
+#breadcrumb p {
+    color: white;
+}
+
+#breadcrumb a:link {
+    text-decoration: none;
+    color: white;
+}
+
+#breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+#breadcrumb a:visited {
+    color: #cda434;
+}
+
 
 h1 {
     font-size: 1.5em;
@@ -97,9 +116,8 @@ textarea {
 .buttons {
     padding: 0.5em 1em;
     margin: 0.5em;
-    border: 1px solid transparent;
     border-radius: 4px;
-    background-color: #6A994E;
+    background-color: #020E0A;
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -107,11 +125,30 @@ textarea {
     font-size: 1em;
 }
 
+#header #utilityBar .buttons {
+    border-radius: 0px;
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    background-color: #020E0A;
+}
+
+#header #utilityBar .buttons:hover {
+    border-radius: 4px;
+    color: #020E0A;
+    background-color: #F2E8CF;
+}
+
+#productSearchButton {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-color: #093013;
+}
+/*
 .buttons:hover,
 .buttons:active {
     border: 1px solid white;
     background-color: #A7C957;
-}
+}*/
 
 #cartButton {
     padding: 0.6em 0.7em;
@@ -224,7 +261,7 @@ table th {
     width: 100%;
     color: white;
     font-weight: bold;
-    background-color: #051C0B;
+    background-color: #020E0A;
 }
 
 #headerLogoAndUtility {
@@ -274,9 +311,10 @@ table th {
 #navigation {
     clear: both;
     text-align: center;
-    background-color: #6A994E;
+    background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
+    border-top: 1px solid #DDD;
 }
 
 #navigation li {
@@ -290,18 +328,18 @@ table th {
     padding: 0.4em 0.7em;
 }
 
-#navigation a:hover {
-    background-color: #F2E8CF;
-    border-radius: 4px;
-    color: #051C0B;
-}
-
 #navigation a:link {
     text-decoration: none;
     color: white;
 }
 
 #navigation a:visited {
+    color: #cda434;
+}
+
+#navigation a:hover {
+    background-color: #F2E8CF;
+    border-radius: 4px;
     color: #051C0B;
 }
 
@@ -395,7 +433,7 @@ table th {
 #productTableContent {
     float: right;
     border-radius: 10px;
-    background-color: #6A994E;
+    background-color: #093013;
     margin-bottom: 1em;
     width: 20%;
 }
@@ -419,6 +457,7 @@ th {
     border-right: 1px solid transparent;
     border-left: 1px solid transparent;
     border-top: 1px solid transparent;
+    color: #cda434;
 }
 
 #productTableContent td {
@@ -433,6 +472,14 @@ th {
     margin: auto;
     text-align: center;
     padding: 3em;
+}
+
+#loginForm a:link {
+    color: #093013;
+}
+
+#loginForm a:visited {
+    color: rgb(134, 2, 2);
 }
 
 .formContainer {
@@ -613,6 +660,14 @@ list-style-type:none;
 text-align: left;
 }
 
+#contentFAQ .stylelessList a:hover {
+    color: purple;
+}
+
+#contentFAQ .stylelessList a:visited {
+    color: rgb(134, 2, 2);
+}
+
 #contentFAQ li {
 border: 1px solid;
 padding:1em;
@@ -643,8 +698,12 @@ background-color: #F2E8CF;
 }
 
 #footer h3 {
-font-size: 1em;
-margin-bottom: 0.5em;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+
+#footer a:visited {
+    color: #cda434;
 }
 
 /*
@@ -690,20 +749,29 @@ min-width: 11em;
     margin: 1em;
 }
 
+#social ul li {
+    padding-bottom: 0.2em;
+}
+
 #social a:link{
-text-decoration: none;
-color: white;
+    color: white;
+    text-decoration: none;
+}
+
+#social a:hover {
+    text-decoration: underline;
+    color: white;
 }
 
 #social img{
-width: 1em;
-margin-right: 0.1em;
+    width: 1em;
+    margin-right: 0.1em;
 }
 
 #diritti{
-width: 100%;
-color: #FFFFFF;
-background-color: #020E0A;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #020E0A;
 }
 
 #diritti p {
