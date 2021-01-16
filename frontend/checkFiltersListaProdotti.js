@@ -1,8 +1,8 @@
 var FilterValues = {
   "minActivePrinciple": [/^\d{1,3}$/,"Valore non valido. Inserire un numero a max. 3 cifre.", "Valore minimo troppo basso.", "Valore minimo troppo alto.", "Il valore minimo è più grande del valore massimo."],
   "maxActivePrinciple": [/^\d{1,3}$/,"Valore non valido. Inserire un numero a max. 3 cifre.", "Valore massimo troppo basso.", "Valore massimo troppo alto."],
-  "minPrice": [/^\d{1,4}$/,"Prezzo non valido.", "Prezzo troppo basso.", "Il valore minimo è più grande del valore massimo."],
-  "maxPrice": [/^\d{1,4}$/,"Prezzo non valido.", "Prezzo troppo basso."]
+  "minPrice": [/^\d{1,4}$/,"Prezzo non valido.", "Prezzo minimo troppo basso.", "Il valore minimo è più grande del valore massimo."],
+  "maxPrice": [/^\d{1,4}$/,"Prezzo non valido.", "Prezzo massimo troppo basso."]
 };
 
 function filterShowErr(input, num) {
@@ -20,7 +20,7 @@ function filterShowErr(input, num) {
 
 function valueTest(input){
 
-  if(input.value <= 0) {
+  if(input.value == 0) {
     filterShowErr(input, 2);
     return false;
   }

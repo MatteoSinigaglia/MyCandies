@@ -107,7 +107,6 @@ textarea {
     font-size: 1em;
 }
 
-.buttons:hover, 
 .buttons:active {
     border: 1px solid white;
     background-color: #A7C957;
@@ -133,10 +132,6 @@ abbr {
     color: #051C0B;
     text-decoration: none;
     border: none;
-}
-
-.backToHeader:hover {
-    color: white;
 }
 
 abbr {
@@ -206,10 +201,6 @@ abbr {
 .inputForm a {
     font-weight: bold;
     display: block;
-}
-
-.inputForm a:hover {
-    color: red;
 }
 
 .inputForm a:visited {
@@ -658,7 +649,6 @@ background-color: #F2E8CF;
     margin-bottom: 0.7em;
 }
 
-#contacts ul li a:hover,
 #contacts ul li a:active {
     text-decoration: underline;
 }
@@ -671,13 +661,9 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-#contacts a:link, a:visited, a:hover{
+#contacts a:link, a:visited {
 color: white;
 text-decoration: none;
-}
-
-#contacts a:hover {
-text-decoration: underline;
 }
 
 /* 
