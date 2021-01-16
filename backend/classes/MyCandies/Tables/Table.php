@@ -6,6 +6,8 @@ namespace MyCandies\Tables;
 
 use DB\dbh;
 
+require_once __DIR__.'/../../DB/dbh.php';
+
 class Table {
 
 	private $dbh;
@@ -27,6 +29,8 @@ class Table {
 //		$query->execute($parameters);
 //		return $query;
 //	}
+
+//  TODO: change fields to object
 
 	/**
 	 * @param string|null $field
@@ -89,26 +93,31 @@ class Table {
 		return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
 	}
 
-	private function insert(array $fields) : string {
-		
-		$query = 'INSERT INTO `'.$this->table.'` (';
-		$values = '';
-		
-		foreach ($fields as $key => $value) {
-			$query .= '`'.$key.'`,';
-			$values .= ':'.$key.',';
+	public function insert(array $fields) : string {
+		try {
+
+			$parameters = $values = '';
+			foreach ($fields as $key => $value) {
+				$parameters .= '`' . $key . '`,';
+				$values .= ':' . $key . ',';
+			}
+
+			$parameters = rtrim($parameters, ',');
+			$values = rtrim($values, ',');
+
+			$query = 'INSERT INTO `'.$this->table.'` ('.$parameters.') VALUES ('.$values.')';
+			$fields = $this->processDates($fields);
+
+			echo $query;
+			foreach ($fields as $k => $v) {
+				echo $k.' => '.$v.' ';
+			}
+			$this->dbh->query($query, $fields);
+
+			return $this->dbh->getLastInsertId();
+		} catch (\Exception $e) {
+			throw $e;
 		}
-
-		$query = rtrim($query, ',');
-		$values = rtrim($values, ',');
-
-		$query .= ') VALUES ('.$values.')';
-
-		$fields = $this->processDates($fields);
-
-		$this->dbh->query($query, $fields);
-
-		return $this->dbh->getLastInsertId();
 	}
 
 	private function update(array $fields) {

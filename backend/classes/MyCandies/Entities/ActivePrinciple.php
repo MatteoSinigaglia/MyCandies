@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MyCandies\Entity;
+namespace MyCandies\Entities;
 
 
 class ActivePrinciple {
