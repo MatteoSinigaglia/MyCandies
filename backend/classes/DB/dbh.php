@@ -3,11 +3,13 @@
 namespace DB;
 
 
-use DB\Exceptions\TransactionException;
+use DB\Exceptions\DBException;
 use PDO;
 use Exception;
 use PDOException;
 use InvalidArgumentException;
+
+require_once __DIR__.'/Exceptions/DBException.php';
 
 class dbh {
 	private $host;
@@ -43,7 +45,7 @@ class dbh {
 
 			$output = 'Unable to connect to the database: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
 			$this->pdo = null;
-			throw new Exception($output, (int)$e->getCode());
+			throw new DBException($output, (int)$e->getCode());
 
 		}
 	}
@@ -149,7 +151,7 @@ class dbh {
 		try {
 			$this->pdo->beginTransaction();
 		} catch (PDOException $e) {
-			throw new TransactionException('Error starting transaction: '.$e->getMessage(), -1);
+			throw new DBException('Error starting transaction: '.$e->getMessage(), -1);
 		}
 	}
 
@@ -157,7 +159,7 @@ class dbh {
 		try {
 			$this->pdo->commit();
 		} catch (PDOException $e) {
-			throw new TransactionException('No active transaction, unable to commit', -2);
+			throw new DBException('No active transaction, unable to commit', -2);
 		}
 	}
 

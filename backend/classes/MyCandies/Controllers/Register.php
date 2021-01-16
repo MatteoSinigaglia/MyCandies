@@ -3,56 +3,69 @@
 
 namespace MyCandies\Controllers;
 
-use DB\Exceptions\TransactionException;
+use DB\Exceptions\DBException;
 use Exception;
-use InvalidArgumentException;
 use DB\dbh;
-use MyCandies\Entity\Address;
-use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
-use MyCandies\Entity\User;
+use MyCandies\Entities\User;
+use MyCandies\Entities\Address;
+use MyCandies\Entities\UsersAddresses;
+use MyCandies\Exceptions\EntityException;
+use MyCandies\Exceptions\RegisterException;
 
+require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../Entities/Address.php';
+require_once __DIR__.'/../Entities/UsersAddresses.php';
+require_once __DIR__.'/../Exceptions/EntityException.php';
+require_once __DIR__.'/../Exceptions/RegisterException.php';
+require_once __DIR__.'/../../DB/dbh.php';
+require_once __DIR__.'/../Tables/Table.php';
 
 class Register {
 
-	private $T_users;
-	private $T_addresses;
-	private $T_usersAddresses;
+	private $tUsers;
+	private $tAddresses;
+	private $tUsersAddresses;
 	private $user;
 	private $address;
 	private $userAddress;
 	private $dbh;
 
-	private const PATH_TO_ENTITY = '.'.DS.'..'.DS.'Entity'.DS;
+	private const PATH_TO_ENTITY = './../Entities/';
 	public function __construct(array $user, array $address) {
 //	                            Table $T_users, Table $T_addresses, Table $T_usersAddresses) {
 		try {
 			$this->user = new User($user);
+			echo 'User';
 			$this->address = new Address($address);
+			echo 'Address';
+			$this->userAddress = new UsersAddresses();
+			echo 'UserAddress';
 
 			$this->dbh = new dbh();
-			$this->T_users = new Table($this->dbh, 'Customers', 'id', self::PATH_TO_ENTITY.'User');
+			echo 'dbh';
+			$this->tUsers = new Table($this->dbh, 'Customers', 'id', self::PATH_TO_ENTITY.'User');
+			echo 'tUser';
 //				$T_users;
-			$this->T_addresses = new Table($this->dbh, 'Addresses', 'id', self::PATH_TO_ENTITY.'Address');
+			$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', self::PATH_TO_ENTITY.'Address');
+			echo 'tAddress';
 //				$T_addresses;
-			$this->T_usersAddresses = new Table($this->dbh, 'CustomerAddresses', 'id', self::PATH_TO_ENTITY.'UserAddresses');
+			$this->tUsersAddresses = new Table($this->dbh, 'CustomerAddresses', 'id', self::PATH_TO_ENTITY.'UserAddresses');
+			echo 'tUserAddress';
 //				$T_usersAddresses;
 		} catch (EntityException $e) {
-			throw $e;
+			echo $e;
 		}
 	}
 
-//	TODO: Move in entity
-	private function isValidData() : bool {
-//		TODO: static checks on fields with regexp
-		if ($this->user['password'] != $this->user['confirmPassword']) {
-			return false;
-		}
+	private function valid() : bool {
+//		TODO: checks on db, user's email already used
 
 		try {
 			$this->dbh->connect();
-			if ($this->dbh->find('Customers', 'email', $this->user['email']) > 0) {
-				$valid = false;
+			echo 'valid';
+			if ($this->tUsers->find(['email', $this->user->getEmail()]) > 0) {
+				throw new RegisterException('Email già in uso', -1);
 			}
 		} catch (Exception $e) {
 			throw $e;
@@ -64,26 +77,34 @@ class Register {
 
 	public function registration() {
 		try {
-
+//			$this->valid();
 			$this->dbh->connect();
 			$this->dbh->transactionStart();
+			echo 'startTransaction';
+
 //			array_slice_assoc() is only for testing while forms aren't 100% compatible
-
-			$this->user['customer_id'] = $this->dbh->insert('Customers', array_slice_assoc($this->user, ['first_name', 'last_name', 'email', 'password']));
-			$this->user['address_id'] = $this->dbh->insert('Addresses', array_slice_assoc($this->user, ['province', 'city', 'CAP']));
-			$this->dbh->insert('CustomersAddresses', array_slice_assoc($this->user, ['id', 'address_id']));
+			require_once __DIR__.'/../../../lib/functions.php';
+			$params = array_slice_assoc($this->user->getValues(), ['first_name', 'last_name', 'email', 'password']);
+			foreach ($params as $k => $v) {
+				echo $k.' => '.$v.' ';
+			}
+			$this->user->setId($this->tUsers->insert($params));
+			echo 'userId';
+			$this->address->setId($this->tAddresses->insert(array_slice_assoc($this->address->getValues(), ['province', 'city', 'CAP'])));
+			echo 'addressId';
+//			$this->userAddress->setCustomerId($this->user->getId());
+//			$this->userAddress->setAddressId($this->address->getId());
+//			$this->tUsersAddresses->insert($this->userAddress->getValues());
 			$this->dbh->transactionCommit();
-
-		} catch (TransactionException $e) {
-
+			echo 'commit';
 		} catch (Exception $e) {
 			$this->dbh->transactionRollback();
+			throw $e;
 		} finally {
 			$this->dbh->disconnect();
 		}
-	}
-
-	private function securePassword() {
-		$this->user['password'] = password_hash($this->user['password'], PASSWORD_DEFAULT);
-	}
+//	} catch (RegisterException $e) {
+//throw $e;
+//} catch (DBException $e) {
+		}
 }

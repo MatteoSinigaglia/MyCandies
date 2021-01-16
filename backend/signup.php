@@ -1,18 +1,22 @@
 <?php
 
+require_once __DIR__.'/config/config.php';
+
 use MyCandies\Controllers\Register;
-
-require_once __DIR__ . DS;
-
+use MyCandies\Exceptions\EntityException;
 
 //  TODO: Fix paths
 if (!isset($_POST['submitSubscribe'])) {
-	header('location: '.VIEW_PATH.'formCliente.html');
+	header('location: ../frontend/formCliente.html');
 	die();
 }
-
-$signup = new Register($_POST['user'], $_POST['address']);
-
+try {
+	require_once __DIR__.'/classes/MyCandies/Controllers/Register.php';
+	$signup = new Register($_POST['user'], $_POST['address']);
+} catch (EntityException $e) {
+	echo 'Exception creating object'.$e->getMessage();
+}
+echo 'Created';
 try {
 	$signup->registration();
 	header('location: ../frontend/home.html');
