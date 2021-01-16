@@ -8,7 +8,7 @@ abstract class Entity {
 
 	protected $id;
 
-	public function __construct(int $id) {
+	public function __construct(int $id = null) {
 		$this->id = $id;
 	}
 
