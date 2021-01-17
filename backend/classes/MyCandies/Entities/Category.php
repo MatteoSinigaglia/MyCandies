@@ -9,12 +9,14 @@
 
     class Category extends Entity {
 
+        public const CATEGORY = 1;
+
         private $name;
         private $description;
 
         public function __construct(int $source, array $data=[]) {
             try {
-                if($source === self::CONTROLLER) {
+                if($source === self::CATEGORY) {
                     parent::__construct($source, $data['id']);
                     $this->name = $data['name'];
                     $this->description = $data['description'];

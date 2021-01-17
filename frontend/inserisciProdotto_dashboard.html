@@ -39,29 +39,30 @@
                 <legend>Inserimento nuovo prodotto</legend>
                 <!-- Nome prodotto -->
                 <label for="productName">Nome prodotto:</label>
-                    <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
+                <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
                 <!-- Descrizione prodotto -->
                 <label for="productDescription">Descrizione prodotto:</label>
-                    <span><textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea></span>
+                <span><textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea></span>
                 <!-- Immagine prodotto -->
                 <label for="productImage">Immagine prodotto:</label>
-                    <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
+                <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
-                    <input type="text" id="productPrice" name="productPrice" />
-                <!-- Quantità -->
-                    <label for="productAvail">Quantità:</label>
-                    <input type="text" id="productAvail" name="productAvail" />
+                <span><input type="text" id="productPrice" name="productPrice" /></span><!-- controlli via php-->
                 <!-- Categoria -->
-                <label for="productCategory">Categoria:</label>
-                <select name="productCategory" id="productCategory">
+                <label for="category">Categoria:</label>
+                <select id="category" name="category" class="selectForm">
+                    <option value="" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
                     <categoryOptions />
                 </select>
                 <!-- Componenti attivi -->
                 <label for="drugComponents">Componenti Attivi:</label>
-                    <activePrinciples />
+                <span><input type="text" id="drugComponents" name="drugComponents" maxlength="40" /></span>
+                <!-- Effetti -->
+                <label for="effects">Effetti:</label>
+                <span><input type="text" id="effects" name="effects" maxlength="20" /></span>
                 <!-- Buttons -->
-                <input type="submit" id="aggiungi" name="aggiungi" value="Aggiungi Prodotto" class="buttons" />
+                <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
                 <input type="reset" id="cancella" value="Cancella" class="buttons" />
             </fieldset>
         </form>

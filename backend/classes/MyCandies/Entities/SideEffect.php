@@ -7,16 +7,18 @@ require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
 use MyCandies\Exceptions\EntityException;
 
-class ActivePrinciple extends Entity {
+class SideEffect extends Entity {
 
-    public const ACTIVE_PRINCIPLE = 1;
+    public const SIDE_EFFECT = 1;
     private $name;
+    private $description;
 
     public function __construct(int $source, array $data=[]) {
         try {
-            if($source === self::ACTIVE_PRINCIPLE) {
+            if($source === self::SIDE_EFFECT) {
                 parent::__construct($source, $data['id']);
                 $this->name = $data['name'];
+                $this->description = $data['description'];
             }
         } catch(EntityException $e) {
             throw $e;

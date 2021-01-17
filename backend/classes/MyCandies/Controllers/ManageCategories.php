@@ -33,7 +33,7 @@ class ManageCategories {
      * TODO
      */
     public function insertCategory($category) : bool {
-        $this->category = (empty($category) ? null : new Category(Entity::CONTROLLER, $category));
+        $this->category = (empty($category) ? null : new Category(Category::CATEGORY, $category));
 		return true;
     }
 
