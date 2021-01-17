@@ -241,8 +241,9 @@ table td, th{
 }
 
 table th {
-    background-color: #a7c957;
+    background-color:  #093013;
     border: 1px solid #000;
+    color: #cda434;
 }
 
 /*------- HEADER -------------------------------------------------------------------------------*/
