@@ -1,16 +1,21 @@
 <?php
 namespace MyCandies\Controllers;
 
-use DB\Exceptions\TransactionException;
+require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'dbh.php';
+require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Image.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductImage.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
+require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
+
+use DB\Exceptions\DBException;
 use Exception;
-use InvalidArgumentException;
 use DB\dbh;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
-use MyCandies\Entity\Product;
-use MyCandies\Entity\Image;
-use MyCandies\Entity\Category;
-use MyCandies\Entity\ProductImage;
+use MyCandies\Entities\Product;
+use MyCandies\Entities\Image;
+use MyCandies\Entities\ProductImage;
 
 class InsertProduct {
 
@@ -18,45 +23,38 @@ class InsertProduct {
     private $T_products;
     private $T_categories;
     private $T_productsImages;
-    private $productImage;
-    private $product;
-    private $image;
     private $dbh;
-    
-    private const PATH_TO_ENTITY = '.'.DS.'..'.DS.'Entities'.DS;
 
-    public function __construct(array $product, array $image) {
-        try{
-            $this->dbh = new dbh();
-            $this->product = new Product($product);
-            $this->image = new Image($image);
-            $this->T_products = new Table($this->dbh, 'Products', 'id', self::PATH_TO_ENTITY.'Product');
-            $this->T_images = new Table($this->dbh, 'Images', 'id', self::PATH_TO_ENTITY.'Image');
-            $this->T_categories = new Table($this->dbh, 'Categories', 'id', self::PATH_TO_ENTITY.'Category');
-            $this->T_productsImages = new Table($this->dbh, 'ProductsImages', 'id', self::PATH_TO_ENTITY.'ProductImage');
-        } catch (EntityException $e) {
-            throw $e;
-        }
+    public function __construct(){
+        $this->dbh = new dbh();
+        $this->T_products = new Table($this->dbh, 'Products', 'id', Product::class);
+        $this->T_images = new Table($this->dbh, 'Images', 'id', Image::class);
+        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
+        $this->T_productsImages = new Table($this->dbh, 'ProductsImages', 'id', ProductImage::class);
     }
 
-    public function insertProduct() : bool {
+    /**
+     * @param $product
+     * @param $image
+     * @return bool
+     * @throws DBException
+     * @throws \MyCandies\Exceptions\EntityException
+     */
+    public function insertProduct($product, $image) : bool {
         try {
             $this->dbh->connect();
-            $this->dbh->transactionStart();
             $data = array();
-            $data['product_id'] = $this->T_products->insert($product);
-            $data['image_id'] = $this->T_image->insert($image);
-            $this->productImage = new ProductImage($data);
-            $T_productsImages->insert($this->productImage);
+            $this->dbh->transactionStart();
+            $data['product_id'] = $this->T_products->insert($product->getValues());
+            $data['image_id'] = $this->T_image->insert($image->getValues());
+            $productImage = new ProductImage(ProductImage::PRODUCT_IMAGES, $data);
+            $this->T_productsImages->insert($productImage->getValues());
             $this->dbh->transactionCommit();
-            
-		} catch (Exception $e) {
+		} catch (EntityException | DBException | Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
-            
-		} finally {
+        } finally {
             $this->dbh->disconnect();
-            
 		}
 		return true;
     }

@@ -3,22 +3,31 @@
     namespace MyCandies\Entities;
 
     require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
+    require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
 
     use MyCandies\Exceptions\EntityException;
 
-    class Image {
+    class Image extends Entity {
+
+        public const IMAGE = 1;
+
         private $img_path;
 
-        public function __construct(array $data) {
+        public function __construct(int $source, array $data=[]) {
             try {
-                parent::__construct($data['id']);
-                $this->img_path = $data['image'];
+                parent::__construct($source, $data['id']);
+                if($source === self::IMAGE) {
+                    $this->setImg_path();
+                }
             } catch(EntityException $e) {
                 throw $e;
             }
         }
 
-        public function setImg_path($img_path) {
+        /**
+         * @throws EntityException
+         */
+        public function setImg_path() {
             $path = $_FILES['productImage']['name'];
             $ext = pathinfo($path, PATHINFO_EXTENSION);
             $allowed = array("jpeg", "png", "jpg");

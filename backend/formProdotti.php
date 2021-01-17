@@ -5,7 +5,6 @@
     require_once MYCANDIES_PATH.DS.'Entities'.DS.'Category.php';
     require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ManageCategories.php';
 
-    use MyCandies\Entities\Category;
     use MyCandies\Controllers\ManageCategories;
 
     try {
@@ -19,16 +18,14 @@
     
     $htmlPage = file_get_contents(VIEW_PATH.DS."inserisciProdotto_dashboard.html");
     $categoriesOptions = "";
-    foreach ($categories as $k => $v) {
-        echo $k.' => '.$v.PHP_EOL;
-    }
+
     foreach ($categories as $category) {
-        if($category['name'] != null)
+        if($category->getName() != null)
         $categoriesOptions .=
             '<option value="'
-            . $category['name']
+            . $category->getName()
             . '">'
-            . $category['name']
+            . $category->getName()
             . '</ option>'
             ;
     }
