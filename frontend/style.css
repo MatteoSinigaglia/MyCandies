@@ -681,7 +681,7 @@ background-color: #F2E8CF;
     text-decoration: none;
 }
 
-/* 
+/*
 ================== PUNTI VENDITA ==============================================================
 */
 
@@ -699,7 +699,7 @@ background-color: #F2E8CF;
     text-align: left;
 }
 
-/* 
+/*
 =============== SOCIAL ==========================================================================
 */
 
@@ -763,4 +763,30 @@ background-color: #F2E8CF;
     margin: 0.5em;
     border: 1px solid black;
     border-radius: 6px;
+}
+/*=============================HOME====================*/
+#contentHome{
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  background-color: #F2E8CF;
+  margin-top: 2em;
+}
+
+#contentHome img{width: 50%;
+margin-left: 25%;
+margin-top: 1em;
+padding-bottom: 2%;}
+
+#contentHome p{
+  font-size: 18px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+  font-family: cambria;
+
+}
+#contentHome h3{
+  font-size: 28px;
+  text-align: center;
 }
