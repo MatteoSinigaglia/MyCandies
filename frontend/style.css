@@ -44,7 +44,7 @@ body {
     text-align: left;
     padding: 0.6em;
     border-top: 1px solid #DDD;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     font-weight: bold;
     color: black;
     background-color: #244224;
@@ -104,7 +104,7 @@ input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 0.8em;
     border-radius: 5px;
     resize: none;
@@ -205,7 +205,7 @@ abbr {
     min-width: 20em;
     max-width: 25em;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 1em;
     background-color: #F2E8CF;
 }
@@ -213,14 +213,6 @@ abbr {
 .inputForm a {
     font-weight: bold;
     display: block;
-}
-
-.inputForm a:hover {
-    color: red;
-}
-
-.inputForm a:visited {
-    color: #6A994E;
 }
 
 .selectForm {
@@ -524,8 +516,9 @@ th {
     max-width: 20%;
     min-width: 150px;
     padding: 1.5em;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     border-top: none;
+    background-color: #F2E8CF;
 }
 
 #filters form div {
@@ -552,7 +545,7 @@ th {
 }
 
 #upperRightSideContent {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     padding-bottom: 1em;
 }
 
@@ -583,7 +576,7 @@ select {
     display: flex;
     flex-direction: row;
     padding: 2em;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
 }
 
 .singleProduct img {
@@ -631,6 +624,7 @@ background-color: #F2E8CF;
 /*
 ============ FOOTER ===========================================================================
 */
+
 #footer {
     display: inline-block;
     width: 100%;
@@ -655,6 +649,14 @@ background-color: #F2E8CF;
     margin-bottom: 0.5em;
 }
 
+#footer a:link {
+    color: white;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}
+
 #footer a:visited {
     color: #CDA434;
 }
@@ -667,13 +669,16 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-#contacts a:link, a:visited, a:hover{
-color: white;
-text-decoration: none;
+#contacts a:link {
+    color: white;
+}
+
+#contacts  a:visited {
+    color: #CDA434
 }
 
 #contacts a:hover {
-text-decoration: underline;
+    text-decoration: none;
 }
 
 /* 
@@ -686,8 +691,8 @@ text-decoration: underline;
 }
 
 #stores div {
-padding-right: 2em;
-min-width: 11em;
+    padding-right: 2em;
+    min-width: 11em;
 }
 
 #stores h3 {
@@ -704,16 +709,6 @@ min-width: 11em;
 
 #social ul li {
     padding-bottom: 0.2em;
-}
-
-#social a:link{
-    color: white;
-    text-decoration: none;
-}
-
-#social a:hover {
-    text-decoration: underline;
-    color: white;
 }
 
 #social img{

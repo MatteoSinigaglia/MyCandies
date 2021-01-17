@@ -42,11 +42,28 @@ body {
 
 #breadcrumb {
     text-align: left;
-    padding: 1em;
+    padding: 0.6em;
+    border-top: 1px solid #DDD;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
     color: black;
-    background-color: #a7c957;
+    background-color: #244224;
+}
+
+#breadcrumb p {
+    color: white;
+}
+
+#breadcrumb a:link {
+    color: white;
+}
+
+#breadcrumb a:active {
+    text-decoration: none;
+}
+
+#breadcrumb a:visited {
+    color: #CDA434;
 }
 
 h1 {
@@ -55,7 +72,6 @@ h1 {
     text-align: center;
     margin: 0.5em;
 }
-
 
 h2 {
     font-size:1.3em;
@@ -97,19 +113,38 @@ textarea {
 .buttons {
     padding: 0.5em 1em;
     margin: 0.5em;
-    border: 1px solid transparent;
     border-radius: 4px;
-    background-color: #6A994E;
-    color: white;
+    background-color: #093013;
+    color: #CDA434;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
+    border: 1px solid #DDD;
 }
 
-.buttons:active {
-    border: 1px solid white;
-    background-color: #A7C957;
+.buttons:hover {
+    background-color: #020E0A;
+    color: white;
+}
+
+#header #utilityBar .buttons {
+    border-radius: 0px;
+    border-top: transparent;
+    border-bottom: transparent;
+    background-color: #020E0A;
+}
+
+#header #utilityBar .buttons:active {
+    border-radius: 4px;
+    color: #020E0A;
+    background-color: #F2E8CF;
+}
+
+#productSearchButton {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-color: #093013;
 }
 
 abbr {
@@ -120,7 +155,8 @@ abbr {
 .displayed_helpBackToHeader {
     width: 100%;
     background-color: #093013;
-    border: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
     text-align: center;
 }
 
@@ -130,7 +166,7 @@ abbr {
 }
 
 .backToHeader:active {
-    color: #cda434;
+    color: #CDA434;
     text-decoration: none;
 }
 
@@ -203,10 +239,6 @@ abbr {
     display: block;
 }
 
-.inputForm a:visited {
-    color: #6A994E;
-}
-
 .selectForm {
     background-color: white;
     border: 1px solid #DDD;
@@ -228,9 +260,11 @@ table td, th{
 }
 
 table th {
-    background-color: #a7c957;
+    background-color:  #093013;
     border: 1px solid #000;
+    color: #CDA434;
 }
+
 
 /*------- HEADER -------------------------------------------------------------------------------*/
 
@@ -238,7 +272,7 @@ table th {
     width: 100%;
     color: white;
     font-weight: bold;
-    background-color: #051C0B;
+    background-color: #020E0A;
 }
 
 #headerLogoAndUtility {
@@ -304,21 +338,23 @@ table th {
 
 #navigation {
     text-align: center;
-    background-color: #6A994E;
+    background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
+}
+
+#navigation ul {
+    display: none;
+    border-top: 1px solid #DDD;
+    margin-top: 0.5em;
 }
 
 #navigation li {
     list-style-type: none;
     margin: 0.3em 0em;
+    border-radius: 4px;
 }
 
-#navigation li:active {
-    background-color: #F2E8CF;
-    border-radius: 4px;
-    color: #051C0B;
-}
 
 #navigation a:link {
     text-decoration: none;
@@ -326,6 +362,12 @@ table th {
 }
 
 #navigation a:visited {
+    color: #CDA434;
+}
+
+#navigation a:active {
+    background-color: #F2E8CF;
+    border-radius: 4px;
     color: #051C0B;
 }
 
@@ -405,7 +447,7 @@ table th {
 #productTableContent {
     border-radius: 10px;
     margin: 0.5em 5em;
-    background-color: #6A994E;
+    background-color: #093013;
 }
 
 #productTableContent table {
@@ -426,6 +468,7 @@ th {
     border-right: 1px solid transparent;
     border-left: 1px solid transparent;
     border-top: 1px solid transparent;
+    color: #CDA434;
 }
 
 #productTableContent td {
@@ -439,6 +482,14 @@ th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
+}
+
+#loginForm a:link {
+    color: #093013;
+}
+
+#loginForm a:visited {
+    color: rgb(134, 2, 2);
 }
 
 .formContainer {
@@ -488,6 +539,7 @@ th {
 #filters {
     width: 95%;
     border-bottom: 1px solid #ddd;
+    background-color: #F2E8CF;
 }
 
 #filters form div {
@@ -571,9 +623,11 @@ border-radius: 1.5em;
 margin-bottom:2em;
 background-color: #F2E8CF;
 }
+
 /*
 ============ FOOTER ===========================================================================
 */
+
 #footer {
     display: inline-block;
     width: 100%;
@@ -602,6 +656,18 @@ background-color: #F2E8CF;
     margin-bottom: 0.2em;
 }
 
+#footer a:link {
+    color: white;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}
+
+#footer a:visited {
+    color: #CDA434;
+}
+
 #stores div {
     padding: 0em 1.8em;
 }
@@ -625,11 +691,6 @@ background-color: #F2E8CF;
 
 #contacts {
     margin: 1em;
-}
-
-#contacts a:link, a:visited {
-color: white;
-text-decoration: none;
 }
 
 /* 
@@ -658,9 +719,8 @@ min-width: 11em;
     margin: 1em;
 }
 
-#social a:link{
-text-decoration: none;
-color: white;
+#social ul li {
+    padding-bottom: 0.5em;
 }
 
 #social img{
