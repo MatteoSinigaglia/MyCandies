@@ -1,21 +1,21 @@
 var form_login = {
-    "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta"],
-    "loginPassword": ["password", /.{5,20}/,"La password inserita non è corretta"]
+    "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta."],
+    "loginPassword": ["password", /.{5,20}/,"La password inserita non è corretta."]
 };
 
 var form_registrazione = {
-    "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta"],
-    "password": ["password", /.{5,20}/,"La password inserita non è corretta"],
-    "confirmPassword": ["", /.{5,20}/,"La password non corrisponde"],
-    "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto"],
-    "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto"],
-    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito", "Data non valida"],
-    "address": ["Inserisci via", /^[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto, deve iniziare per 'via'"],
-    "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto"],
-    "city": ["Inserisci città", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Città non corretta"],
-    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire caratteri maiuscoli."],
-    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto"],
-    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto"]
+    "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
+    "password": ["password", /.{5,20}/,"Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
+    "confirmPassword": ["", /.{5,20}/,"La password non corrisponde a quella scelta."],
+    "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
+    "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
+    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
+    "address": ["Inserisci via", /^[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto, deve iniziare per 'via'."],
+    "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
+    "city": ["Inserisci città", /^([A-Z][a-zàèìòù]{2,20}\s?)+$/, "Comune non corretto. Le parole che compongono il comune devono iniziare per maiuscola."],
+    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
+    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto. Il CAP è una sequenza numerica di 5 valori."],
+    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
 };
 
 function defaultLoginValue(input) {

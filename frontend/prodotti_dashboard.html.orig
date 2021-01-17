@@ -40,12 +40,16 @@
                 </tr>
             </thead>
             <tbody>
+<<<<<<< HEAD
+                <insertRow />
+=======
                 <tr>
                     <td headers="name" scope="row" title="Nome prodotto">null</td>
                     <td headers="price" scope="row" title="Prezzo">null</td>
                     <td headers="quantity" scope="row" title="Quantità disponibile">null</td>
                     <td headers="actions" scope="row" title="Azioni"></td> <!-- pulsanti per: aumentare/diminuire quantità, eliminare prodotto-->
                 </tr>
+>>>>>>> main
             </tbody>
         </table>
     </div>

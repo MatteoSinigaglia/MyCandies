@@ -4,17 +4,21 @@
 
 <head>
 <title>Prodotti - MyCandies</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="title" content="Prodotti - MyCandies"/>
-<meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
-<meta name="author" content="MyCandies&amp;co"/>
-<meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
-<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="#" media="print"/>
-<link rel="stylesheet" type="text/css" href="#" media="handheld, screen and (max-width:640px), and only screen and (max-devide-width:640px"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Prodotti - MyCandies"/>
+    <meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
+    <meta name="author" content="MyCandies&amp;co"/>
+    <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+    <script type="text/javascript" src="../frontend/checkFiltersListaProdotti.js"></script>
 </head>
 
-<body>
+<body onload="modifyStylesheet();" onresize="setMenuVisible();">
 
 <div id="header">
     <a class="helps" href="#productList">Vai al contenuto</a>
@@ -25,32 +29,35 @@
         </div>
         <div id="utilityBar">
             <form class="serchButton" id="headerSearchBar" action="#" method="get">
-                <div>				
+                <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
                         class="buttons" />
                 </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
-        <ul>
+        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
-            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="suDiNoi.html">Su Di Noi</a></li>
+            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
-</div> 
+</div>
+<div id="breadcrumb">
+    <p>Ti trovi in: <span xml:lang="en" lang="en"><a href="../frontend/home.html">Home</a></span> / Lista prodotti</p>
+</div>
 <div class="main" id="productList">
     <div id="filters">
         <h1>Filtri di Ricerca</h1>
-        <form action="#" method="post" id="filtersForm">
+        <form action="#" method="post" id="filtersForm" onsubmit="return validateFilters();">
             <fieldset id="categoryFilter">
                 <legend>Categoria</legend>
                 <div>
@@ -72,6 +79,7 @@
                     <input type="text" name="minActivePrinciple" id="minActivePrinciple"/>
                     <label for="maxActivePrinciple">Max</label>
                     <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" />
+                    <span id="AC_errors"></span>
                 </div>
             </fieldset>
             <fieldset>
@@ -81,6 +89,7 @@
                     <input type="text" name="minPrice" id="minPrice" />
                     <label for="maxPrice">Max</label>
                     <input type="text" name="maxPrice" id="maxPrice" />
+                    <span id="PR_errors"></span>
                 </div>
             </fieldset>
             <div>
@@ -94,10 +103,8 @@
                 <label for="orderBuySelect" class="helps">Ordina per</label>
                 <select name="orderBuySelect" id="orderBuySelect">
                     <option class="hiddenChoice">Ordina per</option>
-                    <option>Media recensioni clienti</option>
                     <option>Prezzo: crescente</option>
                     <option>Prezzo: decrescente</option>
-                    <option>Popolarità</option>
                 </select>
             </div>
             <div id="productsPerPage">
@@ -111,8 +118,7 @@
                 </select>
             </div>
         </div>
-        <div
-            id="productsList">
+        <div id="productsList">
             <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
 
             <div id="productsPageNumber"></div>
@@ -120,15 +126,15 @@
     </div>
 </div>
 <div id="footer">
+    <div class="displayed_helpBackToHeader">
+        <a href="#header" class="backToHeader">Torna su</a>
+    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -142,7 +148,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -150,7 +156,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -158,7 +164,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -166,7 +172,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>

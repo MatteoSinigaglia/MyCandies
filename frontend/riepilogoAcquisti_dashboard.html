@@ -7,8 +7,10 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 </head>
 
 <body>
@@ -28,7 +30,7 @@
     </div>
 
     <div id="riepilogoAcquistiDashboard" class="main">
-        <table summary="Tabella riassuntiva degli acquisiti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, quantità e totale">
+        <table class="responsiveTable" summary="Tabella riassuntiva degli acquisiti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, quantità e totale">
             <thead>
                 <tr>
                     <th id="user" scope="col">Utente</th>
@@ -41,12 +43,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="user">null</td>
-                    <td headers="productCode">null</td>
-                    <td headers="date">null</td>
-                    <td headers="time">null</td>
-                    <td headers="number">null</td>
-                    <td headers="total">null</td>
+                    <td headers="user" scope="row" title="Utente">null</td>
+                    <td headers="productCode" scope="row" title="Codice prodotto">null</td>
+                    <td headers="date" scope="row" title="Data acquisto">null</td>
+                    <td headers="time" scope="row" title="Ora acquisto">null</td>
+                    <td headers="number" scope="row" title="Numero prodotti">null</td>
+                    <td headers="total" scope="row" title="Totale">null</td>
                 </tr>
             </tbody>
         </table>

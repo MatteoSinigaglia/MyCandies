@@ -1,6 +1,6 @@
 var form_credenziali = {
-    "changeEmail": ["Inserisci nuova e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "E-mail non valida"],
-    "changePassword": ["Inserisci password", /.{5,20}/, "Password non valida"]
+    "changeEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Formato e-mail non valida"],
+    "changePassword": ["Inserisci nuova password", /.{5,20}/, "Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."]
 };
 
 function defaultValue(input) {

@@ -8,8 +8,15 @@
     <meta name="title" content="Area Personale - MyCandies"/>
     <meta name="description" content="Pagina realizzata per l'area contenente i dati del cliente"/>
     <meta name="author" content="MyCandies&amp;co"/>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
+
+<body onload="modifyStylesheet();" onresize="setMenuVisible();">
 
 <div id="header">
     <a class="helps" href="#personalArea">Vai al contenuto</a>
@@ -20,39 +27,40 @@
         </div>
         <div id="utilityBar">
             <form class="serchButton" id="headerSearchBar" action="#" method="get">
-                <div>				
+                <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
                         class="buttons" />
                 </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
-        <ul>
+        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
-            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="suDiNoi.html">Su Di Noi</a></li>
+            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
-</div> 
-
-<body id="personalArea">
+</div>
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="Home.html">
+        <a href="home.html">
             <span xml:lang="en" lang="en">Home</span>
         </a>/ Area personale</p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <form
-        id="formAreaPersonale" action="#" method="post" class="inputForm">
+    <div id="avviso_utenteNonLoggato" class=""> <!-- class="hide" per nascondere -->
+        <p>Per visualizzare le informazioni dell'area personale è necessario eseguire l'accesso. <br/>
+           E' possibile effettuare l'accesso o la registrazione cliccando questo link: <a href="formCliente.html">Accedi/registrati.</a></p>
+    </div>
+    <form id="formAreaPersonale" action="#" method="post" class="inputForm hide"> <!-- da PHP basta togliere hide -->
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
@@ -97,21 +105,23 @@
             <label for="date">Data di nascita:</label>
             <!-- Buttons -->
             <input type="text" id="date" name="nascita" value=""/>
-            <input type="submit" name="Conferma" value="Conferma" id="Confirm"/>
+            <input type="submit" name="Conferma" value="Conferma" id="Confirm" class="buttons" />
         </fieldset>
     </form>
+    <div id="logoutButton">
+        <button class="buttons hide">Logout</button> <!-- da PHP basta togliere hide  -->
+    </div>
 </div>
-
 <div id="footer">
+    <div class="displayed_helpBackToHeader">
+        <a href="#header" class="backToHeader"> Torna su</a>
+    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -125,7 +135,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -133,7 +143,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -141,7 +151,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -149,7 +159,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>
