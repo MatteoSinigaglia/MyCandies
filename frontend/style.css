@@ -773,10 +773,12 @@ background-color: #F2E8CF;
   margin-top: 2em;
 }
 
-#contentHome img{width: 50%;
-margin-left: 25%;
-margin-top: 1em;
-padding-bottom: 2%;}
+#contentHome img{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1em;
+    padding-bottom: 2%;
+}
 
 #contentHome p{
   font-size: 18px;
@@ -784,7 +786,7 @@ padding-bottom: 2%;}
   margin-right: 15%;
   text-align: center;
   font-family: cambria;
-
+  padding-bottom: 1em;
 }
 #contentHome h3{
   font-size: 28px;
