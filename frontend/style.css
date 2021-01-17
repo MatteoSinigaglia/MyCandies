@@ -143,12 +143,6 @@ textarea {
     border-bottom: 1px solid transparent;
     background-color: #093013;
 }
-/*
-.buttons:hover,
-.buttons:active {
-    border: 1px solid white;
-    background-color: #A7C957;
-}*/
 
 #cartButton {
     padding: 0.6em 0.7em;
@@ -166,7 +160,7 @@ abbr {
 .hidden_helpBackToHeader,
 .displayed_helpBackToHeader {
     width: 100%;
-    background-color: #A7C957;
+    background-color: #093013;
     border-top: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
     text-align: center;
@@ -180,18 +174,14 @@ abbr {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-.backToHeader,
-.backToHeader:visited {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+.backToHeader {
     font-weight: bold;
-    color: #051C0B;
-    text-decoration: none;
-    border: none;
+    color: white;
 }
 
 .backToHeader:hover {
-    color: white;
+    color: #cda434;
+    text-decoration: none;
 }
 
 abbr {

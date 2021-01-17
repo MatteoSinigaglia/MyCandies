@@ -119,19 +119,19 @@ abbr {
 .hidden_helpBackToHeader,
 .displayed_helpBackToHeader {
     width: 100%;
-    background-color: #A7C957;
+    background-color: #093013;
     border: 1px solid #DDD;
     text-align: center;
 }
 
-.backToHeader,
-.backToHeader:visited {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+.backToHeader {
     font-weight: bold;
-    color: #051C0B;
+    color: white;
+}
+
+.backToHeader:active {
+    color: #cda434;
     text-decoration: none;
-    border: none;
 }
 
 abbr {
