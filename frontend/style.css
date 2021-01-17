@@ -613,52 +613,6 @@ p {
     float: left;
 }
 
-/*
-============== SU DI NOI =====================================================================
-*/
-/*
-#suDiNoiContainer {
-    width: 90%;
-    margin: 3em auto;
-    border: 1px solid #DDD;
-    border-radius: 10px;
-    background-color: #F2E8CF;
-}
-
-#suDiNoiContainer h1 {
-    margin-top: 0.5em;
-}
-
-#companyHistory {
-    padding: 0.5em 1em;
-}
-
-#drugsImages {
-    margin: auto;
-}
-
-#img1,
-#img2,
-#img3 {
-    max-width: 25em;
-    max-height: 12em;
-    margin: 0 1em;
-    border: 1px solid #DDD;
-    border-radius: 10px;
-}
-
-#img1 {
-    margin-left: 10%;
-}
-
-#img3 {
-    margin-right: 10%;
-}
-*/
-/*
-====================FAQ=======================================
-*/
-
 .stylelessList {
 list-style-type:none;
 text-align: left;
@@ -679,6 +633,7 @@ border-radius: 1.5em;
 margin-bottom:2em;
 background-color: #F2E8CF;
 }
+
 /*
 ============ FOOTER ===========================================================================
 */
@@ -781,45 +736,6 @@ min-width: 11em;
 #diritti p {
     margin: 1em;
     font-weight: 600;
-}
-/*
-========================================HOME==========================
-*/
-
-#contentHome{
-    background-color: #F2E8CF;
-    height: 50em;
-    margin-top: 2em;
-}
-
-#offerte{
-    width:20%;
-    border:1px solid;
-    padding-top: 7.5em;
-    padding-bottom: 7.5em;
-    text-align: center;
-    float:left;
-    margin-left: 20%;
-    margin-top:1em;
-}
-#newArrival {
-    width:20%;
-    border:1px solid;
-    padding-top: 7.5em;
-    padding-bottom: 7.5em;
-    text-align: center;
-    float:right;
-    margin-right: 20%;
-    margin-top:1em;
-    margin-bottom: 2em;
-}
-
-#topSold{
-    width: 60%;
-    border: 1px solid;
-    clear: both;
-    margin-left:20%;
-    text-align: center;
 }
 
 /*
