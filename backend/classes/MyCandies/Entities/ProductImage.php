@@ -6,19 +6,18 @@
 
     use MyCandies\Exceptions\EntityException;
 
-    class ProductImage extends Entity {
+    class ProductImage {
 
         public const PRODUCT_IMAGES = 1;
 
         private $product_id;
-        private $image_id;
+        private $img_id;
 
         public function __construct(int $source, array $data=[]) {
             try {
-                parent::__construct($source);
                 if($source === self::PRODUCT_IMAGES) {
                     $this->setProduct_id($data['product_id']);
-                    $this->setImage_id($data['image_id']);
+                    $this->setImg_id($data['img_id']);
                 }
             } catch (EntityException $e) {
                 throw $e;
@@ -32,10 +31,18 @@
             $this->product_id = $product_id;
         }
 
-        public function setImage_id($image_id) {
-            if(!isset($image_id)) {
+        public function setImg_id($img_id) {
+            if(!isset($img_id)) {
                 throw new EntityException('Errore nell\'inserimento del dell\'immagine');
             }
-            $this->image_id = $image_id;
+            $this->img_id = $img_id;
+        }
+
+        public function getValues() : array {
+            $fields = [];
+            foreach ($this as $key => $value) {
+                $fields[$key] = $value;
+            }
+            return $fields;
         }
     }

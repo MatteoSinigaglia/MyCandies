@@ -46,7 +46,7 @@ class InsertProduct {
             $data = array();
             $this->dbh->transactionStart();
             $data['product_id'] = $this->T_products->insert($product->getValues());
-            $data['image_id'] = $this->T_image->insert($image->getValues());
+            $data['img_id'] = $this->T_images->insert($image->getValues());
             $productImage = new ProductImage(ProductImage::PRODUCT_IMAGES, $data);
             $this->T_productsImages->insert($productImage->getValues());
             $this->dbh->transactionCommit();

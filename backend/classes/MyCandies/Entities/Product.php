@@ -33,6 +33,7 @@
         }
 
         /**
+         * @param $category_id
          * @throws EntityException
          */
         public function setCategory_id($category_id) {
@@ -114,7 +115,14 @@
 
         public function getAvailability() {
             return $this->availability;
-        }   
+        }
+
+        public function getValues() : array {
+            $fields = parent::getValues();
+            foreach ($this as $key => $value) {
+                $fields[$key] = $value;
+            }
+            return $fields;
+        }
 
     } 
-?>

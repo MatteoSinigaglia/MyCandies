@@ -1,9 +1,9 @@
 -- BACKUP DATABASE MyCandies
 -- TO DISK = 
 
--- DROP DATABASE IF EXISTS MyCandies;
--- CREATE DATABASE MyCandies;
--- USE MyCandies;
+DROP DATABASE IF EXISTS MyCandies;
+CREATE DATABASE MyCandies;
+USE MyCandies;
 
 /* @name_size UNSIGNED int;
 @description_size UNSIGNED int;
@@ -75,8 +75,7 @@ CREATE TABLE `Products` (
 	-- money NOT NULL,
 	`availability` float(20),
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`category_id`) REFERENCES `Categories`(`id`),
-	FOREIGN KEY (`linked_category`) REFERENCES `Categories`(`id`)
+	FOREIGN KEY (`category_id`) REFERENCES `Categories`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- INSERT INTO 'Products'('category_id', 'name', 'price', 'avaiability', 'linked_category', 'rating', 'description') VALUES

@@ -24,7 +24,7 @@ class Entity {
 
 	/**
 	 * @param int $id
-	 * @throws EntityException Throws an exception if the id is already set
+	 * @throws EntityException Throws an exception if the id is already settable
 	 */
 	public function setId(int $id): void {
 		if (isset($this->id)) {

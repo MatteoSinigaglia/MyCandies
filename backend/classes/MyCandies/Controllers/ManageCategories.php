@@ -20,7 +20,7 @@ class ManageCategories {
 
     private $dbh;
 
-    public function __construct(array $category = null) {
+    public function __construct() {
         try{
             $this->dbh = new dbh();
             $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
@@ -38,6 +38,31 @@ class ManageCategories {
     }
 
     /**
+     * @param $name
+     * @return mixed
+     * @throws \DB\Exceptions\DBException
+     */
+    public function searchIdByName($name) {
+        /**
+         * Il nome di una categoria è UNIQUE nel database
+         */
+        try{
+            $this->dbh->connect();
+            $categories = $this->T_categories->find(
+                [
+                    'column' => 'name',
+                    'value'  => $name
+                ]);
+        } catch (Exception $e ) {
+            throw $e;
+        } finally {
+            $this->dbh->disconnect();
+        }
+
+        return $categories[0];
+    }
+
+    /**
      * @return: array associativo di tutte le categorie
      */
     public function getCategories() {
@@ -49,7 +74,6 @@ class ManageCategories {
         } finally {
             $this->dbh->disconnect();
         }
-
         return $categories;
     }
 }

@@ -40,4 +40,12 @@
                 $this->img_path = ROOT.DS.'img'.DS.'products'.DS.$_FILES['productImage']['name'];
             }
         }
+
+        public function getValues() : array {
+            $fields = parent::getValues();
+            foreach ($this as $key => $value) {
+                $fields[$key] = $value;
+            }
+            return $fields;
+        }
     }
