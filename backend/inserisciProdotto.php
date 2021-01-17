@@ -24,7 +24,7 @@ $data['name']           = $_POST['productName'];
 $data['description']    = $_POST['productDescription'];
 $data['price']          = $_POST['productPrice'];
 $data['availability']   = $_POST['productAvail'];
-$data['category']       = $_POST['productCategory'];
+$data['category_id']       = $_POST['productCategory'];
 
 $errorMsg = '';
 $success = false;
@@ -48,7 +48,7 @@ try {
     if($success) {
         $htmlPage = str_replace('<errmsg />', "<p class=\"success\">Prodotto caricato con successo</p>", $htmlPage);
     } else if ($errorMsg != '') {
-        $htmlPage = str_replace('<errmsg />', '<p>'.$e.'<\p>', $htmlPage);
+        $htmlPage = str_replace('<errmsg />', '<p class=\"failure\">'.$errorMsg.'</p>', $htmlPage);
     }
     echo $htmlPage;
 }

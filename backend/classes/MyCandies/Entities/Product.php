@@ -68,7 +68,7 @@
         public function setPrice($price) {
             if(!is_numeric($price)) {
                 throw new EntityException('Il prezzo inserito non è numerico');
-            } else if($price > 0 && $price < 10000) { // è numerico allora ->
+            } else if($price <= 0 || $price >= 10000) { // è numerico allora ->
                 throw new EntityException('Il prezzo deve essere maggiore di 0 e minore di 10000');
             } else if(!preg_match('/^(.*)(\.[0-9]{1,2})?$/',$price))
                 throw new EntityException('Il prezzo deve avere al massimo due valori decimali');
@@ -81,11 +81,11 @@
          * @throws EntityException
          */
         public function setAvailability($availability) {
-            if(!is_numeric($price)) {
-                throw new EntityException('La quantità inserita non è numerico');
-            } else if($price > 0 && $price < 10000000) { // è numerico allora ->
+            if(!is_numeric($availability)) {
+                throw new EntityException('La quantità inserita non è numerica');
+            } else if($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
                 throw new EntityException('La quantità deve essere maggiore di 0 e minore di 10000000 grammi');
-            } else if(!is_int($price))
+            } else if(!preg_match('/([1-9][0-9]{0,6})/',$availability))
                 throw new EntityException('La quantità deve essere un valore intero');
             else {
                 $this->availability = filter_var($availability, FILTER_VALIDATE_INT);

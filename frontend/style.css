@@ -81,11 +81,11 @@ legend {
     width: 100%;
 }
 
-li.failure {
+.failure p {
     color: red;
 }
 
-li.success {
+.success p{
     color: green;
 }
 
