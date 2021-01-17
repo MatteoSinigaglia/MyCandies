@@ -55,18 +55,16 @@ body {
 }
 
 #breadcrumb a:link {
-    text-decoration: none;
     color: white;
 }
 
 #breadcrumb a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #breadcrumb a:visited {
-    color: #cda434;
+    color: #CDA434;
 }
-
 
 h1 {
     font-size: 1.5em;
@@ -74,7 +72,6 @@ h1 {
     text-align: center;
     margin: 0.5em;
 }
-
 
 h2 {
     font-size:1.3em;
@@ -117,18 +114,24 @@ textarea {
     padding: 0.5em 1em;
     margin: 0.5em;
     border-radius: 4px;
-    background-color: #020E0A;
-    color: white;
+    background-color: #093013;
+    color: #CDA434;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
+    border: 1px solid #DDD;
+}
+
+.buttons:hover {
+    background-color: #020E0A;
+    color: white;
 }
 
 #header #utilityBar .buttons {
     border-radius: 0px;
-    border-right: 1px solid #DDD;
-    border-left: 1px solid #DDD;
+    border-top: transparent;
+    border-bottom: transparent;
     background-color: #020E0A;
 }
 
@@ -180,7 +183,7 @@ abbr {
 }
 
 .backToHeader:hover {
-    color: #cda434;
+    color: #CDA434;
     text-decoration: none;
 }
 
@@ -243,7 +246,7 @@ table td, th{
 table th {
     background-color:  #093013;
     border: 1px solid #000;
-    color: #cda434;
+    color: #CDA434;
 }
 
 /*------- HEADER -------------------------------------------------------------------------------*/
@@ -325,7 +328,7 @@ table th {
 }
 
 #navigation a:visited {
-    color: #cda434;
+    color: #CDA434;
 }
 
 #navigation a:hover {
@@ -448,7 +451,7 @@ th {
     border-right: 1px solid transparent;
     border-left: 1px solid transparent;
     border-top: 1px solid transparent;
-    color: #cda434;
+    color: #CDA434;
 }
 
 #productTableContent td {
@@ -653,7 +656,7 @@ background-color: #F2E8CF;
 }
 
 #footer a:visited {
-    color: #cda434;
+    color: #CDA434;
 }
 
 /*
