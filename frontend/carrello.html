@@ -9,24 +9,27 @@
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="modifyStylesheet();" onresize="setMenuVisible();">
+<body onload="modifyStylesheet();">
 
 <div id="header">
 	<a class="helps" href="#cartContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<img id="logo" src="../img/logo.jpeg"
-				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			<a href="home.html">
+				<img id="logo" src="../img/logo.jpeg"
+						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			</a>
 		</div>
 
 		<div id="utilityBar">
-			<form class="serchButton" id="headerSearchBar" action="#" method="get">
+			<form class="searchButton" id="headerSearchBar" action="#" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
@@ -35,7 +38,7 @@
 			</form>
 
 			<a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
-			<a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+			<a id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
 		</div>
 	</div>
 	<div id="navigation">
@@ -76,11 +79,11 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td headers="productName" scope="row" title="Nome"></td>
-					<td headers="productCode" scope="row" title="Codice"></td>
-					<td headers="quantity" scope="row" title="Quantità"></td>
-					<td headers="actions" scope="row" title="Azioni"></td>
-					<td headers="total" scope="row" title="Totale prodotto"></td>
+					<td headers="productName" title="Nome"></td>
+					<td headers="productCode" title="Codice"></td>
+					<td headers="quantity" title="Quantità"></td>
+					<td headers="actions" title="Azioni"></td>
+					<td headers="total" title="Totale prodotto"></td>
 				</tr>
 			</tbody>
         </table>
@@ -88,7 +91,7 @@
             <tbody>
                 <tr>
 					<th id="totalCart" scope="col" colspan="4">Totale carrello</th>
-					<td headers="totalCart" scope="row">0.0$</td>
+					<td headers="totalCart">0.0$</td>
 				</tr>
             </tbody>
         </table>

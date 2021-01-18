@@ -9,6 +9,7 @@
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 </head>
@@ -17,16 +18,17 @@
     <div id="header">
         <div id="navigation">
             <ul>
-                <li><a href="#riepilogoAcquistiDashboard">Riepilogo acquisti</a></li>
+                <li>Riepilogo acquisti</li>
                 <li><a href="utenti_dashboard.html">Utenti</a></li>
                 <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
                 <li><a href="prodotti_dashboard.html">Prodotti</a></li>
+                <li><a href="home.html">Home</a></li>
             </ul>
         </div>
     </div>
-    
+
     <div id="breadcrumb">
-        <p><span xml:lang="en" lang="en">Dashboard</span> / Riepilogo acquisti</p>
+        <p>Ti trovi in: Riepilogo acquisti</p>
     </div>
 
     <div id="riepilogoAcquistiDashboard" class="main">
@@ -43,12 +45,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="user" scope="row" title="Utente">null</td>
-                    <td headers="productCode" scope="row" title="Codice prodotto">null</td>
-                    <td headers="date" scope="row" title="Data acquisto">null</td>
-                    <td headers="time" scope="row" title="Ora acquisto">null</td>
-                    <td headers="number" scope="row" title="Numero prodotti">null</td>
-                    <td headers="total" scope="row" title="Totale">null</td>
+                    <td headers="user" title="Utente">null</td>
+                    <td headers="productCode" title="Codice prodotto">null</td>
+                    <td headers="date" title="Data acquisto">null</td>
+                    <td headers="time" title="Ora acquisto">null</td>
+                    <td headers="number" title="Numero prodotti">null</td>
+                    <td headers="total" title="Totale">null</td>
                 </tr>
             </tbody>
         </table>

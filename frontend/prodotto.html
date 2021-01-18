@@ -9,23 +9,26 @@
 	<meta name="author" content="MyCandies&amp;co" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="modifyStylesheet();" onresize="setMenuVisible();">
+<body onload="modifyStylesheet();">
 
 <div id="header">
 	<a class="helps" href="#productContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<img id="logo" src="../img/logo2.png"
-				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			<a href="home.html">
+				<img id="logo" src="../img/logo.jpeg"
+						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			</a>
 		</div>
 		<div id="utilityBar">
-			<form class="serchButton" id="headerSearchBar" action="#" method="get">
+			<form class="searchButton" id="headerSearchBar" action="#" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
@@ -90,31 +93,31 @@
 			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugCategory" scope="row">valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
 			<th id="tableDrugType" scope="col">Tipologia</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugType" scope="row">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+			<td headers="tableDrugType">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
 		</tr>
 		<tr>
 			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents" scope="row">valore</td>
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugEffects" scope="row">valore</td>
+			<td headers="tableDrugEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugSideEffects" scope="row">valore</td>
+			<td headers="tableDrugSideEffects">valore</td>
 		</tr>
 	</table>
 </div>

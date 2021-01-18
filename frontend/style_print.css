@@ -44,7 +44,7 @@ body {
     text-align: left;
     padding: 0.6em;
     border-top: 1px solid #DDD;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     font-weight: bold;
     color: black;
     background-color: #244224;
@@ -58,7 +58,7 @@ body {
     color: white;
 }
 
-#breadcrumb a:active {
+#breadcrumb a:hover {
     text-decoration: none;
 }
 
@@ -104,7 +104,7 @@ input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 0.8em;
     border-radius: 5px;
     resize: none;
@@ -128,21 +128,6 @@ textarea {
     color: white;
 }
 
-#header #utilityBar .buttons {
-    border-radius: 4px;
-    background-color: #093013;
-}
-
-#header #utilityBar .buttons:active {
-    border-radius: 4px;
-    color: #020E0A;
-    background-color: #F2E8CF;
-}
-
-#productSearchButton {
-    background-color: #093013;
-    color: white;
-}
 
 abbr {
     text-decoration: none;
@@ -157,12 +142,20 @@ abbr {
     text-align: center;
 }
 
+.hidden_helpBackToHeader {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 .backToHeader {
     font-weight: bold;
     color: white;
 }
 
-.backToHeader:active {
+.backToHeader:hover {
     color: #CDA434;
     text-decoration: none;
 }
@@ -176,57 +169,16 @@ abbr {
 }
 
 /*
-============= TABELLE RESPONSIVE PER MOBILE =========================
-*/
-.responsiveTable table,
-.responsiveTable thead,
-.responsiveTable tbody,
-.responsiveTable tfoot,
-.responsiveTable th,
-.responsiveTable td,
-.responsiveTable tr {
-    display: block;
-}
-
-.responsiveTable thead tr {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-}
-
-.responsiveTable tr td {
-    border: none;
-    border-bottom: 1px solid rgb(119, 111, 111);
-    padding-left: 50%;
-    position: relative;
-    text-align: right;
-    white-space: normal;
-    padding: 1em;
-}
-
-.responsiveTable tr td:before {
-    font-weight: bold;
-    left: 6px;
-    padding-right: 10px;
-    position: absolute;
-    text-align: left;
-    top: 6px;
-    white-space: normal;
-    width: 45%;
-}
-
-.responsiveTable tr td:before {
-    content: attr(title);
-}
-/*
 ==================================FORMS========================
 */
 
 .inputForm {
-    margin: 1em 1.5em;
+    margin: 2em auto 1em auto;
     text-align: left;
+    min-width: 20em;
+    max-width: 25em;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 1em;
     background-color: #F2E8CF;
 }
@@ -278,77 +230,61 @@ table th {
 
 #logo {
     width: 100%;
+    height: 100%;
 }
 
 #imageContainer {
-    width: 40%;
+    vertical-align: middle;
+    width: 15%;
+    display: inline-block;
 }
 
 #utilityBar {
     padding: 1em;
+    display: inline;
 }
 
 #headerSearchBar div {
     display: inline;
-    width: 100%;
 }
 
 #headerSearchBar {
     display: inline;
-    width: 100%;
 }
 
 #productSearchBar {
     padding: 0.7em;
+    width: 50%;
     border: 1px solid transparent;
     border-radius: 4px;
-    width: 60%;
+    min-width: 25em;
 }
 
-#cartButton {
-    position: absolute;
-    top: 0.5em;
-    right: 0em;
-    padding: 0.6em 1em;
-    margin: 0.5em;
-    border: 1.5px solid #6A994E;
-    border-radius: 4px;
-    background-color: #6A994E;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-}
-
-#cartButton span {
+#headerUsername {
+    float: right;
     display: none;
 }
 
-#loginButton {
-    position: absolute;
-    top: 0.5em;
-    right: 3.5em;
-}
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
+    clear: both;
     text-align: center;
     background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
-}
-
-#navigation ul {
-    display: none;
     border-top: 1px solid #DDD;
-    margin-top: 0.5em;
 }
 
 #navigation li {
-    list-style-type: none;
-    margin: 0.3em 0em;
+    display: inline;
+    margin: 0.2em 1.5em;
+    border: 1px solid transparent;
     border-radius: 4px;
+}
+
+#navigation a {
+    padding: 0.4em 0.7em;
 }
 
 #navigation a:link {
@@ -360,7 +296,7 @@ table th {
     color: #CDA434;
 }
 
-#navigation a:active {
+#navigation a:hover {
     background-color: #F2E8CF;
     border-radius: 4px;
     color: #051C0B;
@@ -371,12 +307,7 @@ table th {
 */
 
 #mobileMenu {
-    padding: 0.5em;
-    color: white;
-    background-color: #051C0B;
-    border: 1px solid white;
-    border-radius: 4px;
-    margin-left: 90%;
+    display: none;
 }
 
 /*
@@ -413,14 +344,17 @@ table th {
 #productContent h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0.5em 0.9em;
+    margin: 0.5em 0;
 }
 
 #productContenitor {
+    float: left;
+    width: 75%;
     background-color: #F2E8CF;
     border: 1px solid #DDD;
     border-radius: 10px;
-    margin: 0.5em 1.3em;
+    margin-bottom: 1em;
+    margin-right: 0.5em;
 }
 
 #productContenitor dl dt {
@@ -435,19 +369,32 @@ table th {
 }
 
 #productContenitor dl dd img {
-    max-width: 90%;
-    margin: 1em;
+    float: left;
+    width: 20%;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
 #productContenitor dl dd p {
-    margin: 0.5em 1em;
+    width: 75%;
+    padding: 0.5em 1em;
+    margin-left: 22%;
+}
+
+#addToCartButton {
+    float: right;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 2.5em;
 }
 
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
+    float: right;
     border-radius: 10px;
-    margin: 0.5em 5em;
     background-color: #093013;
+    margin-bottom: 1em;
+    width: 20%;
 }
 
 #productTableContent table {
@@ -460,6 +407,7 @@ table th {
 td,
 th {
     border: 1px solid transparent;
+    padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
@@ -482,6 +430,7 @@ th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
+    padding: 3em;
 }
 
 #loginForm a:link {
@@ -493,9 +442,11 @@ th {
 }
 
 .formContainer {
-    display: inline;
+    display: inline-block;
     vertical-align: top;
+    margin: 1em 3em auto 3em;
 }
+
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
@@ -506,44 +457,43 @@ th {
 }
 
 #cartContent img {
-    float: left;
-    width: 15%;
-    margin: 1em 3em;
+display: none;
 }
 
 #cartContent h1 {
-    float: left;
-    margin-top: 2.5em;
+
+    margin-top: 5em;
 }
 
 #selectedProduct {
     clear: left;
     padding: 1em;
-    margin: 1em 0.1em;
+    margin: 1em;
     border-radius: 10px;
     background-color: #F2E8CF;
 }
 
-#selectedProduct table {
-    width: 100%;
-    margin: 0.5em auto;
+#purchaseButton {
+    display: none;
 }
 
 /*
 ==================================Lista prodotti================================
 */
-#productList {
-    width: 100%;
-}
-
 #filters {
-    width: 95%;
-    border-bottom: 1px solid #ddd;
+    float: left;
+    max-width: 20%;
+    min-width: 150px;
+    padding: 1.5em;
+    border: 1px solid #DDD;
+    border-top: none;
     background-color: #F2E8CF;
 }
 
 #filters form div {
     text-align: center;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
 }
 
 #filters label {
@@ -554,10 +504,18 @@ th {
     width: 4em;
 }
 
+#rightSideContent {
+    overflow: hidden;
+    padding: 1em;
+}
+
+#rightSideContent div {
+    overflow: hidden;
+}
+
 #upperRightSideContent {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     padding-bottom: 1em;
-    text-align: center;
 }
 
 select {
@@ -571,7 +529,11 @@ select {
 }
 
 #orderBy {
-    margin: 0.5em 0em;
+    float: left;
+}
+
+#productsPerPage {
+    text-align: right;
 }
 
 #productsList {
@@ -583,7 +545,7 @@ select {
     display: flex;
     flex-direction: row;
     padding: 2em;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
 }
 
 .singleProduct img {
@@ -599,21 +561,25 @@ p {
 
 #productsPageNumber {
     text-align: center;
-    display: inline;
+    display: inline-block;
     width: 100%;
 }
 
-/*
-====================FAQ=======================================
-*/
+#filtersForm fieldset div span {
+    float: left;
+}
 
 .stylelessList {
 list-style-type:none;
 text-align: left;
 }
 
-#contentFAQ ul {
-    margin: 0em 1em;
+#contentFAQ .stylelessList a:hover {
+    color: purple;
+}
+
+#contentFAQ .stylelessList a:visited {
+    color: rgb(134, 2, 2);
 }
 
 #contentFAQ li {
@@ -631,9 +597,6 @@ background-color: #F2E8CF;
 #footer {
     display: inline-block;
     width: 100%;
-    background-color: #051C0B;
-    color: white;
-    min-height: 10em;
     margin-top: 0.5em;
 }
 
@@ -643,47 +606,19 @@ background-color: #F2E8CF;
     vertical-align: middle;
 }
 
-#footer div ul {
-    text-align: center;
-}
-
 #upperFooterContainer {
     width: 100%;
 }
 
 #footer h3 {
     font-size: 1em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
 }
 
-#footer a:link {
-    color: white;
+#footer a {
+    display: none;
 }
 
-#footer a:hover {
-    text-decoration: none;
-}
-
-#footer a:visited {
-    color: #CDA434;
-}
-
-#stores div {
-    padding: 0em 1.8em;
-}
-
-#stores div h3,
-#stores div ul {
-    text-align: center;
-}
-
-#stores div ul {
-    margin-bottom: 0.7em;
-}
-
-#contacts ul li a:active {
-    text-decoration: underline;
-}
 
 /*
 =================== CONTATTI ===================================================================
@@ -693,41 +628,34 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-/* 
+/*
 ================== PUNTI VENDITA ==============================================================
 */
 
-#stores{
-    min-width: 78%;
-    margin: 1em;
-}
+
 
 #stores div {
-    padding-right: 2em;
-    min-width: 11em;
+    padding-right:0.4em;
 }
 
 #stores h3 {
     text-align: left;
 }
 
-/* 
+/*
 =============== SOCIAL ==========================================================================
 */
 
-#social {
-    margin: 1em;
+#social h2 {
+    display: none;
 }
-
-#social ul li {
-    padding-bottom: 0.5em;
+#social h3{
+  display: none;
 }
-
 #social img{
-    width: 1em;
-    margin-right: 0.1em;
+  display: none;
 }
-
+/*========DIRITTI======*/
 #diritti{
     width: 100%;
     color: #FFFFFF;
@@ -745,8 +673,8 @@ background-color: #F2E8CF;
 
 #aboutUsContent dt {
     display: inline-block;
-    width: 80%;
-    margin: 1% 10%;
+    width: 60%;
+    margin: 1% 20%;
     background-color: #F2E8CF;
     font-size: 20px;
     border-radius: 4px;
@@ -766,13 +694,49 @@ background-color: #F2E8CF;
 
 #aboutUsContent ul {
     list-style-type: none;
-    font-weight: bold;
-    padding: 0em 0.5em;
+    margin-top: 0.5em;
 }
 
 #aboutUsContent img {
-    width: 30%;
+    float: left;
+    width: 10%;
     margin: 0.5em;
     border: 1px solid black;
     border-radius: 6px;
 }
+/*=============================HOME====================*/
+#contentHome{
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  background-color: #F2E8CF;
+  margin-top: 2em;
+}
+
+#contentHome img{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1em;
+    padding-bottom: 2%;
+}
+
+#contentHome p{
+  font-size: 18px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+  font-family: cambria;
+  padding-bottom: 1em;
+}
+#contentHome h3{
+  font-size: 28px;
+  text-align: center;
+}
+/*AGGIUNTE PER LA STAMPA*/
+
+#header{
+  display: none;
+}
+.nolinkhide{display:none;}
+
+/*AREA PERSONALE*/
