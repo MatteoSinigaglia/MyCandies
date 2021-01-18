@@ -3,12 +3,12 @@
 
     require_once '..'.DIRECTORY_SEPARATOR.'paths_index.php';
     require_once MYCANDIES_PATH.DS.'Entities'.DS.'Category.php';
-    require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ManageCategories.php';
+    require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'CategoriesManager.php';
 
-    use MyCandies\Controllers\ManageCategories;
+    use MyCandies\Controllers\CategoriesManager;
 
     try {
-        $categoryManager = new ManageCategories();
+        $categoryManager = new CategoriesManager();
         $categories = $categoryManager->getCategories();
     } catch(Exception $e) {
         // load 404 page, TODO

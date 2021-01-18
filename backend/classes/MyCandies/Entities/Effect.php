@@ -1,22 +1,21 @@
 <?php
 
-namespace MyCandies\Entities;
 
-require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
-require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
+namespace MyCandies\Entities;
 
 use MyCandies\Exceptions\EntityException;
 
-class ActivePrinciple extends Entity {
-
-    public const ACTIVE_PRINCIPLE = 1;
+class Effect extends Entity {
+    public const EFFECT = 1;
     private $name;
+    private $description;
 
     public function __construct(int $source, array $data=[]) {
         try {
-            if($source === self::ACTIVE_PRINCIPLE) {
+            if($source === self::EFFECT) {
                 parent::__construct($source, $data['id']);
                 $this->name = $data['name'];
+                $this->description = $data['description'];
             }
         } catch(EntityException $e) {
             throw $e;
