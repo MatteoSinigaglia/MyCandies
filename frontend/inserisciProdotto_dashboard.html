@@ -42,10 +42,10 @@
                     <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
                 <!-- Descrizione prodotto -->
                 <label for="productDescription">Descrizione prodotto:</label>
-                    <span><textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea></span>
+                    <textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea>
                 <!-- Immagine prodotto -->
                 <label for="productImage">Immagine prodotto:</label>
-                    <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
+                    <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" />
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
                     <span><input type="text" id="productPrice" name="productPrice" /></span><!-- controlli via php-->
@@ -54,20 +54,12 @@
                     <select id="category" name="category" class="selectForm">
                         <option value="" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
                     </select>
-                <!-- Tipologia -->
-                <label for="type">Tipologia:</label>
-                    <select id="type" name="type" class="selectForm">
-                        <option value="" selected="selected" disabled="disabled">-- Seleziona tipologia --</option>
-                    </select>
                 <!-- Componenti attivi -->
-                <label for="drugComponents">Componenti Attivi:</label>
-                    <span><input type="text" id="drugComponents" name="drugComponents" maxlength="40" /></span>
+                <label for="drugComponents">Principio attivo:</label>
+                    <input type="checkbox" id="drugComponents" name="drugComponents" />
                 <!-- Effetti -->
                 <label for="effects">Effetti:</label>
-                    <span><input type="text" id="effects" name="effects" maxlength="20" /></span>
-                <!-- Effetti collaterali -->
-                <label for="sideEffects">Effetti collaterali:</label>
-                    <span><input type="text" id="sideEffects" name="sideEffects" value="" maxlength="20" /></span><br/>
+                    <input type="checkbox" id="effects" name="effects" />
                 <!-- Buttons -->
                 <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
                 <input type="reset" id="cancella" value="Cancella" class="buttons" />
