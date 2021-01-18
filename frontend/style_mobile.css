@@ -129,11 +129,8 @@ textarea {
 }
 
 #header #utilityBar .buttons {
-    border-radius: 0px;
-    border-top: transparent;
-    border-bottom: transparent;
-    background-color: #020E0A;
-    color: white;
+    border-radius: 4px;
+    background-color: #093013;
 }
 
 #header #utilityBar .buttons:active {
@@ -143,8 +140,6 @@ textarea {
 }
 
 #productSearchButton {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
     background-color: #093013;
     color: white;
 }
