@@ -180,6 +180,7 @@ abbr {
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
+
 .responsiveTable table,
 .responsiveTable thead,
 .responsiveTable tbody,
@@ -220,6 +221,7 @@ abbr {
 .responsiveTable tr td:before {
     content: attr(title);
 }
+
 /*
 ==================================FORMS========================
 */
