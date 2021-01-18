@@ -34,10 +34,12 @@ body {
 .formErrors {
     color: red;
     padding: 0.5em 0em;
+    display: block;
 }
 
 .rightMessage {
     color: green;
+    display: block;
 }
 
 #breadcrumb {
@@ -783,4 +785,9 @@ background-color: #F2E8CF;
 
 #effects {
     display: block;
+}
+
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
 }

@@ -740,3 +740,8 @@ background-color: #F2E8CF;
 .nolinkhide{display:none;}
 
 /*AREA PERSONALE*/
+/*---------------------*/
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
+}
