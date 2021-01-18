@@ -42,6 +42,20 @@ body {
     display: block;
 }
 
+.paragraphLink:link {
+    color: #093013;
+    font-weight: bold;
+}
+
+.paragraphLink:hover{
+    color: purple;
+    text-decoration: none;
+}
+
+.paragraphLink:visited{
+    color: rgb(134, 2, 2);
+}
+
 #breadcrumb {
     text-align: left;
     padding: 0.6em;
@@ -364,15 +378,6 @@ table th {
     text-align: center;
 }
 
-#avviso_utenteNonLoggato p a {
-    color: #6A994E;
-    font-weight: bold;
-}
-
-#avviso_utenteNonLoggato p a:visited {
-    color: #051C0B;
-}
-
 #logoutButton {
     width: 100%;
     text-align: center;
@@ -470,14 +475,6 @@ table th {
     margin: auto;
     text-align: center;
     padding: 3em;
-}
-
-#loginForm a:link {
-    color: #093013;
-}
-
-#loginForm a:visited {
-    color: rgb(134, 2, 2);
 }
 
 .formContainer {
@@ -615,14 +612,6 @@ p {
 .stylelessList {
 list-style-type:none;
 text-align: left;
-}
-
-#contentFAQ .stylelessList a:hover {
-    color: purple;
-}
-
-#contentFAQ .stylelessList a:visited {
-    color: rgb(134, 2, 2);
 }
 
 #contentFAQ li {
