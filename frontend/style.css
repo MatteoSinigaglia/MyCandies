@@ -669,18 +669,6 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-#contacts a:link {
-    color: white;
-}
-
-#contacts  a:visited {
-    color: #CDA434
-}
-
-#contacts a:hover {
-    text-decoration: none;
-}
-
 /*
 ================== PUNTI VENDITA ==============================================================
 */
