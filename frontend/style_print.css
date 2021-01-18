@@ -128,33 +128,6 @@ textarea {
     color: white;
 }
 
-#header #utilityBar .buttons {
-    border-radius: 0px;
-    border-top: transparent;
-    border-bottom: transparent;
-    background-color: #020E0A;
-}
-
-#header #utilityBar .buttons:hover {
-    border-radius: 4px;
-    color: #020E0A;
-    background-color: #F2E8CF;
-}
-
-#productSearchButton {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    background-color: #093013;
-}
-
-#cartButton {
-    padding: 0.6em 0.7em;
-}
-
-#cartButton span {
-    font-weight: bold;
-    font-family: "Arial", cursive, sans-serif;
-}
 
 abbr {
     text-decoration: none;
@@ -484,13 +457,11 @@ th {
 }
 
 #cartContent img {
-    float: left;
-    width: 10%;
-    margin: 1em 3em;
+display: none;
 }
 
 #cartContent h1 {
-    float: left;
+
     margin-top: 5em;
 }
 
@@ -503,9 +474,7 @@ th {
 }
 
 #purchaseButton {
-    margin-top: 0.5em;
-    margin-left: 56em;
-    margin-bottom: 0.5em;
+    display: none;
 }
 
 /*
@@ -628,9 +597,6 @@ background-color: #F2E8CF;
 #footer {
     display: inline-block;
     width: 100%;
-    background-color: #051C0B;
-    color: white;
-    min-height: 10em;
     margin-top: 0.5em;
 }
 
@@ -649,17 +615,10 @@ background-color: #F2E8CF;
     margin-bottom: 0.5em;
 }
 
-#footer a:link {
-    color: white;
+#footer a {
+    display: none;
 }
 
-#footer a:hover {
-    text-decoration: none;
-}
-
-#footer a:visited {
-    color: #CDA434;
-}
 
 /*
 =================== CONTATTI ===================================================================
@@ -669,30 +628,16 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-#contacts a:link {
-    color: white;
-}
 
-#contacts  a:visited {
-    color: #CDA434
-}
-
-#contacts a:hover {
-    text-decoration: none;
-}
 
 /*
 ================== PUNTI VENDITA ==============================================================
 */
 
-#stores{
-    min-width: 78%;
-    margin: 1em;
-}
+
 
 #stores div {
-    padding-right: 2em;
-    min-width: 11em;
+    padding-right:0.4em;
 }
 
 #stores h3 {
@@ -703,19 +648,16 @@ background-color: #F2E8CF;
 =============== SOCIAL ==========================================================================
 */
 
-#social {
-    margin: 1em;
+#social h2 {
+    display: none;
 }
-
-#social ul li {
-    padding-bottom: 0.2em;
+#social h3{
+  display: none;
 }
-
 #social img{
-    width: 1em;
-    margin-right: 0.1em;
+  display: none;
 }
-
+/*========DIRITTI======*/
 #diritti{
     width: 100%;
     color: #FFFFFF;
@@ -724,8 +666,7 @@ background-color: #F2E8CF;
 
 #diritti p {
     margin: 1em;
-    font-weight: 400;
-    text-align:center;
+    font-weight: 600;
 }
 
 /*
@@ -793,3 +734,11 @@ background-color: #F2E8CF;
   font-size: 28px;
   text-align: center;
 }
+/*AGGIUNTE PER LA STAMPA*/
+
+#header{
+  display: none;
+}
+.nolinkhide{display:none;}
+
+/*AREA PERSONALE*/
