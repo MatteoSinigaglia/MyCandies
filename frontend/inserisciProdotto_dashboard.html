@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
-    <script type="text/javascript" src="../frontend/checkInserisciProdotto.js"></script>
+    <!-- <script type="text/javascript" src="../frontend/checkInserisciProdotto.js"></script> -->
 </head>
 
 <body onload="load();">
@@ -50,19 +50,25 @@
                 <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
-                <span><input type="text" id="productPrice" name="productPrice" /></span><!-- controlli via php-->
+                <span><input type="text" id="productPrice" name="productPrice" /></span>
+                <!-- Quantità -->
+                <label for="productAvail">Quantità:</label>
+                <span><input type="text" id="productAvail" name="productAvail" /></span>
                 <!-- Categoria -->
-                <label for="category">Categoria:</label>
-                <select id="category" name="category" class="selectForm">
-                    <option value="" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
+                <label for="productCategory">Categoria:</label>
+                <select id="productCategory" name="productCategory" class="selectForm">
+                    <option value="-- Seleziona categoria --" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
                     <categoryOptions />
                 </select>
-                <!-- Componenti attivi -->
-                <label for="drugComponents">Principi Attivi:</label>
-                <span><input type="text" id="drugComponents" name="drugComponents" maxlength="40" /></span>
-                <!-- Effetti -->
-                <label for="effects">Effetti:</label>
-                <span><input type="text" id="effects" name="effects" maxlength="20" /></span>
+                <!-- Principio attivo -->
+                <label for="productActivePrinciple">Principio Attivo:</label>
+                <select id="productActivePrinciple" name="productActivePrinciple" class="selectForm">
+                    <option value="-- Seleziona categoria --" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
+                    <activePrinciples />
+                </select>
+                <!-- Percentuale di principio attivo-->
+                <label for="productPercentage">Percentuale di principio attivo:</label>
+                <span><input type="text" id="productPercentage" name="productPercentage" maxlength="3" /></span>
                 <!-- Buttons -->
                 <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
                 <input type="reset" id="cancella" value="Cancella" class="buttons" />

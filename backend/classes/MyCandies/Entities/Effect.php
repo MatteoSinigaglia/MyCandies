@@ -28,6 +28,15 @@ class Effect extends Entity {
 
     public function getValues() : array {
         $fields = [];
+        parent::getValues();
+        foreach ($this as $key => $value) {
+            $fields[$key] = $value;
+        }
+        return $fields;
+    }
+
+    public function getValuesWithoutId() : array {
+        $fields=[];
         foreach ($this as $key => $value) {
             $fields[$key] = $value;
         }

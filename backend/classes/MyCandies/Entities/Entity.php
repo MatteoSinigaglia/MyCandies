@@ -47,4 +47,5 @@ class Entity {
 		}
 		return $fields;
 	}
+
 }

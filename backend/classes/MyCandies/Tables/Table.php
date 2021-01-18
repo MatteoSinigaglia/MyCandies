@@ -103,6 +103,9 @@ class Table {
 	public function insert(array $fields) : string {
 		try {
 
+		    if(isset($fields['id'])) {
+		        unset($fields['id']);
+            }
 			$parameters = $values = '';
 			foreach ($fields as $key => $value) {
 				$parameters .= '`' . $key . '`,';

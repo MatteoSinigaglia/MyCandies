@@ -9,6 +9,7 @@ use MyCandies\Exceptions\EntityException;
 class ProductsActivePrinciple {
 
     public const PRODUCTS_ACTIVE_PRINCIPLE = 1;
+
     private $product_id;
     private $active_principle_id;
     private $percentage;
@@ -35,4 +36,13 @@ class ProductsActivePrinciple {
         }
         $this->percentage = filter_var($percentage, FILTER_VALIDATE_INT);
     }
+
+    public function getValues() : array {
+        $fields = [];
+        foreach ($this as $key => $value) {
+            $fields[$key] = $value;
+        }
+        return $fields;
+    }
+
 }

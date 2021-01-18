@@ -8,7 +8,7 @@ require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Image.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'ProductImage.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Product.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'ActivePrinciple.php';
-require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Effect.php';
+require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'ProductsActivePrinciple.php';
 require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
 
 use DB\dbh;
@@ -16,10 +16,10 @@ use DB\Exceptions\DBException;
 use Exception;
 use MyCandies\Entities\ActivePrinciple;
 use MyCandies\Entities\Category;
-use MyCandies\Entities\Effect;
 use MyCandies\Entities\Image;
 use MyCandies\Entities\Product;
 use MyCandies\Entities\ProductImage;
+use MyCandies\Entities\ProductsActivePrinciple;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 
@@ -30,8 +30,7 @@ class ProductsManager
     private $T_products;
     private $T_categories;
     private $T_productsImages;
-    private $T_activePrinciples;
-    private $T_effects;
+    private $T_productsActivePrinciples;
     private $dbh;
 
     public function __construct()
@@ -41,20 +40,10 @@ class ProductsManager
         $this->T_images = new Table($this->dbh, 'Images', 'id', Image::class);
         $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
         $this->T_productsImages = new Table($this->dbh, 'ProductsImages', 'id', ProductImage::class);
-        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class);
-        $this->T_effects = new Table($this->dbh, 'Effects', 'id', Effect::class);
+        $this->T_productsActivePrinciples = new Table($this->dbh, 'ProductsActivePrinciples', 'id', ActivePrinciple::class);
     }
 
-    /**
-     * @param $product
-     * @param $image
-     * @param $activePrinciple
-     * @param $effects
-     * @return bool
-     * @throws DBException
-     * @throws EntityException
-     */
-    public function insertProduct($product, $image, $activePrinciple, $effects): bool
+    public function insertProduct($product, $image, $activePrincipleId, $percentage): bool
     {
         try {
             $this->dbh->connect();
@@ -64,10 +53,14 @@ class ProductsManager
             $data['img_id'] = $this->T_images->insert($image->getValues());
             $productImage = new ProductImage(ProductImage::PRODUCT_IMAGES, $data);
             $this->T_productsImages->insert($productImage->getValues());
-            $this->T_activePrinciples->insert($activePrinciple->getValues());
-            $this->T_effects->insert($effects->getValues());
-            $this->dbh->transactionCommit();
+            $data_products_active_principles['product_id'] = $data['product_id'];
+            $data_products_active_principles['active_principle_id'] = $activePrincipleId;
+            $data_products_active_principles['percentage'] = $percentage;
+            $productsActivePrinciples = new ProductsActivePrinciple(ProductsActivePrinciple::PRODUCTS_ACTIVE_PRINCIPLE, $data_products_active_principles);
+            $this->T_productsActivePrinciples->insert($productsActivePrinciples->getValues());
             $this->uploadImage(); // carica l'immagine nel server
+            $this->dbh->transactionCommit();
+
         } catch (EntityException | DBException | Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
@@ -79,8 +72,7 @@ class ProductsManager
 
     private function uploadImage()
     {
-        $uploaddir = ROOT . DS . 'img' . DS . 'products' . DS;
-        $uploadfile = $uploaddir . $_FILES['productImage']['name'];
+        $uploadfile = ROOT . DS . 'img' . DS . 'products' . DS . $_FILES['productImage']['name'];
         if (!move_uploaded_file($_FILES['productImage']['tmp_name'], $uploadfile)) {
             throw new Exception('Immagine non caricata nel server');
         }

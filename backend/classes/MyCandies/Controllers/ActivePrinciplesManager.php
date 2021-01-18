@@ -1,41 +1,39 @@
 <?php
 
+
 namespace MyCandies\Controllers;
 
-require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
-require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Category.php';
-require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
-require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Entity.php';
+require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'dbh.php';
+require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Category.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'ActivePrinciple.php';
+require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
+require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
 
 use DB\dbh;
 use DB\Exceptions\DBException;
 use Exception;
-use MyCandies\Entities\Category;
+use MyCandies\Entities\ActivePrinciple;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 
-class CategoriesManager
+class ActivePrinciplesManager
 {
 
-    private $T_categories;
+    private $T_activePrinciples;
 
     private $dbh;
 
     public function __construct()
     {
         $this->dbh = new dbh();
-        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
+        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class);
     }
 
-    /**
-     * @param $category
-     * @return bool
-     * @throws Exception
-     */
-    public function insertCategory($category): bool
+    public function insertActivePrinciple($activePrinciple): bool
     {
         try {
-            $this->T_categories->insert($category->getValues());
+            $this->T_activePrinciples->insert($activePrinciple->getValues());
         } catch (Exception $e) {
             throw $e;
         }
@@ -54,7 +52,7 @@ class CategoriesManager
          */
         try {
             $this->dbh->connect();
-            $categories = $this->T_categories->find(
+            $activePrinciple = $this->T_activePrinciples->find(
                 [
                     'column' => 'name',
                     'value' => $name
@@ -65,23 +63,23 @@ class CategoriesManager
             $this->dbh->disconnect();
         }
 
-        return $categories[0];
+        return $activePrinciple[0];
     }
 
     /**
      * @return mixed
      * @throws DBException
      */
-    public function getCategories()
+    public function getActivePrinciples()
     {
         try {
             $this->dbh->connect();
-            $categories = $this->T_categories->find();
+            $activePrinciples = $this->T_activePrinciples->find();
         } catch (Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
         }
-        return $categories;
+        return $activePrinciples;
     }
 }
