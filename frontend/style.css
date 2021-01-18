@@ -133,6 +133,7 @@ textarea {
     border-top: transparent;
     border-bottom: transparent;
     background-color: #020E0A;
+    color: white;
 }
 
 #header #utilityBar .buttons:hover {
@@ -220,7 +221,7 @@ abbr {
     border: 1px solid #DDD;
 }
 /*
-==================================TABELLE======================
+================================ TABELLE  ======================
 */
 
 table {
