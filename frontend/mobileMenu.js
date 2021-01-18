@@ -1,19 +1,14 @@
-function modifyStylesheet() {
-    var head = document.head;
-    var link = document.getElementById("mobileStyleSheet");
-    link.href = "../frontend/style_mobile.css";
-    head.appendChild(link);
-};
-
-function setMenuVisible() {
+function loadMenu() {
+    var menuButton = document.getElementById("mobileMenu_hidden");
+    menuButton.id = "mobileMenu_visible";
     var menu = document.getElementById("navigationMenu");
-    menu.style.display = "block";
-};
+    menu.style.display = "none";
+}
 
 function mobileMenu() {
     var menu = document.getElementById("navigationMenu");
-    var button = document.getElementById("mobileMenu");
-    if(menu.style.display === "block") {
+    var button = document.getElementsByClassName("fa fa-bars");
+    if(menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";
     } else {

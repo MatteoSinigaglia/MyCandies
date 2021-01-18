@@ -343,7 +343,6 @@ table th {
 }
 
 #navigation ul {
-    display: none;
     border-top: 1px solid #DDD;
     margin-top: 0.5em;
 }
@@ -353,7 +352,6 @@ table th {
     margin: 0.3em 0em;
     border-radius: 4px;
 }
-
 
 #navigation a:link {
     text-decoration: none;
@@ -374,7 +372,21 @@ table th {
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu {
+#mobileMenu_visible,
+#mobileMenu_hidden {
+    padding: 0.5em;
+    color: white;
+    background-color: #051C0B;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 90%;
+}
+
+#mobileMenu_visible {
+    display: block;
+}
+
+#mobileMenu_hidden {
     display: none;
 }
 

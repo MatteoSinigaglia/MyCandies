@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//ddD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/ddD/xhtml1-strict.ddd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
@@ -7,16 +7,16 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per fornire informazioni sugli sviluppatori" />
 	<meta name="author" content="MyCandies&amp;co" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+    <meta name="viewport" content="widdh=device-widdh, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-widdh: 768px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
-		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+		media="handheld, screen and (min-widdh:280px) and (max-widdh:767px), all and (min-device-widdh: 280px) and (max-device-widdh:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="modifyStylesheet();">
+<body onload="loadMenu();">
 
 <div id="header">
     <a class="helps" href="#suDiNoiContent">Vai al contenuto</a>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div id="navigation">
-        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
@@ -58,63 +58,31 @@
             <span xml:lang="en" lang="en">Home</span>
         </a>/ Chi siamo</p>
 </div>
-<!--
-<div id="suDiNoiContent" class="main">
-    <div id="suDiNoiContainer">
-        <h1>Chi Siamo</h1>
-        <p id="companyHistory">MyCandies&amp;co è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti i quali,
-            dopo aver riconosciuto la loro scarsa attitudine allo studio, cercarono fortuna in un mercato in continua crescita, quello degli stupefacenti. La compagnia ebbe subito un enorme successo, premiando il coraggio dei ragazzi che operavano in barba ad ogni legge.
-            Durante il primo anno di vendite la MyCandies&amp;co bruciò ogni record di profitto di una startup
-          al primo anno di attività e, nell'anno successivo, i quattro fondatori divennero i quattro uomini più ricchi del mondo (stime della rivista Forbes). Gli affari
-          andavano a gonfie vele ma nel 1990 la compagnia subì la più grande perdita di capitale mai registrata. Le cause di tale tracollo finanziario furono essenzialmente due:
-          la prima fu l'approvazione del decreto D.P.R. 309 del 09.10.1990, il quale impediva ai drogati di drogarsi. La causa principale della bancarotta della compagnia fu l'accusa
-          di riciclaggio di denaro contante, reato smascherato grazie all'introduzione fittizia di monente da 50 centesimi per il biglietto del treno nelle principali stazioni del Veneto. L'azienda
-          fu in seguito acquistata dalla magnate portoricana Gombretta Oaggi e conta oggi oltre 1000 dipendenti (da varie sostanze psicotrope). La principale fonte di fatturazione per l'azienda
-          è ad oggi il sito Internet sul Deep Web.</p>
-    </div>
-    <div id="drugsImages">
-        <img id="img1" src="../img/cocaina.jpg" alt="Strisce di cocaina con una banconota arrotolata" />
-        <img id="img2" src="../img/4images_of_drugs.jpg" alt="Quattro immagini raffiguranti diversi tipi di droghe" />
-        <img id="img3" src="../img/mix_droghe.jpeg" alt="Mix di droghe composto di piccole pasticche" />
-    </div>
-</div> -->
 
 <div id="aboutUsContent">
 	<h1 id="aboutUsTitle"> Chi siamo </h1>
 	<p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
     <dl>
-        <dt>
+        <dt>Matteo Sinigaglia</dt>
+        <dd>
             <img src="../img/WalterWhite.png" alt="Immagine raffigurante Walter White protagonistra della famosa serie Breaking Bad" />
-            <ul>
-                <li>Nome: Matteo </li>
-                <li>Cognome: Sinigaglia </li>
-                <li>Ruolo: addetto alle vendite </li>
-            </ul>
-        </dt>
-        <dt>
+            
+        </dd>
+        <dt>Alessandro Flori</dt>
+        <dd>
             <img src="../img/LapoElkann.jpg" alt="" />
-            <ul>
-                <li>Nome: Alessandro </li>
-                <li>Cognome: Flori </li>
-                <li>Ruolo: addetto al controllo qualità </li>
-            </ul>
-        </dt>
-        <dt>
+            
+        </dd>
+        <dt>Alessio Trevisan</dt>
+        <dd>
             <img src="../img/MarkRenton.jpeg" alt="" />
-            <ul>
-                <li>Nome: Alessio </li>
-                <li>Cognome: Trevisan </li>
-                <li>Ruolo: addetto alla contabilità </li>
-            </ul>
-        </dt>
-        <dt>
+            
+        </dd>
+        <dt>Daniel Eduardo Contro</dt>
+        <dd>
             <img src="../img/PabloEscobar.jpg" alt="" />
-            <ul>
-                <li>Nome: Daniel Eduardo</li>
-                <li>Cognome: Contro </li>
-                <li>Ruolo: addetto alla sicurezza </li>
-            </ul>
-        </dt>
+            
+        </dd>
     </dl>
 </div>
 
