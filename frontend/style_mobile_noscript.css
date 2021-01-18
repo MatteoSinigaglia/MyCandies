@@ -468,8 +468,8 @@ table th {
 }
 
 #productTableContent tr,
-td,
-th {
+#productTableContent td,
+#productTableContent th {
     border: 1px solid transparent;
 }
 
