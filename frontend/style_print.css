@@ -512,5 +512,9 @@ font-size: 18px;
 .nolinkhide{display:none;}
 
 /*AREA PERSONALE*/
-
+/*---------------------*/
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
+}
 #breadcrumb{margin-top: 0.5em;}

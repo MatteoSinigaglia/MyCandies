@@ -18,7 +18,7 @@
   <script type="text/javascript" src="../frontend/checkFormCliente.js"></script>
 </head>
 
-<body onload="load(); modifyStylesheet();">
+<body onload="loadMenu();">
 <div id="header">
   <a class="helps" href="#loginForm">Vai al
       <span xml:lang="en" lang="en">form</span>
@@ -40,12 +40,12 @@
                   <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
               </div>
           </form>
-          <span class="buttons">Accedi</span>
+          <span id="loginButton" class="buttons">Accedi</span>
           <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
-      </div>
+      </div> 
   </div>
   <div id="navigation">
-      <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+      <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
       <ul id="navigationMenu">
           <li xml:lang="en"><a href="../frontend/home.html">Home</a></li>
           <li><a href="../frontend/listaProdotti.html">Droghe</a></li>
@@ -66,7 +66,7 @@
 <div id="loginAndRegistrationContent">
   <div class="formContainer">
     <h1>Accedi</h1>
-    <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();">
+    <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
         <legend id="loginLegend"> E-mail e Password </legend>
@@ -77,7 +77,7 @@
         <label for="loginPassword">Password:</label>
         <span><input type="password" id="loginPassword" name="loginPassword" maxlength="20" /></span>
         <!-- link recupero credenziali -->
-        <a href="modificaCredenziali.html">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
+        <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
         <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
@@ -89,7 +89,7 @@
   </div>
   <div class="formContainer">
   <h1>Registrati</h1>
-  <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();">
+  <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();" title="Form per la registrazione di un nuovo utente">
     <fieldset id="mandatoryFields">
       <div>
         <label for="email">E-mail</label>
@@ -140,7 +140,7 @@
       </div>
       <div>
         <label for="cap">Telefono</label>
-        <span><input type="text" name="telefono" id="telefono" maxlength="10" /></span><br/>
+        <span><input type="text" name="telefono" id="telefono" maxlength="10" /></span>
       </div>
       <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
     </fieldset>

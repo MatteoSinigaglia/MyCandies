@@ -34,10 +34,12 @@ body {
 .formErrors {
     color: red;
     padding: 0.5em 0em;
+    display: block;
 }
 
 .rightMessage {
     color: green;
+    display: block;
 }
 
 #breadcrumb {
@@ -178,6 +180,7 @@ abbr {
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
+
 .responsiveTable table,
 .responsiveTable thead,
 .responsiveTable tbody,
@@ -218,6 +221,7 @@ abbr {
 .responsiveTable tr td:before {
     content: attr(title);
 }
+
 /*
 ==================================FORMS========================
 */
@@ -341,7 +345,6 @@ table th {
 }
 
 #navigation ul {
-    display: none;
     border-top: 1px solid #DDD;
     margin-top: 0.5em;
 }
@@ -351,7 +354,6 @@ table th {
     margin: 0.3em 0em;
     border-radius: 4px;
 }
-
 
 #navigation a:link {
     text-decoration: none;
@@ -372,7 +374,21 @@ table th {
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu {
+#mobileMenu_visible,
+#mobileMenu_hidden {
+    padding: 0.5em;
+    color: white;
+    background-color: #051C0B;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 90%;
+}
+
+#mobileMenu_visible {
+    display: block;
+}
+
+#mobileMenu_hidden {
     display: none;
 }
 
@@ -454,8 +470,8 @@ table th {
 }
 
 #productTableContent tr,
-td,
-th {
+#productTableContent td,
+#productTableContent th {
     border: 1px solid transparent;
 }
 
@@ -772,4 +788,17 @@ background-color: #020E0A;
     margin: 0.5em;
     border: 1px solid black;
     border-radius: 6px;
+}
+
+/*
+=============== Inserisci Prodotto ========================
+*/
+
+#effects {
+    display: block;
+}
+
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
 }

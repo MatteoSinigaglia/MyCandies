@@ -34,10 +34,26 @@ body {
 .formErrors {
     color: red;
     padding: 0.5em 0em;
+    display: block;
 }
 
 .rightMessage {
     color: green;
+    display: block;
+}
+
+.paragraphLink:link {
+    color: #093013;
+    font-weight: bold;
+}
+
+.paragraphLink:hover{
+    color: purple;
+    text-decoration: none;
+}
+
+.paragraphLink:visited{
+    color: rgb(134, 2, 2);
 }
 
 #breadcrumb {
@@ -312,7 +328,8 @@ table th {
 }
 
 #navigation a {
-    padding: 0.4em 0.7em;
+    padding: 0.6em;
+    border: 1px solid transparent;
 }
 
 #navigation a:link {
@@ -330,11 +347,20 @@ table th {
     color: #051C0B;
 }
 
+#navigation ul li span {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: #051C0B;
+    color: white;
+    padding: 0.6em;
+}
+
 /*
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu {
+#mobileMenu_visible,
+#mobileMenu_hidden {
     display: none;
 }
 
@@ -351,15 +377,6 @@ table th {
 
 #avviso_utenteNonLoggato p {
     text-align: center;
-}
-
-#avviso_utenteNonLoggato p a {
-    color: #6A994E;
-    font-weight: bold;
-}
-
-#avviso_utenteNonLoggato p a:visited {
-    color: #051C0B;
 }
 
 #logoutButton {
@@ -432,8 +449,8 @@ table th {
 }
 
 #productTableContent tr,
-td,
-th {
+#productTableContent td,
+#productTableContent th {
     border: 1px solid transparent;
     padding: 0.3em 0.5em;
 }
@@ -459,14 +476,6 @@ th {
     margin: auto;
     text-align: center;
     padding: 3em;
-}
-
-#loginForm a:link {
-    color: #093013;
-}
-
-#loginForm a:visited {
-    color: rgb(134, 2, 2);
 }
 
 .formContainer {
@@ -606,14 +615,6 @@ list-style-type:none;
 text-align: left;
 }
 
-#contentFAQ .stylelessList a:hover {
-    color: purple;
-}
-
-#contentFAQ .stylelessList a:visited {
-    color: rgb(134, 2, 2);
-}
-
 #contentFAQ li {
 border: 1px solid;
 padding:1em;
@@ -714,46 +715,13 @@ background-color: #F2E8CF;
 #diritti p {
     margin: 1em;
     font-weight: 400;
-    text-align:center;
+    text-align: center;
 }
 
 /*
 ============== SU DI NOI ==========================
 */
 
-#aboutUsContent dt {
-    display: inline-block;
-    width: 60%;
-    margin: 1% 20%;
-    background-color: #F2E8CF;
-    font-size: 20px;
-    border-radius: 4px;
-    border: 1px solid rgb(155, 153, 153);
-
-}
-
-#aboutUsContent p {
-    width: 80%;
-    text-align: center;
-    margin: 1em auto;
-    padding: 1em;
-    border-radius: 4px;
-    border: 1px solid rgb(155, 153, 153);
-    background-color: #F2E8CF;
-}
-
-#aboutUsContent ul {
-    list-style-type: none;
-    margin-top: 0.5em;
-}
-
-#aboutUsContent img {
-    float: left;
-    width: 10%;
-    margin: 0.5em;
-    border: 1px solid black;
-    border-radius: 6px;
-}
 /*=============================HOME====================*/
 #contentHome{
   width: 85%;
@@ -761,6 +729,7 @@ background-color: #F2E8CF;
   margin-right: 7.5%;
   background-color: #F2E8CF;
   margin-top: 2em;
+  border-radius: 10px;
 }
 
 #contentHome img{
@@ -782,3 +751,74 @@ background-color: #F2E8CF;
   font-size: 28px;
   text-align: center;
 }
+
+/*
+=============== Cose sfuse ========================
+*/
+
+#effects {
+    display: block;
+}
+
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
+}
+
+/*
+======== Su di noi ========================
+*/
+
+#aboutUsContent h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#aboutUsContent p {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #F2E8CF;
+    padding: 0.7em;
+    border: 1px solid #DDD;
+}
+
+#aboutUsContent dl {
+    width: 80%;
+    margin: 2% 20%;
+}
+
+#aboutUsContent dl dt {
+    width: 70%;
+    background-color: #093013;
+    border: 1px solid rgb(165, 164, 164);
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    padding: 0.3em; 
+}
+
+#aboutUsContent dl dd {
+    width: 70%;
+    display: inline-block;
+    background-color: #F2E8CF;
+    border: 1px solid rgb(165, 164, 164);
+    padding: 0.3em;
+    margin-bottom: 1.5em;
+    border-radius: 10px;
+}
+
+#aboutUsContent dl dd img {
+    float: left;
+    width: 15%;
+    border-radius: 7px;
+    border: 1px solid rgb(165, 164, 164);
+}
+
+#aboutUsContent dl dd p {
+    border: none;
+    background-color: transparent;
+    padding: 0.3em;
+}
+

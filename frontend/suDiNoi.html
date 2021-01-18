@@ -16,16 +16,16 @@
 	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="modifyStylesheet();">
+<body onload="loadMenu();">
 
 <div id="header">
     <a class="helps" href="#suDiNoiContent">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-					<a href="home.html">
-						<img id="logo" src="../img/logo.jpeg"
-								alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
-					</a>
+            <a href="home.html">
+                <img id="logo" src="../img/logo.jpeg"
+                        alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+            </a>
         </div>
         <div id="utilityBar">
             <form class="searchButton" id="headerSearchBar" action="#" method="get">
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div id="navigation">
-        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
@@ -62,40 +62,29 @@
 
 <div id="aboutUsContent">
 	<h1 id="aboutUsTitle"> Chi siamo </h1>
-	<p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
+    <p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
+    <div>
     <dl>
-        <dt>
-            <img src="../img/WalterWhite.png" alt="Immagine raffigurante Walter White protagonistra della famosa serie Breaking Bad" />
-            <ul>
-                <li>Nome: Matteo </li>
-                <li>Cognome: Sinigaglia </li>
-                <li>Ruolo: addetto alle vendite </li>
-            </ul>
-        </dt>
-        <dt>
-            <img src="../img/LapoElkann.jpg" alt="" />
-            <ul>
-                <li>Nome: Alessandro </li>
-                <li>Cognome: Flori </li>
-                <li>Ruolo: addetto al controllo qualità </li>
-            </ul>
-        </dt>
-        <dt>
-            <img src="../img/MarkRenton.jpeg" alt="" />
-            <ul>
-                <li>Nome: Alessio </li>
-                <li>Cognome: Trevisan </li>
-                <li>Ruolo: addetto alla contabilità </li>
-            </ul>
-        </dt>
-        <dt>
-            <img src="../img/PabloEscobar.jpg" alt="" />
-            <ul>
-                <li>Nome: Daniel Eduardo</li>
-                <li>Cognome: Contro </li>
-                <li>Ruolo: addetto alla sicurezza </li>
-            </ul>
-        </dt>
+        <dt>Matteo Sinigaglia</dt>
+        <dd>
+            <img src="../img/WalterWhite.png" alt="Uomo anziano con un cappello (Walter White), protagonista della serie tv Breaking Bad." />
+            <p>Matteo Sinigaglia è l'addetto alle vendite della compagnia. Si occupa di spacciare.</p>
+        </dd>
+		<dt>Alessandro Flori</dt>
+        <dd>
+            <img src="../img/LapoElkann.jpg" alt="Lapo Elkann, uomo biondo con i capelli lunghi in evidente stato d'ebbrezza." />
+            <p>Alessandro Flori è l'addetto al controllo qualità del prodotto. Si occupa di provare personalmente i prodotti.</p>
+        </dd>
+		<dt>Alessio Trevisan</dt>
+		<dd>
+            <img src="../img/MarkRenton.jpeg" alt="Giovane ragazzo che fuma in discoteca (Mark Renton), protagonista del film Trainspotting"  />
+            <p>Alessio Trevisan è l'addetto alla contabilità. Si occupa di stabilire il giusto prezzo per derubare inconsciamente i clienti.</p>
+        </dd>
+		<dt>Daniel Eduardo Contro</dt>
+        <dd>
+            <img src="../img/PabloEscobar.jpg" alt="Pablo Escobar,carcerato sorridente che tiene un cartello in mano. " />
+            <p>Daniel Eduardo Contro è l'addetto alla sicurezza. Si occupa di tenere a bada gli hacker e i clienti che vogliono il rimborso.</p>
+        </dd>
     </dl>
 </div>
 
