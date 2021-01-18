@@ -1,8 +1,10 @@
 function loadMenu() {
-    var menuButton = document.getElementById("mobileMenu_hidden");
-    menuButton.id = "mobileMenu_visible";
-    var menu = document.getElementById("navigationMenu");
-    menu.style.display = "none";
+    if(window.screen.width <= 767) {
+        var menuButton = document.getElementById("mobileMenu_hidden");
+        menuButton.id = "mobileMenu_visible";
+        var menu = document.getElementById("navigationMenu");
+        menu.style.display = "none";
+    }
 }
 
 function mobileMenu() {
