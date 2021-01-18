@@ -328,7 +328,8 @@ table th {
 }
 
 #navigation a {
-    padding: 0.4em 0.7em;
+    padding: 0.6em;
+    border: 1px solid transparent;
 }
 
 #navigation a:link {
@@ -346,7 +347,7 @@ table th {
     color: #051C0B;
 }
 
-#navigationMenu li span {
+#navigation ul li span {
     border: 1px solid #DDD;
     border-radius: 4px;
     background-color: #051C0B;
