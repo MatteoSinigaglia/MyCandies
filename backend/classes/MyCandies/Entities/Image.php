@@ -49,11 +49,4 @@
             return $fields;
         }
 
-        public function getValuesWithoutId() : array {
-            $fields=[];
-            foreach ($this as $key => $value) {
-                $fields[$key] = $value;
-            }
-            return $fields;
-        }
     }

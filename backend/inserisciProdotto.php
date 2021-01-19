@@ -61,7 +61,7 @@ try {
     if($success) {
         $htmlPage = str_replace('<errmsg />', "<p class=\"success\">Prodotto caricato con successo</p>", $htmlPage);
     } else {
-        $htmlPage = str_replace('<errmsg />', '<ul class=\"failure\"><li>Elenco errori</li>'.$errorMsg.'</ul>', $htmlPage);
+        $htmlPage = str_replace('<errmsg />', '<ul class=\"failure\">'.$errorMsg.'</ul>', $htmlPage);
     }
     echo $htmlPage;
 }
