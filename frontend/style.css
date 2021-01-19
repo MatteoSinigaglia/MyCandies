@@ -32,13 +32,13 @@ body {
 }
 
 .formErrors {
-    color: red;
+    color: rgb(134, 2, 2);
     padding: 0.5em 0em;
     display: block;
 }
 
 .rightMessage {
-    color: green;
+    color: #093013;
     display: block;
 }
 
