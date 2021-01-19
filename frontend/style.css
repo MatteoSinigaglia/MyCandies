@@ -723,10 +723,6 @@ background-color: #F2E8CF;
     text-align: center;
 }
 
-/*
-============== SU DI NOI ==========================
-*/
-
 /*=============================HOME====================*/
 #contentHome{
   width: 85%;
@@ -798,7 +794,8 @@ background-color: #F2E8CF;
     width: 70%;
     background-color: #093013;
     border: 1px solid rgb(165, 164, 164);
-    border-radius: 7px;
+    border-bottom: transparent;
+    border-radius: 10px 10px 0px 0px;
     color: white;
     font-weight: bold;
     padding: 0.3em; 
@@ -809,9 +806,10 @@ background-color: #F2E8CF;
     display: inline-block;
     background-color: #F2E8CF;
     border: 1px solid rgb(165, 164, 164);
+    border-top: transparent;
     padding: 0.3em;
     margin-bottom: 1.5em;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 #aboutUsContent dl dd img {
