@@ -655,7 +655,9 @@ background-color: #F2E8CF;
     color: white;
 }
 
-#footer a:hover {
+#footer a:hover,
+#footer a:visited:hover{
+    color: rgb(184, 3, 3);
     text-decoration: none;
 }
 
