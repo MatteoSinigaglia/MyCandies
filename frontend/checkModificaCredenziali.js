@@ -1,6 +1,6 @@
 var form_credenziali = {
-    "changeEmail": ["Inserisci nuova e-mail", /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "E-mail non valida"],
-    "changePassword": ["Inserisci password", /\w{5,20}/, "Password non valida"]
+    "changeEmail": ["Inserisci nuova e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "E-mail non valida"],
+    "changePassword": ["Inserisci password", /.{5,20}/, "Password non valida"]
 };
 
 function defaultValue(input) {

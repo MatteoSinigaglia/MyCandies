@@ -47,7 +47,7 @@ CREATE TABLE `Addresses` (
 	`city` varchar(20) NOT NULL,
 	`CAP` char(5) NOT NULL,
 	`street` varchar(30) NOT NULL,
-	`street_number` int(10) NOT NULL,
+	`street_number` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
