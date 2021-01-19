@@ -47,7 +47,7 @@ body {
     font-weight: bold;
 }
 
-.paragraphLink:hover{
+.paragraphLink:active{
     color: purple;
     text-decoration: none;
 }
@@ -74,7 +74,7 @@ body {
     color: white;
 }
 
-#breadcrumb a:hover {
+#breadcrumb a:active {
     text-decoration: none;
 }
 
@@ -145,32 +145,19 @@ textarea {
 }
 
 #header #utilityBar .buttons {
-    border-radius: 0px;
-    border-top: transparent;
-    border-bottom: transparent;
-    background-color: #020E0A;
-    color: white;
+    border-radius: 4px;
+    background-color: #093013;
 }
 
-#header #utilityBar .buttons:hover {
+#header #utilityBar .buttons:active {
     border-radius: 4px;
     color: #020E0A;
     background-color: #F2E8CF;
 }
 
 #productSearchButton {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
     background-color: #093013;
-}
-
-#cartButton {
-    padding: 0.6em 0.7em;
-}
-
-#cartButton span {
-    font-weight: bold;
-    font-family: "Arial", cursive, sans-serif;
+    color: white;
 }
 
 abbr {
@@ -186,20 +173,12 @@ abbr {
     text-align: center;
 }
 
-.hidden_helpBackToHeader {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
 .backToHeader {
     font-weight: bold;
     color: white;
 }
 
-.backToHeader:hover {
+.backToHeader:active {
     color: #CDA434;
     text-decoration: none;
 }
@@ -213,14 +192,57 @@ abbr {
 }
 
 /*
+============= TABELLE RESPONSIVE PER MOBILE =========================
+*/
+
+.responsiveTable table,
+.responsiveTable thead,
+.responsiveTable tbody,
+.responsiveTable tfoot,
+.responsiveTable th,
+.responsiveTable td,
+.responsiveTable tr {
+    display: block;
+}
+
+.responsiveTable thead tr {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.responsiveTable tr td {
+    border: none;
+    border-bottom: 1px solid rgb(119, 111, 111);
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+    white-space: normal;
+    padding: 1em;
+}
+
+.responsiveTable tr td:before {
+    font-weight: bold;
+    left: 6px;
+    padding-right: 10px;
+    position: absolute;
+    text-align: left;
+    top: 6px;
+    white-space: normal;
+    width: 45%;
+}
+
+.responsiveTable tr td:before {
+    content: attr(title);
+}
+
+/*
 ==================================FORMS========================
 */
 
 .inputForm {
-    margin: 2em auto 1em auto;
+    margin: 1em 1.5em;
     text-align: left;
-    min-width: 20em;
-    max-width: 25em;
     border-radius: 5px;
     border: 1px solid #DDD;
     padding: 1em;
@@ -259,6 +281,7 @@ table th {
     color: #CDA434;
 }
 
+
 /*------- HEADER -------------------------------------------------------------------------------*/
 
 #header {
@@ -275,62 +298,76 @@ table th {
 
 #logo {
     width: 100%;
-    height: 100%;
 }
 
 #imageContainer {
-    vertical-align: middle;
-    width: 15%;
-    display: inline-block;
+    width: 40%;
 }
 
 #utilityBar {
     padding: 1em;
-    display: inline;
 }
 
 #headerSearchBar div {
     display: inline;
+    width: 100%;
 }
 
 #headerSearchBar {
     display: inline;
+    width: 100%;
 }
 
 #productSearchBar {
     padding: 0.7em;
-    width: 50%;
     border: 1px solid transparent;
     border-radius: 4px;
-    min-width: 25em;
+    width: 60%;
 }
 
-#headerUsername {
-    float: right;
+#cartButton {
+    position: absolute;
+    top: 0.5em;
+    right: 0em;
+    padding: 0.6em 1em;
+    margin: 0.5em;
+    border: 1.5px solid #6A994E;
+    border-radius: 4px;
+    background-color: #6A994E;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+#cartButton span {
     display: none;
 }
 
+#loginButton {
+    position: absolute;
+    top: 0.5em;
+    right: 3.5em;
+}
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
-    clear: both;
     text-align: center;
     background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
+}
+
+#navigation ul {
     border-top: 1px solid #DDD;
+    margin-top: 0.5em;
 }
 
 #navigation li {
-    display: inline;
-    margin: 0.2em 1.5em;
-    border: 1px solid transparent;
+    list-style-type: none;
+    margin: 0.3em 0em;
     border-radius: 4px;
-}
-
-#navigation a {
-    padding: 0.6em;
-    border: 1px solid transparent;
 }
 
 #navigation a:link {
@@ -342,7 +379,7 @@ table th {
     color: #CDA434;
 }
 
-#navigation a:hover {
+#navigation a:active {
     background-color: #F2E8CF;
     border-radius: 4px;
     color: #051C0B;
@@ -361,6 +398,19 @@ table th {
 */
 
 #mobileMenu_visible,
+#mobileMenu_hidden {
+    padding: 0.5em;
+    color: white;
+    background-color: #051C0B;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 90%;
+}
+
+#mobileMenu_visible {
+    display: block;
+}
+
 #mobileMenu_hidden {
     display: none;
 }
@@ -390,17 +440,14 @@ table th {
 #productContent h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0.5em 0;
+    margin: 0.5em 0.9em;
 }
 
 #productContenitor {
-    float: left;
-    width: 75%;
     background-color: #F2E8CF;
     border: 1px solid #DDD;
     border-radius: 10px;
-    margin-bottom: 1em;
-    margin-right: 0.5em;
+    margin: 0.5em 1.3em;
 }
 
 #productContenitor dl dt {
@@ -417,32 +464,19 @@ table th {
 }
 
 #productContenitor dl dd img {
-    float: left;
-    width: 20%;
-    margin-top: 1em;
-    margin-left: 1em;
+    max-width: 90%;
+    margin: 1em;
 }
 
 #productContenitor dl dd p {
-    width: 75%;
-    padding: 0.5em 1em;
-    margin-left: 22%;
-}
-
-#addToCartButton {
-    float: right;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-right: 2.5em;
+    margin: 0.5em 1em;
 }
 
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
-    float: right;
     border-radius: 10px;
+    margin: 0.5em 5em;
     background-color: #093013;
-    margin-bottom: 1em;
-    width: 20%;
 }
 
 #productTableContent table {
@@ -455,7 +489,6 @@ table th {
 #productTableContent td,
 #productTableContent th {
     border: 1px solid transparent;
-    padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
@@ -478,15 +511,20 @@ table th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
-    padding: 3em;
+}
+
+#loginForm a:link {
+    color: #093013;
+}
+
+#loginForm a:visited {
+    color: rgb(134, 2, 2);
 }
 
 .formContainer {
-    display: inline-block;
+    display: inline;
     vertical-align: top;
-    margin: 1em 3em auto 3em;
 }
-
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
@@ -498,46 +536,43 @@ table th {
 
 #cartContent img {
     float: left;
-    width: 10%;
+    width: 15%;
     margin: 1em 3em;
 }
 
 #cartContent h1 {
     float: left;
-    margin-top: 5em;
+    margin-top: 2.5em;
 }
 
 #selectedProduct {
     clear: left;
     padding: 1em;
-    margin: 1em;
+    margin: 1em 0.1em;
     border-radius: 10px;
     background-color: #F2E8CF;
 }
 
-#purchaseButton {
-    margin-top: 0.5em;
-    margin-left: 56em;
-    margin-bottom: 0.5em;
+#selectedProduct table {
+    width: 100%;
+    margin: 0.5em auto;
 }
 
 /*
 ==================================Lista prodotti================================
 */
+#productList {
+    width: 100%;
+}
+
 #filters {
-    float: left;
-    max-width: 20%;
-    min-width: 150px;
-    padding: 1.5em;
-    border: 1px solid #DDD;
-    border-top: none;
+    width: 95%;
+    border-bottom: 1px solid #ddd;
     background-color: #F2E8CF;
 }
 
 #filters form div {
     text-align: center;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
 }
 
 #filters label {
@@ -548,18 +583,10 @@ table th {
     width: 4em;
 }
 
-#rightSideContent {
-    overflow: hidden;
-    padding: 1em;
-}
-
-#rightSideContent div {
-    overflow: hidden;
-}
-
 #upperRightSideContent {
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 1em;
+    text-align: center;
 }
 
 select {
@@ -573,11 +600,7 @@ select {
 }
 
 #orderBy {
-    float: left;
-}
-
-#productsPerPage {
-    text-align: right;
+    margin: 0.5em 0em;
 }
 
 #productsList {
@@ -589,7 +612,7 @@ select {
     display: flex;
     flex-direction: row;
     padding: 2em;
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
 }
 
 .singleProduct img {
@@ -605,17 +628,21 @@ p {
 
 #productsPageNumber {
     text-align: center;
-    display: inline-block;
+    display: inline;
     width: 100%;
 }
 
-#filtersForm fieldset div span {
-    float: left;
-}
+/*
+====================FAQ=======================================
+*/
 
 .stylelessList {
 list-style-type:none;
 text-align: left;
+}
+
+#contentFAQ ul {
+    margin: 0em 1em;
 }
 
 #contentFAQ li {
@@ -645,27 +672,46 @@ background-color: #F2E8CF;
     vertical-align: middle;
 }
 
+#footer div ul {
+    text-align: center;
+}
+
 #upperFooterContainer {
     width: 100%;
 }
 
 #footer h3 {
     font-size: 1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 #footer a:link {
     color: white;
 }
 
-#footer a:hover,
-#footer a:visited:hover{
-    color: rgb(184, 3, 3);
+#footer a:hover {
     text-decoration: none;
 }
 
 #footer a:visited {
     color: #CDA434;
+}
+
+#stores div {
+    padding: 0em 1.8em;
+}
+
+#stores div h3,
+#stores div ul {
+    text-align: center;
+}
+
+#stores div ul {
+    margin-bottom: 0.7em;
+}
+
+#contacts ul li a:active {
+    text-decoration: underline;
 }
 
 /*
@@ -676,7 +722,7 @@ background-color: #F2E8CF;
     margin: 1em;
 }
 
-/*
+/* 
 ================== PUNTI VENDITA ==============================================================
 */
 
@@ -686,15 +732,15 @@ background-color: #F2E8CF;
 }
 
 #stores div {
-    padding-right: 2em;
-    min-width: 11em;
+padding-right: 2em;
+min-width: 11em;
 }
 
 #stores h3 {
     text-align: left;
 }
 
-/*
+/* 
 =============== SOCIAL ==========================================================================
 */
 
@@ -703,58 +749,65 @@ background-color: #F2E8CF;
 }
 
 #social ul li {
-    padding-bottom: 0.2em;
+    padding-bottom: 0.5em;
 }
 
 #social img{
-    width: 1em;
-    margin-right: 0.1em;
+width: 1em;
+margin-right: 0.1em;
 }
 
 #diritti{
-    width: 100%;
-    color: #FFFFFF;
-    background-color: #020E0A;
+width: 100%;
+color: #FFFFFF;
+background-color: #020E0A;
 }
 
 #diritti p {
     margin: 1em;
-    font-weight: 400;
-    text-align: center;
-}
-
-/*=============================HOME====================*/
-#contentHome{
-  width: 85%;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
-  background-color: #F2E8CF;
-  margin-top: 2em;
-  border-radius: 10px;
-}
-
-#contentHome img{
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 1em;
-    padding-bottom: 2%;
-}
-
-#contentHome p{
-  font-size: 18px;
-  margin-left: 15%;
-  margin-right: 15%;
-  text-align: center;
-  font-family: cambria, sans-serif;
-  padding-bottom: 1em;
-}
-#contentHome h1{
-  font-size: 28px;
-  text-align: center;
+    font-weight: 600;
 }
 
 /*
-=============== Cose sfuse ========================
+============== SU DI NOI ==========================
+*/
+
+#aboutUsContent dt {
+    display: inline-block;
+    width: 80%;
+    margin: 1% 10%;
+    background-color: #F2E8CF;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid rgb(155, 153, 153);
+
+}
+
+#aboutUsContent p {
+    width: 80%;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 4px;
+    border: 1px solid rgb(155, 153, 153);
+    background-color: #F2E8CF;
+}
+
+#aboutUsContent ul {
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0em 0.5em;
+}
+
+#aboutUsContent img {
+    width: 30%;
+    margin: 0.5em;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+/*
+=============== Inserisci Prodotto ========================
 */
 
 #effects {
@@ -765,63 +818,3 @@ background-color: #F2E8CF;
     font-weight: bold;
     text-align: center;
 }
-
-/*
-======== Su di noi ========================
-*/
-
-#aboutUsContent h1 {
-    text-align: center;
-    font-weight: bold;
-}
-
-#aboutUsContent p {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
-    border-radius: 10px;
-    background-color: #F2E8CF;
-    padding: 0.7em;
-    border: 1px solid #DDD;
-}
-
-#aboutUsContent dl {
-    width: 80%;
-    margin: 2% 20%;
-}
-
-#aboutUsContent dl dt {
-    width: 70%;
-    background-color: #093013;
-    border: 1px solid rgb(165, 164, 164);
-    border-bottom: transparent;
-    border-radius: 10px 10px 0px 0px;
-    color: white;
-    font-weight: bold;
-    padding: 0.3em; 
-}
-
-#aboutUsContent dl dd {
-    width: 70%;
-    display: inline-block;
-    background-color: #F2E8CF;
-    border: 1px solid rgb(165, 164, 164);
-    border-top: transparent;
-    padding: 0.3em;
-    margin-bottom: 1.5em;
-    border-radius: 0px 0px 10px 10px;
-}
-
-#aboutUsContent dl dd img {
-    float: left;
-    width: 15%;
-    border-radius: 7px;
-    border: 1px solid rgb(165, 164, 164);
-}
-
-#aboutUsContent dl dd p {
-    border: none;
-    background-color: transparent;
-    padding: 0.3em;
-}
-

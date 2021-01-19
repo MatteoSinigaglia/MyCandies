@@ -7,8 +7,11 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" media="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 </head>
 
 <body>
@@ -16,19 +19,20 @@
         <div id="navigation">
             <ul>
                 <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
-                <li><a href="#utentiDashboard">Utenti</a></li>
+                <li><span>Utenti</span></li>
                 <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
                 <li><a href="prodotti_dashboard.html">Prodotti</a></li>
+                <li><a href="home.html">Home</a></li>
             </ul>
         </div>
     </div>
 
     <div id="breadcrumb">
-        <p><span xml:lang="en" lang="en">Dashboard</span> / Utenti</p>
+        <p>Ti trovi in: Utenti</p>
     </div>
 
     <div id="utentiDashboard" class="main">
-        <table summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
+        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
             <thead>
                 <tr>
                     <th id="mail" scope="col">mail</th>
@@ -42,13 +46,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="mail" scope="row">null</td>
-                    <td headers="name" scope="row">null</td>
-                    <td headers="surname" scope="row">null</td>
-                    <td headers="password" scope="row">null</td>
-                    <td headers="dateOfBirth" scope="row">null</td>
-                    <td headers="sex" scope="row">null</td>
-                    <td headers="actions" scope="row"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                    <td headers="mail" title="mail">null</td>
+                    <td headers="name" title="Nome">null</td>
+                    <td headers="surname" title="Cognome">null</td>
+                    <td headers="password" title="Password">null</td>
+                    <td headers="dateOfBirth" title="Data di nascita">null</td>
+                    <td headers="sex" title="Sesso">null</td>
+                    <td headers="actions" title="mail"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
                 </tr>
             </tbody>
         </table>

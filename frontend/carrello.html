@@ -7,47 +7,57 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per gestire il carrello" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
 
 <div id="header">
 	<a class="helps" href="#cartContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<img id="logo" src="../img/logo.jpeg"
-				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			<a href="home.html">
+				<img id="logo" src="../img/logo.jpeg"
+						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			</a>
 		</div>
 
 		<div id="utilityBar">
-			<form class="serchButton" id="headerSearchBar" action="#" method="get">
-				<div>				
+			<form class="searchButton" id="headerSearchBar" action="#" method="get">
+				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
 						class="buttons" />
 				</div>
 			</form>
 
-			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-			<a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+			<a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+			<a id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
 		</div>
 	</div>
 	<div id="navigation">
-		<ul>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
+		<ul id="navigationMenu">
 			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
 			<li><a href="listaProdotti.html">Droghe</a></li>
-			<li><a href="listaProdotti.html#">Accessori</a></li>
+			<li><a href="areaPersonale.html">Area personale</a></li>
 			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-			<li><a href="suDiNoi.html">Su Di Noi</a></li>
+			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
 		</ul>
 	</div>
-</div> 
+</div>
 
 <div id="breadcrumb">
-    <p><span xml:lang="en" lang="en">Dashboard</span> / Carrello</p>
+    <p>Ti trovi in:
+        <a href="home.html">
+            <span xml:lang="en" lang="en">Home</span>
+        </a>/ Carrello</p>
 </div>
 
 <div id="cartContent" class="main">
@@ -57,46 +67,47 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
+		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
 			<thead>
 				<tr>
-					<th id="productName" scope="col">Nome prodotto</th>
+					<th id="productName" scope="col">Nome</th>
 					<th id="productCode" scope="col">Codice</th>
 					<th id="quantity" scope="col">Quantità</th>
-					<th id="actions" scope="col">Aggiungi/rimuovi</th>
+					<th id="actions" scope="col">Azioni</th>
 					<th id="total" scope="col">Totale prodotto</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<th id="totalCart" scope="col" colspan="4">Totale carrello</th>
-					<td headers="totalCart" scope="row">0.0$</td>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
-					<td headers="productName" scope="row"></td>
-					<td headers="productCode" scope="row"></td>
-					<td headers="quantity" scope="row"></td>
-					<td headers="actions" scope="row"></td>
-					<td headers="total" scope="row"></td>
+					<td headers="productName" title="Nome"></td>
+					<td headers="productCode" title="Codice"></td>
+					<td headers="quantity" title="Quantità"></td>
+					<td headers="actions" title="Azioni"></td>
+					<td headers="total" title="Totale prodotto"></td>
 				</tr>
 			</tbody>
-		</table>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
+					<td headers="totalCart">0.0$</td>
+				</tr>
+            </tbody>
+        </table>
 		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
 	</div>
 </div>
-
 <div id="footer">
+    <div class="displayed_helpBackToHeader">
+        <a href="#header" class="backToHeader">Torna su</a>
+    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -110,7 +121,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -118,7 +129,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -126,7 +137,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -134,7 +145,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>

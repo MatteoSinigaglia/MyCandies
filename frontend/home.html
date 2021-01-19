@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
@@ -7,11 +8,16 @@
     <meta name="title" content="Home - MyCandies"/>
     <meta name="description" content="Pagina realizzata per introdurre il sito"/>
     <meta name="author" content="MyCandies&amp;co"/>
-
-    <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+  <link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
 <div id="header">
     <a class="helps" href="#contentHome">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
@@ -20,61 +26,51 @@
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </div>
         <div id="utilityBar">
-            <form class="serchButton" id="headerSearchBar" action="#" method="get">
-                <div>				
+            <form class="searchButton" id="headerSearchBar" action="#" method="get">
+                <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
                         class="buttons" />
                 </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
-        <ul>
-            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <ul id="navigationMenu">
+            <li xml:lang="en" lang="en"><span>Home</span></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
-            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="suDiNoi.html">Su Di Noi</a></li>
+            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
-</div> 
+</div>
 
 <div id="breadcrumb">
     <p>Ti trovi in: Home</p>
 </div>
 
 <div id="contentHome">
-    <div id="offerte">
-        <h1>
-            <a href="#">Offerte</a>
-        </h1>
-    </div>
-    <div id="newArrival">
-        <h1>
-            <a href="#">Nuovi arrivi</a>
-        </h1>
-    </div>
-    <div id="topSold">
-        <h1>
-            <a href="#">I più venduti</a>
-        </h1>
-    </div>
+  <img src="../img/Home.jpg" alt="TODO"/>
+  <h1><span xml:lang='en'>MyCandies&amp;co</span></h1>
+    <p>
+        <span xml:lang='en'>MyCandies&amp;co</span> è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti figli del papi i quali, dopo essere stati cacciati di casa a 23 anni in seguito a svariate overdose di eroina gialla, decisero di aprire un negozio di stupefacenti poichè non sapevano far altro che drogarsi. La compagnia ebbe subito un enorme successo poichè in quegli anni si drogavano tutti e nessuna legge ti impediva di farti una pera in piazza alle 7 di mattina. Durante il primo anno di vendite la <span xml:lang='en'>MyCandies&amp;co</span> bruciò ogni record di profitto di una <span xml:lang='en'>startup</span> al primo anno di attività e, nell'anno successivo, i quattro fondatori divennero i quattro uomini più ricchi del mondo (stime della rivista <span xml:lang='en'>Forbes</span>). Gli affari andavano a gonfie vele ma nel 1990 la compagnia subì la più grande perdita di capitale mai registrata. Le cause di tale tracollo finanziario furono essenzialmente due. La prima fu l'approvazione del decreto D.P.R. 309 del 09.10.1990, il quale impediva ai drogati di drogarsi. La causa principale della bancarotta della compagnia fu l'accusa di riciclaggio di denaro contante, reato smascherato grazie all'introduzione fittizia di monente da 50 centesimi per il biglietto del treno nelle principali stazioni del Veneto. L'azienda fu in seguito acquistata dalla magnate portoricana Gombretta Oaggi e conta oggi oltre 1000 dipendenti (da varie sostanze psicotrope). La principale fonte di fatturazione per l'azienda è ad oggi il sito Internet sul <span xml:lang='en'>Deep Web</span>.
+    </p>
 </div>
 <div id="footer">
+    <div class="hidden_helpBackToHeader">
+        <a href="#header" class="backToHeader">Torna su</a>
+    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -82,12 +78,13 @@
                 </li>
             </ul>
         </div>
+
         <div id="stores">
             <h2>Punti vendita:</h2>
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -95,7 +92,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -103,7 +100,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -111,7 +108,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>
@@ -135,9 +132,7 @@
         </div>
     </div>
     <div id="diritti">
-        <p>
-            MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova
-        </p>
+        <p><span xml:lang='en'>MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
     </div>
 </div>
 </body>

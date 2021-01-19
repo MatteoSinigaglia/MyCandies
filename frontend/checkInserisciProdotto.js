@@ -1,9 +1,6 @@
 var form_inserisciProdotto = {
-    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto"],
-    "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto"],
-    "drugComponents": ["Principi attivi", /^\w+(,?\s\w+)*$/, "Principi attivi non corretti"],
-    "effects": ["Effetti", /^\w+(,?\s\w+)*$/, "Effetti droga non corretti"],
-    "sideEffects": ["Effetti collaterali", /^\w+(,?\s\w+)*$/, "Effetti collaterali non corretti"]
+    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto."],
+    "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
 };
 
 function setDefaultValue(input) {

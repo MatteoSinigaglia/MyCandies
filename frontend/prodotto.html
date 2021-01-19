@@ -7,48 +7,59 @@
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
 
 <div id="header">
 	<a class="helps" href="#productContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<img id="logo" src="../img/logo.jpeg"
-				alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			<a href="home.html">
+				<img id="logo" src="../img/logo.jpeg"
+						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+			</a>
 		</div>
 		<div id="utilityBar">
-			<form class="serchButton" id="headerSearchBar" action="#" method="get">
-				<div>				
+			<form class="searchButton" id="headerSearchBar" action="#" method="get">
+				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
 						class="buttons" />
 				</div>
 			</form>
 
-			<a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-			<a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-			<p id="headerUsername">nomeUtente</p> <!-- hidden -->
+			<a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+			<a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
 		</div>
 	</div>
 	<div id="navigation">
-		<ul>
+		<button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
+		<ul id="navigationMenu">
 			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
 			<li><a href="listaProdotti.html">Droghe</a></li>
-			<li><a href="listaProdotti.html">Accessori</a></li>
+			<li><a href="areaPersonale.html">Area personale</a></li>
 			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-			<li><a href="suDiNoi.html">Su Di Noi</a></li>
+			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
 		</ul>
 	</div>
-</div> 
+</div>
 
 <div id="breadcrumb">
-    <p><span xml:lang="en" lang="en">Dashboard</span> / Prodotto x</p>
+    <p>Ti trovi in:
+        <a href="home.html">
+            <span xml:lang="en" lang="en">Home</span></a> /
+         <a href="listaProdotti.html">Lista prodotti</a>
+			 / *TODO NOMEPRODOTTO *</p>
 </div>
-	
+
 <div id="productContent" class="main">
 
 <h2>Descrizione prodotto: </h2>
@@ -76,52 +87,51 @@
 	</dl>
 	<button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button>
 </div>
-
 <div id="productTableContent">
 	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali.">
 		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugCategory" scope="row">valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
-			<th id="tableDrugType" scope="col">Tipologia</th>
+			<th id="tableDrugComponents" scope="col">Principio attivo</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugType" scope="row">valore</td>  <!-- ex. stimolante, allucinogeno, etc... -->
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
-			<th id="tableDrugComponents" scope="col">Componenti attivi</th>
+			<th id="tableDrugComponents" scope="col">Percentuale principio attivo</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents" scope="row">valore</td>
+			<td headers="tableDrugComponents">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugEffects" scope="row">valore</td>
+			<td headers="tableDrugEffects">valore</td>
 		</tr>
 		<tr>
 			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugSideEffects" scope="row">valore</td>
+			<td headers="tableDrugSideEffects">valore</td>
 		</tr>
 	</table>
 </div>
-</div> 
+</div>
 <div id="footer">
+	<div class="hidden_helpBackToHeader">
+		<a href="#header" class="backToHeader">Torna su</a>
+	</div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -135,7 +145,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -143,7 +153,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -151,7 +161,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -159,7 +169,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>

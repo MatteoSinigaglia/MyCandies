@@ -2,82 +2,99 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-	<title>Su di noi - My Candies</title>
+	<title>Chi siamo - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
-	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
+	<meta name="description" content="Pagina realizzata per fornire informazioni sugli sviluppatori" />
 	<meta name="author" content="MyCandies&amp;co" />
-
-	<link rel="stylesheet" href="../frontend/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
 
 <div id="header">
     <a class="helps" href="#suDiNoiContent">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-            <img id="logo" src="../img/logo.jpeg"
-                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+            <a href="home.html">
+                <img id="logo" src="../img/logo.jpeg"
+                        alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+            </a>
         </div>
         <div id="utilityBar">
-            <form class="serchButton" id="headerSearchBar" action="#" method="get">
-                <div>				
+            <form class="searchButton" id="headerSearchBar" action="#" method="get">
+                <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
                         class="buttons" />
                 </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="buttons">Accedi/Registrati</a>
-            <a href="carrello.html" id="cartButton" class="buttons">Carrello</a>
-            <p id="headerUsername">nomeUtente</p> <!-- hidden -->
+            <a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
-        <ul>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
-            <li><a href="listaProdotti.html">Accessori</a></li>
+            <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="#suDiNoiContent">Su Di Noi</a></li>
+            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
-</div> 
+</div>
 
 <div id="breadcrumb">
-    <p><span xml:lang="en" lang="en">Dashboard</span> / Su Di Noi</p>
+    <p>Ti trovi in:
+        <a href="home.html">
+            <span xml:lang="en" lang="en">Home</span>
+        </a>/ Chi siamo</p>
 </div>
 
-<div id="suDiNoiContent" class="main">
-    <div id="suDiNoiContainer">
-        <h1>Chi Siamo</h1>
-        <p id="companyHistory">MyCandies&amp;co è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti i quali,
-            dopo aver riconosciuto la loro scarsa attitudine allo studio, cercarono fortuna in un mercato in continua crescita, quello degli stupefacenti. La compagnia ebbe subito un enorme successo, premiando il coraggio dei ragazzi che operavano in barba ad ogni legge.
-            Durante il primo anno di vendite la MyCandies&amp;co bruciò ogni record di profitto di una startup
-          al primo anno di attività e, nell'anno successivo, i quattro fondatori divennero i quattro uomini più ricchi del mondo (stime della rivista Forbes). Gli affari
-          andavano a gonfie vele ma nel 1990 la compagnia subì la più grande perdita di capitale mai registrata. Le cause di tale tracollo finanziario furono essenzialmente due:
-          la prima fu l'approvazione del decreto D.P.R. 309 del 09.10.1990, il quale impediva ai drogati di drogarsi. La causa principale della bancarotta della compagnia fu l'accusa
-          di riciclaggio di denaro contante, reato smascherato grazie all'introduzione fittizia di monente da 50 centesimi per il biglietto del treno nelle principali stazioni del Veneto. L'azienda
-          fu in seguito acquistata dalla magnate portoricana Gombretta Oaggi e conta oggi oltre 1000 dipendenti (da varie sostanze psicotrope). La principale fonte di fatturazione per l'azienda
-          è ad oggi il sito Internet sul Deep Web.</p>
-    </div>
-    <div id="drugsImages">
-        <img id="img1" src="../img/cocaina.jpg" alt="Strisce di cocaina con una banconota arrotolata" />
-        <img id="img2" src="../img/4images_of_drugs.jpg" alt="Quattro immagini raffiguranti diversi tipi di droghe" />
-        <img id="img3" src="../img/mix_droghe.jpeg" alt="Mix di droghe composto di piccole pasticche" />
-    </div>
+
+<div id="aboutUsContent">
+	<h1 id="aboutUsTitle"> Chi siamo </h1>
+    <p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
+    <div>
+    <dl>
+        <dt>Matteo Sinigaglia</dt>
+        <dd>
+            <img src="../img/WalterWhite.png" alt="Uomo anziano con un cappello (Walter White), protagonista della serie tv Breaking Bad." />
+            <p>Matteo Sinigaglia è l'addetto alle vendite della compagnia. Si occupa di spacciare.</p>
+        </dd>
+		<dt>Alessandro Flori</dt>
+        <dd>
+            <img src="../img/LapoElkann.jpg" alt="Lapo Elkann, uomo biondo con i capelli lunghi in evidente stato d'ebbrezza." />
+            <p>Alessandro Flori è l'addetto al controllo qualità del prodotto. Si occupa di provare personalmente i prodotti.</p>
+        </dd>
+		<dt>Alessio Trevisan</dt>
+		<dd>
+            <img src="../img/MarkRenton.jpeg" alt="Giovane ragazzo che fuma in discoteca (Mark Renton), protagonista del film Trainspotting"  />
+            <p>Alessio Trevisan è l'addetto alla contabilità. Si occupa di stabilire il giusto prezzo per derubare inconsciamente i clienti.</p>
+        </dd>
+		<dt>Daniel Eduardo Contro</dt>
+        <dd>
+            <img src="../img/PabloEscobar.jpg" alt="Pablo Escobar,carcerato sorridente che tiene un cartello in mano. " />
+            <p>Daniel Eduardo Contro è l'addetto alla sicurezza. Si occupa di tenere a bada gli hacker e i clienti che vogliono il rimborso.</p>
+        </dd>
+    </dl>
 </div>
+
 <div id="footer">
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
             <ul class="stylelessList">
-                <li>
-                    <a href="">Chi siamo</a>
-                </li>
-                <li>
-                    <a href="">Centro assistenza</a>
+                <li class="nolinkhide">
+                    Chi siamo
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -91,7 +108,7 @@
             <div>
                 <h3>Mestre stazione</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Lunedì chiuso</li>
                     <li>Via Piave 300</li>
                 </ul>
@@ -99,7 +116,7 @@
             <div>
                 <h3>Padova Arcella</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Martedì chiuso</li>
                     <li>Via Anelli 400</li>
                 </ul>
@@ -107,7 +124,7 @@
             <div>
                 <h3>Padova Luzzatti Paolotti</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via Marzolo 600</li>
                 </ul>
@@ -115,7 +132,7 @@
             <div>
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
-                    <li>Orario: 4-20</li>
+                    <li>Orario: 06:00 - 22:00</li>
                     <li>Chiuso nei weekend</li>
                     <li>Via del Portello 800</li>
                 </ul>
