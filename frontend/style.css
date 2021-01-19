@@ -236,6 +236,7 @@ abbr {
     background-color: white;
     border: 1px solid #DDD;
 }
+
 /*
 ================================ TABELLE  ======================
 */
@@ -405,8 +406,10 @@ table th {
 #productContenitor dl dt {
     font-size: 1.5em;
     font-weight: bold;
-    margin-top: 0.5em;
-    margin-left: 0.6em;
+    background-color: #244224;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0.2em 0.3em;
+    color: #CDA434;
 }
 
 #productContenitor dl dd {

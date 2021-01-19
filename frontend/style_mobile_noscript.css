@@ -42,11 +42,25 @@ body {
     display: block;
 }
 
+.paragraphLink:link {
+    color: #093013;
+    font-weight: bold;
+}
+
+.paragraphLink:active{
+    color: purple;
+    text-decoration: none;
+}
+
+.paragraphLink:visited{
+    color: rgb(134, 2, 2);
+}
+
 #breadcrumb {
     text-align: left;
     padding: 0.6em;
     border-top: 1px solid #DDD;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     font-weight: bold;
     color: black;
     background-color: #244224;
@@ -106,7 +120,7 @@ input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 0.8em;
     border-radius: 5px;
     resize: none;
@@ -230,7 +244,7 @@ abbr {
     margin: 1em 1.5em;
     text-align: left;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 1em;
     background-color: #F2E8CF;
 }
@@ -244,8 +258,9 @@ abbr {
     background-color: white;
     border: 1px solid #DDD;
 }
+
 /*
-==================================TABELLE======================
+================================ TABELLE  ======================
 */
 
 table {
@@ -370,6 +385,14 @@ table th {
     color: #051C0B;
 }
 
+#navigation ul li span {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: #051C0B;
+    color: white;
+    padding: 0.6em;
+}
+
 /*
 ================ MENU HAMBURGER ===================================
 */
@@ -407,15 +430,6 @@ table th {
     text-align: center;
 }
 
-#avviso_utenteNonLoggato p a {
-    color: #6A994E;
-    font-weight: bold;
-}
-
-#avviso_utenteNonLoggato p a:visited {
-    color: #051C0B;
-}
-
 #logoutButton {
     width: 100%;
     text-align: center;
@@ -439,8 +453,10 @@ table th {
 #productContenitor dl dt {
     font-size: 1.5em;
     font-weight: bold;
-    margin-top: 0.5em;
-    margin-left: 0.6em;
+    background-color: #244224;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0.2em 0.3em;
+    color: #CDA434;
 }
 
 #productContenitor dl dd {
