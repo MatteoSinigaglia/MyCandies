@@ -18,9 +18,11 @@ class Address extends Entity {
 	private $street;
 	private $number;
 
-	public function __construct(array $data) {
+//	public const REGISTER = 1;
+
+	public function __construct(int $source, array $data) {
 		try {
-			parent::__construct();
+			parent::__construct($source, $data['id']);
 		} catch (EntityException $e) {
 			throw $e;
 		}

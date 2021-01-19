@@ -6,6 +6,7 @@ use MyCandies\Controllers\Register;
 use MyCandies\Exceptions\EntityException;
 
 //  TODO: Fix paths
+ob_start();
 if (!isset($_POST['submitSubscribe'])) {
 	header('location: ../frontend/formCliente.html');
 	die();
@@ -26,5 +27,6 @@ try {
 	header('location: ../frontend/formCliente.html');
 	die();
 } catch (Exception $e) {
+	ob_flush();
 	echo 'Exception'.$e;
 }

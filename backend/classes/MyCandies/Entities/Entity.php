@@ -4,21 +4,22 @@
 namespace MyCandies\Entities;
 
 use MyCandies\Exceptions\EntityException;
+//use MyCandies\Entities;
 
 require_once __DIR__.'/../Exceptions/EntityException.php';
+require_once __DIR__ . '/sources.php';
 
 class Entity {
 
-	public const DB = 0;
-	public const CONTROLLER = 1;
+//	public const DB = 0;
 
 	protected $id;
 
 	public function __construct(int $source, mixed $id=null) {
-		if ($source === self::CONTROLLER && isset($id) && !is_int($id)) {
+		if ($source !== DB && isset($id) && !is_int($id)) {
 			throw new EntityException('The given id is illegal', -1);
 		}
-		echo 'Id: '.$id.' _';
+		echo 'Id: '.$id;
 		$this->id = (int)$id;
 	}
 
@@ -46,5 +47,13 @@ class Entity {
 			$fields[$key] = $value;
 		}
 		return $fields;
+	}
+
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $column) {
+			array_push($columns, $column);
+		}
+		return $columns;
 	}
 }

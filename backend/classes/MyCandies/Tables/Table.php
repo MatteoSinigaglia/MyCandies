@@ -5,10 +5,14 @@ namespace MyCandies\Tables;
 
 
 use DB\dbh;
+use DB\Exceptions\DBException;
+use MyCandies\Entities\Address;
 use MyCandies\Entities\Entity;
+use MyCandies\Entities\User;
 
 require_once __DIR__.'/../../DB/dbh.php';
-require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../../DB/Exceptions/DBException.php';
+require_once __DIR__.'/../Entities/Entity.php';
 
 class Table {
 
@@ -56,6 +60,7 @@ class Table {
 	}
 
 	public function findById(int $value) {
+//		think how to handle pk with composite pks
 		$query = 'SELECT * FROM `'.$this->table.'` WHERE `'.$this->primaryKey.'` = :value';
 		$parameters = [
 			'value' => $value
@@ -93,15 +98,31 @@ class Table {
 			}
 
 			$query = $this->dbh->query($query, $parameters);
-			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, [Entity::DB]);
-//			return $query->fetchAll();
+			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
 		} catch (\Exception $e) {
 			echo $e;
 		}
 	}
 
-	public function insert(array $fields) : string {
+	public function insert(object $entity) : string {
 		try {
+
+			require_once __DIR__.'/../../../lib/functions.php';
+			$slice = [];
+			if ($entity instanceof User) {
+				$slice = ['first_name', 'last_name', 'email', 'password'];
+			} else if ($entity instanceof Address) {
+				$slice = ['province', 'city', 'CAP'];
+			} else {
+				$slice = $entity->getColumns();
+			}
+			$fields = array_slice_assoc($entity->getValues(), $slice);
+
+
+//			Prevents from inserting manually an id and leaves the responsibility to the DBMS
+			if (isset($fields['id'])) {
+				unset($fields['id']);
+			}
 
 			$parameters = $values = '';
 			foreach ($fields as $key => $value) {
@@ -121,14 +142,18 @@ class Table {
 			}
 			$this->dbh->query($query, $fields);
 
+			if ($entity instanceof Entity) {
+				$entity->setId($this->dbh->getLastInsertId());
+			}
 			return $this->dbh->getLastInsertId();
-		} catch (\Exception $e) {
+		} catch (DBException $e) {
 			throw $e;
 		}
 	}
 
 	private function update(array $fields) {
 
+//		think how to handle pk with composite pks
 		$query = 'UPDATE `'.$this->table.'` SET `';
 
 		foreach ($fields as $key => $value) {
@@ -144,10 +169,16 @@ class Table {
 
 		$fields = $this->processDates($fields);
 
-		$this->query($query, $fields);
+		try {
+			$this->dbh->query($query, $fields);
+		} catch (DBException $e) {
+			throw $e;
+		}
 	}
 
 	public function delete(int $id) {
+
+//		think how to handle pk with composite pks
 		$query = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->primaryKey . '` = :id';
 		$parameters = [
 			'id' => $id
@@ -162,7 +193,11 @@ class Table {
 			'value' => $value
 		];
 
-		$this->dbh->query($query, $parameters);
+		try {
+			$this->dbh->query($query, $parameters);
+		} catch (DBException $e) {
+			throw $e;
+		}
 	}
 
 	private function processDates(array $fields): array {
@@ -177,18 +212,24 @@ class Table {
 	}
 
 	public function save(array $record) {
+
+//		think how to handle pk with composite pks
 		$entity = new $this->className(...$this->constructorArgs);
 
 		try {
-			if ($record[$this->primaryKey] == '') {
-				$record[$this->primaryKey] = null;
+			if ($entity->getId() == '') {
+				$entity->setId(null);
 			}
-			$insertId = $this->insert($record);
+//			if ($record[$this->primaryKey] == '') {
+//				$record[$this->primaryKey] = null;
+//			}
+			$insertId = $this->insert($entity);
 
 			$entity->{$this->primaryKey} = $insertId;
 		}
-		catch (\PDOException $e) {
-			$this->update($record);
+		catch (DBException $e) {
+			echo $e;
+//			$this->update($record);
 		}
 
 		foreach ($record as $key => $value) {

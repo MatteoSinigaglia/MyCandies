@@ -35,6 +35,10 @@ class dbh {
 		];
 	}
 
+	/**
+	 * Instantiate a connection with the represented database
+	 * @throws DBException upon error creating the connection to the database
+	 */
 	public function connect() {
 		try {
 
@@ -45,7 +49,7 @@ class dbh {
 
 			$output = 'Unable to connect to the database: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
 			$this->pdo = null;
-			throw new DBException($output, (int)$e->getCode());
+			throw new DBException($output, $e->getCode());
 
 		}
 	}
@@ -58,7 +62,7 @@ class dbh {
 	 * @param string $sql
 	 * @param array $parameters
 	 * @return mixed
-	 * @throws Exception
+	 * @throws DBException
 	 */
 	public function query(string $sql, array $parameters = []) {
 		try {
@@ -66,7 +70,8 @@ class dbh {
 			$query->execute($parameters);
 			return $query;
 		} catch (PDOException $e) {
-			throw $e;
+			$output = 'Unable to execute the given query: '.$sql.' '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
+			throw new DBException($output, $e->getCode());
 		}
 	}
 
@@ -155,7 +160,8 @@ class dbh {
 		try {
 			$this->pdo->beginTransaction();
 		} catch (PDOException $e) {
-			throw new DBException('Error starting transaction: '.$e->getMessage(), -1);
+			$output = 'Error starting transaction: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
+			throw new DBException($output, $e->getCode());
 		}
 	}
 
@@ -163,7 +169,8 @@ class dbh {
 		try {
 			$this->pdo->commit();
 		} catch (PDOException $e) {
-			throw new DBException('No active transaction, unable to commit', -2);
+			$output = 'Error committing transaction: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
+			throw new DBException($output, $e->getCode());
 		}
 	}
 

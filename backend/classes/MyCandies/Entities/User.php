@@ -18,13 +18,12 @@ class User extends Entity {
 	private $sex;
 	private $birthdate;
 
+//	public const REGISTER = 1;
+//	public const LOGIN = 2;
+
 	public function __construct(int $source, array $data=[]) {
 		try {
 			parent::__construct($source, $data['id']);
-			echo 'User'.PHP_EOL;
-			foreach ($data as $k => $v) {
-				echo $k.' => '.$v.PHP_EOL;
-			}
 	//		Only values check, no control on consistency between data and db;
 //			if (isset($data['id'])) {
 //				if (is_int($data['id'])) {
@@ -34,7 +33,11 @@ class User extends Entity {
 //				}
 //			}
 			switch ($source) {
-				case self::CONTROLLER:
+				case DB:
+
+					break;
+				case REGISTER:
+
 					if (!isset($data['email']) /*|| regex check*/) {
 						throw new EntityException('La email inserita non é corretta', -5);
 					}
@@ -42,16 +45,14 @@ class User extends Entity {
 						throw new EntityException('La password inserita non é corretta', -6);
 					}
 
-					if (isset($_POST['submitSubscribe'])) {
-						if (!isset($data['first_name']) /*|| regex check*/) {
-							throw new EntityException('Nome non corretto', -3);
-						}
-						if (!isset($data['last_name']) /*|| regex check*/) {
-							throw new EntityException('Cognome non corretto', -4);
-						}
-						if ($data['password'] !== $data['confirmPassword']) {
-							throw new EntityException('Le password non corrispondono', -7);
-						}
+					if (!isset($data['first_name']) /*|| regex check*/) {
+						throw new EntityException('Nome non corretto', -3);
+					}
+					if (!isset($data['last_name']) /*|| regex check*/) {
+						throw new EntityException('Cognome non corretto', -4);
+					}
+					if ($data['password'] !== $data['confirmPassword']) {
+						throw new EntityException('Le password non corrispondono', -7);
 					}
 					$this->first_name = $data['first_name'];
 					$this->last_name = $data['last_name'];
@@ -60,7 +61,9 @@ class User extends Entity {
 //			$this->birthdate = $data['birthdate'];
 //			$this->telephone = $data['telephone'];
 					break;
-				case self::DB:
+				case LOGIN:
+					$this->email = $data['email'];
+					$this->password = $data['password'];
 					break;
 			}
 
@@ -98,11 +101,33 @@ class User extends Entity {
 		return $this->email;
 	}
 
+	/**
+	 * @return string The user's crypted password
+	 */
+	public function getPassword(): string {
+		return $this->password;
+	}
+
 	public function getValues() : array {
-		$fields = parent::getValues();
+		$fields = [];
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}
 		return $fields;
+	}
+
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $column) {
+			array_push($columns, $column);
+		}
+		return $columns;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getFirstName() {
+		return $this->first_name;
 	}
 }

@@ -6,20 +6,30 @@ namespace MyCandies\Entities;
 
 use MyCandies\Exceptions\EntityException;
 
-class UsersAddresses extends Entity {
+require_once __DIR__.'/Entity.php';
+
+class UsersAddresses {
 
 	private $customer_id;
 	private $address_id;
 
-	public function __construct(array $data=[]) {
-		try{
-			parent::__construct();
+	public const REGISTER = 1;
 
-			if (isset($data['customer_id'])) {
-				$this->customer_id = $data['customer_id'];
-			}
-			if (isset($data['address_id'])) {
-				$this->address_id = $data['address_id'];
+	public function __construct(int $source, array $data=[]) {
+		try{
+//			parent::__construct($source, $data['id']);
+
+			switch ($source) {
+				case REGISTER:
+
+				case DB:
+					if (isset($data['customer_id'])) {
+						$this->customer_id = $data['customer_id'];
+					}
+					if (isset($data['address_id'])) {
+						$this->address_id = $data['address_id'];
+					}
+					break;
 			}
 
 		} catch (EntityException $e) {
@@ -49,4 +59,11 @@ class UsersAddresses extends Entity {
 		return $fields;
 	}
 
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $column) {
+			array_push($columns, $column);
+		}
+		return $columns;
+	}
 }
