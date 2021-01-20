@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
 </head>
 
-<body onload="modifyStylesheet();">
+<body onload="loadMenu();">
 <div id="header">
     <a class="helps" href="#contentFAQ">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
@@ -41,12 +41,12 @@
         </div>
     </div>
     <div id="navigation">
-        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
             <li><a href="areaPersonale.html">Area personale</a></li>
-            <li><abbr title="Frequently Asked Questions">FAQ</abbr></li>
+            <li><span><abbr title="Frequently Asked Questions">FAQ</abbr></span></li>
             <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
@@ -67,14 +67,14 @@
             <h2>Che sesso ha la droga?</h2>
             <p>
                 Per rispondere a questa domanda stupefacente abbiamo avviato un sondaggio quattro anni fa. Riportiamo in seguito gli esiti ottenuti. Per il 40% di voi e per i Tauro
-                <span xml:lang="en">Boys</span>, come affermato nella loro <a href="https://youtu.be/nawiwGwB3XU" tabindex="3">canzone</a>, la droga è femmina. Per il 30% di voi la droga è maschio perchè non siete manco buoni a riconoscere gli articoli da quanto vi drogate. Il rimanente 30% di voi ha scelto di non esprimersi.
+                <span xml:lang="en">Boys</span>, come affermato nella loro <a href="https://youtu.be/nawiwGwB3XU" class="paragraphLink">canzone</a>, la droga è femmina. Per il 30% di voi la droga è maschio perchè non siete manco buoni a riconoscere gli articoli da quanto vi drogate. Il rimanente 30% di voi ha scelto di non esprimersi.
             </p>
         </li>
         <li>
             <h2>Che fine fanno i voi-sapete-chi quando li arrestano?</h2>
             <p>
                 Se non lo sapete, Hagrid vi darà la risposta nei prossimi 20 secondi di questo
-                <a href="https://youtu.be/iFdZxxAn5Fw?t=71">video</a>.
+                <a href="https://youtu.be/iFdZxxAn5Fw?t=71" class="paragraphLink">video</a>.
             </p>
         </li>
         <li>

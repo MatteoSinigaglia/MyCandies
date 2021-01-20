@@ -4,16 +4,17 @@
 }
 
 html {
-    background-color: #ffffff;
     width: 100%;
+    font-family: "Arial", cursive, serif;
+    color: #000000;
 }
 
 body {
     margin: auto;
-    background-color: white;
-    font-family: "Arial", cursive, sans-serif;
 }
-
+a{
+  color: #000000;
+}
 .main {
     margin: auto;
     max-width: 1280px;
@@ -27,43 +28,8 @@ body {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-.default-text {
-    color: rgba(10, 8, 8, 0.479);
-}
-
 .formErrors {
-    color: red;
-    padding: 0.5em 0em;
-}
-
-.rightMessage {
-    color: green;
-}
-
-#breadcrumb {
-    text-align: left;
-    padding: 0.6em;
-    border-top: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-    font-weight: bold;
-    color: black;
-    background-color: #244224;
-}
-
-#breadcrumb p {
-    color: white;
-}
-
-#breadcrumb a:link {
-    color: white;
-}
-
-#breadcrumb a:hover {
-    text-decoration: none;
-}
-
-#breadcrumb a:visited {
-    color: #CDA434;
+    display:none;
 }
 
 h1 {
@@ -104,30 +70,15 @@ input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #DDD;
-    padding: 0.8em;
+    border: 1px solid #000000;
+    padding:0.4em;
     border-radius: 5px;
     resize: none;
 }
 
 .buttons {
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    border-radius: 4px;
-    background-color: #093013;
-    color: #CDA434;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    border: 1px solid #DDD;
+  display: none;
 }
-
-.buttons:hover {
-    background-color: #020E0A;
-    color: white;
-}
-
 
 abbr {
     text-decoration: none;
@@ -135,30 +86,7 @@ abbr {
 
 .hidden_helpBackToHeader,
 .displayed_helpBackToHeader {
-    width: 100%;
-    background-color: #093013;
-    border-top: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-    text-align: center;
-}
-
-.hidden_helpBackToHeader {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
-.backToHeader {
-    font-weight: bold;
-    color: white;
-}
-
-.backToHeader:hover {
-    color: #CDA434;
-    text-decoration: none;
-}
+display: none;}
 
 abbr {
     text-decoration: none;
@@ -175,22 +103,19 @@ abbr {
 .inputForm {
     margin: 2em auto 1em auto;
     text-align: left;
-    min-width: 20em;
-    max-width: 25em;
+    min-width: 10em;
+    max-width: 20em;
     border-radius: 5px;
-    border: 1px solid #DDD;
+    border: 1px solid #000000;
     padding: 1em;
-    background-color: #F2E8CF;
 }
 
 .inputForm a {
-    font-weight: bold;
-    display: block;
+    display: none;
 }
 
 .selectForm {
-    background-color: white;
-    border: 1px solid #DDD;
+    border: 1px solid #000000;
 }
 /*
 ==================================TABELLE======================
@@ -201,121 +126,25 @@ table {
     width: 75%;
     text-align: center;
     border-collapse: collapse;
+    border: 1px solid #000;
 }
 
-table td, th{
+table td{
     padding: 0.5em;
     border: 1px solid #000;
 }
 
 table th {
-    background-color:  #093013;
+    padding: 0.5em;
     border: 1px solid #000;
-    color: #CDA434;
 }
 
-/*------- HEADER -------------------------------------------------------------------------------*/
-
-#header {
-    width: 100%;
-    color: white;
-    font-weight: bold;
-    background-color: #020E0A;
-}
-
-#headerLogoAndUtility {
-    display: inline-block;
-    width: 100%;
-}
-
-#logo {
-    width: 100%;
-    height: 100%;
-}
-
-#imageContainer {
-    vertical-align: middle;
-    width: 15%;
-    display: inline-block;
-}
-
-#utilityBar {
-    padding: 1em;
-    display: inline;
-}
-
-#headerSearchBar div {
-    display: inline;
-}
-
-#headerSearchBar {
-    display: inline;
-}
-
-#productSearchBar {
-    padding: 0.7em;
-    width: 50%;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    min-width: 25em;
-}
-
-#headerUsername {
-    float: right;
-    display: none;
-}
-
-/*----------- MENU ---------------------------------------------------------------------------*/
-
-#navigation {
-    clear: both;
-    text-align: center;
-    background-color: #093013;
-    padding: 0.8em;
-    list-style-type: none;
-    border-top: 1px solid #DDD;
-}
-
-#navigation li {
-    display: inline;
-    margin: 0.2em 1.5em;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-#navigation a {
-    padding: 0.4em 0.7em;
-}
-
-#navigation a:link {
-    text-decoration: none;
-    color: white;
-}
-
-#navigation a:visited {
-    color: #CDA434;
-}
-
-#navigation a:hover {
-    background-color: #F2E8CF;
-    border-radius: 4px;
-    color: #051C0B;
-}
-
-/*
-================ MENU HAMBURGER ===================================
-*/
-
-#mobileMenu {
-    display: none;
-}
 
 /*
 ================= AREA PERSONALE ===============================
 */
 
 #avviso_utenteNonLoggato {
-    background-color: #F2E8CF;
     border-radius: 4px;
     margin: 1em;
     padding: 3em 0em;
@@ -326,12 +155,7 @@ table th {
 }
 
 #avviso_utenteNonLoggato p a {
-    color: #6A994E;
     font-weight: bold;
-}
-
-#avviso_utenteNonLoggato p a:visited {
-    color: #051C0B;
 }
 
 #logoutButton {
@@ -350,8 +174,7 @@ table th {
 #productContenitor {
     float: left;
     width: 75%;
-    background-color: #F2E8CF;
-    border: 1px solid #DDD;
+    border: 1px solid #000000;
     border-radius: 10px;
     margin-bottom: 1em;
     margin-right: 0.5em;
@@ -392,9 +215,9 @@ table th {
 #productTableContent {
     float: right;
     border-radius: 10px;
-    background-color: #093013;
     margin-bottom: 1em;
     width: 20%;
+    border: 1px solid #000;
 }
 
 #productTableContent table {
@@ -403,25 +226,29 @@ table th {
     border-collapse: collapse;
 }
 
-#productTableContent tr,
-td,
-th {
-    border: 1px solid transparent;
+#productTableContent tr {
+
+    padding: 0.3em 0.5em;
+}
+#productTableContent td {
+
+    padding: 0.3em 0.5em;
+}
+#productTableContent th {
+
     padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
-    border-bottom: 1px solid #DDD;
-    background-color: transparent;
+    border-bottom: 1px solid #000000;
     border-right: 1px solid transparent;
     border-left: 1px solid transparent;
     border-top: 1px solid transparent;
-    color: #CDA434;
 }
 
 #productTableContent td {
-    color: white;
-    border: 1px solid transparent;
+  border: 1px solid transparent;
+
 }
 
 /*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
@@ -430,39 +257,24 @@ th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
-    padding: 3em;
-}
 
-#loginForm a:link {
-    color: #093013;
-}
-
-#loginForm a:visited {
-    color: rgb(134, 2, 2);
 }
 
 .formContainer {
     display: inline-block;
     vertical-align: top;
-    margin: 1em 3em auto 3em;
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
 
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
 
-#cartContent {
-    border-right: 1px solid #DDD;
-    border-left: 1px solid #DDD;
-}
 
 #cartContent img {
 display: none;
-}
-
-#cartContent h1 {
-
-    margin-top: 5em;
 }
 
 #selectedProduct {
@@ -470,12 +282,9 @@ display: none;
     padding: 1em;
     margin: 1em;
     border-radius: 10px;
-    background-color: #F2E8CF;
 }
 
-#purchaseButton {
-    display: none;
-}
+
 
 /*
 ==================================Lista prodotti================================
@@ -485,9 +294,9 @@ display: none;
     max-width: 20%;
     min-width: 150px;
     padding: 1.5em;
-    border: 1px solid #DDD;
-    border-top: none;
-    background-color: #F2E8CF;
+    border: 1px solid #000000;
+    margin-top: 0.5em;
+
 }
 
 #filters form div {
@@ -507,6 +316,7 @@ display: none;
 #rightSideContent {
     overflow: hidden;
     padding: 1em;
+      margin-top: 0.5em;
 }
 
 #rightSideContent div {
@@ -514,26 +324,11 @@ display: none;
 }
 
 #upperRightSideContent {
-    border-bottom: 1px solid #DDD;
-    padding-bottom: 1em;
-}
-
-select {
-    padding: 0.3em;
-    border-radius: 5px;
-    background-color: #c5c4c4;
+display:none;
 }
 
 .hiddenChoice {
     display: none;
-}
-
-#orderBy {
-    float: left;
-}
-
-#productsPerPage {
-    text-align: right;
 }
 
 #productsList {
@@ -545,7 +340,7 @@ select {
     display: flex;
     flex-direction: row;
     padding: 2em;
-    border: 1px solid #DDD;
+    border: 1px solid #000000;
 }
 
 .singleProduct img {
@@ -574,22 +369,12 @@ list-style-type:none;
 text-align: left;
 }
 
-#contentFAQ .stylelessList a:hover {
-    color: purple;
-}
-
-#contentFAQ .stylelessList a:visited {
-    color: rgb(134, 2, 2);
-}
-
 #contentFAQ li {
-border: 1px solid;
-padding:1em;
-border-radius: 1.5em;
-margin-bottom:2em;
-background-color: #F2E8CF;
+margin-bottom:0.5em;
 }
-
+#contentFAQ h2{
+font-size: 18px;
+}
 /*
 ============ FOOTER ===========================================================================
 */
@@ -632,7 +417,7 @@ background-color: #F2E8CF;
 ================== PUNTI VENDITA ==============================================================
 */
 
-
+#stores{margin-bottom: 1em;}
 
 #stores div {
     padding-right:0.4em;
@@ -658,8 +443,7 @@ background-color: #F2E8CF;
 /*========DIRITTI======*/
 #diritti{
     width: 100%;
-    color: #FFFFFF;
-    background-color: #020E0A;
+    border-top: 3px solid #000;
 }
 
 #diritti p {
@@ -675,7 +459,6 @@ background-color: #F2E8CF;
     display: inline-block;
     width: 60%;
     margin: 1% 20%;
-    background-color: #F2E8CF;
     font-size: 20px;
     border-radius: 4px;
     border: 1px solid rgb(155, 153, 153);
@@ -689,13 +472,8 @@ background-color: #F2E8CF;
     padding: 1em;
     border-radius: 4px;
     border: 1px solid rgb(155, 153, 153);
-    background-color: #F2E8CF;
 }
 
-#aboutUsContent ul {
-    list-style-type: none;
-    margin-top: 0.5em;
-}
 
 #aboutUsContent img {
     float: left;
@@ -709,26 +487,20 @@ background-color: #F2E8CF;
   width: 85%;
   margin-left: 7.5%;
   margin-right: 7.5%;
-  background-color: #F2E8CF;
   margin-top: 2em;
 }
 
 #contentHome img{
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 1em;
-    padding-bottom: 2%;
+    display: none;
 }
 
 #contentHome p{
   font-size: 18px;
-  margin-left: 15%;
-  margin-right: 15%;
   text-align: center;
-  font-family: cambria;
+  font-family: cambria, serif;
   padding-bottom: 1em;
 }
-#contentHome h3{
+#contentHome h1{
   font-size: 28px;
   text-align: center;
 }
@@ -740,3 +512,9 @@ background-color: #F2E8CF;
 .nolinkhide{display:none;}
 
 /*AREA PERSONALE*/
+/*---------------------*/
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
+}
+#breadcrumb{margin-top: 0.5em;}

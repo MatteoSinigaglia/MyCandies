@@ -13,10 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+    <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+    <script type="text/javascript" src="../frontend/checkModificaCredenziali.js"></script>
 </head>
 
-<body onload="modifyStylesheet();">
+<body onload="loadMenu();">
 <div id="header">
 	<a class="helps" href="#credentialChange">Vai alla modifica credenziali</a>
 	<div id="headerLogoAndUtility">
@@ -40,7 +41,7 @@
 		</div>
 	</div>
 	<div id="navigation">
-        <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
+        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
 		<ul id="navigationMenu">
 			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
 			<li><a href="listaProdotti.html">Droghe</a></li>
@@ -60,16 +61,18 @@
 </div>
 
 <div id="credentialChange" class="main">
-	<form action="" method="post" class="inputForm" onsubmit="return validateForm();" onreset="load();">
+	<form action="" method="post" class="inputForm" onsubmit="return validateForm();" onreset="load();" title="form per modificare la password">
 		<fieldset>
 			<!-- Legenda -->
-			<legend> Recupero Email e Password </legend>
+			<legend> Inserimento nuova password </legend>
 			<!-- Campo e-mail -->
-			<label for="changeEmail">Email:</label>
-			<span><input type="text" id="changeEmail" name="changeEmail" value="" maxlength="40" /></span>
-			<!-- Campo password -->
-			<label for="changePassword">Password:</label>
-			<span><input type="text" id="changePassword" name="changePassword" value="" maxlength="50" /></span><br/>
+            <p id="credentialChange_mail">prova@gmail.com</p>
+            <!-- Campo password -->
+			<label for="changePassword">Nuova Password:</label>
+            <span><input type="text" id="changePassword" name="changePassword" value="" maxlength="50" /></span>
+            <!-- Campo password di conferma-->
+			<label for="changePassword">Conferma password:</label>
+            <span><input type="text" id="confirmNewPassword" name="confirmNewPassword" value="" maxlength="50" /></span>  
 			<!-- Buttons -->
 			<input type="submit" id="credentialChangeConfirm" name="credentialChangeConfirm" value="Modifica" class="buttons" />
 			<input type="reset" id="credentialChangeReset" name="credentialChangeReset" value="Cancella" class="buttons" />

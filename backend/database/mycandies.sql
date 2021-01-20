@@ -86,7 +86,6 @@ DROP TABLE IF EXISTS `ActivePrinciples`;
 CREATE TABLE `ActivePrinciples` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`name` varchar(50) NOT NULL UNIQUE,
-	`chemical_formula` varchar(50) NOT NULL,
 	-- img_id int NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -157,6 +156,16 @@ CREATE TABLE `ActivePrinciplesSideEffects` (
 	PRIMARY KEY (`active_principle_id`, `side_effect_id`),
 	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`),
 	FOREIGN KEY (`side_effect_id`) REFERENCES `SideEffects`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+DROP TABLE IF EXISTS `ActivePrinciplesEffects`;
+CREATE TABLE `ActivePrinciplesEffects` (
+	`active_principle_id` int NOT NULL,
+	`effect_id` int NOT NULL,
+	PRIMARY KEY (`active_principle_id`, `effect_id`),
+	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`),
+	FOREIGN KEY (`effect_id`) REFERENCES `Effects`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 

@@ -1,6 +1,6 @@
 var form_credenziali = {
-    "changeEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Formato e-mail non valida"],
-    "changePassword": ["Inserisci nuova password", /.{5,20}/, "Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."]
+    "changePassword": ["Inserisci nuova password", /.{5,20}/, "Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
+    "confirmNewPassword": ["Inserisci password di conferma", /.{5,20}/, "La password non corrisponde."]
 };
 
 function defaultValue(input) {
@@ -45,6 +45,13 @@ function validateField(input) {
         printError(input);
         return false;
     } else {
+        if(input.id == "confirmNewPassword") {
+            var confronto = document.getElementById("changePassword");
+            if(input.value != confronto.value) {
+                printError(input);
+                return false;
+            }
+        }
         return true;
     }
 };

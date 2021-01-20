@@ -34,17 +34,33 @@ body {
 .formErrors {
     color: red;
     padding: 0.5em 0em;
+    display: block;
 }
 
 .rightMessage {
     color: green;
+    display: block;
+}
+
+.paragraphLink:link {
+    color: #093013;
+    font-weight: bold;
+}
+
+.paragraphLink:active{
+    color: purple;
+    text-decoration: none;
+}
+
+.paragraphLink:visited{
+    color: rgb(134, 2, 2);
 }
 
 #breadcrumb {
     text-align: left;
     padding: 0.6em;
     border-top: 1px solid #DDD;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #DDD;
     font-weight: bold;
     color: black;
     background-color: #244224;
@@ -104,7 +120,7 @@ input[type="file"],
 textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 0.8em;
     border-radius: 5px;
     resize: none;
@@ -178,6 +194,7 @@ abbr {
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
+
 .responsiveTable table,
 .responsiveTable thead,
 .responsiveTable tbody,
@@ -218,6 +235,7 @@ abbr {
 .responsiveTable tr td:before {
     content: attr(title);
 }
+
 /*
 ==================================FORMS========================
 */
@@ -226,7 +244,7 @@ abbr {
     margin: 1em 1.5em;
     text-align: left;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
     padding: 1em;
     background-color: #F2E8CF;
 }
@@ -240,8 +258,9 @@ abbr {
     background-color: white;
     border: 1px solid #DDD;
 }
+
 /*
-==================================TABELLE======================
+================================ TABELLE  ======================
 */
 
 table {
@@ -341,7 +360,6 @@ table th {
 }
 
 #navigation ul {
-    display: none;
     border-top: 1px solid #DDD;
     margin-top: 0.5em;
 }
@@ -351,7 +369,6 @@ table th {
     margin: 0.3em 0em;
     border-radius: 4px;
 }
-
 
 #navigation a:link {
     text-decoration: none;
@@ -368,11 +385,33 @@ table th {
     color: #051C0B;
 }
 
+#navigation ul li span {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: #051C0B;
+    color: white;
+    padding: 0.6em;
+}
+
 /*
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu {
+#mobileMenu_visible,
+#mobileMenu_hidden {
+    padding: 0.5em;
+    color: white;
+    background-color: #051C0B;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 90%;
+}
+
+#mobileMenu_visible {
+    display: block;
+}
+
+#mobileMenu_hidden {
     display: none;
 }
 
@@ -389,15 +428,6 @@ table th {
 
 #avviso_utenteNonLoggato p {
     text-align: center;
-}
-
-#avviso_utenteNonLoggato p a {
-    color: #6A994E;
-    font-weight: bold;
-}
-
-#avviso_utenteNonLoggato p a:visited {
-    color: #051C0B;
 }
 
 #logoutButton {
@@ -423,8 +453,10 @@ table th {
 #productContenitor dl dt {
     font-size: 1.5em;
     font-weight: bold;
-    margin-top: 0.5em;
-    margin-left: 0.6em;
+    background-color: #244224;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0.2em 0.3em;
+    color: #CDA434;
 }
 
 #productContenitor dl dd {
@@ -454,8 +486,8 @@ table th {
 }
 
 #productTableContent tr,
-td,
-th {
+#productTableContent td,
+#productTableContent th {
     border: 1px solid transparent;
 }
 
@@ -772,4 +804,17 @@ background-color: #020E0A;
     margin: 0.5em;
     border: 1px solid black;
     border-radius: 6px;
+}
+
+/*
+=============== Inserisci Prodotto ========================
+*/
+
+#effects {
+    display: block;
+}
+
+#credentialChange_mail {
+    font-weight: bold;
+    text-align: center;
 }
