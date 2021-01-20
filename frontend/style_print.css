@@ -28,10 +28,6 @@ a{
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-.formErrors {
-    display:none;
-}
-
 h1 {
     font-size: 1.5em;
     font-weight: 700;
@@ -76,24 +72,31 @@ textarea {
     resize: none;
 }
 
-.buttons {
+#header,
+#social h1,
+#social h2,
+#social h3,
+#social img,
+#filters,
+#rightSideContent,
+#loginForm,
+#h1Accedi,
+#cartContent img,
+#footer a,
+#aboutUsContent img,
+#contentHome img,
+.formErrors,
+.buttons,
+.nolinkhide,
+.hide,
+.hidden_helpBackToHeader,
+.displayed_helpBackToHeader,
+.inputForm a {
   display: none;
 }
 
 abbr {
     text-decoration: none;
-}
-
-.hidden_helpBackToHeader,
-.displayed_helpBackToHeader {
-display: none;}
-
-abbr {
-    text-decoration: none;
-}
-
-.hide {
-    display: none;
 }
 
 /*
@@ -108,10 +111,6 @@ abbr {
     border-radius: 5px;
     border: 1px solid #000000;
     padding: 1em;
-}
-
-.inputForm a {
-    display: none;
 }
 
 .selectForm {
@@ -137,30 +136,6 @@ table td{
 table th {
     padding: 0.5em;
     border: 1px solid #000;
-}
-
-
-/*
-================= AREA PERSONALE ===============================
-*/
-
-#avviso_utenteNonLoggato {
-    border-radius: 4px;
-    margin: 1em;
-    padding: 3em 0em;
-}
-
-#avviso_utenteNonLoggato p {
-    text-align: center;
-}
-
-#avviso_utenteNonLoggato p a {
-    font-weight: bold;
-}
-
-#logoutButton {
-    width: 100%;
-    text-align: center;
 }
 
 /*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
@@ -257,25 +232,11 @@ table th {
 #loginAndRegistrationContent {
     margin: auto;
     text-align: center;
-
-}
-
-.formContainer {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 5%;
-    margin-right: 5%;
-
 }
 
 /*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 
 /*---------- CARRELLO --------------------------------------------------------------------------*/
-
-
-#cartContent img {
-display: none;
-}
 
 #selectedProduct {
     clear: left;
@@ -284,53 +245,9 @@ display: none;
     border-radius: 10px;
 }
 
-
-
 /*
 ==================================Lista prodotti================================
 */
-#filters {
-    float: left;
-    max-width: 20%;
-    min-width: 150px;
-    padding: 1.5em;
-    border: 1px solid #000000;
-    margin-top: 0.5em;
-
-}
-
-#filters form div {
-    text-align: center;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-}
-
-#filters label {
-    display: inline;
-}
-
-#filters input[type="text"] {
-    width: 4em;
-}
-
-#rightSideContent {
-    overflow: hidden;
-    padding: 1em;
-      margin-top: 0.5em;
-}
-
-#rightSideContent div {
-    overflow: hidden;
-}
-
-#upperRightSideContent {
-display:none;
-}
-
-.hiddenChoice {
-    display: none;
-}
-
 #productsList {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -399,12 +316,6 @@ font-size: 18px;
     font-size: 1em;
     margin-bottom: 0.5em;
 }
-
-#footer a {
-    display: none;
-}
-
-
 /*
 =================== CONTATTI ===================================================================
 */
@@ -417,7 +328,9 @@ font-size: 18px;
 ================== PUNTI VENDITA ==============================================================
 */
 
-#stores{margin-bottom: 1em;}
+#stores{
+    margin-bottom: 1em;
+}
 
 #stores div {
     padding-right:0.4em;
@@ -427,23 +340,10 @@ font-size: 18px;
     text-align: left;
 }
 
-/*
-=============== SOCIAL ==========================================================================
-*/
-
-#social h2 {
-    display: none;
-}
-#social h3{
-  display: none;
-}
-#social img{
-  display: none;
-}
 /*========DIRITTI======*/
 #diritti{
     width: 100%;
-    border-top: 3px solid #000;
+    border-top: 2px solid #000;
 }
 
 #diritti p {
@@ -484,7 +384,6 @@ font-size: 18px;
     border-top: 1px solid #000000;
 }
 
-}
 #aboutUsContent dl dd {
     width: 70%;
     display: inline-block;
@@ -494,9 +393,6 @@ font-size: 18px;
 #aboutUsContent dl dd p{
   margin: 0;
 }
-#aboutUsContent img{
-  display: none;
-}
 
 /*=============================HOME====================*/
 #contentHome{
@@ -504,10 +400,6 @@ font-size: 18px;
   margin-left: 7.5%;
   margin-right: 7.5%;
   margin-top: 2em;
-}
-
-#contentHome img{
-    display: none;
 }
 
 #contentHome p{
@@ -520,12 +412,6 @@ font-size: 18px;
   font-size: 28px;
   text-align: center;
 }
-/*AGGIUNTE PER LA STAMPA*/
-
-#header{
-  display: none;
-}
-.nolinkhide{display:none;}
 
 /*AREA PERSONALE*/
 /*---------------------*/
@@ -533,4 +419,6 @@ font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
-#breadcrumb{margin-top: 0.5em;}
+#breadcrumb{
+    margin-top: 0.5em;
+}
