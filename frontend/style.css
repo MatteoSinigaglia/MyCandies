@@ -724,6 +724,7 @@ background-color: #F2E8CF;
     margin: 1em;
     font-weight: 400;
     text-align: center;
+    color: #FFFFFF;
 }
 
 /*=============================HOME====================*/
@@ -801,7 +802,7 @@ background-color: #F2E8CF;
     border-radius: 10px 10px 0px 0px;
     color: white;
     font-weight: bold;
-    padding: 0.3em; 
+    padding: 0.3em;
 }
 
 #aboutUsContent dl dd {
@@ -821,10 +822,13 @@ background-color: #F2E8CF;
     border-radius: 7px;
     border: 1px solid rgb(165, 164, 164);
 }
-
+#aboutUsContent img{
+  margin-right: 1em;
+}
 #aboutUsContent dl dd p {
     border: none;
     background-color: transparent;
     padding: 0.3em;
+    padding-left: 2em;
+    text-align: left;
 }
-
