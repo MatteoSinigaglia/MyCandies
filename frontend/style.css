@@ -821,10 +821,9 @@ background-color: #F2E8CF;
     width: 15%;
     border-radius: 7px;
     border: 1px solid rgb(165, 164, 164);
+    margin-right: 1em;
 }
-#aboutUsContent img{
-  margin-right: 1em;
-}
+
 #aboutUsContent dl dd p {
     border: none;
     background-color: transparent;
