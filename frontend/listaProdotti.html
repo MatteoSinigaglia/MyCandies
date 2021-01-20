@@ -47,7 +47,7 @@
     <div id="navigation">
         <button id="mobileMenu" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
-            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+            <li xml:lang="en" lang="en"><a href="frontend/home.html">Home</a></li>
             <li>Droghe</li>
             <li><a href="frontend/areaPersonale.html">Area personale</a></li>
             <li><a href="frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
@@ -104,38 +104,8 @@
         </form>
     </div>
     <div id="rightSideContent">
-        <div id="upperRightSideContent">
-            <div id="orderBy">
-                <label for="orderBuySelect" class="helps">Ordina per</label>
-                <select name="orderBuySelect" id="orderBuySelect">
-                    <option class="hiddenChoice">Ordina per</option>
-                    <option>Prezzo: crescente</option>
-                    <option>Prezzo: decrescente</option>
-                </select>
-            </div>
-            <div id="productsPerPage">
-                <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
-                <select name="productsPerPageSelect" id="productsPerPageSelect">
-                    <option class="hiddenChoice">Prodotti per pagina</option>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                </select>
-            </div>
-        </div>
         <div class="products">
-            <!--<listOfProducts />-->
-            <!--<div class="product-card">
-                <div class="product-image">
-                    <img src="img/out_of_stock.jpg">
-                </div>
-                <div class="product-info">
-                    <h5>Winter Jacket</h5>
-                    <h6>$99.99</h6>
-                </div>
-            </div>-->
-
+            <listOfProducts />
         </div>
         <div id="productsPageNumber"></div>
     </div>

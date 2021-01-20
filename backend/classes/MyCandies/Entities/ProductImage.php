@@ -45,4 +45,12 @@
             }
             return $fields;
         }
+
+        public function getProduct_id() {
+            return $this->product_id;
+        }
+
+        public function getImg_id() {
+            return $this->img_id;
+        }
     }

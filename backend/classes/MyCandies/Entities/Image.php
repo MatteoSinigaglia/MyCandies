@@ -49,4 +49,8 @@
             return $fields;
         }
 
+        public function getImg_path() {
+            return $this->img_path;
+        }
+
     }

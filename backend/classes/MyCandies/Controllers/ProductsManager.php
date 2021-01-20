@@ -72,7 +72,7 @@ class ProductsManager
 
     private function uploadImage()
     {
-        $uploadfile = ROOT . DS . 'img' . DS . 'products' . DS . $_FILES['productImage']['name'];
+        $uploadfile = 'img' . DS . 'products' . DS . $_FILES['productImage']['name'];
         if (!move_uploaded_file($_FILES['productImage']['tmp_name'], $uploadfile)) {
             throw new Exception('Immagine non caricata nel server');
         }
@@ -82,28 +82,36 @@ class ProductsManager
     {
     }
 
-    public function getProductsHtml()
+    public function getProducts()
     {
-        $productList = $this->getProducts();
-        $listOfProducts = "";
-        if ($productList != null) {
-            foreach ($productList as $product) {
-                $listOfProducts .=
-                    '<div class="singleProduct">'
-                    . '<p>'
-                    . $product['Nome']
-                    . '</p>'
-                    . '</div>';
-            }
-        } else {
-            $listOfProducts =
-                '<li class=\"failure\">'
-                . 'Non sono ancora stati inseriti prodotti'
-                . '</li>';
+        try{
+            $this->dbh->connect();
+            $products = $this->T_products->find();
+            $images = $this->T_images->find();
+            $productsImages = $this->T_productsImages->find();
+        } catch (Exception $e) {
+            throw $e;
+        } finally {
+            $this->dbh->disconnect();
         }
-        $htmlPage = file_get_contents("../frontend/listaProdotti.html");
-        echo str_replace("<productList />", $listOfProducts, $htmlPage);
+         $rows=[];
+         foreach($products as $product) {
+             $rows[$product->getId()] = [
+                 'name' => $product->getName(),
+                 'price' => $product->getPrice()
+             ];
+         }
+        foreach($productsImages as $productImage) {
+            $rows[$productImage->getProduct_id()]['img_id'] = $productImage->getImg_id();
+        }
+
+        foreach($rows as $key => &$row) {
+            foreach($images as $image) {
+                if($image->getId() == (int)$row['img_id'])
+                    $row['img_path'] = $image->getImg_path();
+            }
+        }
+
+         return $rows;
     }
 }
-
-?>
