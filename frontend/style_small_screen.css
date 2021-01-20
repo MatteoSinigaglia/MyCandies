@@ -650,8 +650,7 @@ p {
 }
 
 #footer a:hover,
-#footer a:visited:hover{
-    color: rgb(184, 3, 3);
+#footer a:visited:hover {
     text-decoration: none;
 }
 

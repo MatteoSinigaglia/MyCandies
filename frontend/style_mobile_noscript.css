@@ -32,13 +32,13 @@ body {
 }
 
 .formErrors {
-    color: red;
+    color: rgb(134, 2, 2);
     padding: 0.5em 0em;
     display: block;
 }
 
 .rightMessage {
-    color: green;
+    color: #093013;
     display: block;
 }
 
@@ -386,11 +386,11 @@ table th {
 }
 
 #navigation ul li span {
-    border: 1px solid #DDD;
-    border-radius: 4px;
-    background-color: #051C0B;
     color: white;
-    padding: 0.6em;
+    background-color: #051C0B;
+    padding: 0.3em;
+    border: 1px solid #DDD;
+    margin: 0.7em 0;
 }
 
 /*
@@ -612,7 +612,7 @@ select {
     display: flex;
     flex-direction: row;
     padding: 2em;
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
 }
 
 .singleProduct img {
@@ -630,6 +630,10 @@ p {
     text-align: center;
     display: inline;
     width: 100%;
+}
+
+#filtersForm fieldset div span {
+    float: left;
 }
 
 /*
@@ -689,7 +693,8 @@ background-color: #F2E8CF;
     color: white;
 }
 
-#footer a:hover {
+#footer a:active,
+#footer a:visited:active {
     text-decoration: none;
 }
 
@@ -768,46 +773,38 @@ background-color: #020E0A;
     font-weight: 600;
 }
 
-/*
-============== SU DI NOI ==========================
-*/
-
-#aboutUsContent dt {
-    display: inline-block;
-    width: 80%;
-    margin: 1% 10%;
+/*=============================HOME====================*/
+#contentHome{
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
     background-color: #F2E8CF;
-    font-size: 20px;
-    border-radius: 4px;
-    border: 1px solid rgb(155, 153, 153);
-
+    margin-top: 2em;
+    border-radius: 10px;
 }
 
-#aboutUsContent p {
-    width: 80%;
+#contentHome img{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1em;
+    padding-bottom: 2%;
+}
+
+#contentHome p{
+    font-size: 18px;
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: center;
-    margin: 1em auto;
-    padding: 1em;
-    border-radius: 4px;
-    border: 1px solid rgb(155, 153, 153);
-    background-color: #F2E8CF;
+    font-family: cambria, sans-serif;
+    padding-bottom: 1em;
 }
-
-#aboutUsContent ul {
-    list-style-type: none;
-    font-weight: bold;
-    padding: 0em 0.5em;
-}
-
-#aboutUsContent img {
-    width: 30%;
-    margin: 0.5em;
-    border: 1px solid black;
-    border-radius: 6px;
+#contentHome h1{
+    font-size: 28px;
+    text-align: center;
 }
 
 /*
-=============== Inserisci Prodotto ========================
+=============== Cose sfuse ========================
 */
 
 #effects {
@@ -818,3 +815,65 @@ background-color: #020E0A;
     font-weight: bold;
     text-align: center;
 }
+
+/*
+======== Su di noi ========================
+*/
+
+#aboutUsContent h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#aboutUsContent p {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #F2E8CF;
+    padding: 0.7em;
+    border: 1px solid #DDD;
+}
+
+#aboutUsContent dl {
+    width: 100%;
+    margin: 3% 8%;
+}
+
+#aboutUsContent dl dt {
+    width: 80%;
+    background-color: #093013;
+    border: 1px solid rgb(165, 164, 164);
+    border-bottom: transparent;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    font-weight: bold;
+    padding: 0.3em; 
+}
+
+#aboutUsContent dl dd {
+    width: 80%;
+    display: inline-block;
+    background-color: #F2E8CF;
+    border: 1px solid rgb(165, 164, 164);
+    border-top: transparent;
+    padding: 0.3em;
+    margin-bottom: 1.5em;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#aboutUsContent dl dd img {
+    float: left;
+    width: 30%;
+    border-radius: 7px;
+    margin-right: 0.5em;
+    border: 1px solid rgb(165, 164, 164);
+}
+
+#aboutUsContent dl dd p {
+    border: none;
+    background-color: transparent;
+    padding: 0.3em;
+    text-align: left;
+}
+
