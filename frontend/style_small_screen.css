@@ -315,7 +315,10 @@ table th {
     background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
-    border-top: 1px solid #DDD;
+}
+
+#navigation #navigationMenu {
+    display: block;
 }
 
 #navigation li {
@@ -357,9 +360,9 @@ table th {
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu_visible,
-#mobileMenu_hidden {
+#mobileMenu {
     display: none;
+    margin-bottom: 0.5em;
 }
 
 /*

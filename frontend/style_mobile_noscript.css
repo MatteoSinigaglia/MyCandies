@@ -359,11 +359,6 @@ table th {
     list-style-type: none;
 }
 
-#navigation ul {
-    border-top: 1px solid #DDD;
-    margin-top: 0.5em;
-}
-
 #navigation li {
     list-style-type: none;
     margin: 0.3em 0em;
@@ -397,22 +392,13 @@ table th {
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu_visible,
-#mobileMenu_hidden {
+#mobileMenu {
     padding: 0.5em;
     color: white;
     background-color: #051C0B;
-    border: 1px solid white;
+    border: 1px solid #DDD;
     border-radius: 4px;
     margin-left: 90%;
-}
-
-#mobileMenu_visible {
-    display: block;
-}
-
-#mobileMenu_hidden {
-    display: none;
 }
 
 /*
