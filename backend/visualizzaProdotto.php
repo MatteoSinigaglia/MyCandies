@@ -26,8 +26,8 @@ foreach ($productsList as $product) {
                         <img src="' . $product['img_path'] . '">
                     </div>
                     <div class="product-info">
-                        <h5>'.$product['name'].'</h5>
-                        <h6>€'.$product['price'].'</h6>
+                        <a href="'."backend".DS."prodotto.php?id=".$product['id'].'">'.$product['name'].'</a>
+                        <p>€'.$product['price'].'</p>
                     </div>
                 </div>';
 }
