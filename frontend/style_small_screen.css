@@ -394,8 +394,6 @@ table th {
 }
 
 #productContenitor {
-    float: left;
-    width: 75%;
     background-color: #F2E8CF;
     border: 1px solid #DDD;
     border-radius: 10px;
@@ -430,19 +428,14 @@ table th {
 }
 
 #addToCartButton {
-    float: right;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-right: 2.5em;
+    margin-left: 75%;
 }
 
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
-    float: right;
     border-radius: 10px;
+    margin: 0.5em 5em;
     background-color: #093013;
-    margin-bottom: 1em;
-    width: 20%;
 }
 
 #productTableContent table {
@@ -455,7 +448,6 @@ table th {
 #productTableContent td,
 #productTableContent th {
     border: 1px solid transparent;
-    padding: 0.3em 0.5em;
 }
 
 #productTableContent th {
@@ -640,13 +632,8 @@ background-color: #F2E8CF;
 }
 
 #footer div {
-    display: inline-block;
     text-align: center;
     vertical-align: middle;
-}
-
-#stores div {
-    display: inline-block;
 }
 
 #upperFooterContainer {
@@ -677,7 +664,12 @@ background-color: #F2E8CF;
 */
 
 #contacts {
-    margin: 1em 0em;
+    margin: 0 30%;
+    width: 40%;
+}
+
+#contacts ul {
+    text-align: center;
 }
 
 /*
@@ -685,12 +677,15 @@ background-color: #F2E8CF;
 */
 
 #stores {
-    min-width: 60%;
-    margin: 1em 0.3em;
+    min-width: 30%;
+    margin: 0.5em 0.3em;
+    display: inline-block;
 }
 
 #stores div {
-    margin: 0.1em 0.3em;
+    float: left;
+    padding: 0.5em;
+    margin: 0 0.5em;
 }
 
 #stores h3 {
@@ -702,7 +697,13 @@ background-color: #F2E8CF;
 */
 
 #social {
-    margin: 1em 0;
+    min-width: 30%;
+    margin: 0.5em 0.3em;
+    display: inline-block;
+}
+
+#social ul {
+    text-align: center;
 }
 
 #social ul li {
@@ -724,6 +725,7 @@ background-color: #F2E8CF;
     margin: 1em;
     font-weight: 400;
     text-align: center;
+    display: inline-block;
 }
 
 /*=============================HOME====================*/
