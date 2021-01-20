@@ -56,13 +56,14 @@ class UsersAddresses {
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}
+		var_dump($fields);
 		return $fields;
 	}
 
 	public function getColumns() : array {
 		$columns = array();
-		foreach ($this as $column) {
-			array_push($columns, $column);
+		foreach ($this as $key => $value) {
+			array_push($columns, $key);
 		}
 		return $columns;
 	}

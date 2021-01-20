@@ -4,15 +4,20 @@
 namespace MyCandies\Tables;
 
 
+use DateTime;
 use DB\dbh;
 use DB\Exceptions\DBException;
 use MyCandies\Entities\Address;
 use MyCandies\Entities\Entity;
 use MyCandies\Entities\User;
+use MyCandies\Exceptions\EntityException;
+use mysql_xdevapi\Exception;
 
 require_once __DIR__.'/../../DB/dbh.php';
 require_once __DIR__.'/../../DB/Exceptions/DBException.php';
 require_once __DIR__.'/../Entities/Entity.php';
+require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../Exceptions/EntityException.php';
 
 class Table {
 
@@ -110,17 +115,20 @@ class Table {
 			require_once __DIR__.'/../../../lib/functions.php';
 			$slice = [];
 			if ($entity instanceof User) {
-				$slice = ['first_name', 'last_name', 'email', 'password'];
+				$slice = ['first_name', 'last_name', 'email', 'password', 'telephone', 'birthdate'];
 			} else if ($entity instanceof Address) {
-				$slice = ['province', 'city', 'CAP'];
+				$slice = ['province', 'city', 'CAP', 'number'];
 			} else {
 				$slice = $entity->getColumns();
+				echo 'Slice: ';
+				var_dump($slice);
 			}
 			$fields = array_slice_assoc($entity->getValues(), $slice);
 
 
 //			Prevents from inserting manually an id and leaves the responsibility to the DBMS
 			if (isset($fields['id'])) {
+				echo 'ID: '.$fields['id'];
 				unset($fields['id']);
 			}
 
@@ -147,7 +155,14 @@ class Table {
 			}
 			return $this->dbh->getLastInsertId();
 		} catch (DBException $e) {
+			echo 'DBException';
 			throw $e;
+		} catch (EntityException $e) {
+			echo 'EException';
+			var_dump($entity);
+			echo $e;
+		} catch (Exception $e) {
+			echo $e;
 		}
 	}
 
@@ -202,9 +217,9 @@ class Table {
 
 	private function processDates(array $fields): array {
 
-		define('DATE_FORMAT', 'YYYY-mm-dd');
+		defined('DATE_FORMAT') || define('DATE_FORMAT', 'YYYY-MM-DD');
 		foreach ($fields as $key => $value) {
-			if ($value instanceof \DateTime) {
+			if ($value instanceof DateTime) {
 				$fields[$key] = $value->format(DATE_FORMAT);
 			}
 		}

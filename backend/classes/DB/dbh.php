@@ -44,7 +44,6 @@ class dbh {
 
 			$dsn = 'mysql:host='.$this->host.';port='.$this->port.';dbname='.$this->db.';charset='.$this->charset.';';
 			$this->pdo = new PDO($dsn, $this->user, $this->psw, $this->options);
-			echo 'Connesso ';
 		} catch (PDOException $e) {
 
 			$output = 'Unable to connect to the database: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();

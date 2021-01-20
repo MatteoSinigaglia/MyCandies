@@ -21,6 +21,7 @@ require_once __DIR__.'/../Entities/User.php';
 require_once __DIR__.'/../Entities/sources.php';
 require_once __DIR__.'/../Exceptions/EntityException.php';
 require_once __DIR__.'/../Exceptions/RegisterException.php';
+require_once __DIR__.'/../Exceptions/LoginException.php';
 require_once __DIR__.'/../../DB/dbh.php';
 
 
@@ -49,15 +50,10 @@ class Login extends Authentication {
 	public function login() {
 		try {
 			$this->dbh->connect();
-			$storedUser = $this->tUser->find(
+			$user = $this->tUser->find(
 				[   'column' => 'email',
 					'value' => $this->user->getEmail()
 				]);
-			if (count($storedUser) > 1) {
-				throw new DBException('Unexpected event please try again later', -3);
-			} else {
-				$storedUser = $storedUser[0];
-			}
 
 		} catch (DBException $e) {
 			echo $e;
@@ -68,29 +64,27 @@ class Login extends Authentication {
 			$this->dbh->disconnect();
 		}
 
-		if (empty($storedUser)) {
-//				Differenziata solo per testing
-			throw new LoginException('Email non registrata', -2);
-		}
+		if (count($user) < 1)
+			throw new LoginException('User not registered', -1);
 
-		if (!password_verify($this->user->getPassword(), $storedUser->getPassword())) {
+		if (count($user) > 1)
+			throw new DBException('Unexpected event please try again later', -3);
+		else
+			$user = $user[0];
+
+		if (!password_verify($this->user->getPassword(), $user->getPassword())) {
 			throw new LoginException('L\'email e/o la password inserite sono errate', -2);
 		}
 
 		session_regenerate_id();
 
 //		UID: encrypted user id using md5
-//		$_SESSION['UID'] = md5($storedUser->getId());
+		$_SESSION['email'] = $user->getEmail();
 
 //		In the database is stored the hash of the password
-//		$_SESSION['password'] = $storedUser->getPassword();
-		$_SESSION['user'] = $this->user;
+		$_SESSION['password'] = $user->getPassword();
 
-		echo 'Logged!'.$storedUser->getFirstName();
+//		echo $user->getFirstName().' '.$user->getLastName().' logged in';
 
-//			foreach ($dbData as $user) {
-//				echo $user['id'].'    ';
-//				var_dump($user);
-//			}
 	}
 }

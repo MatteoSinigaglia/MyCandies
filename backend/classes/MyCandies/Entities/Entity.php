@@ -11,25 +11,29 @@ require_once __DIR__ . '/sources.php';
 
 class Entity {
 
-//	public const DB = 0;
-
 	protected $id;
 
+	/**
+	 * Entity constructor.
+	 * @param int $source
+	 * @param mixed|null $id
+	 * @throws EntityException
+	 */
 	public function __construct(int $source, mixed $id=null) {
-		if ($source !== DB && isset($id) && !is_int($id)) {
+		if ($source === DB) {
+			$this->id = (int)$id;
+		} else if (isset($id)) {
 			throw new EntityException('The given id is illegal', -1);
 		}
-		echo 'Id: '.$id;
-		$this->id = (int)$id;
 	}
 
 	/**
-	 * @param int $id
+	 * @param int $id Represents the id
 	 * @throws EntityException Throws an exception if the id is already set
 	 */
 	public function setId(int $id): void {
 		if (isset($this->id)) {
-			throw new EntityException('Entities already has an id', -2);
+			throw new EntityException('Entity already has an id', -2);
 		}
 		$this->id = $id;
 	}
@@ -41,6 +45,9 @@ class Entity {
 		return $this->id;
 	}
 
+	/**
+	 * @return array Returns all entity's attributes as an associative array
+	 */
 	public function getValues() : array {
 		$fields = [];
 		foreach ($this as $key => $value) {
@@ -49,10 +56,13 @@ class Entity {
 		return $fields;
 	}
 
+	/**
+	 * @return array Returns all entity's attributes names
+	 */
 	public function getColumns() : array {
 		$columns = array();
-		foreach ($this as $column) {
-			array_push($columns, $column);
+		foreach ($this as $key => $value) {
+			array_push($columns, $key);
 		}
 		return $columns;
 	}

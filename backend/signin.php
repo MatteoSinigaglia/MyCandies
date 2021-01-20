@@ -1,7 +1,8 @@
 <?php
 
+use DB\Exceptions\DBException;
 use MyCandies\Controllers\Login;
-use \MyCandies\Exceptions\LoginException;
+use MyCandies\Exceptions\LoginException;
 
 if (!isset($_POST['submitLogin'])) {
 	header('location: ../frontend/formCliente.html');
@@ -14,8 +15,9 @@ try {
 	echo 'Login';
 	$signin->login();
 	echo 'Logged in';
-//	header('location: ../frontend/home.html');
-//	die();
+	header('location: ./home.php');
+	die();
 } catch (LoginException $e) {
-	echo $e;
+	throw $e;
+} catch (DBException $e) {
 }

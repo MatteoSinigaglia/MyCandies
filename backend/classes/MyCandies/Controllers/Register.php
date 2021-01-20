@@ -37,6 +37,11 @@ class Register extends Authentication {
 	private $userAddress;
 	private $dbh;
 
+	/**
+	 * Register constructor.
+	 * @param array $user
+	 * @param array $address
+	 */
 	public function __construct(array $user, array $address) {
 		parent::__construct();
 		try {
@@ -48,19 +53,24 @@ class Register extends Authentication {
 			$constructorArgs = [Entities\DB];
 			$this->tUsers = new Table($this->dbh, 'Customers', 'id', User::class, $constructorArgs);
 			$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', Address::class, $constructorArgs);
-			$this->tUsersAddresses = new Table($this->dbh, 'CustomerAddresses', 'id', UsersAddresses::class, $constructorArgs);
+			$this->tUsersAddresses = new Table($this->dbh, 'CustomersAddresses', 'id', UsersAddresses::class, $constructorArgs);
 		} catch (EntityException $e) {
 			echo $e;
 		}
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function valid() : bool {
-//		TODO: checks on db, user's email already used
 
+		$email = [
+			'column'    =>  'email',
+			'value'     =>  $this->user->getEmail()
+		];
 		try {
 			$this->dbh->connect();
-			echo 'valid';
-			if ($this->tUsers->find(['email', $this->user->getEmail()]) > 0) {
+			if (count($this->tUsers->find($email)) > 0) {
 				throw new RegisterException('Email già in uso', -1);
 			}
 		} catch (Exception $e) {
@@ -71,18 +81,14 @@ class Register extends Authentication {
 		return true;
 	}
 
+	/**
+	 * @throws RegisterException
+	 */
 	public function registration() {
 		try {
-//			$this->valid();
+			$this->valid();
 			$this->dbh->connect();
 			$this->dbh->transactionStart();
-
-//			array_slice_assoc() is only for testing while forms aren't 100% compatible
-//			require_once __DIR__.'/../../../lib/functions.php';
-//			$params = array_slice_assoc($this->user->getValues(), ['first_name', 'last_name', 'email', 'password']);
-//			$this->user->setId($this->tUsers->insert($this->user));
-//			$add = array_slice_assoc($this->address->getValues(), ['province', 'city', 'CAP']);
-//			$this->address->setId($this->tAddresses->insert($this->address));
 
 			$this->userAddress->setCustomerId($this->tUsers->insert($this->user));
 			$this->userAddress->setAddressId($this->tAddresses->insert($this->address));
@@ -91,9 +97,14 @@ class Register extends Authentication {
 			$this->dbh->transactionCommit();
 		} catch (DBException $e) {
 			$this->dbh->transactionRollback();
-			echo $e;
+			throw new RegisterException('Unable to register user: '.$e, -1);
 		} finally {
 			$this->dbh->disconnect();
 		}
+
+		session_regenerate_id();
+
+		$_SESSION['email'] = $this->user->getEmail();
+		$_SESSION['password'] = $this->user->getPassword();
 	}
 }

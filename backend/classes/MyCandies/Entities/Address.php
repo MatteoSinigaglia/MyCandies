@@ -22,7 +22,9 @@ class Address extends Entity {
 
 	public function __construct(int $source, array $data) {
 		try {
-			parent::__construct($source, $data['id']);
+
+//			Ternary operator to remove server's warning
+			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 		} catch (EntityException $e) {
 			throw $e;
 		}
@@ -65,4 +67,12 @@ class Address extends Entity {
 		return $fields;
 	}
 
+
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $key => $value) {
+			array_push($columns, $key);
+		}
+		return $columns;
+	}
 }
