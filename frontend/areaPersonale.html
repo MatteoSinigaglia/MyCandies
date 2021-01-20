@@ -59,11 +59,7 @@
         </a>/ Area personale</p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <div id="avviso_utenteNonLoggato" class=""> <!-- class="hide" per nascondere -->
-        <p>Per visualizzare le informazioni dell'area personale è necessario eseguire l'accesso. <br/>
-           E' possibile effettuare l'accesso o la registrazione cliccando questo link: <a href="formCliente.html" class="paragraphLink">Accedi/registrati.</a></p>
-    </div>
-    <form id="formAreaPersonale" action="#" method="post" class="inputForm hide" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente"> <!-- da PHP basta togliere hide -->
+    <form id="formAreaPersonale" action="#" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente"> <!-- da PHP basta togliere hide -->
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
@@ -116,7 +112,7 @@
         </fieldset>
     </form>
     <div id="logoutButton">
-        <button class="buttons hide">Logout</button> <!-- da PHP basta togliere hide  -->
+        <button class="buttons">Logout</button> <!-- da PHP basta togliere hide  -->
     </div>
 </div>
 <div id="footer">
