@@ -305,11 +305,6 @@ table th {
     min-width: 25em;
 }
 
-#headerUsername {
-    float: right;
-    display: none;
-}
-
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
@@ -633,6 +628,7 @@ background-color: #F2E8CF;
 #footer {
     display: inline-block;
     width: 100%;
+    height: 100%;
     background-color: #051C0B;
     color: white;
     min-height: 10em;
@@ -642,7 +638,8 @@ background-color: #F2E8CF;
 #footer div {
     display: inline-block;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: top;
+    padding: 1em 0;
 }
 
 #stores div {
@@ -655,6 +652,7 @@ background-color: #F2E8CF;
 
 #footer h3 {
     font-size: 1em;
+    text-align: left;
     margin-bottom: 0.5em;
 }
 
@@ -673,37 +671,21 @@ background-color: #F2E8CF;
 }
 
 /*
-=================== CONTATTI ===================================================================
-*/
-
-#contacts {
-    margin: 1em 0em;
-}
-
-/*
 ================== PUNTI VENDITA ==============================================================
 */
 
 #stores {
     min-width: 60%;
-    margin: 1em 0.3em;
+    margin: 0 0.3em;
 }
 
 #stores div {
-    margin: 0.1em 0.3em;
-}
-
-#stores h3 {
-    text-align: left;
+    margin: 0.1em 0.5em;
 }
 
 /*
 =============== SOCIAL ==========================================================================
 */
-
-#social {
-    margin: 1em 0;
-}
 
 #social ul li {
     padding-bottom: 0.2em;
@@ -721,7 +703,6 @@ background-color: #F2E8CF;
 }
 
 #diritti p {
-    margin: 1em;
     font-weight: 400;
     text-align: center;
 }

@@ -144,35 +144,6 @@ textarea {
     color: white;
 }
 
-#header #utilityBar .buttons {
-    border-radius: 0px;
-    border-top: transparent;
-    border-bottom: transparent;
-    background-color: #020E0A;
-    color: white;
-}
-
-#header #utilityBar .buttons:hover {
-    border-radius: 4px;
-    color: #020E0A;
-    background-color: #F2E8CF;
-}
-
-#productSearchButton {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    background-color: #093013;
-}
-
-#cartButton {
-    padding: 0.6em 0.7em;
-}
-
-#cartButton span {
-    font-weight: bold;
-    font-family: "Arial", cursive, sans-serif;
-}
-
 abbr {
     text-decoration: none;
 }
@@ -299,15 +270,41 @@ table th {
 
 #productSearchBar {
     padding: 0.7em;
-    width: 50%;
+    width: 45%;
     border: 1px solid transparent;
     border-radius: 4px;
-    min-width: 25em;
+    min-width: 20em;
 }
 
-#headerUsername {
-    float: right;
-    display: none;
+#productSearchButton {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-color: #093013;
+}
+
+#header #utilityBar .buttons {
+    border-radius: 0px;
+    border-top: transparent;
+    border-bottom: transparent;
+    background-color: #020E0A;
+    color: white;
+    padding: 0.5em;
+    margin: 0.2em;
+}
+
+#header #utilityBar .buttons:hover {
+    border-radius: 4px;
+    color: #020E0A;
+    background-color: #F2E8CF;
+}
+
+#header #utilityBar #cartButton {
+    padding: 0.6em;
+}
+
+#cartButton span {
+    font-weight: bold;
+    font-family: "Arial", cursive, sans-serif;
 }
 
 /*----------- MENU ---------------------------------------------------------------------------*/
@@ -436,10 +433,11 @@ table th {
     border-radius: 10px;
     margin: 0.5em 5em;
     background-color: #093013;
+    width: 60%;
+    margin: 0 auto;
 }
 
 #productTableContent table {
-    margin: 1em auto;
     text-align: center;
     border-collapse: collapse;
 }
@@ -606,16 +604,16 @@ p {
 }
 
 .stylelessList {
-list-style-type:none;
-text-align: left;
+    list-style-type:none;
+    text-align: left;
 }
 
 #contentFAQ li {
-border: 1px solid;
-padding:1em;
-border-radius: 1.5em;
-margin-bottom:2em;
-background-color: #F2E8CF;
+    border: 1px solid;
+    padding:1em;
+    border-radius: 1.5em;
+    margin-bottom:2em;
+    background-color: #F2E8CF;
 }
 
 /*
@@ -632,8 +630,10 @@ background-color: #F2E8CF;
 }
 
 #footer div {
+    display: inline-block;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: top;
+    padding: 1em 0;
 }
 
 #upperFooterContainer {
@@ -664,8 +664,7 @@ background-color: #F2E8CF;
 */
 
 #contacts {
-    margin: 0 30%;
-    width: 40%;
+    width: 100%;
 }
 
 #contacts ul {
@@ -677,15 +676,12 @@ background-color: #F2E8CF;
 */
 
 #stores {
-    min-width: 30%;
-    margin: 0.5em 0.3em;
-    display: inline-block;
+    width: 100%;
 }
 
 #stores div {
-    float: left;
     padding: 0.5em;
-    margin: 0 0.5em;
+    margin: 0 0.3em;
 }
 
 #stores h3 {
@@ -697,9 +693,7 @@ background-color: #F2E8CF;
 */
 
 #social {
-    min-width: 30%;
-    margin: 0.5em 0.3em;
-    display: inline-block;
+    width: 100%;
 }
 
 #social ul {
@@ -722,10 +716,8 @@ background-color: #F2E8CF;
 }
 
 #diritti p {
-    margin: 1em;
     font-weight: 400;
     text-align: center;
-    display: inline-block;
 }
 
 /*=============================HOME====================*/
