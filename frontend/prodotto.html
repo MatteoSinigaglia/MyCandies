@@ -2,18 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
+	<base href="http://localhost/MyCandies/" />
 	<title>Informazioni prodotto - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
 	<meta name="author" content="MyCandies&amp;co" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
-	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
-	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
+	<link rel="stylesheet" type="text/css" href="frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+	<script type="text/javascript" src="frontend/mobileMenu.js"></script>
 </head>
 
 <body onload="loadMenu();">
@@ -22,8 +23,8 @@
 	<a class="helps" href="#productContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<a href="home.html">
-				<img id="logo" src="../img/logo.jpeg"
+			<a href="frontend/home.html">
+				<img id="logo" src="img/logo.jpeg"
 						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 			</a>
 		</div>
@@ -36,17 +37,17 @@
 				</div>
 			</form>
 
-			<a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
-			<a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+			<a href="frontend/formCliente.html" id="loginButton" class="buttons">Accedi</a>
+			<a href="frontend/carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
 		</div>
 	</div>
 	<div id="navigation">
 		<button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
 		<ul id="navigationMenu">
-			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
-			<li><a href="listaProdotti.html">Droghe</a></li>
-			<li><a href="areaPersonale.html">Area personale</a></li>
-			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li xml:lang="en" lang="en"><a href="frontend/home.html">Home</a></li>
+			<li><a href="frontend/listaProdotti.html">Droghe</a></li>
+			<li><a href="frontend/areaPersonale.html">Area personale</a></li>
+			<li><a href="frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
 			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
 		</ul>
 	</div>
@@ -54,10 +55,10 @@
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
+        <a href="frontend/home.html">
             <span xml:lang="en" lang="en">Home</span></a> /
-         <a href="listaProdotti.html">Lista prodotti</a>
-			 <nomeprodotto /></p>
+         <a href="frontend/listaProdotti.html">Lista prodotti</a>
+			 / <nomeprodotto /></p>
 </div>
 
 <div id="productContent" class="main">
@@ -77,6 +78,12 @@
 </div>
 <div id="productTableContent">
 	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra Categoria, Tipologia, Componente attivo, Effetti, Effetti collaterali, Tossicità, Danni fisici e mentali.">
+		<tr>
+			<th id="tableDrugPrice" scope="col">Prezzo</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugPrice">€ <prezzo /></td>
+		</tr>
 		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
@@ -119,7 +126,7 @@
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
+                    <a href="frontend/suDiNoi.html">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -169,13 +176,13 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
                 </li>
             </ul>
         </div>

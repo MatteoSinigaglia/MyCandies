@@ -37,6 +37,18 @@ class ProductsActivePrinciple {
         $this->percentage = filter_var($percentage, FILTER_VALIDATE_INT);
     }
 
+    public function getProduct_id() : int {
+        return $this->product_id;
+    }
+
+    public function getActive_principle_id() : int {
+        return $this->active_principle_id;
+    }
+
+    public function getPercentage() : int {
+        return $this->percentage;
+    }
+
     public function getValues() : array {
         $fields = [];
         foreach ($this as $key => $value) {
