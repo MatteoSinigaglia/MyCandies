@@ -3,12 +3,21 @@
 
 namespace MyCandies\Tables;
 
-use DB\Exceptions;
+
+use DateTime;
 use DB\dbh;
+use DB\Exceptions\DBException;
+use MyCandies\Entities\Address;
 use MyCandies\Entities\Entity;
+use MyCandies\Entities\User;
+use MyCandies\Exceptions\EntityException;
+use mysql_xdevapi\Exception;
 
 require_once __DIR__.'/../../DB/dbh.php';
+require_once __DIR__.'/../../DB/Exceptions/DBException.php';
+require_once __DIR__.'/../Entities/Entity.php';
 require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../Exceptions/EntityException.php';
 
 class Table {
 
@@ -56,6 +65,7 @@ class Table {
 	}
 
 	public function findById(int $value) {
+//		think how to handle pk with composite pks
 		$query = 'SELECT * FROM `'.$this->table.'` WHERE `'.$this->primaryKey.'` = :value';
 		$parameters = [
 			'value' => $value
@@ -93,19 +103,35 @@ class Table {
 			}
 
 			$query = $this->dbh->query($query, $parameters);
-			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, [Entity::DB]);
-//			return $query->fetchAll();
+			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
 		} catch (\Exception $e) {
 			echo $e;
 		}
 	}
 
-	public function insert(array $fields) : string {
+	public function insert(object $entity) : string {
 		try {
 
-		    if(isset($fields['id'])) {
-		        unset($fields['id']);
-            }
+			require_once __DIR__.'/../../../lib/functions.php';
+			$slice = [];
+			if ($entity instanceof User) {
+				$slice = ['first_name', 'last_name', 'email', 'password', 'telephone', 'birthdate'];
+			} else if ($entity instanceof Address) {
+				$slice = ['province', 'city', 'CAP', 'number'];
+			} else {
+				$slice = $entity->getColumns();
+				echo 'Slice: ';
+				var_dump($slice);
+			}
+			$fields = array_slice_assoc($entity->getValues(), $slice);
+
+
+//			Prevents from inserting manually an id and leaves the responsibility to the DBMS
+			if (isset($fields['id'])) {
+				echo 'ID: '.$fields['id'];
+				unset($fields['id']);
+			}
+
 			$parameters = $values = '';
 			foreach ($fields as $key => $value) {
 				$parameters .= '`' . $key . '`,';
@@ -124,14 +150,25 @@ class Table {
 			}
 			$this->dbh->query($query, $fields);
 
+			if ($entity instanceof Entity) {
+				$entity->setId($this->dbh->getLastInsertId());
+			}
 			return $this->dbh->getLastInsertId();
-		} catch (\Exception $e) {
+		} catch (DBException $e) {
+			echo 'DBException';
 			throw $e;
+		} catch (EntityException $e) {
+			echo 'EException';
+			var_dump($entity);
+			echo $e;
+		} catch (Exception $e) {
+			echo $e;
 		}
 	}
 
 	private function update(array $fields) {
 
+//		think how to handle pk with composite pks
 		$query = 'UPDATE `'.$this->table.'` SET `';
 
 		foreach ($fields as $key => $value) {
@@ -147,25 +184,23 @@ class Table {
 
 		$fields = $this->processDates($fields);
 
-        try {
-            $this->dbh->query($query, $fields);
-        } catch (\Exception $e) {
-            throw $e;
-        }
-    }
+		try {
+			$this->dbh->query($query, $fields);
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
 
 	public function delete(int $id) {
+
+//		think how to handle pk with composite pks
 		$query = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->primaryKey . '` = :id';
 		$parameters = [
 			'id' => $id
 		];
 
-        try {
-            $this->dbh->query($query, $parameters);
-        } catch (\Exception $e) {
-            throw $e;
-        }
-    }
+		$this->query($query, $parameters);
+	}
 
 	public function deleteWhere(string $column, mixed $value) {
 		$query = 'DELETE FROM `'.$this->table.'` WHERE `'.$column.'` = :value';
@@ -174,17 +209,17 @@ class Table {
 		];
 
 		try {
-            $this->dbh->query($query, $parameters);
-        } catch(\Exception $e) {
-		    throw $e;
-        }
+			$this->dbh->query($query, $parameters);
+		} catch (DBException $e) {
+			throw $e;
+		}
 	}
 
 	private function processDates(array $fields): array {
 
-		define('DATE_FORMAT', 'YYYY-mm-dd');
+		defined('DATE_FORMAT') || define('DATE_FORMAT', 'YYYY-MM-DD');
 		foreach ($fields as $key => $value) {
-			if ($value instanceof \DateTime) {
+			if ($value instanceof DateTime) {
 				$fields[$key] = $value->format(DATE_FORMAT);
 			}
 		}
@@ -192,18 +227,24 @@ class Table {
 	}
 
 	public function save(array $record) {
+
+//		think how to handle pk with composite pks
 		$entity = new $this->className(...$this->constructorArgs);
 
 		try {
-			if ($record[$this->primaryKey] == '') {
-				$record[$this->primaryKey] = null;
+			if ($entity->getId() == '') {
+				$entity->setId(null);
 			}
-			$insertId = $this->insert($record);
+//			if ($record[$this->primaryKey] == '') {
+//				$record[$this->primaryKey] = null;
+//			}
+			$insertId = $this->insert($entity);
 
 			$entity->{$this->primaryKey} = $insertId;
 		}
-		catch (\PDOException $e) {
-			$this->update($record);
+		catch (DBException $e) {
+			echo $e;
+//			$this->update($record);
 		}
 
 		foreach ($record as $key => $value) {

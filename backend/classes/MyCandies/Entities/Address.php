@@ -18,9 +18,13 @@ class Address extends Entity {
 	private $street;
 	private $number;
 
-	public function __construct(array $data) {
+//	public const REGISTER = 1;
+
+	public function __construct(int $source, array $data) {
 		try {
-			parent::__construct();
+
+//			Ternary operator to remove server's warning
+			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 		} catch (EntityException $e) {
 			throw $e;
 		}
@@ -63,4 +67,12 @@ class Address extends Entity {
 		return $fields;
 	}
 
+
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $key => $value) {
+			array_push($columns, $key);
+		}
+		return $columns;
+	}
 }

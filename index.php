@@ -9,6 +9,7 @@ defined('MYCANDIES_PATH') || define('MYCANDIES_PATH', MODEL_PATH.DS.'classes'.DS
 require_once LIB_PATH.DS.'functions.php';
 require_once __DIR__.'/backend/config/config.php';
 
-$page = get('home', '404');
-header('location: ./frontend/home.html');
+//$page = get('home', '404');
+header('location: ./backend/home.php');
 die();
+?>

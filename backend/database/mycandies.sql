@@ -1,5 +1,7 @@
+SET FOREIGN_KEY_CHECKS=0;
+
 -- BACKUP DATABASE MyCandies
--- TO DISK = 
+-- TO DISK =
 
 DROP DATABASE IF EXISTS MyCandies;
 CREATE DATABASE MyCandies;
@@ -11,7 +13,6 @@ USE MyCandies;
 SET @name_size = 100;
 SET @description_size = 300;
 */
-
 
 
 DROP TABLE IF EXISTS `Images`;
@@ -31,7 +32,7 @@ CREATE TABLE `Customers` (
 	`telephone` char(10),
 	`password` varchar(255) NOT NULL,
 	`sex` enum('M', 'F', 'O'),
-	`date_of_birth` date NOT NULL,
+	`birthdate` date NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -41,13 +42,13 @@ CREATE TABLE `Customers` (
 DROP TABLE IF EXISTS `Addresses`;
 CREATE TABLE `Addresses` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`country` varchar(20) NOT NULL,
-	`region` varchar(20) NOT NULL,
+	`country` varchar(20),
+	`region` varchar(20),
 	`province` varchar(20) NOT NULL,
 	`city` varchar(20) NOT NULL,
 	`CAP` char(5) NOT NULL,
 	`street` varchar(30) NOT NULL,
-	`street_number` varchar(10) NOT NULL,
+	`number` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -200,3 +201,6 @@ CREATE TABLE `ProductsInCarts` (
 	FOREIGN KEY (`cart_id`) REFERENCES `Carts`(`id`),
 	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+SET FOREIGN_KEY_CHECKS=1;
