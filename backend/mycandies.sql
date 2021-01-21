@@ -71,7 +71,6 @@ CREATE TABLE `Products` (
 	`name` varchar(100) NOT NULL UNIQUE,
 	`description` text,
 	`price` float(10) NOT NULL,
-	`unit_of_measure` varchar(30) NOT NULL,
 	`availability` float(20),
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`category_id`) REFERENCES `Categories`(`id`)
@@ -97,8 +96,7 @@ CREATE TABLE `ActivePrinciples` (
 DROP TABLE IF EXISTS `Effects`;
 CREATE TABLE `Effects` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(100) NOT NULL,
-	`description` text,
+	`name` varchar(100) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -107,8 +105,7 @@ CREATE TABLE `Effects` (
 DROP TABLE IF EXISTS `SideEffects`;
 CREATE TABLE `SideEffects` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(20) NOT NULL,
-	`description` text,
+	`name` varchar(20) NOT NULL UNIQUE,
 	-- link varchar(512),
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
