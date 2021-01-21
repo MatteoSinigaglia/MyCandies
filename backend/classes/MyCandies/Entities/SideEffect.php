@@ -11,14 +11,12 @@ use MyCandies\Entities;
 class SideEffect extends Entity {
 
     private $name;
-    private $description;
 
     public function __construct(int $source, array $data=[]) {
         try {
             parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
             if($source !== Entities\DB) {
                 $this->setName($data['name']);
-                $this->setDescription($data['description']);
             }
         } catch(EntityException $e) {
             throw $e;
@@ -29,12 +27,6 @@ class SideEffect extends Entity {
         if(!isset($name))
             throw new EntityException('Il nome deve essere valorizzato');
         $this->name = $name;
-    }
-
-    private function setDescription($description) {
-        if(!isset($description))
-            throw new EntityException('La descrizione deve essere valorizzata');
-        $this->description = $description;
     }
 
     public function getName() : string {

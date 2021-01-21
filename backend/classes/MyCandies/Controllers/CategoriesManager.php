@@ -36,9 +36,15 @@ class CategoriesManager
     public function insertCategory($category): bool
     {
         try {
+            $this->dbh->connect();
+            $this->dbh->transactionStart();
             $this->T_categories->insert($category);
+            $this->dbh->transactionCommit();
         } catch (Exception $e) {
+            $this->dbh->transactionRollback();
             throw $e;
+        } finally {
+            $this->dbh->disconnect();
         }
         return true;
     }

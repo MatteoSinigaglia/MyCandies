@@ -21,10 +21,10 @@ ob_start();
 require_once 'formProdotto.php';
 $htmlPage = ob_get_clean();
 
-/*if(!isset($_POST['aggiungi'])) {
+if(!isset($_POST['aggiungi'])) {
     echo $htmlPage;
     die();
-}*/
+}
 
 $success = false;
 $errorMsg = '';

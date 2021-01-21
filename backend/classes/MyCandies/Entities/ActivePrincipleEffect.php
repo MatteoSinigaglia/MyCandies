@@ -10,7 +10,7 @@ class ActivePrincipleEffect {
 
     public function __construct(int $source, array $data=[])
     {
-        if ($source !== DB) {
+        if ($source === ACTIVE_PRINCIPLES_MANAGER) {
             $this->active_principle_id = $data['active_principle_id'];
             $this->effect_id = $data['side_effect_id'];
         }
