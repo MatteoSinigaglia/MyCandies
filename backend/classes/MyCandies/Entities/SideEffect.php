@@ -6,23 +6,35 @@ require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
 require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
 use MyCandies\Exceptions\EntityException;
+use MyCandies\Entities;
 
 class SideEffect extends Entity {
 
-    public const SIDE_EFFECT = 1;
     private $name;
     private $description;
 
     public function __construct(int $source, array $data=[]) {
         try {
-            if($source === self::SIDE_EFFECT) {
-                parent::__construct($source, $data['id']);
-                $this->name = $data['name'];
-                $this->description = $data['description'];
+            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            if($source !== Entities\DB) {
+                $this->setName($data['name']);
+                $this->setDescription($data['description']);
             }
         } catch(EntityException $e) {
             throw $e;
         }
+    }
+
+    private function setName($name) {
+        if(!isset($name))
+            throw new EntityException('Il nome deve essere valorizzato');
+        $this->name = $name;
+    }
+
+    private function setDescription($description) {
+        if(!isset($description))
+            throw new EntityException('La descrizione deve essere valorizzata');
+        $this->description = $description;
     }
 
     public function getName() : string {
@@ -35,6 +47,14 @@ class SideEffect extends Entity {
             $fields[$key] = $value;
         }
         return $fields;
+    }
+
+    public function getColumns() : array {
+        $columns = array();
+        foreach ($this as $key => $value) {
+            array_push($columns, $key);
+        }
+        return $columns;
     }
 
 }

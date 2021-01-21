@@ -8,15 +8,13 @@ use MyCandies\Exceptions\EntityException;
 
 class ProductsActivePrinciple {
 
-    public const PRODUCTS_ACTIVE_PRINCIPLE = 1;
-
     private $product_id;
     private $active_principle_id;
     private $percentage;
 
     public function __construct(int $source, array $data=[]) {
         try {
-            if($source === self::PRODUCTS_ACTIVE_PRINCIPLE) {
+            if($source !== DB) {
                 $this->product_id = $data['product_id'];
                 $this->active_principle_id = $data['active_principle_id'];
                 $this->setPercentage($data['percentage']);
@@ -55,6 +53,14 @@ class ProductsActivePrinciple {
             $fields[$key] = $value;
         }
         return $fields;
+    }
+
+    public function getColumns() : array {
+        $columns = array();
+        foreach ($this as $key => $value) {
+            array_push($columns, $key);
+        }
+        return $columns;
     }
 
 }

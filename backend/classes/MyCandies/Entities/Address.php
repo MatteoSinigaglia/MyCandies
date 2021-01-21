@@ -67,7 +67,6 @@ class Address extends Entity {
 		return $fields;
 	}
 
-
 	public function getColumns() : array {
 		$columns = array();
 		foreach ($this as $key => $value) {

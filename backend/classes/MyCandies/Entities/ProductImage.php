@@ -8,14 +8,12 @@
 
     class ProductImage {
 
-        public const PRODUCT_IMAGES = 1;
-
         private $product_id;
         private $img_id;
 
         public function __construct(int $source, array $data=[]) {
             try {
-                if($source === self::PRODUCT_IMAGES) {
+                if($source !== DB) {
                     $this->setProduct_id($data['product_id']);
                     $this->setImg_id($data['img_id']);
                 }
@@ -52,5 +50,13 @@
 
         public function getImg_id() {
             return $this->img_id;
+        }
+
+        public function getColumns() : array {
+            $columns = array();
+            foreach ($this as $key => $value) {
+                array_push($columns, $key);
+            }
+            return $columns;
         }
     }

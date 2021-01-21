@@ -9,9 +9,6 @@ use MyCandies\Exceptions\EntityException;
 
 class Product extends Entity
 {
-
-    public const PRODUCT = 1;
-
     private $category_id;
     private $name;
     private $description;
@@ -21,8 +18,8 @@ class Product extends Entity
     public function __construct(int $source, array $data = [])
     {
         try {
-            parent::__construct($source, $data['id']);
-            if ($source === self::PRODUCT) {
+            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            if ($source !== DB) {
                 $this->setCategory_id($data['category_id']);
                 $this->setName($data['name']);
                 $this->setDescription($data['description']);
@@ -136,6 +133,14 @@ class Product extends Entity
             $fields[$key] = $value;
         }
         return $fields;
+    }
+
+    public function getColumns() : array {
+        $columns = array();
+        foreach ($this as $key => $value) {
+            array_push($columns, $key);
+        }
+        return $columns;
     }
 
 }

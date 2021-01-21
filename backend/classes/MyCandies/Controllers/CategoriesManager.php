@@ -11,7 +11,7 @@ use DB\dbh;
 use DB\Exceptions\DBException;
 use Exception;
 use MyCandies\Entities\Category;
-use MyCandies\Exceptions\EntityException;
+use MyCandies\Entities;
 use MyCandies\Tables\Table;
 
 class CategoriesManager
@@ -24,7 +24,8 @@ class CategoriesManager
     public function __construct()
     {
         $this->dbh = new dbh();
-        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
+        $constructorargs = [Entities\DB];
+        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class, $constructorargs);
     }
 
     /**
@@ -35,7 +36,7 @@ class CategoriesManager
     public function insertCategory($category): bool
     {
         try {
-            $this->T_categories->insert($category->getValues());
+            $this->T_categories->insert($category);
         } catch (Exception $e) {
             throw $e;
         }

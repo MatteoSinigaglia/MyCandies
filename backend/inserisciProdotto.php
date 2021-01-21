@@ -18,7 +18,7 @@ use MyCandies\Exceptions\EntityException;
 use MyCandies\Controllers\ActivePrinciplesManager;
 
 ob_start();
-require_once 'formProdotti.php';
+require_once 'formProdotto.php';
 $htmlPage = ob_get_clean();
 
 /*if(!isset($_POST['aggiungi'])) {
@@ -37,6 +37,7 @@ $data['description']    = $_POST['productDescription'];
 $data['price']          = $_POST['productPrice'];
 $data['availability']   = $_POST['productAvail'];
 $data['percentage']     = $_POST['productPercentage'];
+
 try {
     $data['category_id'] = $categoryManager->searchIdByName($_POST['productCategory'])->getId();
     $data['active_principle_id'] = $activePrincipleManager->searchIdByName($_POST['productActivePrinciple'])->getId();

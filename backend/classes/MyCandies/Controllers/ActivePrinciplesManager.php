@@ -13,8 +13,8 @@ require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
 use DB\dbh;
 use DB\Exceptions\DBException;
 use Exception;
+use MyCandies\Entities;
 use MyCandies\Entities\ActivePrinciple;
-use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 
 class ActivePrinciplesManager
@@ -27,13 +27,14 @@ class ActivePrinciplesManager
     public function __construct()
     {
         $this->dbh = new dbh();
-        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class);
+        $constructorargs = [Entities\DB];
+        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class, $constructorargs);
     }
 
     public function insertActivePrinciple($activePrinciple): bool
     {
         try {
-            $this->T_activePrinciples->insert($activePrinciple->getValues());
+            $this->T_activePrinciples->insert($activePrinciple);
         } catch (Exception $e) {
             throw $e;
         }

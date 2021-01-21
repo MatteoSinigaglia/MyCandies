@@ -9,18 +9,17 @@
     if($isSuccessfull == false)
         die("Errore nell'apertura del DB");
     else {
-        $htmlPage = file_get_contents(".." . DIRECTORY_SEPARATOR ."frontend" . DIRECTORY_SEPARATOR . "prodotti_dashboard.html");
+        $htmlPage = file_get_contents(".." . DIRECTORY_SEPARATOR . "frontend" . DIRECTORY_SEPARATOR . "prodotti_dashboard.html");
         $productHandler = new ProductHandler($dbaccess->getConnection());
-        $productList = $productHandler -> getProducts();
+        $productList = $productHandler->getProducts();
         // carica lista dei prodotti dentro la tabella
-        if(empty($productList)) {
+        if (empty($productList)) {
             $htmlPage = str_replace("<insertRow />", "<p>Non sono ancora presenti prodotti</p>", $htmlPage);
-        }
-        else {
+        } else {
             $tableRows = "";
-            foreach($productList as $row) {
+            foreach ($productList as $row) {
                 $tableRows .=
-                "<tr>
+                    "<tr>
                     <td headers=\"name\" scope=\"row\">
                         {$row['name']}
                     </td>
@@ -33,11 +32,9 @@
                     <td headers=\"actions\" scope=\"row\">
                         <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
                     </td>
-                </tr>"
-                ;
+                </tr>";
             }
             $htmlPage = str_replace("<insertRow />", $tableRows, $htmlPage);
         }
         echo $htmlPage;
     }
-?>

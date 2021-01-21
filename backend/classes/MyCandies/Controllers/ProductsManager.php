@@ -20,6 +20,7 @@ use DB\dbh;
 use DB\Exceptions\DBException;
 use Exception;
 use MyCandies\Entities\ActivePrinciple;
+use MyCandies\Entities;
 use MyCandies\Entities\Category;
 use MyCandies\Entities\Image;
 use MyCandies\Entities\Product;
@@ -50,16 +51,17 @@ class ProductsManager
     public function __construct()
     {
         $this->dbh = new dbh();
-        $this->T_products = new Table($this->dbh, 'Products', 'id', Product::class);
-        $this->T_images = new Table($this->dbh, 'Images', 'id', Image::class);
-        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class);
-        $this->T_productsImages = new Table($this->dbh, 'ProductsImages', 'id', ProductImage::class);
-        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class);
-        $this->T_productsActivePrinciples = new Table($this->dbh, 'ProductsActivePrinciples', 'id', ProductsActivePrinciple::class);
-        $this->T_effects = new Table($this->dbh, 'Effects', 'id', Effect::class);
-        $this->T_sideEffects = new Table($this->dbh, 'SideEffects', 'id', SideEffect::class);
-        $this->T_activePrinciplesEffects = new Table($this->dbh, 'ActivePrinciplesEffects', 'id', ActivePrincipleEffect::class);
-        $this->T_activePrinciplesSideEffects = new Table($this->dbh, 'ActivePrinciplesSideEffects', 'id', ActivePrincipleSideEffect::class);
+        $constructorargs = [Entities\DB];
+        $this->T_products = new Table($this->dbh, 'Products', 'id', Product::class, $constructorargs);
+        $this->T_images = new Table($this->dbh, 'Images', 'id', Image::class, $constructorargs);
+        $this->T_categories = new Table($this->dbh, 'Categories', 'id', Category::class, $constructorargs);
+        $this->T_productsImages = new Table($this->dbh, 'ProductsImages', 'id', ProductImage::class, $constructorargs);
+        $this->T_activePrinciples = new Table($this->dbh, 'ActivePrinciples', 'id', ActivePrinciple::class, $constructorargs);
+        $this->T_productsActivePrinciples = new Table($this->dbh, 'ProductsActivePrinciples', 'id', ProductsActivePrinciple::class, $constructorargs);
+        $this->T_effects = new Table($this->dbh, 'Effects', 'id', Effect::class, $constructorargs);
+        $this->T_sideEffects = new Table($this->dbh, 'SideEffects', 'id', SideEffect::class, $constructorargs);
+        $this->T_activePrinciplesEffects = new Table($this->dbh, 'ActivePrinciplesEffects', 'id', ActivePrincipleEffect::class, $constructorargs);
+        $this->T_activePrinciplesSideEffects = new Table($this->dbh, 'ActivePrinciplesSideEffects', 'id', ActivePrincipleSideEffect::class, $constructorargs);
     }
 
     public function insertProduct($product, $image, $activePrincipleId, $percentage): bool
@@ -68,15 +70,15 @@ class ProductsManager
             $this->dbh->connect();
             $data = array();
             $this->dbh->transactionStart();
-            $data['product_id'] = $this->T_products->insert($product->getValues());
-            $data['img_id'] = $this->T_images->insert($image->getValues());
-            $productImage = new ProductImage(ProductImage::PRODUCT_IMAGES, $data);
-            $this->T_productsImages->insert($productImage->getValues());
+            $data['product_id'] = $this->T_products->insert($product);
+            $data['img_id'] = $this->T_images->insert($image);
+            $productImage = new ProductImage(Entities\PRODUCTS_MANAGER, $data);
+            $this->T_productsImages->insert($productImage);
             $data_products_active_principles['product_id'] = $data['product_id'];
             $data_products_active_principles['active_principle_id'] = $activePrincipleId;
             $data_products_active_principles['percentage'] = $percentage;
-            $productsActivePrinciples = new ProductsActivePrinciple(ProductsActivePrinciple::PRODUCTS_ACTIVE_PRINCIPLE, $data_products_active_principles);
-            $this->T_productsActivePrinciples->insert($productsActivePrinciples->getValues());
+            $productsActivePrinciples = new ProductsActivePrinciple(Entities\PRODUCTS_MANAGER, $data_products_active_principles);
+            $this->T_productsActivePrinciples->insert($productsActivePrinciples);
             $this->uploadImage(); // carica l'immagine nel server
             $this->dbh->transactionCommit();
 

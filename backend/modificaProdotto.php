@@ -2,11 +2,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnection.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "productHandler.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "product.php";
-use DB\DBAccess as DBAccess;
 
-$dbaccess = new DBAccess();
-$isSuccessfull = $dbaccess->openDBconnection();
-$connection = $dbaccess->getConnection();
 
 if($isSuccessfull == false)
     die("Errore nell'apertura del DB");
@@ -51,4 +47,3 @@ else { // caricamento nel database o mostrare messaggi di errore
     $htmlPage = preg_replace($pattern, $replace, $htmlPage, 1);
     echo $htmlPage;
 }
-?>

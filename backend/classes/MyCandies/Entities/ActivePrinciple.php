@@ -5,22 +5,28 @@ namespace MyCandies\Entities;
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
 require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
+use MyCandies\Entities;
 use MyCandies\Exceptions\EntityException;
 
 class ActivePrinciple extends Entity {
 
-    public const ACTIVE_PRINCIPLE = 1;
     private $name;
 
     public function __construct(int $source, array $data=[]) {
         try {
-            if($source === self::ACTIVE_PRINCIPLE) {
-                parent::__construct($source, $data['id']);
-                $this->name = $data['name'];
+            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            if($source === Entities\ACTIVE_PRINCIPLES_MANAGER) {
+                $this->setName($data['name']);
             }
         } catch(EntityException $e) {
             throw $e;
         }
+    }
+
+    private function setName($name) {
+        if(!isset($name))
+            throw new EntityException('Il nome deve avere un valore');
+        $this->name = $name;
     }
 
     public function getName() : string {
@@ -35,4 +41,11 @@ class ActivePrinciple extends Entity {
         return $fields;
     }
 
+    public function getColumns() : array {
+        $columns = array();
+        foreach ($this as $key => $value) {
+            array_push($columns, $key);
+        }
+        return $columns;
+    }
 }

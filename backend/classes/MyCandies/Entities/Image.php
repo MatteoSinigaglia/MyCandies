@@ -9,14 +9,12 @@
 
     class Image extends Entity {
 
-        public const IMAGE = 1;
-
         private $img_path;
 
         public function __construct(int $source, array $data=[]) {
             try {
-                parent::__construct($source, $data['id']);
-                if($source === self::IMAGE) {
+                parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+                if($source !== DB) {
                     $this->setImg_path();
                 }
             } catch(EntityException $e) {
@@ -51,6 +49,14 @@
 
         public function getImg_path() {
             return $this->img_path;
+        }
+
+        public function getColumns() : array {
+            $columns = array();
+            foreach ($this as $key => $value) {
+                array_push($columns, $key);
+            }
+            return $columns;
         }
 
     }
