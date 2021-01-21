@@ -3,10 +3,8 @@
 
 namespace MyCandies\Exceptions;
 
-/**
- * Class EntityException
- * @package MyCandies\Exceptions
- */
+use Exception;
+use Throwable;
 
 /*
  * Codici di errore:
@@ -22,6 +20,24 @@ namespace MyCandies\Exceptions;
  *	-10 ->  cellulare non corretto (nullo o non rispetta regex)
  */
 
-class EntityException extends \Exception {
+/**
+ * Class EntityException
+ * @package MyCandies\Exceptions
+ */
+class EntityException extends Exception {
+
+	private $errors;
+
+	public function __construct(array $errors, int $code = 0, string $message = "", Throwable $previous = null) {
+		parent::__construct($message, $code, $previous);
+		$this->errors = $errors;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getErrors(): array {
+		return $this->errors;
+	}
 
 }

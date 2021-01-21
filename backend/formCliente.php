@@ -12,10 +12,10 @@ if ($auth->isLoggedIn()) {
 
 $DOM = file_get_contents('../frontend/formCliente.html');
 
+require_once __DIR__.'/lib/functions.php';
 
-if (isset($GLOBALS['errors']['email'])) {
-	$DOM = str_replace('', $GLOBALS['errors']['email'], $DOM);
-}
+$DOM = noSignUpForm($DOM);
+$DOM = noSignInForm($DOM);
 
 echo $DOM;
 

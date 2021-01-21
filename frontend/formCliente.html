@@ -28,7 +28,7 @@
   <a class="helps" href="#registrationForm">Vai al <span xml:lang="en" lang="en">form</span> di registrazione</a>
   <div id="headerLogoAndUtility">
       <div id="imageContainer">
-        <a href="home.html">
+        <a href="../backend/home.php">
           <img id="logo" src="../img/logo.jpeg"
               alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </a>
@@ -72,7 +72,8 @@
         <legend id="loginLegend"> E-mail e Password </legend>
         <!-- Campo user -->
         <label for="loginEmail">E-mail:</label>
-        <span><input type="text" id="loginEmail" name="user[email]" /></span>
+        <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
+        <error_login />
         <!-- Campo password -->
         <label for="loginPassword">Password:</label>
         <span><input type="password" id="loginPassword" name="user[password]" maxlength="20" /></span>
@@ -93,54 +94,66 @@
     <fieldset id="mandatoryFields">
       <div>
         <label for="email">E-mail</label>
-        <span><input type="text" name="user[email]" id="email" class="input-wide"/></span>
+        <span><input type="text" name="user[email]" id="email" class="input-wide" value="_email_value"/></span>
+        <error_email />
       </div>
       <div>
         <label for="password">Password</label>
-        <span><input type="password" name="user[password]" id="password" maxlength="20"/></span>
+        <span><input type="password" name="user[password]" id="password" maxlength="20" value="_password_value" /></span>
+        <error_password />
       </div>
       <div>
         <label for="confirmPassword">Conferma password</label>
-        <span><input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" /></span>
+        <span><input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" value="_confirmPassword_value" /></span>
+          <error_confirmPassword />
       </div>
     </fieldset>
     <fieldset>
       <legend>Dati personali</legend>
       <div>
         <label for="name">Nome</label>
-        <span><input type="text" name="user[first_name]" id="name"/></span>
+        <span><input type="text" name="user[first_name]" id="name" value="_first_name_value" /></span>
+          <error_first_name />
       </div>
       <div>
         <label for="surname">Cognome</label>
-        <span><input type="text" name="user[last_name]" id="surname"/></span>
+        <span><input type="text" name="user[last_name]" id="surname" value="_last_name_value" /></span>
+          <error_last_name />
       </div>
       <div>
         <label for="birthDate">Data di nascita</label>
-        <span><input type="text" name="user[birthdate]" id="birthDate"/></span>
+        <span><input type="text" name="user[birthdate]" id="birthDate" value="_birthdate_value" /></span>
+          <error_birthdate />
       </div>
       <div>
         <label for="address">Indirizzo</label>
-        <span><input type="text" name="address[street]" id="address"/></span>
+        <span><input type="text" name="address[street]" id="address" value="_street_value" /></span>
+          <error_street />
       </div>
       <div>
         <label for="address_number">Civico</label>
-        <span><input type="text" name="address[number]" id="address_number"/></span>
+        <span><input type="text" name="address[number]" id="address_number" value="_number_value" /></span>
+          <error_number />
       </div>
       <div>
         <label for="city">Comune</label>
-        <span><input type="text" name="address[city]" id="city" /></span>
+        <span><input type="text" name="address[city]" id="city" value="_city_value" /></span>
+          <error_city />
       </div>
       <div>
         <label for="area">Provincia</label>
-        <span><input type="text" name="address[province]" id="area"/></span>
+        <span><input type="text" name="address[province]" id="area" value="_province_value" /></span>
+          <error_province />
       </div>
       <div>
         <label for="cap">CAP</label>
-        <span><input type="text" name="address[CAP]" id="cap" maxlength="5"/></span>
+        <span><input type="text" name="address[CAP]" id="cap" maxlength="5" value="_CAP_value" /></span>
+          <error_CAP />
       </div>
       <div>
         <label for="cap">Telefono</label>
-        <span><input type="text" name="user[telephone]" id="telefono" maxlength="10" /></span>
+        <span><input type="text" name="user[telephone]" id="telefono" maxlength="10" value="_telephone_value" /></span>
+          <error_telephone />
       </div>
         <input type="submit" name="submitSubscribe" value="Registrati" class="buttons" id="confirmSubscribe" />
     </fieldset>

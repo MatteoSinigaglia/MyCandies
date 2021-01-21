@@ -16,24 +16,18 @@ class UsersAddresses {
 	public const REGISTER = 1;
 
 	public function __construct(int $source, array $data=[]) {
-		try{
-//			parent::__construct($source, $data['id']);
 
-			switch ($source) {
-				case REGISTER:
+		switch ($source) {
+			case REGISTER:
 
-				case DB:
-					if (isset($data['customer_id'])) {
-						$this->customer_id = $data['customer_id'];
-					}
-					if (isset($data['address_id'])) {
-						$this->address_id = $data['address_id'];
-					}
-					break;
-			}
-
-		} catch (EntityException $e) {
-			throw $e;
+			case DB:
+				if (isset($data['customer_id'])) {
+					$this->customer_id = $data['customer_id'];
+				}
+				if (isset($data['address_id'])) {
+					$this->address_id = $data['address_id'];
+				}
+				break;
 		}
 	}
 
