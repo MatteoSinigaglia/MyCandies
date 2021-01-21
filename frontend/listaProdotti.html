@@ -7,11 +7,12 @@
     <title>Prodotti - MyCandies</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="title" content="Prodotti - MyCandies"/>
-    <meta name="description" content="Elenco dei prodotti nello store di MyCandies, è possibile filtrare i prodotti, in modo da trovare ciò che vuoi al miglior prezzo"/>
+    <meta name="description" content="Elenco dei prodotti acquistabili dal sito"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="keywords" content="MyCandies, droghe, anfetamina, cocaina, ecstasy, marijuana"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="frontend/style.css" media="screen and (min-width: 768px)"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style_small_screen.css" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
   <link rel="stylesheet" type="text/css" href="frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
@@ -48,10 +49,9 @@
         <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="frontend/home.html">Home</a></li>
-            <li>Droghe</li>
+            <li><span>Droghe</span></li>
             <li><a href="frontend/areaPersonale.html">Area personale</a></li>
             <li><a href="frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
 </div>
@@ -147,7 +147,7 @@
                 </ul>
             </div>
             <div>
-                <h3>Padova Luzzatti Paolotti</h3>
+                <h3>Padova Stazione</h3>
                 <ul class="stylelessList">
                     <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>

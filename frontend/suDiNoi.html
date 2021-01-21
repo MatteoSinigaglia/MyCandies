@@ -5,10 +5,11 @@
 	<title>Chi siamo - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
-	<meta name="description" content="Pagina realizzata per fornire informazioni sugli sviluppatori" />
+	<meta name="description" content="Visualizzare informazioni sugli sviluppatori" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style_small_screen.css" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
@@ -41,13 +42,11 @@
         </div>
     </div>
     <div id="navigation">
-        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
             <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
 </div>
@@ -65,27 +64,37 @@
     <p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
     <div>
     <dl>
+        <div>
         <dt>Matteo Sinigaglia</dt>
         <dd>
             <img src="../img/WalterWhite.png" alt="Uomo anziano con un cappello (Walter White), protagonista della serie tv Breaking Bad." />
             <p>Matteo Sinigaglia è l'addetto alle vendite della compagnia. Si occupa di spacciare.</p>
         </dd>
+        </div>
+        <div>
 		<dt>Alessandro Flori</dt>
         <dd>
             <img src="../img/LapoElkann.jpg" alt="Lapo Elkann, uomo biondo con i capelli lunghi in evidente stato d'ebbrezza." />
             <p>Alessandro Flori è l'addetto al controllo qualità del prodotto. Si occupa di provare personalmente i prodotti.</p>
         </dd>
+        </div>
+        <div>
 		<dt>Alessio Trevisan</dt>
 		<dd>
             <img src="../img/MarkRenton.jpeg" alt="Giovane ragazzo che fuma in discoteca (Mark Renton), protagonista del film Trainspotting"  />
             <p>Alessio Trevisan è l'addetto alla contabilità. Si occupa di stabilire il giusto prezzo per derubare inconsciamente i clienti.</p>
         </dd>
+        </div>
+        <div>
 		<dt>Daniel Eduardo Contro</dt>
         <dd>
             <img src="../img/PabloEscobar.jpg" alt="Pablo Escobar,carcerato sorridente che tiene un cartello in mano. " />
             <p>Daniel Eduardo Contro è l'addetto alla sicurezza. Si occupa di tenere a bada gli hacker e i clienti che vogliono il rimborso.</p>
         </dd>
+        </div>
     </dl>
+    </div>
+</div>
 </div>
 
 <div id="footer">
@@ -122,7 +131,7 @@
                 </ul>
             </div>
             <div>
-                <h3>Padova Luzzatti Paolotti</h3>
+                <h3>Padova Stazione</h3>
                 <ul class="stylelessList">
                     <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>

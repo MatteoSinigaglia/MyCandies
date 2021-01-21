@@ -32,13 +32,13 @@ body {
 }
 
 .formErrors {
-    color: red;
+    color: rgb(134, 2, 2);
     padding: 0.5em 0em;
     display: block;
 }
 
 .rightMessage {
-    color: green;
+    color: #093013;
     display: block;
 }
 
@@ -313,11 +313,6 @@ table th {
     min-width: 25em;
 }
 
-#headerUsername {
-    float: right;
-    display: none;
-}
-
 /*----------- MENU ---------------------------------------------------------------------------*/
 
 #navigation {
@@ -326,7 +321,10 @@ table th {
     background-color: #093013;
     padding: 0.8em;
     list-style-type: none;
-    border-top: 1px solid #DDD;
+}
+
+#navigationMenu {
+    display: block;
 }
 
 #navigation li {
@@ -368,29 +366,8 @@ table th {
 ================ MENU HAMBURGER ===================================
 */
 
-#mobileMenu_visible,
-#mobileMenu_hidden {
+#mobileMenu {
     display: none;
-}
-
-/*
-================= AREA PERSONALE ===============================
-*/
-
-#avviso_utenteNonLoggato {
-    background-color: #F2E8CF;
-    border-radius: 4px;
-    margin: 1em;
-    padding: 3em 0em;
-}
-
-#avviso_utenteNonLoggato p {
-    text-align: center;
-}
-
-#logoutButton {
-    width: 100%;
-    text-align: center;
 }
 
 /*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
@@ -522,13 +499,6 @@ table th {
     border-radius: 10px;
     background-color: #F2E8CF;
 }
-
-#purchaseButton {
-    margin-top: 0.5em;
-    margin-left: 56em;
-    margin-bottom: 0.5em;
-}
-
 /*
 ==================================Lista prodotti================================
 */
@@ -641,12 +611,13 @@ background-color: #F2E8CF;
 }
 
 /*
-============ FOOTER ===========================================================================
+============ FOOTER =========================================
 */
 
 #footer {
     display: inline-block;
     width: 100%;
+    height: 100%;
     background-color: #051C0B;
     color: white;
     min-height: 10em;
@@ -656,7 +627,12 @@ background-color: #F2E8CF;
 #footer div {
     display: inline-block;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: top;
+    padding: 1em 0;
+}
+
+#stores div {
+    display: inline-block;
 }
 
 #upperFooterContainer {
@@ -665,6 +641,7 @@ background-color: #F2E8CF;
 
 #footer h3 {
     font-size: 1em;
+    text-align: left;
     margin-bottom: 0.5em;
 }
 
@@ -673,8 +650,7 @@ background-color: #F2E8CF;
 }
 
 #footer a:hover,
-#footer a:visited:hover{
-    color: rgb(184, 3, 3);
+#footer a:visited:hover {
     text-decoration: none;
 }
 
@@ -683,38 +659,21 @@ background-color: #F2E8CF;
 }
 
 /*
-=================== CONTATTI ===================================================================
-*/
-
-#contacts {
-    margin: 1em;
-}
-
-/*
 ================== PUNTI VENDITA ==============================================================
 */
 
-#stores{
-    min-width: 78%;
-    margin: 1em;
+#stores {
+    min-width: 60%;
+    margin: 0 0.3em;
 }
 
 #stores div {
-    padding-right: 2em;
-    min-width: 11em;
-}
-
-#stores h3 {
-    text-align: left;
+    margin: 0.1em 0.5em;
 }
 
 /*
 =============== SOCIAL ==========================================================================
 */
-
-#social {
-    margin: 1em;
-}
 
 #social ul li {
     padding-bottom: 0.2em;
@@ -732,9 +691,9 @@ background-color: #F2E8CF;
 }
 
 #diritti p {
-    margin: 1em;
     font-weight: 400;
     text-align: center;
+    color: #FFFFFF;
 }
 
 /*=============================HOME====================*/
@@ -768,7 +727,7 @@ background-color: #F2E8CF;
 }
 
 /*
-=============== Cose sfuse ========================
+=============== Inserisci Prodotto ========================
 */
 
 #effects {
@@ -812,7 +771,7 @@ background-color: #F2E8CF;
     border-radius: 10px 10px 0px 0px;
     color: white;
     font-weight: bold;
-    padding: 0.3em; 
+    padding: 0.3em;
 }
 
 #aboutUsContent dl dd {
@@ -831,11 +790,13 @@ background-color: #F2E8CF;
     width: 15%;
     border-radius: 7px;
     border: 1px solid rgb(165, 164, 164);
+    margin-right: 1em;
 }
 
 #aboutUsContent dl dd p {
     border: none;
     background-color: transparent;
     padding: 0.3em;
+    padding-left: 2em;
+    text-align: left;
 }
-
