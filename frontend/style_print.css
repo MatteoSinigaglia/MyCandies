@@ -105,64 +105,44 @@ border: 1px solid #000000;
 */
 
 table {
-margin: 3em auto 3em auto;
+margin: 3em auto;
 width: 75%;
 text-align: center;
 border-collapse: collapse;
 border: 1px solid #000;
 }
-
-table td{
+table td,
+table th{
 padding: 0.5em;
 border: 1px solid #000;
 }
-
-table th {
-padding: 0.5em;
-border: 1px solid #000;
-}
-
 /*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
-
 #productContent h2 {
 font-size: 1.5em;
-font-weight: bold;
 margin: 0.5em 0;
 }
-
 #productContenitor {
 float: left;
 width: 75%;
-border: 1px solid #000000;
+border: 1px solid #000;
 border-radius: 10px;
-margin-bottom: 1em;
-margin-right: 0.5em;
 }
-
 #productContenitor dl dt {
 font-size: 1.5em;
 font-weight: bold;
-margin-top: 0.5em;
 margin-left: 0.6em;
 }
-
-#productContenitor dl dd {
-min-height: 12em;
-}
-
 #productContenitor dl dd img {
 float: left;
 width: 20%;
 margin-top: 1em;
 margin-left: 1em;
 }
-
 #productContenitor dl dd p {
 width: 75%;
 padding: 0.5em 1em;
 margin-left: 22%;
 }
-
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
 float: right;
@@ -171,40 +151,30 @@ margin-bottom: 1em;
 width: 20%;
 border: 1px solid #000;
 }
-
 #productTableContent table {
 margin: 1em auto;
 text-align: center;
 border-collapse: collapse;
 }
-
 #productTableContent tr,
 #productTableContent th,
 #productTableContent td {
 padding: 0.3em 0.5em;
 }
-
 #productTableContent th {
 border-bottom: 1px solid #000000;
 border-right: 1px solid transparent;
 border-left: 1px solid transparent;
 border-top: 1px solid transparent;
 }
-
 #productTableContent td {
 border: 1px solid transparent;
-
 }
-
-/*---------- FINE DESCRIZIONE ------------------------------------------------------------------*/
-
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
 margin: auto;
 text-align: center;
 }
-
-/*-------------------FINE LOGIN/REGISTRAZIONE-----------------  */
 /*
 ==================================Lista prodotti================================
 */
@@ -219,33 +189,27 @@ flex-direction: row;
 padding: 2em;
 border: 1px solid #000000;
 }
-
 .singleProduct img {
 text-align: center;
 padding: 1em;
 }
-
 /* titolo del box che contiene il prodotto e descrizione del prodotto*/
 .singleProduct h2,
 p {
 text-align: left;
 }
-
 #productsPageNumber {
 text-align: center;
 display: inline-block;
 width: 100%;
 }
-
 #filtersForm fieldset div span {
 float: left;
 }
-
 .stylelessList {
 list-style-type:none;
 text-align: left;
 }
-
 #contentFAQ li {
 margin-bottom:0.5em;
 }
@@ -255,23 +219,18 @@ font-size: 18px;
 /*
 ============ FOOTER ===========================================================================
 */
-
 #footer {
 display: inline-block;
 width: 100%;
 margin-top: 0.5em;
 }
-
 #footer div {
 display: inline-block;
-text-align: center;
-vertical-align: middle;
+vertical-align: top;
 }
-
 #upperFooterContainer {
 width: 100%;
 }
-
 #footer h3 {
 font-size: 1em;
 margin-bottom: 0.5em;
@@ -279,101 +238,70 @@ margin-bottom: 0.5em;
 /*
 =================== CONTATTI ===================================================================
 */
-
 #contacts {
-margin: 1em;
+margin-right: 5em;
 }
-
 /*
 ================== PUNTI VENDITA ==============================================================
 */
-
 #stores{
 margin-bottom: 1em;
 }
-
 #stores div {
-padding-right:0.4em;
+padding-right: 0.4em;
 }
-
 #stores h3 {
 text-align: left;
 }
-
 /*========DIRITTI======*/
 #diritti{
 width: 100%;
 border-top: 1px solid #000;
 }
-
 #diritti p {
 margin: 1em;
 font-weight: 600;
 }
-
 /*
 ============== SU DI NOI ==========================
 */
-
 #aboutUsContent h1 {
 text-align: center;
 }
-
 #aboutUsContent p {
-text-align: left;
 width: 80%;
 margin: 0 auto;
-padding: 0.7em;
-
+padding: 0.5em;
 }
-
 #aboutUsContent dl {
 width: 60%;
 margin: 2% 20%;
 border: 1px solid #000000;
-border-top: transparent;
 }
-
 #aboutUsContent dt {
 width: 99%;
 font-weight: bold;
-padding-top: 0.3em;
 padding-left: 1%;
 border-bottom: 1px solid #000000;
 border-top: 1px solid #000000;
 }
-
-#aboutUsContent dl dd {
-width: 70%;
-display: inline-block;
-padding: 0.3em;
-margin-bottom: 1.5em;
-}
 #aboutUsContent dl dd p{
-margin: 0;
+padding: 0.3em;
 }
-
 /*=============================HOME====================*/
 #contentHome{
 width: 85%;
-margin-left: 7.5%;
-margin-right: 7.5%;
-margin-top: 2em;
+margin: 1em auto;
 }
-
 #contentHome p{
 font-size: 18px;
-text-align: center;
 font-family: cambria, serif;
-padding-bottom: 1em;
+text-align: center;
 }
 #contentHome h1{
 font-size: 28px;
 text-align: center;
 }
-
-/*AREA PERSONALE*/
-/*---------------------*/
 #credentialChange_mail {
 font-weight: bold;
 text-align: center;
