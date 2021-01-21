@@ -21,11 +21,9 @@ function loadMenu() {
         if (button) {
             menuContenitor.removeChild(button);
         }
-        if (navigationMenu.style.display == "none") {
-            navigationMenu.style.marginTop = "0";
-            navigationMenu.style.borderTop = "transparent";
-            navigationMenu.style.display = "block";
-        }
+        navigationMenu.style.marginTop = "0";
+        navigationMenu.style.borderTop = "transparent";
+        navigationMenu.style.display = "block";
     }
 }
 
