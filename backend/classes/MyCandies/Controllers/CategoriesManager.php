@@ -29,9 +29,10 @@ class CategoriesManager
     }
 
     /**
-     * @param $category
+     * @param $name
      * @return bool
-     * @throws Exception
+     * @throws DBException
+     * @throws \MyCandies\Exceptions\EntityException
      */
     public function insertCategory($name): bool
     {

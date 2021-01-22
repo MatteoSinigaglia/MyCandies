@@ -12,15 +12,17 @@ $productList = array();
 try {
     $productList = $productManager->getProducts();
 } catch (Exception $e) {
-    $htmlPage = str_replace("<insertRow />", "<p>Non sono ancora presenti prodotti</p>", $htmlPage);
+    // TODO pagina 404
+    $htmlPage = str_replace("<insertRow />", "<p>Errore nel caricamento</p>", $htmlPage);
     echo $htmlPage;
     die();
 }
 // carica lista dei prodotti dentro la tabella
 $tableRows = "";
-foreach ($productList as $row) {
-    $tableRows .=
-        "<tr>
+if(!empty($productList)) {
+    foreach ($productList as $row) {
+        $tableRows .=
+            "<tr>
         <td headers=\"name\" scope=\"row\">
             {$row['name']}
         </td>
@@ -34,7 +36,9 @@ foreach ($productList as $row) {
             <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
         </td>
     </tr>";
+    }
+    $htmlPage = str_replace("<insertRow />", $tableRows, $htmlPage);
+} else {
+    $htmlPage = str_replace("<insertRow />", '<tr><td colspan="4">Non sono presenti prodotti nel database</td></tr>', $htmlPage);
 }
-$htmlPage = str_replace("<insertRow />", $tableRows, $htmlPage);
-
 echo $htmlPage;

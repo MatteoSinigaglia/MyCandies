@@ -14,7 +14,7 @@
         public function __construct(int $source, array $data=[]) {
             try {
                 parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
-                if($source !== DB) {
+                if($source === CATEGORIES_MANAGER) {
                     $this->setName($data['name']);
                 }
             } catch(EntityException $e) {
@@ -33,7 +33,7 @@
         }
 
         public function getValues() : array {
-            $fields = parent::getValues();
+            $fields =[];
             foreach ($this as $key => $value) {
                 $fields[$key] = $value;
             }

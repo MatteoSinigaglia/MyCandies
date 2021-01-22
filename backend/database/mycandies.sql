@@ -56,7 +56,6 @@ DROP TABLE IF EXISTS `Categories`;
 CREATE TABLE `Categories` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`name` varchar(20) NOT NULL UNIQUE,
-	`description` text NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -145,7 +144,7 @@ CREATE TABLE `ProductsActivePrinciples` (
 	`active_principle_id` int NOT NULL,
 	`percentage` float(10) NOT NULL,
 	PRIMARY KEY (`product_id`, `active_principle_id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE,
 	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -187,7 +186,7 @@ CREATE TABLE `ProductsImages` (
 	`product_id` int NOT NULL,
 	`img_id` int NOT NULL,
 	PRIMARY KEY (`product_id`, `img_id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE,
 	FOREIGN KEY (`img_id`) REFERENCES `Images`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -199,7 +198,7 @@ CREATE TABLE `ProductsInCarts` (
 	`quantity` float(24) NOT NULL,
 	PRIMARY KEY (`cart_id`, `product_id`),
 	FOREIGN KEY (`cart_id`) REFERENCES `Carts`(`id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 

@@ -10,7 +10,6 @@ if(!isset($_GET['name']))
     die('404: non è possibile accedere al server in questo momento, riprova fra qualche minuto');
 
 $name = $_GET['name'];
-
 $productManager = new ProductsManager();
 
 // esegui e cattura l-output di prodotti_dashboard
@@ -20,11 +19,13 @@ $htmlPage = ob_get_clean();
 
 $search = "<table";
 $replace = "
-            <form action=\"#\" method=\"post\">
+            <form action=\"../backend/saveProductChanges.php\" method=\"post\">
+            <fieldset>
             <table";
 $htmlPage = str_replace($search, $replace, $htmlPage);
 $search = "</table>";
 $replace = "</table>
+            </fieldset>
             </form>";
 $htmlPage = str_replace($search, $replace, $htmlPage);
 
@@ -36,7 +37,7 @@ try {
 
 $pattern = "/$name(.*?)<\/tr>/s";
 $replace = "$name
-            <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\">
+            <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\" />
             </td>
             <td headers=\"price\" scope=\"row\">
                 <input type=\"text\" value=\"{$product->getPrice()}\" id=\"modifyPrice\" name=\"modifyPrice\"/>
@@ -45,7 +46,9 @@ $replace = "$name
                 <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\"/>
             </td>
             <td headers=\"actions\" scope=\"row\">
-                <input type=\"button\" value=\"Salva\" name=\"modifyProduct\">
+                <input type=\"submit\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
+                <input type=\"submit\" value=\"Cancella\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
+                <messages />
             </td>
         </tr>
     ";

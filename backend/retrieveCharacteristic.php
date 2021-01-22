@@ -28,7 +28,7 @@ if(isset($_POST['submitActivePrinciple'])) {
     }
 } else if(isset($_POST['submitCategory'])) {
     ob_start();
-    $_GET['insertCategory']='Inserisci+effetto';
+    $_GET['insertCategory']='Inserisci+categoria';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
     $name = $_POST['categoryName'];

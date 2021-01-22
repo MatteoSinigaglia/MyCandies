@@ -166,24 +166,26 @@ class Table {
 		}
 	}
 
-	private function update(array $fields) {
+	public function update(array $fields) {
 
 //		think how to handle pk with composite pks
-		$query = 'UPDATE `'.$this->table.'` SET `';
+		$query = 'UPDATE `'.$this->table.'` SET ';
 
 		foreach ($fields as $key => $value) {
-			$query .= '`'.$key.'` = :'.$key.',';
+		    if($key != 'id')
+			    $query .= '`'.$key.'` = :'.$key.',';
 		}
 
 //		Remove last ',' inserted in foreach statement
 		$query = rtrim($query, ',');
 
-		$query .= ' WHERE `'.$this->primaryKey.'` = :primaryKey';
-
-		$fields['primaryKey'] = $fields[$this->primaryKey];
+		$query .= ' WHERE `'.$this->primaryKey.'` = :'.$this->primaryKey.'';
 
 		$fields = $this->processDates($fields);
-
+        echo $query;
+        foreach ($fields as $k => $v) {
+            echo $k.' => '.$v.' ';
+        }
 		try {
 			$this->dbh->query($query, $fields);
 		} catch (DBException $e) {
@@ -199,7 +201,7 @@ class Table {
 			'id' => $id
 		];
 
-		$this->query($query, $parameters);
+		$this->dbh->query($query, $parameters);
 	}
 
 	public function deleteWhere(string $column, mixed $value) {

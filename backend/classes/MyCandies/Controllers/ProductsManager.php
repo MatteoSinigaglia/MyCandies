@@ -99,8 +99,55 @@ class ProductsManager
         }
     }
 
-    public function removeProduct()
+    public function modifyProduct($data) : bool {
+        try{
+            $productId = $this->getProductByName($data['name'])->getId();
+            $this->dbh->connect();
+            $this->dbh->transactionStart();
+            $this->T_products->update([
+                'id'           => $productId,
+                'price'        => $data['price'],
+                'availability' => $data['availability']
+            ]);
+            $this->dbh->transactionCommit();
+        } catch(DBException | Exception $e) {
+            $this->dbh->transactionRollback();
+            throw $e;
+        } finally {
+            $this->dbh->disconnect();
+        }
+        return true;
+    }
+
+    public function removeProduct($name) : bool
     {
+        try {
+            $product = $this->getProductByName($name);
+            $this->dbh->connect();
+            $images = $this->T_productsImages->find([
+                    'column' => 'product_id',
+                    'value'  => $product->getId()
+            ]);
+            $image_id = $images[0]->getImg_id();
+            $this->dbh->transactionStart();
+            $this->T_products->delete($product->getId());
+            $img_path = $this->T_images->find([
+                'column' => 'id',
+                'value'  => $image_id
+            ])[0]->getImg_path();
+            $this->deleteImage($img_path);
+            $this->T_images->delete($image_id);
+            $this->dbh->transactionCommit();
+        } catch (Exception | DBException $e) {
+            throw $e;
+        }
+        return true;
+    }
+
+    private function deleteImage($img_path) {
+        if(realpath($img_path) != false && is_writable($img_path)){
+            unlink($img_path);
+        } else throw new Exception('Non è stato possibile eliminare l\'immagine');
     }
 
     public function getProducts() : array
@@ -134,7 +181,6 @@ class ProductsManager
                     $row['img_path'] = $image->getImg_path();
             }
         }
-
          return $rows;
     }
 
@@ -151,7 +197,7 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-        return $products[0];
+        return (count($products) >= 1 ? $products[0] : null);
     }
 
     public function getSingleProduct($id) : array {
