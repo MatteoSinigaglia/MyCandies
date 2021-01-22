@@ -72,7 +72,7 @@ class Register extends Authentication {
 	/**
 	 * @return bool
 	 */
-	private function valid() : bool {
+	private function validEmail() : bool {
 
 		$email = [
 			'column'    =>  'email',
@@ -96,7 +96,7 @@ class Register extends Authentication {
 	 */
 	public function registration() {
 		try {
-			$this->valid();
+			$this->validEmail();
 			$this->dbh->connect();
 			$this->dbh->transactionStart();
 

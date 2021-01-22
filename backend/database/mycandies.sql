@@ -36,6 +36,12 @@ CREATE TABLE `Customers` (
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS `Admins`;
+CREATE TABLE `Admins` (
+    `id` int NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id`) REFERENCES `Customers`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- TO DO: 
 /* Consider using different tables for countries, regions, province, cities */

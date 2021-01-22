@@ -36,13 +36,6 @@ function noSignUpForm($DOM) {
 		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
 	}
 
+	$DOM = str_replace('<error_confirmPassword />', '', $DOM);
 	return str_replace('_confirmPassword_value', '', $DOM);
-}
-
-function signupForm($DOM) {
-	$DOM = str_replace('<error_login />', '', $DOM);
-	$DOM = str_replace('_email_value_login', '', $DOM);
-
-
-	return $DOM;
 }

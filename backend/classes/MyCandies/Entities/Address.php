@@ -33,14 +33,14 @@ class Address extends Entity {
 				break;
 			case REGISTER:
 //				var_dump($data);
-				if (!isset($data['country']) || strlen($data['country']) < 1/* || regex check */) {
-					$errors['country'] = 'Errore inserimento nazione';
-//					throw new EntityException('', -11);
-				}
-				if (!isset($data['region']) || strlen($data['region']) < 1/* || regex check */) {
-					$errors['region'] = 'Errore inserimento regione';
-//					throw new EntityException('', -12);
-				}
+//				if (!isset($data['country']) || strlen($data['country']) < 1/* || regex check */) {
+//					$errors['country'] = 'Errore inserimento nazione';
+////					throw new EntityException('', -11);
+//				}
+//				if (!isset($data['region']) || strlen($data['region']) < 1/* || regex check */) {
+//					$errors['region'] = 'Errore inserimento regione';
+////					throw new EntityException('', -12);
+//				}
 				if (!isset($data['province']) || strlen($data['province']) < 1/* || regex check */) {
 					$errors['province'] = 'Errore inserimento provincia';
 //					throw new EntityException('', -13);

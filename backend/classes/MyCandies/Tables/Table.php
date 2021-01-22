@@ -71,7 +71,11 @@ class Table {
 			'value' => $value
 		];
 
-		$query = $this->dbh->query($query, $parameters);
+		try {
+			$query = $this->dbh->query($query, $parameters);
+		} catch (DBException $e) {
+			echo $e;
+		}
 		$query->fetchObject($this->className, $this->constructorArgs);
 	}
 
@@ -104,7 +108,7 @@ class Table {
 
 			$query = $this->dbh->query($query, $parameters);
 			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
-		} catch (\Exception $e) {
+		} catch (DBException $e) {
 			echo $e;
 		}
 	}
@@ -113,11 +117,10 @@ class Table {
 		try {
 
 			require_once __DIR__.'/../../../lib/functions.php';
-			$slice = [];
 			if ($entity instanceof User) {
 				$slice = ['first_name', 'last_name', 'email', 'password', 'telephone', 'birthdate'];
 			} else if ($entity instanceof Address) {
-				$slice = ['province', 'city', 'CAP', 'number'];
+				$slice = ['province', 'city', 'CAP', 'number', 'street'];
 			} else {
 				$slice = $entity->getColumns();
 				echo 'Slice: ';
@@ -158,7 +161,7 @@ class Table {
 			echo 'DBException';
 			throw $e;
 		} catch (EntityException $e) {
-			echo 'EException';
+			echo 'EntityException';
 			var_dump($entity);
 			echo $e;
 		} catch (Exception $e) {

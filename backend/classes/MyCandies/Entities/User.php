@@ -55,7 +55,6 @@ class User extends Entity {
 					$errors['confirmPassword'] = 'Le password non corrispondono';
 //						throw new EntityException('Le password non corrispondono', -7);
 				}
-
 				if (!isset($data['first_name']) || strlen($data['first_name']) < 1 /*|| regex check*/) {
 					$errors['first_name'] = 'Nome non corretto';
 //						throw new EntityException('Nome non corretto', -3);
@@ -73,17 +72,6 @@ class User extends Entity {
 //						throw new EntityException('Telefono non corretto', -4);
 				}
 
-//			TODO: remove comment when added in form
-//			        if (!isset($data['birthdate']) /*|| regex check*/) {
-//				        throw new EntityException('Formato data non corretto. Inserire (DD-MM-YYYY).', -8);
-//			        }
-//			        if ($this->isUnderage($data['birthdate'])) {
-//				        throw new EntityException('Utente minorenne non consentito', -9);
-//			        }
-//			        if (!isset($data['telephone']) /*|| regex check*/) {
-//				        throw new EntityException('Cellulare non corretto', -10);
-//			        }
-
 				$this->first_name = $data['first_name'];
 				$this->last_name = $data['last_name'];
 				$this->email = $data['email'];
@@ -94,6 +82,9 @@ class User extends Entity {
 
 //				Controls only in email and password
 			case LOGIN:
+
+				if (!isset($data['email']) || strlen($data['email']) < 1 /* regex checks*/)
+					$errors['login'] = 'L\'email inserita non è valida';
 				$this->email = $data['email'];
 				$this->password = $data['password'];
 				break;
