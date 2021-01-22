@@ -1,12 +1,11 @@
 var form_login = {
     "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta."],
-    "loginPassword": ["password", /.{5,20}/,"La password inserita non è corretta."]
 };
 
 var form_registrazione = {
     "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
-    "password": ["password", /.{5,20}/,"Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
-    "confirmPassword": ["", /.{5,20}/,"La password non corrisponde a quella scelta."],
+    "password": ["password", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
+    "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
     "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],

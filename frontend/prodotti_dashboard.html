@@ -5,7 +5,8 @@
 	<title>Dashboard Visualizza Utenti- My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
-	<meta name="description" content="Pagina realizzata per descrivere un prodotto nel dettaglio" />
+    <meta name="description" content="Pagina riepilogativa dei prodotti attualmente disponibili" />
+    <meta name="keywords" content="MyCandies, prodotti, dettagli, disponibilità" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
@@ -43,10 +44,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="name" title="Nome prodotto">null</td>
-                    <td headers="price" title="Prezzo">null</td>
-                    <td headers="quantity" title="Quantità disponibile">null</td>
-                    <td headers="actions" title="Azioni"></td> <!-- pulsanti per: aumentare/diminuire quantità, eliminare prodotto-->
+                    <td headers="name" title="Nome prodotto" scope="row"></td>
+                    <td headers="price" title="Prezzo" scope="row"></td>
+                    <td headers="quantity" title="Quantità disponibile" scope="row"></td>
+                    <td headers="actions" title="Azioni" scope="row"></td> 
                 </tr>
             </tbody>
         </table>

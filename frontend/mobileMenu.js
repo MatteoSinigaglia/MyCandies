@@ -1,25 +1,37 @@
 function loadMenu() {
-    if(window.screen.width <= 767) {
-        var menuButton = document.getElementById("mobileMenu_hidden");
-        if(!menuButton) {
-            menuButton = document.getElementById("mobileMenu_visible");
+    var menuContenitor = document.getElementById("navigation");
+    var navigationMenu = document.getElementById("navigationMenu");
+    if(window.innerWidth <= 767) {
+        var but = document.getElementById("mobileMenu");
+        if (!but) {
+            var button = document.createElement("button");
+            button.id = "mobileMenu";
+            button.className = "fa fa-bars";
+            button.onclick = function() {mobileMenu();};
+            menuContenitor.insertBefore(button, navigationMenu);
+            navigationMenu.style.marginTop = "0.5em";
+            navigationMenu.style.borderTop = "1px solid #DDD";
+            navigationMenu.style.display = "none";
         }
-        menuButton.id = "mobileMenu_visible";
-        var menu = document.getElementById("navigationMenu");
-        menu.style.display = "none";
+        if(navigationMenu.style.display == "block") {
+            navigationMenu.style.display = "none";
+        }
     } else {
-        var menu = document.getElementById("navigationMenu");
-        menu.style.display = "block";
+        var button = document.getElementById("mobileMenu");
+        if (button) {
+            menuContenitor.removeChild(button);
+        }
+        navigationMenu.style.marginTop = "0";
+        navigationMenu.style.borderTop = "transparent";
+        navigationMenu.style.display = "block";
     }
 }
 
-window.onresize = function() {
-    loadMenu();
-}
+window.onresize = loadMenu;
 
 function mobileMenu() {
     var menu = document.getElementById("navigationMenu");
-    var button = document.getElementsByClassName("fa fa-bars");
+    var button = document.getElementsByClassName("mobileMenu");
     if(menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";

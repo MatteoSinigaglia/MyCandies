@@ -6,11 +6,13 @@
     <title>Area Personale - MyCandies</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="title" content="Area Personale - MyCandies"/>
-    <meta name="description" content="Pagina realizzata per l'area contenente i dati del cliente"/>
+    <meta name="description" content="Accedere ai dati personali del profilo"/>
+    <meta name="keywords" content="MyCandies, area personale"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
     <link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style_small_screen.css" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -33,8 +35,7 @@
             <form class="searchButton" id="headerSearchBar" action="#" method="get">
                 <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-                        class="buttons" />
+					<span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
                 </div>
             </form>
 
@@ -43,13 +44,11 @@
         </div>
     </div>
     <div id="navigation">
-        <button id="mobileMenu_hidden" class="fa fa-bars" onclick="mobileMenu();"></button>
         <ul id="navigationMenu">
             <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
             <li><a href="listaProdotti.html">Droghe</a></li>
             <li><span>Area personale</span></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-            <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
         </ul>
     </div>
 </div>
@@ -60,11 +59,7 @@
         </a>/ Area personale</p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <div id="avviso_utenteNonLoggato" class=""> <!-- class="hide" per nascondere -->
-        <p>Per visualizzare le informazioni dell'area personale è necessario eseguire l'accesso. <br/>
-           E' possibile effettuare l'accesso o la registrazione cliccando questo link: <a href="formCliente.html" class="paragraphLink">Accedi/registrati.</a></p>
-    </div>
-    <form id="formAreaPersonale" action="#" method="post" class="inputForm hide" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente"> <!-- da PHP basta togliere hide -->
+    <form id="formAreaPersonale" action="#" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente">
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
@@ -76,10 +71,6 @@
             <!-- Cognome --><label for="cognome"> Cognome:</label>
             <span><input
             type="text" id="cognome" name="cognome"/></span>
-            <!-- Nazione -->
-            <label for="nazione">Nazione:</label>
-            <span><input
-            type="text" id="nazione" name="nazione"/></span>
             <!-- Comune -->
             <label for="comune">Comune:</label>
             <span><input
@@ -117,13 +108,13 @@
         </fieldset>
     </form>
     <div id="logoutButton">
-        <button class="buttons hide">Logout</button> <!-- da PHP basta togliere hide  -->
+        <button class="buttons">Logout</button>
     </div>
 </div>
+<div class="helpBackToHeader">
+    <a href="#header" class="backToHeader"> Torna su</a>
+</div>
 <div id="footer">
-    <div class="displayed_helpBackToHeader">
-        <a href="#header" class="backToHeader"> Torna su</a>
-    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>
@@ -157,7 +148,7 @@
                 </ul>
             </div>
             <div>
-                <h3>Padova Luzzatti Paolotti</h3>
+                <h3>Padova Stazione</h3>
                 <ul class="stylelessList">
                     <li>Orario: 4:00 - 20:00</li>
                     <li>Chiuso nei weekend</li>
