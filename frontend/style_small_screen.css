@@ -167,6 +167,9 @@ color: white;
 color: #CDA434;
 text-decoration: none;
 }
+#footer .backToHeader:visited {
+color: white;
+}
 /*
 ==================================FORMS========================
 */
@@ -360,7 +363,6 @@ border: transparent;
 #loginAndRegistrationContent {
 margin: auto;
 text-align: center;
-padding: 3em;
 }
 .formContainer {
 display: inline-block;

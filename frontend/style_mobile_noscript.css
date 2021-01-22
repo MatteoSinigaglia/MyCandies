@@ -152,6 +152,9 @@ color: white;
 color: #CDA434;
 text-decoration: none;
 }
+#footer .backToHeader:visited {
+color: white;
+}
 /*
 ============= TABELLE RESPONSIVE PER MOBILE =========================
 */
