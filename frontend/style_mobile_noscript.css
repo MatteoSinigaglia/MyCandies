@@ -449,6 +449,7 @@ width: 100%;
 width: 95%;
 border-bottom: 1px solid #ddd;
 background-color: #F2E8CF;
+margin: 1em auto;
 }
 #filters form div {
 text-align: center;
@@ -609,7 +610,7 @@ margin-top: 1em;
 padding-bottom: 2%;
 }
 #contentHome p{
-font-size: 18px;
+font-size: 1.2em;
 margin-left: 15%;
 margin-right: 15%;
 text-align: center;
@@ -617,7 +618,7 @@ font-family: cambria, sans-serif;
 padding-bottom: 1em;
 }
 #contentHome h1{
-font-size: 28px;
+font-size: 1.5em;
 text-align: center;
 }
 /*
