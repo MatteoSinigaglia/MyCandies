@@ -46,8 +46,8 @@ try {
 }
 
 try {
-    $product = new Product(Product::PRODUCT, $data);
-    $image = new Image(Image::IMAGE);
+    $product = new Product(MyCandies\Entities\PRODUCTS_MANAGER, $data);
+    $image = new Image(MyCandies\Entities\PRODUCTS_MANAGER);
     $insertProduct = new ProductsManager();
     $success = $insertProduct->insertProduct($product, $image, $data['active_principle_id'], $data['percentage']);
 

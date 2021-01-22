@@ -2,16 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <base href="http://localhost/MyCandies/" />
 	<title>Dashboard Inserisci Prodotto - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
 	<meta name="description" content="Form di inserimento di nuove caratteristiche" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="frontend/style.css" media="screen and (min-width: 768px)"/>
-	<link rel="stylesheet" type="text/css" href="frontend/style_print.css" media="print"/>
-	<link rel="stylesheet" type="text/css" href="frontend/style_mobile_noscript.css"
+	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 </head>
 
@@ -19,11 +18,11 @@
     <div id="header">
         <div id="navigation">
             <ul>
-                <li><a href="frontend/riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
-                <li><a href="frontend/utenti_dashboard.html">Utenti</a></li>
-                <li><a href="backend/formProdotto.php">Inserisci prodotto</a></li>
-                <li><a href="frontend/prodotti_dashboard.html">Lista prodotti</a></li>
-                <li><a href="frontend/home.html">Home</a></li>
+                <li><a href="../frontend/riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
+                <li><a href="../frontend/utenti_dashboard.html">Utenti</a></li>
+                <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
+                <li><a href="../frontend/prodotti_dashboard.html">Lista prodotti</a></li>
+                <li><a href="../frontend/home.html">Home</a></li>
                 <li><span>Inserisci caratteristiche</span></li>
             </ul>
         </div>
@@ -34,7 +33,7 @@
     </div>
 
     <div id="inserisciCaratteristicheDashboard" class="main">
-        <form action="backend/insertCharacteristics.php" method="get" class="inputForm">
+        <form action="../backend/insertCharacteristics.php" method="get" class="inputForm">
             <fieldset>
                 <input type="submit" id="insertActivePrinciple" name="insertActivePrinciple" value="Inserisci principio attivo" class="buttons" />
                 <input type="submit" id="insertEffect" name="insertEffect" value="Inserisci effetto" class="buttons" />

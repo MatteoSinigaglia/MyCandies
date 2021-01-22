@@ -24,7 +24,7 @@ class ActivePrinciple extends Entity {
     }
 
     private function setName($name) {
-        if(!isset($name))
+        if(!isset($name) || $name == '')
             throw new EntityException('Il nome deve avere un valore');
         $this->name = $name;
     }

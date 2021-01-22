@@ -33,11 +33,13 @@ class CategoriesManager
      * @return bool
      * @throws Exception
      */
-    public function insertCategory($category): bool
+    public function insertCategory($name): bool
     {
         try {
             $this->dbh->connect();
             $this->dbh->transactionStart();
+            $category = new Category(Entities\CATEGORIES_MANAGER, [
+                'name' => $name]);
             $this->T_categories->insert($category);
             $this->dbh->transactionCommit();
         } catch (Exception $e) {

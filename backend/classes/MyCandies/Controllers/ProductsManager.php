@@ -93,7 +93,7 @@ class ProductsManager
 
     private function uploadImage()
     {
-        $uploadfile = 'img' . DS . 'products' . DS . $_FILES['productImage']['name'];
+        $uploadfile = ROOT. DS.'img' . DS . 'products' . DS . $_FILES['productImage']['name'];
         if (!move_uploaded_file($_FILES['productImage']['tmp_name'], $uploadfile)) {
             throw new Exception('Immagine non caricata nel server');
         }

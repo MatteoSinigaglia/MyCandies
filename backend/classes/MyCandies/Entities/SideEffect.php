@@ -24,7 +24,7 @@ class SideEffect extends Entity {
     }
 
     private function setName($name) {
-        if(!isset($name))
+        if(!isset($name) || $name == '')
             throw new EntityException('Il nome deve essere valorizzato');
         $this->name = $name;
     }

@@ -22,12 +22,15 @@ if(isset($_GET['insertActivePrinciple'])) {
         $sideEffectCheckboxes .= '<label for="'.$i->getName().'"><input type="checkbox" name="sideEffects[]" id="'.$i->getName().'" value="'.$i->getName().'" />'.$i->getName().'</label>';
     }
     $form = '
+        </form>
+    </div>
     <div>
-        <form action="backend/retrieveCharacteristic.php" method="post" class="inputForm">
+        <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
             <fieldset>
                 <legend>Inserimento nuovo principio attivo</legend>
                 <label for="activePrincipleName">Nome:</label>
                 <span><input type="text" id="activePrincipleName" name="activePrincipleName" /></span>
+                <errName />
                 <fieldset>
                     <legend>Effetti del principio attivo</legend>
                     '.$effectCheckboxes.'
@@ -42,54 +45,54 @@ if(isset($_GET['insertActivePrinciple'])) {
     </div>';
 
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    echo $htmlPage;
-    die();
-}
-if(isset($_GET['insertEffect'])) {
+} else if(isset($_GET['insertEffect'])) {
     $form = '
-    <div>
-        <form action="backend/retrieveCharacteristic.php" method="post" class="inputForm">
-            <fieldset>
-                <legend>Inserimento nuovo effetto</legend>
-                <label for="effectName">Nome:</label>
-                <span><input type="text" id="effectName" name="effectName" /></span>
-                <input type="submit" id="submitEffect" value="Aggiungi" name="submitEffect" class="buttons" />
-            </fieldset>
-        </form>
-    </div>';
+   </form>
+   </div>
+        <div>
+            <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
+                <fieldset>
+                    <legend>Inserimento nuovo effetto</legend>
+                    <label for="effectName">Nome:</label>
+                    <span><input type="text" id="effectName" name="effectName" /></span>
+                    <errName />
+                    <input type="submit" id="submitEffect" value="Aggiungi" name="submitEffect" class="buttons" />
+                </fieldset>
+            </form>
+        </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    echo $htmlPage;
-    die();
-}
-if(isset($_GET['insertSideEffect'])) {
+} else if(isset($_GET['insertSideEffect'])) {
     $form = '
-    <div>
-        <form action="backend/retrieveCharacteristic.php" method="post" class="inputForm">
-            <fieldset>
-                <legend>Inserimento nuovo effetto collaterale</legend>
-                <label for="sideEffectName">Nome:</label>
-                <span><input type="text" id="sideEffectName" name="sideEffectName" /></span>
-                <input type="submit" id="submitSideEffect" value="Aggiungi" name="submitSideEffect" class="buttons" />
-            </fieldset>
-        </form>
-    </div>';
+   </form>
+    </div>
+        <div>
+            <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
+                <fieldset>
+                    <legend>Inserimento nuovo effetto collaterale</legend>
+                    <label for="sideEffectName">Nome:</label>
+                    <span><input type="text" id="sideEffectName" name="sideEffectName" /></span>
+                    <errName />
+                    <input type="submit" id="submitSideEffect" value="Aggiungi" name="submitSideEffect" class="buttons" />
+                </fieldset>
+            </form>
+        </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    echo $htmlPage;
-    die();
-}
-if(isset($_GET['insertCategory'])) {
+} else if(isset($_GET['insertCategory'])) {
     $form = '
-    <div>
-    <form action="backend/retrieveCharacteristic.php" method="post" class="inputForm">
-        <fieldset>
-            <legend>Inserimento nuova categoria</legend>
-            <label for="categoryName">Nome:</label>
-            <span><input type="text" id="categoryName" name="categoryName" /></span>
-            <input type="submit" id="submitCategory" value="Aggiungi" name="submitCategory" class="buttons" />
-        </fieldset>
     </form>
-    </div>';
+    </div>
+        <div>
+        <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
+            <fieldset>
+                <legend>Inserimento nuova categoria</legend>
+                <label for="categoryName">Nome:</label>
+                <span><input type="text" id="categoryName" name="categoryName" /></span>
+                <errName />
+                <input type="submit" id="submitCategory" value="Aggiungi" name="submitCategory" class="buttons" />
+            </fieldset>
+        </form>
+        </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    echo $htmlPage;
-    die();
 }
+
+echo $htmlPage;
