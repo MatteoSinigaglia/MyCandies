@@ -143,16 +143,18 @@ background-color: #093013;
 border-top: 1px solid #DDD;
 border-bottom: 1px solid #DDD;
 text-align: center;
+margin-top: 0.5em;
 }
 .backToHeader {
 font-weight: bold;
 color: white;
 }
-.backToHeader:active {
+.backToHeader:active,
+.backToHeader:visited:active {
 color: #CDA434;
 text-decoration: none;
 }
-#footer .backToHeader:visited {
+.backToHeader:visited {
 color: white;
 }
 /*
@@ -527,7 +529,6 @@ width: 100%;
 background-color: #051C0B;
 color: white;
 min-height: 10em;
-margin-top: 0.5em;
 }
 #footer div {
 display: inline-block;
