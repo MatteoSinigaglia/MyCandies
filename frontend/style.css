@@ -482,6 +482,7 @@ height: 100%;
 background-color: #051C0B;
 color: white;
 min-height: 10em;
+margin-top: 0.5em;
 }
 #footer div {
 display: inline-block;
