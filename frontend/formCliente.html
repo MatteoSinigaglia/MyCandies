@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="title" content="Registrazione - MyCandies" />
   <meta name="description" content="Form di registrazione e/o accesso di My Candies" />
+  <meta name="keywords" content="MyCandies, login, accedi, registrati, registrazione, email, password"/>
   <meta name="author" content="MyCandies&amp;co" />
   <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,7 +39,7 @@
           <form role="search" class="searchButton" id="headerSearchBar" action="#" method="get">
               <div>
                   <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
-                  <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca" class="buttons"/>
+                  <span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
               </div>
           </form>
           <span id="loginButton" class="buttons">Accedi</span>
@@ -84,7 +85,7 @@
       </fieldset>
     </form>
   </div>
-  <div class="hidden_helpBackToHeader">
+  <div class="helpBackToHeader hide">
     <a href="#header" class="backToHeader">Torna su</a>
   </div>
   <div class="formContainer">
@@ -147,10 +148,10 @@
   </form>
   </div>
 </div>
+<div class="helpBackToHeader">
+  <a href="#header" class="backToHeader">Torna su</a>
+</div>
 <div id="footer">
-  <div class="displayed_helpBackToHeader">
-    <a href="#header" class="backToHeader">Torna su</a>
-  </div>
   <div id="upperFooterContainer">
       <div id="contacts">
           <h2>Contatti:</h2>

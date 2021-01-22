@@ -5,7 +5,8 @@
 	<title>Carrello - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="MyCandies" />
-	<meta name="description" content="Visualizzare i prodotti nel carrello di MyCandies" />
+    <meta name="description" content="Visualizzare i prodotti nel carrello di MyCandies" />
+    <meta name="keywords" content="MyCandies, carrello, totale, totale carrello"/>
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -33,8 +34,7 @@
 			<form class="searchButton" id="headerSearchBar" action="#" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-					<input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-						class="buttons" />
+                    <span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
 				</div>
 			</form>
 
@@ -78,11 +78,11 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td headers="productName" title="Nome"></td>
-					<td headers="productCode" title="Codice"></td>
-					<td headers="quantity" title="Quantità"></td>
-					<td headers="actions" title="Azioni"></td>
-					<td headers="total" title="Totale prodotto"></td>
+					<td headers="productName" title="Nome" scope="row"></td>
+					<td headers="productCode" title="Codice" scope="row"></td>
+					<td headers="quantity" title="Quantità" scope="row"></td>
+					<td headers="actions" title="Azioni" scope="row"></td>
+					<td headers="total" title="Totale prodotto" scope="row"></td>
 				</tr>
 			</tbody>
         </table>
@@ -90,17 +90,17 @@
             <tbody>
                 <tr>
 					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
-					<td headers="totalCart">0.0$</td>
+					<td headers="totalCart" scope="row">0.0$</td>
 				</tr>
             </tbody>
         </table>
 		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
 	</div>
 </div>
+<div class="helpBackToHeader">
+    <a href="#header" class="backToHeader">Torna su</a>
+</div>
 <div id="footer">
-    <div class="displayed_helpBackToHeader">
-        <a href="#header" class="backToHeader">Torna su</a>
-    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>

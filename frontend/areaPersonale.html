@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="title" content="Area Personale - MyCandies"/>
     <meta name="description" content="Accedere ai dati personali del profilo"/>
+    <meta name="keywords" content="MyCandies, area personale"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -34,8 +35,7 @@
             <form class="searchButton" id="headerSearchBar" action="#" method="get">
                 <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <input type="submit" id="productSearchButton" name="productSearchButton" value="Cerca"
-                        class="buttons" />
+					<span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
                 </div>
             </form>
 
@@ -59,7 +59,7 @@
         </a>/ Area personale</p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <form id="formAreaPersonale" action="#" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente"> <!-- da PHP basta togliere hide -->
+    <form id="formAreaPersonale" action="#" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente">
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
@@ -71,10 +71,6 @@
             <!-- Cognome --><label for="cognome"> Cognome:</label>
             <span><input
             type="text" id="cognome" name="cognome"/></span>
-            <!-- Nazione -->
-            <label for="nazione">Nazione:</label>
-            <span><input
-            type="text" id="nazione" name="nazione"/></span>
             <!-- Comune -->
             <label for="comune">Comune:</label>
             <span><input
@@ -112,13 +108,13 @@
         </fieldset>
     </form>
     <div id="logoutButton">
-        <button class="buttons">Logout</button> <!-- da PHP basta togliere hide  -->
+        <button class="buttons">Logout</button>
     </div>
 </div>
+<div class="helpBackToHeader">
+    <a href="#header" class="backToHeader"> Torna su</a>
+</div>
 <div id="footer">
-    <div class="displayed_helpBackToHeader">
-        <a href="#header" class="backToHeader"> Torna su</a>
-    </div>
     <div id="upperFooterContainer">
         <div id="contacts">
             <h2>Contatti:</h2>

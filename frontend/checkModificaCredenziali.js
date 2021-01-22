@@ -1,6 +1,6 @@
 var form_credenziali = {
-    "changePassword": ["Inserisci nuova password", /.{5,20}/, "Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
-    "confirmNewPassword": ["Inserisci password di conferma", /.{5,20}/, "La password non corrisponde."]
+    "changePassword": ["Inserisci nuova password", /.{4,20}/, "Password non valida. La lunghezza deve essere tra 5 e 20 caratteri."],
+    "confirmNewPassword": ["Inserisci password di conferma", /.{4,20}/, "La password non corrisponde."]
 };
 
 function defaultValue(input) {
