@@ -1,49 +1,53 @@
 <?php
-require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnection.php";
-require_once __DIR__ . DIRECTORY_SEPARATOR . "productHandler.php";
-require_once __DIR__ . DIRECTORY_SEPARATOR . "product.php";
 
+// TODO remove paths_
+require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
+require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 
-if($isSuccessfull == false)
-    die("Errore nell'apertura del DB");
-else { // caricamento nel database o mostrare messaggi di errore
+use MyCandies\Controllers\ProductsManager;
 
-    $name = $_GET['name'];
+if(!isset($_GET['name']))
+    die('404: non è possibile accedere al server in questo momento, riprova fra qualche minuto');
 
-    $productHandler = new ProductHandler($dbaccess->getConnection());
+$name = $_GET['name'];
 
-    // esegui e cattura l-output di prodotti_dashboard
-    ob_start(); 
-    require_once 'prodotti_dashboard.php';
-    $htmlPage = ob_get_clean();
+$productManager = new ProductsManager();
 
-    $search = "<table";
-    $replace = "
-                <form action=\"#\" method=\"post\">
-                <table";
-    $htmlPage = str_replace($search, $replace, $htmlPage);
-    $search = "</table>";
-    $replace = "</table>
-                </form>";
-    $htmlPage = str_replace($search, $replace, $htmlPage);
-    
-    $pattern = "/$name(.*?)<\/tr>/s";
-    $product = $productHandler->getProducts($name)[0];
+// esegui e cattura l-output di prodotti_dashboard
+ob_start();
+include 'prodotti_dashboard.php';
+$htmlPage = ob_get_clean();
 
-    $replace = "$name
-                <input type=\"hidden\" name=\"modifyName\" value=\"{$row['name']}\">
-                </td>
-                <td headers=\"price\" scope=\"row\">
-                    <input type=\"text\" value=\"{$product['price']}\" id=\"modifyPrice\" name=\"modifyPrice\"/>
-                </td>
-                <td headers=\"quantity\" scope=\"row\">
-                    <input type=\"text\" value=\"{$product['availability']}\" name=\"modifyAvailability\"/>
-                </td>
-                <td headers=\"actions\" scope=\"row\">
-                    <input type=\"button\" value=\"Salva\" name=\"modifyProduct\">
-                </td>
-            </tr>
-        ";
-    $htmlPage = preg_replace($pattern, $replace, $htmlPage, 1);
-    echo $htmlPage;
+$search = "<table";
+$replace = "
+            <form action=\"#\" method=\"post\">
+            <table";
+$htmlPage = str_replace($search, $replace, $htmlPage);
+$search = "</table>";
+$replace = "</table>
+            </form>";
+$htmlPage = str_replace($search, $replace, $htmlPage);
+
+try {
+    $product = $productManager->getProductByName($name);
+} catch (Exception $e) {
+
 }
+
+$pattern = "/$name(.*?)<\/tr>/s";
+$replace = "$name
+            <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\">
+            </td>
+            <td headers=\"price\" scope=\"row\">
+                <input type=\"text\" value=\"{$product->getPrice()}\" id=\"modifyPrice\" name=\"modifyPrice\"/>
+            </td>
+            <td headers=\"quantity\" scope=\"row\">
+                <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\"/>
+            </td>
+            <td headers=\"actions\" scope=\"row\">
+                <input type=\"button\" value=\"Salva\" name=\"modifyProduct\">
+            </td>
+        </tr>
+    ";
+$htmlPage = preg_replace($pattern, $replace, $htmlPage, 1);
+echo $htmlPage;

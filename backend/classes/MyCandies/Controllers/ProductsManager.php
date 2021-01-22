@@ -103,7 +103,7 @@ class ProductsManager
     {
     }
 
-    public function getProducts()
+    public function getProducts() : array
     {
         try{
             $this->dbh->connect();
@@ -118,9 +118,10 @@ class ProductsManager
          $rows=[];
          foreach($products as $product) {
              $rows[$product->getId()] = [
-                 'id'       => $product->getId(),
-                 'name'     => $product->getName(),
-                 'price'    => $product->getPrice()
+                 'id'           => $product->getId(),
+                 'name'         => $product->getName(),
+                 'price'        => $product->getPrice(),
+                 'availability' => $product->getAvailability()
              ];
          }
         foreach($productsImages as $productImage) {
@@ -135,6 +136,22 @@ class ProductsManager
         }
 
          return $rows;
+    }
+
+    public function getProductByName($name) {
+        $products = array();
+        try{
+            $this->dbh->connect();
+            $products = $this->T_products->find([
+                'column' => 'name',
+                'value'  => $name
+            ]);
+        } catch (Exception $e) {
+            throw $e;
+        } finally {
+            $this->dbh->disconnect();
+        }
+        return $products[0];
     }
 
     public function getSingleProduct($id) : array {
