@@ -145,7 +145,6 @@ padding: 0.6em 0.7em;
 #cartButton span,
 #loginButton span{
 font-weight: bold;
-font-family: "Arial", cursive, sans-serif;
 }
 abbr {
 text-decoration: none;
@@ -560,7 +559,6 @@ padding-bottom: 2%;
 font-size: 1.2em;
 margin: 0 15%;
 text-align: center;
-font-family: cambria, sans-serif;
 padding-bottom: 1em;
 }
 #contentHome h1{
