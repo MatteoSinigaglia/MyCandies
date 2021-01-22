@@ -139,10 +139,13 @@ border-top: transparent;
 border-bottom: transparent;
 background-color: #093013;
 }
-#cartButton {
+#cartButton,
+#loginButton,
+#productSearchButton {
 padding: 0.6em 0.7em;
 }
-#cartButton span {
+#cartButton span,
+#loginButton span {
 font-weight: bold;
 font-family: "Arial", cursive, sans-serif;
 }
@@ -239,6 +242,9 @@ width: 45%;
 border: 1px solid transparent;
 border-radius: 4px;
 min-width: 20em;
+}
+.fa-search {
+font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 /*----------- MENU ---------------------------------------------------------------------------*/
 #navigation {
@@ -485,7 +491,7 @@ margin-top: 0.5em;
 display: inline-block;
 text-align: center;
 vertical-align: top;
-padding: 1em 0;
+padding: 0.3em 0;
 }
 #upperFooterContainer {
 width: 100%;
