@@ -2,10 +2,6 @@
 
     namespace MyCandies\Entities;
 
-    require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
-
-    use MyCandies\Exceptions\EntityException;
-
     class ProductImage {
 
         private $product_id;

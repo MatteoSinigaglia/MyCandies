@@ -19,11 +19,10 @@ $htmlPage = file_get_contents(VIEW_PATH . DS . "listaProdotti.html");
 
 $productCards = '';
 foreach ($productsList as $product) {
-    // TODO aggiungere alt a immagine
     $productCards .=
                 '<div class="product-card">
                     <div class="product-image">
-                        <img src="' . $product['img_path'] . '">
+                        <img src="' . $product['img_path'] . '" alt="Immagine del prodotto '.$product['name'].'">
                     </div>
                     <div class="product-info">
                         <a href="'."backend".DS."prodotto.php?id=".$product['id'].'">'.$product['name'].'</a>

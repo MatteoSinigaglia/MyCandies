@@ -4,8 +4,13 @@ namespace MyCandies\Entities;
 
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Entity.php';
 require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
+require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
+require_once MODEL_PATH . DS . 'classes' . DS . 'DB' . DS . 'dbh.php';
 
+use DB\Exceptions\DBException;
 use MyCandies\Exceptions\EntityException;
+use MyCandies\Tables\Table;
+use DB\dbh;
 
 class Product extends Entity
 {
@@ -28,7 +33,7 @@ class Product extends Entity
                 $this->setPrice($data['price']);
                 $this->setAvailability($data['availability']);
             }
-            if(count($this->errors)) {
+            if(!empty($this->errors)) {
                 throw new EntityException($this->errors, -1);
             }
     }
@@ -48,7 +53,9 @@ class Product extends Entity
             $this->errors['name'] = 'Non è stato inserito il nome';
         } else if(!preg_match('/^\w+(\s\w+)*$/', $name)) {
             $this->errors['name'] = 'Il nome deve contenere caratteri alfanumerici';
-        } else {
+        } else if($this->checkUniqueName($name)) {
+            $this->errors['name'] = 'Esiste già un prodotto con questo nome';
+        }else {
             $this->name = $name;
         }
     }
@@ -81,8 +88,9 @@ class Product extends Entity
             $this->errors['availability'] = 'La quantità inserita non è numerica';
         } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
             $this->errors['availability'] = 'La quantità deve essere maggiore di 0 e minore di 10000000';
-        } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability))
+        } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             $this->errors['availability'] = 'La quantità deve essere un valore intero';
+        }
         else {
             $this->availability = filter_var($availability, FILTER_VALIDATE_INT);
         }
@@ -135,4 +143,16 @@ class Product extends Entity
         return $columns;
     }
 
+    private function checkUniqueName($name) : int
+    {
+        $dbh = new dbh();
+        $T_products = new Table($dbh, 'Products', 'id', Product::class, [DB]);
+        $dbh->connect();
+        $product = $T_products->find([
+            'column' => 'name',
+            'value' => $name
+        ]);
+        $dbh->disconnect();
+        return isset($product[0]);
+    }
 }
