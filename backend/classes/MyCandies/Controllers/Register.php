@@ -44,19 +44,29 @@ class Register extends Authentication {
 	 */
 	public function __construct(array $user, array $address) {
 		parent::__construct();
+		$errors = array();
 		try {
 			$this->user = new User(Entities\REGISTER, $user);
-			$this->address = new Address(Entities\REGISTER, $address);
-			$this->userAddress = new UsersAddresses(Entities\REGISTER);
-
-			$this->dbh = new dbh();
-			$constructorArgs = [Entities\DB];
-			$this->tUsers = new Table($this->dbh, 'Customers', 'id', User::class, $constructorArgs);
-			$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', Address::class, $constructorArgs);
-			$this->tUsersAddresses = new Table($this->dbh, 'CustomersAddresses', 'id', UsersAddresses::class, $constructorArgs);
 		} catch (EntityException $e) {
-			echo $e;
+			$errors = $e->getErrors();
 		}
+
+		try {
+			$this->address = new Address(Entities\REGISTER, $address);
+		} catch (EntityException $e) {
+			$errors = array_merge($errors, $e->getErrors());
+		}
+
+		if (count($errors) > 0)
+			throw new EntityException($errors, -1, 'Errori');
+		$this->userAddress = new UsersAddresses(Entities\REGISTER);
+
+		$this->dbh = new dbh();
+		$constructorArgs = [Entities\DB];
+		$this->tUsers = new Table($this->dbh, 'Customers', 'id', User::class, $constructorArgs);
+		$this->tAddresses = new Table($this->dbh, 'Addresses', 'id', Address::class, $constructorArgs);
+		$this->tUsersAddresses = new Table($this->dbh, 'CustomersAddresses', 'id', UsersAddresses::class, $constructorArgs);
+
 	}
 
 	/**
