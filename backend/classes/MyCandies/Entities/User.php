@@ -18,7 +18,7 @@ class User extends Entity {
 	private $email;
 	private $password;
 	private $telephone;
-	private $sex;
+	private $gender;
 	private $birthdate;
 
 //	public const REGISTER = 1;
@@ -63,7 +63,7 @@ class User extends Entity {
 					$errors['last_name'] = 'Cognome non corretto';
 //						throw new EntityException('Cognome non corretto', -4);
 				}
-				if (!isset($data['birthdate']) || strlen($data['birthdate']) < 1  /*|| regex check*/) {
+				if (!isset($data['birthdate']) || strlen($data['birthdate']) < 10  /*|| regex check*/) {
 					$errors['birthdate'] = 'Data di nascita non corretta';
 //						throw new EntityException('Data di nascita non corretta', -4);
 				}
@@ -78,6 +78,7 @@ class User extends Entity {
 				$this->password = $this->securePassword($data['password']);
 		        $this->birthdate = date("Y-m-d", strtotime($data['birthdate']));
 				$this->telephone = $data['telephone'];
+				$this->gender = (isset($data['gender']) ? substr($data['gender'], 0, 1) : null);
 				break;
 
 //				Controls only in email and password
@@ -103,9 +104,9 @@ class User extends Entity {
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
-	public function getEmail() {
+	public function getEmail() : string {
 		return $this->email;
 	}
 

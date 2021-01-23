@@ -7,8 +7,8 @@ namespace MyCandies\Controllers;
 use DB\dbh;
 use DB\Exceptions\DBException;
 use MyCandies\Entities;
-use MyCandies\Entities\Entity;
 use MyCandies\Entities\User;
+use MyCandies\Entities\Admin;
 use MyCandies\Entities\Address;
 use MyCandies\Entities\UsersAddresses;
 use MyCandies\Tables\Table;
@@ -143,7 +143,7 @@ class Authentication {
 		if (count($errors) > 0)
 			throw new EntityException($errors, -1, 'Errori in fase di setup del login');
 
-		$this->admins = new Table($this->dbh, 'Admins', 'id', Entity::class, [Entities\DB]);
+		$this->admins = new Table($this->dbh, 'Admins', 'user_id', Admin::class, [Entities\DB]);
 	}
 
 	private function login() {

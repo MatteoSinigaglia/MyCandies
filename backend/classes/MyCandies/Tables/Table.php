@@ -117,14 +117,12 @@ class Table {
 		try {
 
 			require_once __DIR__.'/../../../lib/functions.php';
-			if ($entity instanceof User) {
-				$slice = ['first_name', 'last_name', 'email', 'password', 'telephone', 'birthdate'];
-			} else if ($entity instanceof Address) {
+			if ($entity instanceof Address) {
 				$slice = ['province', 'city', 'CAP', 'number', 'street'];
 			} else {
 				$slice = $entity->getColumns();
-				echo 'Slice: ';
-				var_dump($slice);
+//				echo 'Slice: ';
+//				var_dump($slice);
 			}
 			$fields = array_slice_assoc($entity->getValues(), $slice);
 
@@ -205,7 +203,7 @@ class Table {
 		$this->query($query, $parameters);
 	}
 
-	public function deleteWhere(string $column, mixed $value) {
+	public function deleteWhere(string $column, $value) {
 		$query = 'DELETE FROM `'.$this->table.'` WHERE `'.$column.'` = :value';
 		$parameters = [
 			'value' => $value

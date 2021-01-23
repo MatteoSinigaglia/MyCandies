@@ -39,3 +39,33 @@ function noSignUpForm($DOM) {
 	$DOM = str_replace('<error_confirmPassword />', '', $DOM);
 	return str_replace('_confirmPassword_value', '', $DOM);
 }
+
+function noModifyForm($DOM) {
+	require_once __DIR__.'/../classes/MyCandies/Entities/User.php';
+	require_once __DIR__.'/../classes/MyCandies/Entities/Address.php';
+
+	$items = array_merge(getProperties(User::class), getProperties(Address::class));
+
+	$exclude_keys = ['password', 'email'];
+
+	foreach ($exclude_keys as $key)
+		unset($items[$key]);
+
+	foreach ($items as $item) {
+		$DOM = str_replace('_' . $item . '_value', '', $DOM);
+		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
+	}
+
+	return $DOM;
+}
+
+function noForm($DOM, $items) {
+
+
+	foreach ($items as $item) {
+		$DOM = str_replace('_' . $item . '_value', '', $DOM);
+		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
+	}
+
+	return $DOM;
+}

@@ -43,15 +43,15 @@
               </div>
           </form>
           <span id="loginButton" class="buttons">Accedi</span>
-          <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+          <a href="./carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
       </div> 
   </div>
   <div id="navigation">
       <ul id="navigationMenu">
-          <li xml:lang="en"><a href="../frontend/home.html">Home</a></li>
-          <li><a href="../frontend/listaProdotti.html">Droghe</a></li>
-          <li><a href="areaPersonale.html">Area personale</a></li>
-          <li><a href="../frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+          <li xml:lang="en"><a href="../backend/home.php">Home</a></li>
+          <li><a href="./listaProdotti.php">Droghe</a></li>
+          <li><a href="../backend/areaPersonale.php">Area personale</a></li>
+          <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
       </ul>
   </div>
 </div>
@@ -138,6 +138,14 @@
           <input type="text" name="user[birthdate]" id="birthDate" value="_birthdate_value" />
           <error_birthdate />
         </span>
+      </div>
+      <div>
+        <label for="gender"> Sesso:</label>
+        <select id="gender" name="user[gender]">
+            <option value="Male">Maschio</option>
+            <option value="Female">Femmina</option>
+            <option value="Other">Altro</option>
+        </select>
       </div>
       <div>
         <label for="address">Indirizzo</label>

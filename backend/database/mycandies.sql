@@ -31,16 +31,16 @@ CREATE TABLE `Customers` (
 	`email` varchar(50) NOT NULL,
 	`telephone` char(10),
 	`password` varchar(255) NOT NULL,
-	`sex` enum('M', 'F', 'O'),
+	`gender` enum('M', 'F', 'O'),
 	`birthdate` date NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `Admins`;
 CREATE TABLE `Admins` (
-    `id` int NOT NULL,
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (`id`) REFERENCES `Customers`(`id`)
+    `user_id` int NOT NULL,
+    PRIMARY KEY (`user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `Customers`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- TO DO: 
@@ -129,8 +129,8 @@ CREATE TABLE `CustomersAddresses` (
 	`address_id` int,
 	`address_type` enum('Delivery', 'Billing'),
 	PRIMARY KEY (`customer_id`, `address_id`),
-	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
-	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`)
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`) on delete cascade,
+	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `Carts`;
