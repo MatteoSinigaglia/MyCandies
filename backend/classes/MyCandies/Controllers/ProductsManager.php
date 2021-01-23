@@ -64,12 +64,13 @@ class ProductsManager
         $this->T_activePrinciplesSideEffects = new Table($this->dbh, 'ActivePrinciplesSideEffects', 'id', ActivePrincipleSideEffect::class, $constructorargs);
     }
 
-    public function insertProduct($product, $image, $activePrincipleId, $percentage): bool
+    public function insertProduct($productData, $activePrincipleId, $percentage): bool
     {
         try {
             $this->dbh->connect();
-            $data = array();
             $this->dbh->transactionStart();
+            $product = new Product(Entities\PRODUCTS_MANAGER, $productData);
+            $image = new Image(Entities\PRODUCTS_MANAGER);
             $data['product_id'] = $this->T_products->insert($product);
             $data['img_id'] = $this->T_images->insert($image);
             $productImage = new ProductImage(Entities\PRODUCTS_MANAGER, $data);
@@ -81,9 +82,10 @@ class ProductsManager
             $this->T_productsActivePrinciples->insert($productsActivePrinciples);
             $this->uploadImage(); // carica l'immagine nel server
             $this->dbh->transactionCommit();
-
-        } catch (EntityException | DBException | Exception $e) {
+        } catch (DBException | Exception $e) {
             $this->dbh->transactionRollback();
+            throw $e;
+        } catch (EntityException $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();

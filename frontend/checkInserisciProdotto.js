@@ -1,5 +1,5 @@
 var form_inserisciProdotto = {
-    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto."],
+    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Il nome deve contenere caratteri alfanumerici."],
     "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
 };
 

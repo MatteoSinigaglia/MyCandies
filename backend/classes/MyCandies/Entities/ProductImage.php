@@ -12,27 +12,17 @@
         private $img_id;
 
         public function __construct(int $source, array $data=[]) {
-            try {
-                if($source !== DB) {
-                    $this->setProduct_id($data['product_id']);
-                    $this->setImg_id($data['img_id']);
-                }
-            } catch (EntityException $e) {
-                throw $e;
+            if($source !== DB) {
+                $this->setProduct_id($data['product_id']);
+                $this->setImg_id($data['img_id']);
             }
         }
 
         public function setProduct_id($product_id) {
-            if(!isset($product_id)) {
-                throw new EntityException('Errore nell\'inserimento del del prodotto');
-            }
             $this->product_id = $product_id;
         }
 
         public function setImg_id($img_id) {
-            if(!isset($img_id)) {
-                throw new EntityException('Errore nell\'inserimento del dell\'immagine');
-            }
             $this->img_id = $img_id;
         }
 

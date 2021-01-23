@@ -32,6 +32,11 @@ color: rgb(134, 2, 2);
 padding: 0.5em 0em;
 display: block;
 }
+.formErrors {
+    color: green;
+    padding: 0.5em 0em;
+    display: block;
+}
 .rightMessage {
 color: #093013;
 display: block;

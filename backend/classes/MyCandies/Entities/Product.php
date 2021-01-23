@@ -15,83 +15,74 @@ class Product extends Entity
     private $price;
     private $availability;
 
+    private $errors;
+
     public function __construct(int $source, array $data = [])
     {
-        try {
             parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
-            if ($source !== DB) {
+            if ($source === PRODUCTS_MANAGER) {
+                $this->errors = array();
                 $this->setCategory_id($data['category_id']);
                 $this->setName($data['name']);
                 $this->setDescription($data['description']);
                 $this->setPrice($data['price']);
                 $this->setAvailability($data['availability']);
             }
-        } catch (EntityException $e) {
-            throw $e;
-        }
+            if(count($this->errors)) {
+                throw new EntityException($this->errors, -1);
+            }
     }
 
-    /**
-     * @param $category_id
-     * @throws EntityException
-     */
     public function setCategory_id($category_id)
     {
-        if (!isset($category_id)) {
-            throw new EntityException('Non è stata scelta una categoria');
+        if (!isset($category_id) || $category_id == '') {
+            $this->errors['category'] = 'Non è stata scelta una categoria';
+        } else {
+            $this->category_id = $category_id;
         }
-        $this->category_id = $category_id;
     }
 
-    /**
-     * @throws EntityException
-     */
     public function setName($name)
     {
-        if (!isset($name)) {
-            throw new EntityException('Non è stato inserito il nome');
+        if ($name == '' || $name == 'Nome prodotto') {
+            $this->errors['name'] = 'Non è stato inserito il nome';
+        } else if(!preg_match('/^\w+(\s\w+)*$/', $name)) {
+            $this->errors['name'] = 'Il nome deve contenere caratteri alfanumerici';
+        } else {
+            $this->name = $name;
         }
-        $this->name = $name;
     }
 
-    /**
-     * @throws EntityException
-     */
     public function setDescription($description)
     {
-        if (!isset($description)) {
-            throw new EntityException('Non è stato inserita la descrizione');
+        if ($description == '') {
+            $this->errors['description'] = 'Non è stato inserita la descrizione';
+        } else {
+            $this->description = $description;
         }
-        $this->description = $description;
     }
 
-    /**
-     * @throws EntityException
-     */
     public function setPrice($price)
     {
         if (!is_numeric($price)) {
-            throw new EntityException('Il prezzo inserito non è numerico');
+            $this->errors['price'] = 'Il prezzo inserito non è numerico';
         } else if ($price <= 0 || $price >= 10000) { // è numerico allora ->
-            throw new EntityException('Il prezzo deve essere maggiore di 0 e minore di 10000');
-        } else if (!preg_match('/^(.*)(\.[0-9]{1,2})?$/', $price))
-            throw new EntityException('Il prezzo deve avere al massimo due valori decimali');
+            $this->errors['price'] = 'Il prezzo deve essere maggiore di 0 e minore di 10000';
+        } else if (!preg_match('/^\d+(,\d{1,2})?\b$/', $price))
+            $this->errors['price'] = 'Il prezzo deve avere al massimo due valori decimali, separati da una virgola';
         else {
             $this->price = filter_var($price, FILTER_VALIDATE_FLOAT);
         }
     }
 
-    /**
-     * @throws EntityException
-     */
     public function setAvailability($availability)
     {
         if (!is_numeric($availability)) {
-            throw new EntityException('La quantità inserita non è numerica');
+            $this->errors['availability'] = 'La quantità inserita non è numerica';
         } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
-            throw new EntityException('La quantità deve essere maggiore di 0 e minore di 10000000 grammi');
+            $this->errors['availability'] = 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability))
-            throw new EntityException('La quantità deve essere un valore intero');
+            $this->errors['availability'] = 'La quantità deve essere un valore intero';
         else {
             $this->availability = filter_var($availability, FILTER_VALIDATE_INT);
         }
@@ -100,7 +91,6 @@ class Product extends Entity
     /**
      * getters
      */
-
     public function getCategory_id()
     {
         return $this->category_id;
@@ -130,7 +120,8 @@ class Product extends Entity
     {
         $fields = parent::getValues();
         foreach ($this as $key => $value) {
-            $fields[$key] = $value;
+            if($key != 'errors')
+                $fields[$key] = $value;
         }
         return $fields;
     }
@@ -138,7 +129,8 @@ class Product extends Entity
     public function getColumns() : array {
         $columns = array();
         foreach ($this as $key => $value) {
-            array_push($columns, $key);
+            if($key != 'errors')
+                array_push($columns, $key);
         }
         return $columns;
     }

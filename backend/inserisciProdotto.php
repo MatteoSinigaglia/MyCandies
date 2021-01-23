@@ -27,42 +27,43 @@ if(!isset($_POST['aggiungi'])) {
 }
 
 $success = false;
-$errorMsg = '';
+$result = '';
+$errOnFields = array();
 $categoryManager = new CategoriesManager();
 $activePrincipleManager = new ActivePrinciplesManager();
 $data = array();
 
-$data['name']           = $_POST['productName'];
-$data['description']    = $_POST['productDescription'];
-$data['price']          = $_POST['productPrice'];
-$data['availability']   = $_POST['productAvail'];
-$data['percentage']     = $_POST['productPercentage'];
+$data['name']                   = $_POST['productName'];
+$data['description']            = $_POST['productDescription'];
+$data['price']                  = $_POST['productPrice'];
+$data['availability']           = $_POST['productAvail'];
+$data['percentage']             = $_POST['productPercentage'];
+$data['category_id']            = null;
+$data['active_principle_id']    = null;
 
 try {
-    $data['category_id'] = $categoryManager->searchIdByName($_POST['productCategory'])->getId();
-    $data['active_principle_id'] = $activePrincipleManager->searchIdByName($_POST['productActivePrinciple'])->getId();
-} catch (DBException $e) {
-    $errorMsg .= '<li>'.$e->getMessage().'</li>';
-}
-
-try {
-    $product = new Product(MyCandies\Entities\PRODUCTS_MANAGER, $data);
-    $image = new Image(MyCandies\Entities\PRODUCTS_MANAGER);
+    if(isset($_POST['productCategory'])) {
+        $data['category_id'] = $categoryManager->searchIdByName($_POST['productCategory'])->getId();
+    } else $errOnFields['category'] = 'Non è stata scelta nessuna categoria';
+    if(isset($_POST['productActivePrinciple'])) {
+        $data['active_principle_id'] = $activePrincipleManager->searchIdByName($_POST['productActivePrinciple'])->getId();
+    } else $errOnFields['active_principle_id'] = 'Non è stato scelto nessun principio attivo';
     $insertProduct = new ProductsManager();
-    $success = $insertProduct->insertProduct($product, $image, $data['active_principle_id'], $data['percentage']);
-
-} catch(EntityException | DBException $e) {
-    $errorMsg .= '<li>'.$e->getMessage().'</li>';
-
+    $success = $insertProduct->insertProduct($data, (empty($data['active_principle_id']) ? null : $data['active_principle_id']), (empty($data['percentage']) ? null : $data['percentage']));
+} catch(DBException $e) {
+    $result .= '<strong class="formErrors">'.$e->getMessage().'</strong>';
+} catch(EntityException $e) {
+    $errOnFields = array_merge($errOnFields, $e->getErrors());
 } finally {
-    /**
-     * Carica form con categorie e principi attivi
-     */
-
     if($success) {
-        $htmlPage = str_replace('<errmsg />', "<p class=\"success\">Prodotto caricato con successo</p>", $htmlPage);
+        $htmlPage = str_replace('<errmsg />', '<strong class="formSuccess">Prodotto caricato con successo</strong>', $htmlPage);
     } else {
-        $htmlPage = str_replace('<errmsg />', '<ul class=\"failure\">'.$errorMsg.'</ul>', $htmlPage);
+        $htmlPage = str_replace('<errmsg />', '<strong class="formErrors">'.($result == '' ? 'Ci sono errori nel form di inserimento' : $result).'</strong>', $htmlPage);
+        if(!empty($errOnFields)) {
+            foreach($errOnFields as $key => $value) {
+                $htmlPage = str_replace('<error_' . $key . ' />', '<strong class="formErrors">' . $value . '</strong>', $htmlPage);
+            }
+        }
     }
     echo $htmlPage;
 }

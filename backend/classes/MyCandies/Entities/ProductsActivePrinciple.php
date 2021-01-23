@@ -12,27 +12,33 @@ class ProductsActivePrinciple {
     private $active_principle_id;
     private $percentage;
 
+    private $errors;
+
     public function __construct(int $source, array $data=[]) {
-        try {
-            if($source !== DB) {
-                $this->product_id = $data['product_id'];
-                $this->active_principle_id = $data['active_principle_id'];
-                $this->setPercentage($data['percentage']);
+        if($source !== DB) {
+            $this->errors = array();
+            $this->product_id = $data['product_id'];
+            $this->setActive_principle_id($data['active_principle_id']);
+            $this->setPercentage($data['percentage']);
+            if(count($this->errors)) {
+                throw new EntityException($this->errors, -1);
             }
-        } catch(EntityException $e) {
-            throw $e;
         }
     }
 
     private function setPercentage($percentage) {
-        if(!isset($percentage)) {
-            throw new EntityException('Non è stata scelta la percentuale di principio attivo');
+        if($percentage == null) {
+            $this->errors['percentage'] = 'Non è stata scelta la percentuale di principio attivo';
         } else if(!preg_match('/([1-9][0-9]{0,3})/',$percentage)) {
-            throw new EntityException('La percentuale di principio attivo deve essere un valore intero');
+            $this->errors['percentage'] = 'La percentuale di principio attivo deve essere un valore intero';
         } else if($percentage > 100 || $percentage < 0) {
-            throw new EntityException('La percentuale di principio attivo deve essere compresa tra 0 e 100');
+            $this->errors['percentage'] = 'La percentuale di principio attivo deve essere compresa tra 0 e 100';
         }
         $this->percentage = filter_var($percentage, FILTER_VALIDATE_INT);
+    }
+
+    private function setActive_principle_id($active_principle_id) {
+        $this->active_principle_id = $active_principle_id;
     }
 
     public function getProduct_id() : int {
@@ -50,7 +56,8 @@ class ProductsActivePrinciple {
     public function getValues() : array {
         $fields = [];
         foreach ($this as $key => $value) {
-            $fields[$key] = $value;
+            if($key != 'errors')
+                $fields[$key] = $value;
         }
         return $fields;
     }
@@ -58,7 +65,8 @@ class ProductsActivePrinciple {
     public function getColumns() : array {
         $columns = array();
         foreach ($this as $key => $value) {
-            array_push($columns, $key);
+            if($key != 'errors')
+                array_push($columns, $key);
         }
         return $columns;
     }
