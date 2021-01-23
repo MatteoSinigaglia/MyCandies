@@ -192,6 +192,9 @@ display: block;
 background-color: white;
 border: 1px solid #DDD;
 }
+#category {
+display: block;
+}
 /*
 ================================ TABELLE  ======================
 */
