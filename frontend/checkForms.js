@@ -17,6 +17,48 @@ var form_registrazione = {
     "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
 };
 
+function printError(input, num, dati) {
+    removeError(input);
+    var parent = input.parentNode;
+    var element = document.createElement("strong");
+    element.className = "formErrors";
+    switch(dati) {
+        case "form_login": element.appendChild(document.createTextNode(form_login[input.id][num]));
+        break;
+        case "form_registrazione": element.appendChild(document.createTextNode(form_registrazione[input.id][num]));
+        break;
+        case "form_inserisciProdotto": element.appendChild(document.createTextNode(form_inserisciProdotto[input.id][num]));
+        break;
+        case "form_credenziali": element.appendChild(document.createTextNode(form_credenziali[input.id][num]));
+        break;
+        case "PAFormDetails": element.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
+        break;
+        case "FilterValues": element.appendChild(document.createTextNode(FilterValues[input.id][num]));
+        break;
+    }
+    parent.appendChild(element);
+}
+
+function removeError(input) {
+    var parent = input.parentNode;
+    if(parent.children.length == 2) {
+        parent.removeChild(parent.children[1]);
+    }
+};
+
+function printRightPassword(input) {
+    removeError(input);
+    var parent = input.parentNode;
+    var element = document.createElement("strong");
+    element.className = "rightMessage";
+    element.appendChild(document.createTextNode("Le password corrispondono"));
+    parent.appendChild(element);
+};
+
+/*
+===================================================================================
+*/
+
 function defaultLoginValue(input) {
     if(input.value == "") {
         input.className = "default-text";
@@ -61,29 +103,12 @@ function loadFormCliente() {
     }
 };
 
-function removeError(input) {
-    var parent = input.parentNode;
-    if(parent.children.length == 2) {
-        parent.removeChild(parent.children[1]);
-    }
-};
-
 /* Controllo campi per il login
- *
 **/
-function printLoginError(input) {
-    removeError(input);
-    var parent = input.parentNode;
-    var element = document.createElement("strong");
-    element.className = "formErrors";
-    element.appendChild(document.createTextNode(form_login[input.id][2]));
-    parent.appendChild(element);
-};
-
 function validateLoginField(input) {
     var regex = form_login[input.id][1];
     if(input.value.search(regex) != 0) {
-        printLoginError(input);
+        printError(input, 2, "form_login");
         return false;
     } else {
         return true;
@@ -102,25 +127,7 @@ function validateLoginForm() {
 
 
 /* Controllo campi per la registrazione
- *
  **/
-
-function printRegError(input, num) {
-    removeError(input);
-    var parent = input.parentNode;
-    var element = document.createElement("strong");
-    element.className = "formErrors";
-    element.appendChild(document.createTextNode(form_registrazione[input.id][num]));
-    parent.appendChild(element);
-};
-
-function printRightPassword(input) {
-    var parent = input.parentNode;
-    var element = document.createElement("strong");
-    element.className = "rightMessage";
-    element.appendChild(document.createTextNode("Le password corrispondono"));
-    parent.appendChild(element);
-};
 
 function validateDate(input) {
     var comp = input.value.split("-");
@@ -143,7 +150,7 @@ function otherCheck(input) {
     switch(value) {
         case "birthDate": {  
             if (!validateDate(input)) {
-                printRegError(input, 4);
+                printError(input, 4, "form_registrazione");
                 return false;
             } else {
                 // controllo sull'età del utente solo se la data è accettata
@@ -156,7 +163,7 @@ function otherCheck(input) {
                     age--;
                 }
                 if (age <= 18) {
-                    printRegError(input, 3);
+                    printError(input, 3, "form_registrazione");
                     return false;
                 }
                 return true;
@@ -165,7 +172,7 @@ function otherCheck(input) {
         case "confirmPassword": {
             var psw = document.getElementById('password');
             if(input.value != psw.value) {
-                printRegError(input, 2);
+                printError(input, 2, "form_registrazione");
                 return false;
             } else {
                 printRightPassword(input);
@@ -174,7 +181,7 @@ function otherCheck(input) {
         }
         case "telefono": {
             if(input.value.charAt(0) != 3) {
-                printRegError(input, 2);
+                printError(input, 2, "form_registrazione");
                 return false;
             } else {
                 return true;
@@ -186,10 +193,10 @@ function otherCheck(input) {
 function validateRegField(input) {
     var regex = form_registrazione[input.id][1];
     if(input.value.search(regex) != 0) {
-        printRegError(input, 2);
+        printError(input, 2, "form_registrazione");
         return false;
     } else {
-        if(input.id == "birthDate" || input.id == "address" || input.id == "confirmPassword" || input.id == "telefono") {
+        if(input.id == "birthDate" || input.id == "confirmPassword" || input.id == "telefono") {
             return otherCheck(input);
         } else {
             return true; 
@@ -237,19 +244,10 @@ function noDefaultInsertion(input) {
     }
 };
 
-function printInsertionError(input) {  
-    removeError(input);
-    var parent = input.parentNode;
-    var element = document.createElement("strong");
-    element.className = "formErrors";
-    element.appendChild(document.createTextNode(form_inserisciProdotto[input.id][2]));
-    parent.appendChild(element);
-};
-
 function validateInsertionField(input) {
     var regex = form_inserisciProdotto[input.id][1];
     if(input.value.search(regex) != 0) {
-        printInsertionError(input);
+        printError(input, 2, "form_inserisciProdotto");
         return false;
     } else {
         return true;
@@ -298,19 +296,10 @@ function loadChangeCredential() {
     }
 };
 
-function printChangeCredentialError(input) {
-    removeError(input);
-    var parent = input.parentNode;
-    var element = document.createElement("strong");
-    element.className = "formErrors";
-    element.appendChild(document.createTextNode(form_credenziali[input.id][2]));
-    parent.appendChild(element);
-};
-
 function validateChangeCredentialField(input) {
     var regex = form_credenziali[input.id][1];
     if(input.value.search(regex) != 0) {
-        printChangeCredentialError(input);
+        printError(input, 2, "form_credenziali");
         return false;
     } else {
         if(input.id == "confirmNewPassword") {
@@ -362,7 +351,7 @@ function SpecialTest(input){
 switch (input.id) {
     case "telefono": { //deve iniziare con 3
     if (input.value.charAt(0) != 3) {
-        PAShowErr(input, 2);
+        printError(input, 2, "PAFormDetails");
         return false;
     } else {
         return true;
@@ -403,7 +392,7 @@ switch (input.id) {
         }
     }
     // se ho trovato un errore lo stampo
-    if(err != 1) { PAShowErr(input, err); }
+    if(err != 1) { printError(input, err, "PAFormDetails"); }
     return accepted;
 }
 
@@ -412,7 +401,7 @@ case "indirizzo": {
     if(comp[0].toLowerCase() == "via") {
         return true;
     } else {
-        PAShowErr(input, 1);
+        printError(input, 1, "PAFormDetails");
         return false;
     }
     }
@@ -422,7 +411,7 @@ case "indirizzo": {
 function PAFieldValidate(input) {
 var PAregex = PAFormDetails[input.id][0];
 if (input.value.search(PAregex) != 0) {
-    PAShowErr(input, 1);
+    printError(input, 1, "PAFormDetails");
     return false;
 } else {
     if (input.id == "data" || input.id == "telefono" || input.id == "indirizzo") {
@@ -483,7 +472,7 @@ var FilterValues = {
     ele.appendChild(document.createTextNode(FilterValues[input.id][num]));
     span.appendChild(ele);
   };
-  
+  /* okkio allo span */
   function valueTest(input){
     var accepted = true;
     var valore = parseInt(input.value);
@@ -515,10 +504,6 @@ var FilterValues = {
   };
   
   function filterControl(input) {
-    var span = selectCorrectSpan(input);
-    if (span.children.length == 1) {
-      span.removeChild(span.children[0]);
-    }
     var filterRegex = FilterValues[input.id][0];
     if (input.value.search(filterRegex) != 0) {
       filterShowErr(input, 1);
