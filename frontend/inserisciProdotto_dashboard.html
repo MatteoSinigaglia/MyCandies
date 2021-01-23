@@ -13,10 +13,10 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
-    <script type="text/javascript" src="../frontend/checkInserisciProdotto.js"></script>
+    <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="load();">
+<body onload="loadProductInsertion();">
     <div id="header">
         <div id="navigation">
             <ul>
@@ -34,7 +34,7 @@
     </div>
 
     <div id="inserisciProdottoDashboard" class="main">
-        <form action="#" method="post" class="inputForm" onsubmit = "return validateForm();" title="form per l'inserimento di un nuovo prodotto">
+        <form action="#" method="post" class="inputForm" onsubmit = "return validateInsertionForm();" title="form per l'inserimento di un nuovo prodotto">
             <fieldset>
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>

@@ -16,10 +16,10 @@
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="../frontend/mobileMenu.js"></script>
-    <script type="text/javascript" src="../frontend/checkModificaCredenziali.js"></script>
+    <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenu();">
+<body onload="loadMenu(); loadChangeCredential();">
 <div id="header">
 	<a class="helps" href="#credentialChange">Vai alla modifica credenziali</a>
 	<div id="headerLogoAndUtility">
@@ -60,7 +60,7 @@
 </div>
 
 <div id="credentialChange" class="main">
-	<form action="" method="post" class="inputForm" onsubmit="return validateForm();" onreset="load();" title="form per modificare la password">
+	<form action="" method="post" class="inputForm" onsubmit="return validateChangeCredentialForm();" title="form per modificare la password">
 		<fieldset>
 			<!-- Legenda -->
 			<legend> Inserimento nuova password </legend>
