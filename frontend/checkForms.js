@@ -9,7 +9,7 @@ var form_registrazione = {
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
     "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
-    "address": ["Inserisci via", /^[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto, deve iniziare per 'via'."],
+    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci città", /^([A-Z][a-zàèìòù]{2,20}\s?)+$/, "Comune non corretto. Le parole che compongono il comune devono iniziare per maiuscola."],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
@@ -61,7 +61,7 @@ function loadFormCliente() {
     }
 };
 
-function removeErrors(input) {
+function removeError(input) {
     var parent = input.parentNode;
     if(parent.children.length == 2) {
         parent.removeChild(parent.children[1]);
@@ -72,6 +72,7 @@ function removeErrors(input) {
  *
 **/
 function printLoginError(input) {
+    removeError(input);
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "formErrors";
@@ -80,7 +81,6 @@ function printLoginError(input) {
 };
 
 function validateLoginField(input) {
-    removeErrors(input);
     var regex = form_login[input.id][1];
     if(input.value.search(regex) != 0) {
         printLoginError(input);
@@ -106,6 +106,7 @@ function validateLoginForm() {
  **/
 
 function printRegError(input, num) {
+    removeError(input);
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "formErrors";
@@ -161,15 +162,6 @@ function otherCheck(input) {
                 return true;
             }
         } 
-        case "address": {
-            var comp = input.value.split(" ");
-            if(comp[0].toLowerCase() == "via") {
-                return true;
-            } else {
-                printRegError(input, 2);
-                return false;
-            }
-        }
         case "confirmPassword": {
             var psw = document.getElementById('password');
             if(input.value != psw.value) {
@@ -192,7 +184,6 @@ function otherCheck(input) {
 };
 
 function validateRegField(input) {
-    removeErrors(input);
     var regex = form_registrazione[input.id][1];
     if(input.value.search(regex) != 0) {
         printRegError(input, 2);
@@ -247,6 +238,7 @@ function noDefaultInsertion(input) {
 };
 
 function printInsertionError(input) {  
+    removeError(input);
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "formErrors";
@@ -255,7 +247,6 @@ function printInsertionError(input) {
 };
 
 function validateInsertionField(input) {
-    removeErrors(input);
     var regex = form_inserisciProdotto[input.id][1];
     if(input.value.search(regex) != 0) {
         printInsertionError(input);
@@ -308,6 +299,7 @@ function loadChangeCredential() {
 };
 
 function printChangeCredentialError(input) {
+    removeError(input);
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "formErrors";
@@ -316,7 +308,6 @@ function printChangeCredentialError(input) {
 };
 
 function validateChangeCredentialField(input) {
-    removeErrors(input);
     var regex = form_credenziali[input.id][1];
     if(input.value.search(regex) != 0) {
         printChangeCredentialError(input);
@@ -359,6 +350,7 @@ var PAFormDetails = {
 };
 
 function PAShowErr(input, num) {
+removeError(input);
 var parent = input.parentNode; 
 var ele = document.createElement("strong");
 ele.className = "formErrors";
@@ -428,11 +420,6 @@ case "indirizzo": {
 };
 
 function PAFieldValidate(input) {
-
-var parent = input.parentNode;
-if (parent.children.length == 2) {
-    parent.removeChild(parent.children[1]);
-}
 var PAregex = PAFormDetails[input.id][0];
 if (input.value.search(PAregex) != 0) {
     PAShowErr(input, 1);
