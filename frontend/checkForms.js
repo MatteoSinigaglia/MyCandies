@@ -11,7 +11,7 @@ var form_registrazione = {
     "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
     "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
-    "city": ["Inserisci città", /^([A-Z][a-zàèìòù]{2,20}\s?)+$/, "Comune non corretto. Le parole che compongono il comune devono iniziare per maiuscola."],
+    "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto."],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
     "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto. Il CAP è una sequenza numerica di 5 valori."],
     "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
@@ -33,8 +33,6 @@ function printError(input, num, dati) {
         break;
         case "PAFormDetails": element.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
         break;
-        case "FilterValues": element.appendChild(document.createTextNode(FilterValues[input.id][num]));
-        break;
     }
     parent.appendChild(element);
 }
@@ -47,7 +45,6 @@ function removeError(input) {
 };
 
 function printRightPassword(input) {
-    removeError(input);
     var parent = input.parentNode;
     var element = document.createElement("strong");
     element.className = "rightMessage";
@@ -55,57 +52,78 @@ function printRightPassword(input) {
     parent.appendChild(element);
 };
 
+function defaultValue(input, dati) {
+    if (input.value == "") {
+        input.className = "default-text";
+        switch(dati) {
+            case "form_login": input.value = form_login[input.id][0];
+            break;
+            case "form_registrazione": input.value = form_registrazione[input.id][0];
+            break;
+            case "form_inserisciProdotto": input.value = form_inserisciProdotto[input.id][0];
+            break;
+            case "form_credenziali": input.value = form_credenziali[input.id][0];
+            break;
+        }
+    }
+};
+
+function noDefaultValue(input, dati) {
+    switch(dati) {
+        case "form_login": {
+            if (input.value == form_login[input.id][0]) {
+                input.value = "";
+                input.className = "";
+            }
+        }
+        break;
+        case "form_registrazione": {
+            if (input.value == form_registrazione[input.id][0]) {
+                input.value = "";
+                input.className = "";
+            }
+        }
+        break;
+        case "form_inserisciProdotto": {
+            if(input.value == form_inserisciProdotto[input.id][0]) {
+                input.className = "";
+                input.value = "";
+            }
+        }
+        break;
+        case "form_credenziali": {
+            if(input.value == form_credenziali[input.id][0]) {
+                input.className = "";
+                input.value = "";
+            }
+        }
+        break;
+    }
+};
+
 /*
 ===================================================================================
 */
-
-function defaultLoginValue(input) {
-    if(input.value == "") {
-        input.className = "default-text";
-        input.value = form_login[input.id][0];
-    }
-};
-
-function defaultRegistrationValue(input) {
-    if(input.value == "") {
-        input.className = "default-text";
-        input.value = form_registrazione[input.id][0];
-    }
-};
-
-function noDefaultLogin(input) {
-    if (input.value == form_login[input.id][0]) {
-        input.value = "";
-        input.className = "";
-    }
-};
-
-function noDefaultRegistration(input) {
-    if (input.value == form_registrazione[input.id][0]) {
-        input.value = "";
-        input.className = "";
-    }
-};
-
 function loadFormCliente() {
     for(var i in form_login) {
         var input = document.getElementById(i);
-        defaultLoginValue(input);
-        input.onfocus = function() { noDefaultLogin(this); };
-        input.onblur = function() { defaultLoginValue(this); };
+        defaultValue(input, "form_login");
+        input.onfocus = function() { noDefaultValue(this, "form_login"); };
+        input.onblur = function() { defaultValue(this, "form_login"); };
     }
 
     for(var i in form_registrazione) {
         var input = document.getElementById(i);
-        defaultRegistrationValue(input);
-        input.onfocus = function() {noDefaultRegistration(this);};
-        input.onblur = function() {defaultRegistrationValue(this);};
+        defaultValue(input, "form_registrazione");
+        input.onfocus = function() { noDefaultValue(this, "form_registrazione"); };
+        input.onblur = function() { defaultValue(this, "form_registrazione"); };
     }
 };
 
 /* Controllo campi per il login
 **/
 function validateLoginField(input) {
+    removeError(input);
     var regex = form_login[input.id][1];
     if(input.value.search(regex) != 0) {
         printError(input, 2, "form_login");
@@ -191,6 +209,7 @@ function otherCheck(input) {
 };
 
 function validateRegField(input) {
+    removeError(input);
     var regex = form_registrazione[input.id][1];
     if(input.value.search(regex) != 0) {
         printError(input, 2, "form_registrazione");
@@ -224,27 +243,14 @@ var form_inserisciProdotto = {
 function loadProductInsertion() {
     for(var key in form_inserisciProdotto) {
         var input = document.getElementById(key);
-        setDefaultInsertion(input);
-        input.onfocus = function() { noDefaultInsertion(this); };
-        input.onblur = function() { setDefaultInsertion(this); };
-    }
-};
-
-function setDefaultInsertion(input) {    
-    if(input.value == "") {
-        input.className = "default-text";
-        input.value = form_inserisciProdotto[input.id][0];
-    }
-};
-
-function noDefaultInsertion(input) {
-    if(input.value == form_inserisciProdotto[input.id][0]) {
-        input.className = "";
-        input.value = "";
+        defaultValue(input, "form_inserisciProdotto");
+        input.onfocus = function() { noDefaultValue(this, "form_inserisciProdotto"); };
+        input.onblur = function() { defaultValue(this, "form_inserisciProdotto"); };
     }
 };
 
 function validateInsertionField(input) {
+    removeError(input);
     var regex = form_inserisciProdotto[input.id][1];
     if(input.value.search(regex) != 0) {
         printError(input, 2, "form_inserisciProdotto");
@@ -273,30 +279,17 @@ var form_credenziali = {
     "confirmNewPassword": ["Inserisci password di conferma", /.{4,20}/, "La password non corrisponde."]
 };
 
-function defaultChangeCredential(input) {
-    if(input.value == "") {
-        input.className = "default-text";
-        input.value = form_credenziali[input.id][0];
-    }
-};
-
-function noDefaultChangeCredential(input) {
-    if(input.value == form_credenziali[input.id][0]) {
-        input.className = "";
-        input.value = "";
-    }
-};
-
 function loadChangeCredential() {
     for(var key in form_credenziali) {
         var input = document.getElementById(key);
-        defaultChangeCredential(input);
-        input.onfocus = function() { noDefaultChangeCredential(this); };
-        input.onblur = function() { defaultChangeCredential(this); };
+        defaultValue(input, "form_credenziali");
+        input.onfocus = function() { noDefaultValue(this, "form_credenziali"); };
+        input.onblur = function() { defaultValue(this, "form_credenziali"); };
     }
 };
 
 function validateChangeCredentialField(input) {
+    removeError(input);
     var regex = form_credenziali[input.id][1];
     if(input.value.search(regex) != 0) {
         printError(input, 2, "form_credenziali");
@@ -305,7 +298,7 @@ function validateChangeCredentialField(input) {
         if(input.id == "confirmNewPassword") {
             var confronto = document.getElementById("changePassword");
             if(input.value != confronto.value) {
-                printChangeCredentialError(input);
+                printError(input, 2, "form_credenziali");
                 return false;
             }
         }
@@ -331,7 +324,7 @@ var PAFormDetails = {
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
     "comune": [/^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Il comune inserito non è corretto."],
     "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire la sigla in maiuscolo."],
-    "indirizzo": [/^[a-zA-Z]{3}\s[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
+    "indirizzo": [/^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
     "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto.Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],
     "telefono": [/^\s?([0-9]{10})\s?$/, "Numero non valido. Inserire il proprio numero di cellulare (10 cifre).", "Numero non valido. Il numero deve iniziare con la cifra 3."],
@@ -339,23 +332,22 @@ var PAFormDetails = {
 };
 
 function PAShowErr(input, num) {
-removeError(input);
-var parent = input.parentNode; 
-var ele = document.createElement("strong");
-ele.className = "formErrors";
-ele.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
-parent.appendChild(ele);
+    var parent = input.parentNode; 
+    var ele = document.createElement("strong");
+    ele.className = "formErrors";
+    ele.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
+    parent.appendChild(ele);
 };
 
 function SpecialTest(input){
 switch (input.id) {
     case "telefono": { //deve iniziare con 3
-    if (input.value.charAt(0) != 3) {
-        printError(input, 2, "PAFormDetails");
-        return false;
-    } else {
-        return true;
-    }
+        if (input.value.charAt(0) != 3) {
+            PAShowErr(input, 2);
+            return false;
+        } else {
+            return true;
+        }
     }
 
     case "data": {
@@ -392,30 +384,21 @@ switch (input.id) {
         }
     }
     // se ho trovato un errore lo stampo
-    if(err != 1) { printError(input, err, "PAFormDetails"); }
+    if(err != 1) { PAShowErr(input, err); }
     return accepted;
-}
-
-case "indirizzo": {
-    var comp = input.value.split(" ");
-    if(comp[0].toLowerCase() == "via") {
-        return true;
-    } else {
-        printError(input, 1, "PAFormDetails");
-        return false;
-    }
     }
 }
 };
 
 function PAFieldValidate(input) {
-var PAregex = PAFormDetails[input.id][0];
-if (input.value.search(PAregex) != 0) {
-    printError(input, 1, "PAFormDetails");
-    return false;
-} else {
+    removeError(input);
+    var PAregex = PAFormDetails[input.id][0];
+    if (input.value.search(PAregex) != 0) {
+        PAShowErr(input, 1);
+        return false;
+    } else {
     if (input.id == "data" || input.id == "telefono" || input.id == "indirizzo") {
-    return SpecialTest(input);   
+        return SpecialTest(input);   
     }
     return true;
 }
@@ -472,7 +455,7 @@ var FilterValues = {
     ele.appendChild(document.createTextNode(FilterValues[input.id][num]));
     span.appendChild(ele);
   };
-  /* okkio allo span */
+  
   function valueTest(input){
     var accepted = true;
     var valore = parseInt(input.value);
@@ -504,6 +487,10 @@ var FilterValues = {
   };
   
   function filterControl(input) {
+    var span = selectCorrectSpan(input);
+    if (span.children.length == 1) {
+        span.removeChild(span.children[0]);
+    }
     var filterRegex = FilterValues[input.id][0];
     if (input.value.search(filterRegex) != 0) {
       filterShowErr(input, 1);
