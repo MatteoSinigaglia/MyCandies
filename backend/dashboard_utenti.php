@@ -25,8 +25,8 @@ $usersRow = [
     'birthdate'     =>  '<td headers="dateOfBirth" title="Data di nascita" scope="row"><user_birthdate /></td>',
 	'sex'           =>  '<td headers="sex" title="Sesso" scope="row"><user_sex /></td>',
 	'actions'       =>  '<td headers="actions" title="Azioni" scope="row">
-<a href="./remove_user.php?email=_user_email" name="remove_user">Rimuovi</a>
-<a href="./make_user_admin.php?email=_user_email" name="make_user_admin-">Rendi admin</a>
+<a href="./remove_user.php?email=_user_email" name="remove_user"><button class="buttons">Rimuovi</button></a>
+<a href="./make_user_admin.php?email=_user_email" name="make_user_admin-"><button class="buttons">Rendi admin</button></a>
 </td>'
 	];
 $usersData = '';

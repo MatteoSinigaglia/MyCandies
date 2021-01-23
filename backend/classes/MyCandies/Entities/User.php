@@ -3,10 +3,7 @@
 
 namespace MyCandies\Entities;
 
-use DateTime;
-use Exception;
 use MyCandies\Exceptions\EntityException;
-use ReflectionClass;
 
 require_once __DIR__.'/Entity.php';
 require_once __DIR__.'/../Exceptions/EntityException.php';
@@ -21,56 +18,44 @@ class User extends Entity {
 	private $gender;
 	private $birthdate;
 
-//	public const REGISTER = 1;
-//	public const LOGIN = 2;
-
 	public function __construct(int $source, array $data=[]) {
-		$errors = array();
 		try {
 //			Ternary operator to remove server's warning
 			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 
-		} catch (EntityException | Exception $e) {
+		} catch (EntityException $e) {
 			throw $e;
 		}
-//	        Switch input control depending on the source of the data
+//	        Switch set of input controls depending on the source of the data
 		switch ($source) {
-//				No controls needed, database should be is consistent, or controls in every field to verify consistency
-			case DB:
 
+			case DB:
+//			No controls needed, database is consistent
 				break;
 
-//				Controls in every field + consistency between password and confirmPassword
 			case REGISTER:
+//			Controls in every field + consistency between password and confirmPassword
 
-				if (!isset($data['email']) || strlen($data['email']) < 1/*|| regex check*/) {
+				if ($this->isNotValidEmail($data['email']))
 					$errors['email'] = 'La email inserita non é corretta';
-//						throw new EntityException('La email inserita non é corretta', -5);
-				}
-				if (!isset($data['password']) || strlen($data['email']) < 4 /*|| regex check*/) {
+
+				if ($this->isNotValidPassword($data['password']))
 					$errors['password'] = 'La password inserita non é corretta';
-//						throw new EntityException('La password inserita non é corretta', -6);
-				}
-				if ($data['password'] !== $data['confirmPassword']) {
+
+				if ($this->isNotValidConfirmPassword($data['confirmPassword'], $data['password']))
 					$errors['confirmPassword'] = 'Le password non corrispondono';
-//						throw new EntityException('Le password non corrispondono', -7);
-				}
-				if (!isset($data['first_name']) || strlen($data['first_name']) < 1 /*|| regex check*/) {
+
+				if ($this->isNotValidFirstName($data['first_name']))
 					$errors['first_name'] = 'Nome non corretto';
-//						throw new EntityException('Nome non corretto', -3);
-				}
-				if (!isset($data['last_name']) || strlen($data['last_name']) < 1 /*|| regex check*/) {
+
+				if ($this->isNotValidLastName($data['last_name']))
 					$errors['last_name'] = 'Cognome non corretto';
-//						throw new EntityException('Cognome non corretto', -4);
-				}
-				if (!isset($data['birthdate']) || strlen($data['birthdate']) < 10  /*|| regex check*/) {
+
+				if ($this->isNotValidBirthdate($data['birthdate']))
 					$errors['birthdate'] = 'Data di nascita non corretta';
-//						throw new EntityException('Data di nascita non corretta', -4);
-				}
-				if (!isset($data['telephone']) || strlen($data['telephone']) < 1  /*|| regex check*/) {
+
+				if ($this->isNotValidTelephone($data['telephone']))
 					$errors['telephone'] ='Telefono non corretto';
-//						throw new EntityException('Telefono non corretto', -4);
-				}
 
 				$this->first_name = $data['first_name'];
 				$this->last_name = $data['last_name'];
@@ -81,16 +66,15 @@ class User extends Entity {
 				$this->gender = (isset($data['gender']) ? substr($data['gender'], 0, 1) : null);
 				break;
 
-//				Controls only in email and password
 			case LOGIN:
-
-				if (!isset($data['email']) || strlen($data['email']) < 1 /* regex checks*/)
+//			Controls only in email
+				if ($this->isNotValidEmail($data['email']))
 					$errors['login'] = 'L\'email inserita non è valida';
 				$this->email = $data['email'];
 				$this->password = $data['password'];
 				break;
 		}
-		if (count($errors) > 0)
+		if (isset($errors))
 			throw new EntityException($errors, -1);
 	}
 
@@ -122,6 +106,9 @@ class User extends Entity {
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}
+		$fields['birthdate'] = date('d-m-Y', strtotime($this->birthdate));
+		$fields['gender'] = $this->decodeGender($this->gender);
+
 		return $fields;
 	}
 
@@ -145,5 +132,91 @@ class User extends Entity {
 	 */
 	public function getLastName() {
 		return $this->last_name;
+	}
+
+	private function isNotValidEmail($email) : bool {
+		return !isset($email) || strlen($email) < 4 /*|| regex check*/;
+	}
+
+	private function isNotValidPassword($password) : bool {
+		return !isset($password) || strlen($password) < 4 /*|| regex check*/;
+	}
+
+	private function isNotValidConfirmPassword($confirmPassword, $password) : bool {
+		return !isset($confirmPassword) || ($confirmPassword !== $password) /*|| regex check*/;
+	}
+
+	private function isNotValidFirstName($first_name) : bool {
+		return !isset($first_name) || strlen($first_name) < 1 /*|| regex check*/;
+	}
+
+	private function isNotValidLastName($last_name) : bool {
+		return !isset($last_name) || strlen($last_name) < 1 /*|| regex check*/;
+	}
+
+	private function isNotValidBirthdate($birthdate) : bool {
+		return !isset($birthdate) || strlen($birthdate) < 10 /*|| regex check*/;
+	}
+
+	private function isNotValidTelephone($telephone) : bool {
+		return !isset($telephone) || strlen($telephone) < 10 /*|| regex check*/;
+	}
+
+	private function isNotValid(string $field, $value) : bool {
+		switch($field) {
+			case 'first_name':
+				return $this->isNotValidFirstName($value);
+			case 'last_name':
+				return $this->isNotValidLastName($value);
+			case 'telephone':
+				return $this->isNotValidTelephone($value);
+			case 'birthdate':
+				return $this->isNotValidBirthdate($value);
+		}
+	}
+
+	private function getErrorMessage(string $field) : string {
+		switch ($field) {
+			case 'first_name':
+				return 'Nome non valido';
+			case 'last_name':
+				return 'Cognome non valido';
+			case 'email':
+				return 'Email non valida';
+			case 'password':
+				return 'Password non valida';
+			case 'confirmPassword':
+				return 'Le password non corrispondono';
+			case 'telephone':
+				return 'Telefono non valido';
+			case 'birthdate':
+				return 'Data non valida';
+		}
+	}
+
+	private function decodeGender($gender): string {
+		switch ($gender) {
+			case 'M':
+				return 'Maschio';
+			case 'F':
+				return 'Femmina';
+			case 'A':
+				return 'Altro';
+		}
+	}
+
+	public function update(array $fields) {
+		foreach ($fields as $key => $value) {
+			if ($key != 'id' && $this->isNotValid($key, $value))
+				$errors[$key] = $this->getErrorMessage($key);
+		}
+
+		if (isset($errors))
+			throw new EntityException($errors, -1, 'Errore in fase di modifica dei dati dell\'utente');
+		else {
+			foreach ($fields as $key => $value) {
+				$this->$key = $value;
+			}
+		}
 	}
 }

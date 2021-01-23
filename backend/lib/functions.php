@@ -59,13 +59,32 @@ function noModifyForm($DOM) {
 	return $DOM;
 }
 
+function noFormValues($DOM, $items) {
+
+	foreach ($items as $item)
+		$DOM = str_replace('_' . $item . '_value', '', $DOM);
+
+	return $DOM;
+}
+
+function noFormErrors($DOM, $items) {
+
+	foreach ($items as $item)
+		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
+
+	return $DOM;
+}
+
 function noForm($DOM, $items) {
 
+	$DOM = noFormErrors($DOM, $items);
+	return noFormValues($DOM, $items);
+}
 
-	foreach ($items as $item) {
-		$DOM = str_replace('_' . $item . '_value', '', $DOM);
-		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
-	}
+function insertValues($DOM, array $values) {
+
+	foreach ($values as $key => $value)
+		$DOM = str_replace('_' . $key . '_value', $value, $DOM);
 
 	return $DOM;
 }

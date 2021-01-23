@@ -20,7 +20,7 @@ class Address extends Entity {
 
 //	public const REGISTER = 1;
 
-	public function __construct(int $source, array $data) {
+	public function __construct(int $source, array $data= null) {
 		$errors = array();
 		try {
 //			Ternary operator to remove server's warning
@@ -32,35 +32,27 @@ class Address extends Entity {
 			case DB:
 				break;
 			case REGISTER:
-//				var_dump($data);
 //				if (!isset($data['country']) || strlen($data['country']) < 1/* || regex check */) {
 //					$errors['country'] = 'Errore inserimento nazione';
-////					throw new EntityException('', -11);
 //				}
 //				if (!isset($data['region']) || strlen($data['region']) < 1/* || regex check */) {
 //					$errors['region'] = 'Errore inserimento regione';
-////					throw new EntityException('', -12);
 //				}
-				if (!isset($data['province']) || strlen($data['province']) < 1/* || regex check */) {
+				if ($this->isNotValid('province', $data['province']))
 					$errors['province'] = 'Errore inserimento provincia';
-//					throw new EntityException('', -13);
-				}
-				if (!isset($data['city']) || strlen($data['city']) < 1/* || regex check */) {
+
+				if (!isset($data['city']) || strlen($data['city']) < 1/* || regex check */)
 					$errors['city'] = 'Errore inserimento comune';
-//					throw new EntityException('', -14);
-				}
-				if (!isset($data['CAP']) || strlen($data['CAP']) < 1/* || regex check */) {
+
+				if (!isset($data['CAP']) || strlen($data['CAP']) < 1/* || regex check */)
 					$errors['CAP'] = 'Errore inserimento CAP';
-//					throw new EntityException('', -15);
-				}
-				if (!isset($data['street']) || strlen($data['street']) < 1/* || regex check */) {
+
+				if (!isset($data['street']) || strlen($data['street']) < 1/* || regex check */)
 					$errors['street'] = 'Errore inserimento Indirizzo';
-//					throw new EntityException('', -16);
-				}
-				if (!isset($data['number']) || strlen($data['number']) < 1/* || regex check */) {
+
+				if (!isset($data['number']) || strlen($data['number']) < 1/* || regex check */)
 					$errors['number'] = 'Errore inserimento civico';
-//					throw new EntityException('', -17);
-				}
+
 				$this->country = $data['country'];
 				$this->region = $data['region'];
 				$this->province = $data['province'];
@@ -74,6 +66,44 @@ class Address extends Entity {
 
 		if (count($errors) > 0)
 			throw new EntityException($errors, -1, '');
+	}
+
+	private function isNotValid(string $field, $value) : bool {
+		switch ($field) {
+			case 'country':
+				break;
+			case 'region':
+				break;
+			case 'province':
+				return (!isset($value) || strlen($value) < 1);
+			case 'city':
+				return (!isset($value) || strlen($value) < 1);
+			case 'CAP':
+				return (!isset($value) || strlen($value) != 5);
+			case 'street':
+				return (!isset($value) || strlen($value) < 1);
+			case 'number':
+				return (!isset($value) || strlen($value) < 1);
+		}
+	}
+
+	private function getErrorMessage(string $field) : string {
+		switch ($field) {
+			case 'country':
+				return '';
+			case 'region':
+				return '';
+			case 'province':
+				return 'Provincia non corretta';
+			case 'city':
+				return 'Comune non corretto';
+			case 'CAP':
+				return 'CAP non corretto';
+			case 'street':
+				return 'Via non corretta';
+			case 'number':
+				return 'Civico non corretto';
+		}
 	}
 
 	public function getValues() : array {
@@ -91,5 +121,20 @@ class Address extends Entity {
 			array_push($columns, $key);
 		}
 		return $columns;
+	}
+
+	public function update(array $fields) {
+		foreach ($fields as $key => $value) {
+			if ($key != 'id' && $this->isNotValid($key, $value))
+				$errors[$key] = $this->getErrorMessage($key);
+		}
+
+		if (isset($errors))
+			throw new EntityException($errors, -1, 'Errore in fase di modifica dei dati dell\'indirizzo');
+		else {
+			foreach ($fields as $key => $value) {
+				$this->$key = $value;
+			}
+		}
 	}
 }

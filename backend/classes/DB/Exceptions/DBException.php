@@ -4,6 +4,8 @@
 namespace DB\Exceptions;
 
 
-class DBException extends \Exception {
+use Exception;
+
+class DBException extends Exception {
 
 }

@@ -17,6 +17,9 @@ require_once __DIR__.'/../../DB/dbh.php';
 require_once __DIR__.'/../../DB/Exceptions/DBException.php';
 require_once __DIR__.'/../Entities/Entity.php';
 require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../Entities/Admin.php';
+require_once __DIR__.'/../Entities/Address.php';
+require_once __DIR__.'/../Entities/UsersAddresses.php';
 require_once __DIR__.'/../Exceptions/EntityException.php';
 
 class Table {
@@ -76,7 +79,7 @@ class Table {
 		} catch (DBException $e) {
 			echo $e;
 		}
-		$query->fetchObject($this->className, $this->constructorArgs);
+		return $query->fetchObject($this->className, $this->constructorArgs);
 	}
 
 	public function find(array $where = null, string $orderBy = null, string $groupBy = null, array $having = null, string $limit = null, string  $offset = null) {
@@ -167,21 +170,20 @@ class Table {
 		}
 	}
 
-	private function update(array $fields) {
+	public function update(array $fields) {
 
 //		think how to handle pk with composite pks
-		$query = 'UPDATE `'.$this->table.'` SET `';
+		$query = 'UPDATE `'.$this->table.'` SET ';
 
 		foreach ($fields as $key => $value) {
-			$query .= '`'.$key.'` = :'.$key.',';
+			if($key != 'id')
+				$query .= '`'.$key.'` = :'.$key.',';
 		}
 
 //		Remove last ',' inserted in foreach statement
 		$query = rtrim($query, ',');
 
-		$query .= ' WHERE `'.$this->primaryKey.'` = :primaryKey';
-
-		$fields['primaryKey'] = $fields[$this->primaryKey];
+		$query .= ' WHERE `'.$this->primaryKey.'` = :'.$this->primaryKey.'';
 
 		$fields = $this->processDates($fields);
 

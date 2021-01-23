@@ -11,7 +11,7 @@ if (!isset($_POST['submitSubscribe'])) {
 
 try {
 
-	require_once __DIR__.'/classes/MyCandies/Controllers/Register.php';
+	require_once __DIR__.'/classes/MyCandies/Controllers/Authentication.php';
 	$auth = new Authentication();
 
 //	Preposterous control

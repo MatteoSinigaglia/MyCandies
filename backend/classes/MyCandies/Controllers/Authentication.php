@@ -23,16 +23,13 @@ class Authentication {
 	private $address;
 	private $userAddress;
 
+	private $dbh;
+
 	private $users;
 	private $admins;
 	private $addresses;
 	private $usersAddresses;
 
-	private $dbh;
-
-//	private $tUsers;
-//	private $tAddresses;
-//	private $tUsersAddresses;
 
 	public function __construct() {
 		session_start();
@@ -40,10 +37,59 @@ class Authentication {
 		require_once __DIR__.'/../../DB/dbh.php';
 		$this->dbh = new dbh();
 
+		$this->initUsers();
+	}
+
+	private function initUsers() {
 		require_once __DIR__.'/../Tables/Table.php';
 		$this->users = new Table($this->dbh, 'Customers', 'id', User::class, [Entities\DB]);
 	}
 
+	private function initAdmins() {
+		require_once __DIR__.'/../Tables/Table.php';
+		$this->admins = new Table($this->dbh, 'Admins', 'user_id', Admin::class, [Entities\DB]);
+	}
+
+	private function initAddresses() {
+		require_once __DIR__.'/../Tables/Table.php';
+		$this->addresses = new Table($this->dbh, 'Addresses', 'id', Address::class, [Entities\DB]);
+	}
+
+	private function initUsersAddresses() {
+		require_once __DIR__.'/../Tables/Table.php';
+		$this->usersAddresses = new Table($this->dbh, 'CustomersAddresses', 'id', UsersAddresses::class, [Entities\DB]);
+	}
+
+	private function initUser() {
+		try {
+			$this->dbh->connect();
+			$this->user = $this->users->find(['column' => 'email', 'value' => $_SESSION['email']])[0];
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+	}
+
+	private function initAddress() {
+		if (!isset($this->addresses))
+			$this->initAddresses();
+		if (!isset($this->usersAddresses))
+			$this->initUsersAddresses();
+		if (!isset($this->user))
+			$this->initUser();
+
+		try {
+			$this->dbh->connect();
+			$this->user = $this->users->find(['column' => 'email', 'value' => $_SESSION['email']])[0];
+			$this->userAddress = $this->usersAddresses->find(['column' => 'customer_id', 'value' => $this->user->getId()])[0];
+			$this->address = $this->addresses->findById($this->userAddress->getAddressId());
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+	}
 	/**
 	 * @return bool
 	 */
@@ -69,8 +115,8 @@ class Authentication {
 	}
 
 	private function registrationSetup(array $user, array $address) {
+
 		$source = Entities\REGISTER;
-		$constructorArgs = [Entities\DB];
 
 		$errors = array();
 
@@ -90,8 +136,8 @@ class Authentication {
 			throw new EntityException($errors, -1, 'Errori in fase di setup della registrazione');
 		$this->userAddress = new UsersAddresses($source);
 
-		$this->addresses = new Table($this->dbh, 'Addresses', 'id', Address::class, $constructorArgs);
-		$this->usersAddresses = new Table($this->dbh, 'CustomersAddresses', 'id', UsersAddresses::class, $constructorArgs);
+		$this->initAddresses();
+		$this->initUsersAddresses();
 	}
 
 	private function registration() {
@@ -140,7 +186,7 @@ class Authentication {
 			$errors = $e->getErrors();
 		}
 
-		if (count($errors) > 0)
+		if (isset($errors) && count($errors) > 0)
 			throw new EntityException($errors, -1, 'Errori in fase di setup del login');
 
 		$this->admins = new Table($this->dbh, 'Admins', 'user_id', Admin::class, [Entities\DB]);
@@ -174,9 +220,13 @@ class Authentication {
 		}
 
 		session_regenerate_id();
+
+//      User is authenticated, the database data can now be stored in the class' field
+		$this->user = $user;
+
 		try {
 			$this->dbh->connect();
-			$isAdmin = $this->admins->findById($user->getId());
+			$isAdmin = $this->admins->findById($this->user->getId());
 		} catch (DBException $e) {
 			echo $e;
 		} finally {
@@ -184,13 +234,12 @@ class Authentication {
 		}
 
 //		UID: encrypted user id using md5
-		$_SESSION['email'] = $user->getEmail();
+		$_SESSION['email'] = $this->user->getEmail();
 
 //		In the database is stored the hash of the password
-		$_SESSION['password'] = $user->getPassword();
+		$_SESSION['password'] = $this->user->getPassword();
 
-		$_SESSION['permissions'] = ($isAdmin ? 'user' : 'admin');
-//		echo $user->getFirstName().' '.$user->getLastName().' logged in';
+		$_SESSION['permissions'] = ($isAdmin ? 'admin' : 'user');
 	}
 
 	public function signIn(array $user) {
@@ -219,19 +268,118 @@ class Authentication {
 			case -1:
 				return false;
 			case 0:
-				return $user[0]->getPassword() === $_SESSION['password'];
+				$this->user = $user[0];
+				return $this->user->getPassword() === $_SESSION['password'];
 //			case 1:
-//				throw new AuthException('Unexpected event occurred, please contact the site admins.', -100);
+//				throw new AuthException('Unexpected event occurred, please contact the site admins.', -1);
 		}
 	}
 
 	public function isAdmin() : bool {
-		return $_SESSION['permissions'] == 'admin';
+		return (isset($_SESSION['permissions']) ? $_SESSION['permissions'] == "admin" : false);
 	}
 
 	public function logout() {
 		unset($_SESSION);
 		session_destroy();
-		echo 'Logout';
+	}
+
+	public function getUserData() : ?array {
+		if (!isset($this->user))
+			$this->initUser();
+		return (isset($this->user) ? $this->user->getValues() : null);
+	}
+
+	public function getAddressData() : ?array {
+		if (!isset($this->address)) {
+			if (!isset($this->addresses))
+				$this->initAddresses();
+			if (!isset($this->usersAddresses))
+				$this->initUsersAddresses();
+			try {
+				$this->dbh->connect();
+				$this->user = $this->users->find(['column' => 'email', 'value' => $_SESSION['email']])[0];
+				$this->userAddress = $this->usersAddresses->find(['column' => 'customer_id', 'value' => $this->user->getId()])[0];
+				$this->address = $this->addresses->findById($this->userAddress->getAddressId());
+			} catch (DBException $e) {
+				echo $e;
+			} finally {
+				$this->dbh->disconnect();
+			}
+		}
+		return (isset($this->address) ? $this->address->getValues() : null);
+	}
+
+	public function getData() : array {
+		return $this->getUserData()+$this->getAddressData();
+	}
+
+	private function updateUserData(array $fields) {
+
+		try {
+			$this->dbh->connect();
+			$this->users->update($fields);
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+	}
+
+	private function updateAddressData(array $fields) {
+
+		try {
+			$this->dbh->connect();
+			$this->addresses->update($fields);
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+	}
+
+	public function updateData(array $newUserData, array $newAddressData) {
+
+		if (!isset($this->user))
+			$this->initUser();
+
+		if (!isset($this->address))
+			$this->initAddress();
+
+		$modifiedUserData = $this->getModifiedFields($this->getUserData(), $newUserData);
+		$modifiedAddressData = $this->getModifiedFields($this->getAddressData(), $newAddressData);
+
+		try {
+			$this->user->update($modifiedUserData);
+		} catch (EntityException $e) {
+			$errors = $e->getErrors();
+		}
+
+		try {
+			$this->address->update($modifiedAddressData);
+		} catch (EntityException $e) {
+			$errors = (isset($errors) ? $errors + $e->getErrors(): $e->getErrors());
+		}
+
+		if (isset($errors))
+//			Input data contains errors, no changes in database has been made
+			throw new EntityException($errors, -1);
+
+//		Input data is fine
+		if (count($modifiedUserData) > 1)
+			$this->updateUserData($modifiedUserData);
+		if (count($modifiedAddressData) > 1)
+			$this->updateAddressData($modifiedAddressData);
+
+	}
+
+	private function getModifiedFields($oldData, $newData) : ?array {
+		foreach ($oldData as $key => $value) {
+			if (isset($newData[$key]) && $value != $newData[$key]) {
+				$modified[$key] = $newData[$key];
+			}
+		}
+		$modified['id'] = $oldData['id'];
+		return $modified;
 	}
 }

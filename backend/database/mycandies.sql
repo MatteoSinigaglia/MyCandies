@@ -31,7 +31,7 @@ CREATE TABLE `Customers` (
 	`email` varchar(50) NOT NULL,
 	`telephone` char(10),
 	`password` varchar(255) NOT NULL,
-	`gender` enum('M', 'F', 'O'),
+	`gender` enum('M', 'F', 'A'),
 	`birthdate` date NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
