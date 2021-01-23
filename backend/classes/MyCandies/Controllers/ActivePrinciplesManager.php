@@ -65,25 +65,29 @@ class ActivePrinciplesManager
             $this->dbh->connect();
             $this->dbh->transactionStart();
             $activePrincipleId = $this->T_activePrinciples->insert($activePrinciple);
-            $activePrincipleEffects = array();
-            foreach($effectNames as $i) {
-                array_push($activePrincipleEffects, new ActivePrincipleEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
-                    'active_principle_id' => $activePrincipleId,
-                    'effect_id' => $this->getEffectFromName($i)->getId()
-                ]));
+            if($effectNames != null) {
+                $activePrincipleEffects = array();
+                foreach ($effectNames as $i) {
+                    array_push($activePrincipleEffects, new ActivePrincipleEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
+                        'active_principle_id' => $activePrincipleId,
+                        'effect_id' => $this->getEffectFromName($i)->getId()
+                    ]));
+                }
+                foreach ($activePrincipleEffects as &$i) {
+                    $this->T_activePrinciplesEffects->insert($i);
+                }
             }
-            $activePrincipleSideEffects = array();
-            foreach($sideEffectNames as $i) {
-                array_push($activePrincipleSideEffects, new ActivePrincipleSideEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
-                    'active_principle_id' => $activePrincipleId,
-                    'side_effect_id' => $this->getSideEffectFromName($i)->getId()
-                ]));
-            }
-            foreach($activePrincipleEffects as &$i) {
-                $this->T_activePrinciplesEffects->insert($i);
-            }
-            foreach($activePrincipleSideEffects as $i) {
-                $this->T_activePrinciplesSideEffects->insert($i);
+            if($sideEffectNames != null) {
+                $activePrincipleSideEffects = array();
+                foreach ($sideEffectNames as $i) {
+                    array_push($activePrincipleSideEffects, new ActivePrincipleSideEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
+                        'active_principle_id' => $activePrincipleId,
+                        'side_effect_id' => $this->getSideEffectFromName($i)->getId()
+                    ]));
+                }
+                foreach ($activePrincipleSideEffects as $i) {
+                    $this->T_activePrinciplesSideEffects->insert($i);
+                }
             }
             $this->dbh->transactionCommit();
         } catch (DBException $e) {

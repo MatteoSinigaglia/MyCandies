@@ -29,12 +29,12 @@ color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
 color: rgb(134, 2, 2);
-padding: 0.5em 0em;
+padding: 0.5em 0;
 display: block;
 }
 .formSuccess {
     color: green;
-    padding: 0.5em 0em;
+    padding: 0.5em 0;
     display: block;
 }
 .rightMessage {

@@ -199,7 +199,7 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-        return (count($products) >= 1 ? $products[0] : null);
+        return (empty($products) ? null : $products[0]);
     }
 
     public function getSingleProduct($id) : array {

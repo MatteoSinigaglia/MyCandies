@@ -82,6 +82,16 @@ class Product extends Entity
         }
     }
 
+    public static function validatePrice($price) : string{
+        if (!is_numeric($price)) {
+            return 'Il prezzo inserito non è numerico';
+        } else if ($price <= 0 || $price >= 10000) { // è numerico allora ->
+            return 'Il prezzo deve essere maggiore di 0 e minore di 10000';
+        } else if (!preg_match('/^\d+(.\d{1,2})?\b$/', $price))
+            return 'Il prezzo deve avere al massimo due valori decimali, separati da una virgola';
+        else return '';
+    }
+
     public function setAvailability($availability)
     {
         if (!is_numeric($availability)) {
@@ -94,6 +104,16 @@ class Product extends Entity
         else {
             $this->availability = filter_var($availability, FILTER_VALIDATE_INT);
         }
+    }
+
+    public static function validateAvailability($availability) : string {
+        if (!is_numeric($availability)) {
+            return 'La quantità inserita non è numerica';
+        } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
+            return 'La quantità deve essere maggiore di 0 e minore di 10000000';
+        } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
+            return 'La quantità deve essere un valore intero';
+        } else return '';
     }
 
     /**

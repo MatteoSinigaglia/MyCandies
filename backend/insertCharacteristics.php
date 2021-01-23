@@ -28,6 +28,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
             <fieldset>
                 <legend>Inserimento nuovo principio attivo</legend>
+                <success />
                 <label for="activePrincipleName">Nome:</label>
                 <span><input type="text" id="activePrincipleName" name="activePrincipleName" /></span>
                 <errName />
@@ -53,6 +54,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
                 <fieldset>
                     <legend>Inserimento nuovo effetto</legend>
+                    <success />
                     <label for="effectName">Nome:</label>
                     <span><input type="text" id="effectName" name="effectName" /></span>
                     <errName />
@@ -69,6 +71,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
                 <fieldset>
                     <legend>Inserimento nuovo effetto collaterale</legend>
+                    <success />
                     <label for="sideEffectName">Nome:</label>
                     <span><input type="text" id="sideEffectName" name="sideEffectName" /></span>
                     <errName />
@@ -85,6 +88,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
             <fieldset>
                 <legend>Inserimento nuova categoria</legend>
+                <success />
                 <label for="categoryName">Nome:</label>
                 <span><input type="text" id="categoryName" name="categoryName" /></span>
                 <errName />

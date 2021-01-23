@@ -3,8 +3,11 @@
 //TODO rimuovere include a paths
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
 
 use MyCandies\Controllers\ProductsManager;
+use MyCandies\Entities\Product;
+use DB\Exceptions\DBException;
 
 $success = false;
 $errorMsg = '';
@@ -16,9 +19,12 @@ if(isset($_POST['modifyProduct'])) {
     $data['availability'] = $_POST['modifyAvailability'];
     $data['name'] = $_POST['modifyName'];
     try {
-        $success = $productManager->modifyProduct($data);
-    } catch (\DB\Exceptions\DBException | Exception $e) {
-        $errorMsg .= '<p>' . $e->getMessage() . '</p>';
+        $errorMsg .= '<strong class="formErrors">'.Product::validateAvailability($data['availability']).'</strong>';
+        $errorMsg .= '<strong class="formErrors">'.Product::validatePrice($data['price']).'</strong>';
+        if($errorMsg == '')
+            $success = $productManager->modifyProduct($data);
+    } catch (DBException | Exception $e) {
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '</strong>';
     }
 } else if(isset($_POST['deleteProduct'])) {
     $errorMsg = '';
@@ -26,8 +32,8 @@ if(isset($_POST['modifyProduct'])) {
     $data['name'] = $_POST['modifyName'];
     try {
         $success = $productManager->removeProduct($data['name']);
-    } catch (\DB\Exceptions\DBException | Exception $e) {
-        $errorMsg .= '<p>' . $e->getMessage() . '</p>';
+    } catch (DBException | Exception $e) {
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '</strong>';
     }
 }
 
@@ -36,7 +42,7 @@ include 'prodotti_dashboard.php';
 $htmlPage = ob_get_clean();
 
 if($success == true) {
-    $htmlPage = str_replace('<messages />', '<p>Operazione completata con successo</p>', $htmlPage);
+    $htmlPage = str_replace('<messages />', '<strong class="formSuccess">Operazione completata con successo</strong>', $htmlPage);
 } else {
     $htmlPage = str_replace('<messages />', $errorMsg, $htmlPage);
 
