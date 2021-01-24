@@ -29,8 +29,13 @@ color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
 color: rgb(134, 2, 2);
-padding: 0.5em 0em;
+padding: 0.5em 0;
 display: block;
+}
+.formSuccess {
+    color: green;
+    padding: 0.5em 0;
+    display: block;
 }
 .rightMessage {
 color: #093013;
@@ -335,7 +340,7 @@ color: #CDA434;
 #productContenitor dl dd img {
 float: left;
 width: 20%;
-margin: 1em 0 0 1em;
+margin: 1em 0 1em 1em;
 }
 #productContenitor dl dd p {
 width: 75%;
@@ -459,19 +464,28 @@ padding-top: 1em;
 padding-bottom: 1em;
 }
 /* queste regole che seguono sono in previsione di oggetti per il negozio */
-.singleProduct {
+.products {
 display: flex;
-flex-direction: row;
-padding: 2em;
-border: 1px solid #DDD;
+flex-wrap: wrap;
 }
-.singleProduct img {
-text-align: center;
+.product-card {
+margin-top: 1em;
+margin-right: 1em;
 padding: 1em;
+border: 1px solid #ddd;
 }
-/* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h2,
-p {
+.product-image {
+height: 70%;
+}
+.product-image img {
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-width: 17em;
+}
+.product-info p,
+.product-info h1 {
+margin-top: auto;
 text-align: left;
 }
 #productsPageNumber {

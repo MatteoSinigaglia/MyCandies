@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-<title>Prodotti - MyCandies</title>
+    <title>Prodotti - MyCandies</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="title" content="Prodotti - MyCandies"/>
     <meta name="description" content="Elenco dei prodotti acquistabili dal sito"/>
@@ -26,33 +26,39 @@
     <a class="helps" href="#productList">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-          <a href="home.html">
+          <a href="../backend/home.php">
             <img id="logo" src="../img/logo.jpeg"
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
           </a>
         </div>
         <div id="utilityBar">
-            <form class="searchButton" id="headerSearchBar" action="#" method="get">
+            <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
                 <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>                </div>
+                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>
+                </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
-            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+            <a href="../backend/formCliente.php" id="loginButton" class="buttons">Accedi</a>
+            <a href="../backend/carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
         <ul id="navigationMenu">
-            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
+            <li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
             <li><span>Droghe</span></li>
+<<<<<<< HEAD
             <li><a href="areaPersonale.html">Area personale</a></li>
             <li><a href="FAQ.html"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+=======
+            <li><a href="../backend/areaPersonale.php">Area personale</a></li>
+            <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+>>>>>>> 4052cfe817fbc8467beb4c251506737c16621f49
         </ul>
     </div>
 </div>
 <div id="breadcrumb">
-    <p>Ti trovi in: <span xml:lang="en" lang="en"><a href="../frontend/home.html">Home</a></span> / Lista prodotti</p>
+    <p>Ti trovi in: <span xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></span> / Lista prodotti</p>
 </div>
 <div class="main" id="productList">
     <div id="filters">
@@ -100,31 +106,10 @@
         </form>
     </div>
     <div id="rightSideContent">
-        <div id="upperRightSideContent">
-            <div id="orderBy">
-                <label for="orderBuySelect" class="helps">Ordina per</label>
-                <select name="orderBuySelect" id="orderBuySelect">
-                    <option class="hiddenChoice">Ordina per</option>
-                    <option>Prezzo: crescente</option>
-                    <option>Prezzo: decrescente</option>
-                </select>
-            </div>
-            <div id="productsPerPage">
-                <label for="productsPerPageSelect" class="helps">Prodotti per pagina</label>
-                <select name="productsPerPageSelect" id="productsPerPageSelect">
-                    <option class="hiddenChoice">Prodotti per pagina</option>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                </select>
-            </div>
+        <div class="products">
+            <listOfProducts />
         </div>
-        <div id="productsList">
-            <!-- Ogni prodotto deve essere dentro un div con classe = singleProduct -->
-
-            <div id="productsPageNumber"></div>
-        </div>
+        <div id="productsPageNumber"></div>
     </div>
 </div>
 <div id="footer">

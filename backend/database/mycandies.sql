@@ -1,9 +1,11 @@
--- BACKUP DATABASE MyCandies
--- TO DISK = 
+SET FOREIGN_KEY_CHECKS=0;
 
--- DROP DATABASE IF EXISTS MyCandies;
--- CREATE DATABASE MyCandies;
--- USE MyCandies;
+-- BACKUP DATABASE MyCandies
+-- TO DISK =
+
+DROP DATABASE IF EXISTS MyCandies;
+CREATE DATABASE MyCandies;
+USE MyCandies;
 
 /* @name_size UNSIGNED int;
 @description_size UNSIGNED int;
@@ -11,7 +13,6 @@
 SET @name_size = 100;
 SET @description_size = 300;
 */
-
 
 
 DROP TABLE IF EXISTS `Images`;
@@ -30,24 +31,30 @@ CREATE TABLE `Customers` (
 	`email` varchar(50) NOT NULL,
 	`telephone` char(10),
 	`password` varchar(255) NOT NULL,
-	`sex` enum('M', 'F', 'O'),
-	`date_of_birth` date NOT NULL,
+	`gender` enum('M', 'F', 'A'),
+	`birthdate` date NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS `Admins`;
+CREATE TABLE `Admins` (
+    `user_id` int NOT NULL,
+    PRIMARY KEY (`user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `Customers`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- TO DO: 
 /* Consider using different tables for countries, regions, province, cities */
 DROP TABLE IF EXISTS `Addresses`;
 CREATE TABLE `Addresses` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`country` varchar(20) NOT NULL,
-	`region` varchar(20) NOT NULL,
+	`country` varchar(20),
+	`region` varchar(20),
 	`province` varchar(20) NOT NULL,
 	`city` varchar(20) NOT NULL,
-	`CAP` varchar(5) NOT NULL,
+	`CAP` char(5) NOT NULL,
 	`street` varchar(30) NOT NULL,
-	`street_number` varchar(10) NOT NULL,
+	`number` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -122,8 +129,8 @@ CREATE TABLE `CustomersAddresses` (
 	`address_id` int,
 	`address_type` enum('Delivery', 'Billing'),
 	PRIMARY KEY (`customer_id`, `address_id`),
-	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`),
-	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`)
+	FOREIGN KEY (`customer_id`) REFERENCES `Customers`(`id`) on delete cascade,
+	FOREIGN KEY (`address_id`) REFERENCES `Addresses`(`id`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `Carts`;
@@ -140,7 +147,7 @@ CREATE TABLE `ProductsActivePrinciples` (
 	`active_principle_id` int NOT NULL,
 	`percentage` float(10) NOT NULL,
 	PRIMARY KEY (`product_id`, `active_principle_id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE,
 	FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -182,7 +189,7 @@ CREATE TABLE `ProductsImages` (
 	`product_id` int NOT NULL,
 	`img_id` int NOT NULL,
 	PRIMARY KEY (`product_id`, `img_id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`),
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE,
 	FOREIGN KEY (`img_id`) REFERENCES `Images`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -194,5 +201,8 @@ CREATE TABLE `ProductsInCarts` (
 	`quantity` float(24) NOT NULL,
 	PRIMARY KEY (`cart_id`, `product_id`),
 	FOREIGN KEY (`cart_id`) REFERENCES `Carts`(`id`),
-	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`)
+	FOREIGN KEY (`product_id`) REFERENCES `Products`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+SET FOREIGN_KEY_CHECKS=1;

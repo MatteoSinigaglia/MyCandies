@@ -29,7 +29,7 @@
   <a class="helps" href="#registrationForm">Vai al <span xml:lang="en" lang="en">form</span> di registrazione</a>
   <div id="headerLogoAndUtility">
       <div id="imageContainer">
-        <a href="home.html">
+        <a href="../backend/home.php">
           <img id="logo" src="../img/logo.jpeg"
               alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </a>
@@ -47,10 +47,11 @@
   </div>
   <div id="navigation">
       <ul id="navigationMenu">
-          <li xml:lang="en"><a href="../frontend/home.html">Home</a></li>
-          <li><a href="../frontend/listaProdotti.html">Droghe</a></li>
-          <li><a href="areaPersonale.html">Area personale</a></li>
-          <li><a href="../frontend/FAQ.html"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+          <li xml:lang="en"><a href="../backend/home.php">Home</a></li>
+          <li><a href="../backend/listaProdotti.php">Droghe</a></li>
+          <li><a href="../backend/areaPersonale.php">Area personale</a></li>
+          <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+          <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
       </ul>
   </div>
 </div>
@@ -65,20 +66,23 @@
 <div id="loginAndRegistrationContent">
   <div class="formContainer">
     <h1 id="h1Accedi">Accedi</h1>
-    <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
+    <form action="../backend/signin.php" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
         <legend id="loginLegend" xml:lang="en"> E-mail e Password </legend>
         <!-- Campo user -->
         <label for="loginEmail" xml:lang="en">E-mail:</label>
-        <span><input type="text" id="loginEmail" name="loginEmail" /></span>
+        <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
         <!-- Campo password -->
         <label for="loginPassword" xml:lang="en">Password:</label>
-        <span><input type="password" id="loginPassword" name="loginPassword" maxlength="20" /></span>
+        <span>
+          <input type="password" id="loginPassword" name="user[password]" maxlength="20" />
+          <error_login />
+        </span>
         <!-- link recupero credenziali -->
         <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o <span xml:lang="en">password</span>?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
-        <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
+        <input type="submit" id="usernameButton" name="submitLogin" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
       </fieldset>
     </form>
@@ -88,60 +92,109 @@
   </div>
   <div class="formContainer">
   <h1>Registrati</h1>
-  <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();" title="Form per la registrazione di un nuovo utente">
+  <form action="../backend/signup.php" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();" title="Form per la registrazione di un nuovo utente">
     <fieldset id="mandatoryFields">
       <div>
         <label for="email" xml:lang="en">E-mail</label>
-        <span><input type="text" name="email" id="email" class="input-wide"/></span>
+        <span>
+          <input type="text" name="user[email]" id="email" class="input-wide" value="_email_value"/>
+          <error_email />
+        </span>
       </div>
       <div>
         <label for="password" xml:lang="en">Password</label>
-        <span><input type="password" name="password" id="password" maxlength="20"/></span>
+        <span>
+          <input type="password" name="user[password]" id="password" maxlength="20" value="_password_value" />
+          <error_password />
+        </span>
       </div>
       <div>
         <label for="confirmPassword">Conferma <span xml:lang="en">password</span></label>
-        <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="20" /></span>
+        <span>
+          <input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" value="_confirmPassword_value" />
+          <error_confirmPassword />
+        </span>
       </div>
     </fieldset>
     <fieldset>
       <legend>Dati personali</legend>
       <div>
         <label for="name">Nome</label>
-        <span><input type="text" name="name" id="name"/></span>
+        <span>
+          <input type="text" name="user[first_name]" id="name" value="_first_name_value" />
+          <error_first_name />
+        </span>
       </div>
       <div>
         <label for="surname">Cognome</label>
-        <span><input type="text" name="surname" id="surname"/></span>
+        <span>
+          <input type="text" name="user[last_name]" id="surname" value="_last_name_value" />
+          <error_last_name />
+        </span>
       </div>
       <div>
         <label for="birthDate">Data di nascita</label>
-        <span><input type="text" name="birthDate" id="birthDate"/></span>
+        <span>
+          <input type="text" name="user[birthdate]" id="birthDate" value="_birthdate_value" />
+          <error_birthdate />
+        </span>
+      </div>
+      <div>
+        <label for="gender"> Sesso:</label>
+        <select id="gender" name="user[gender]">
+            <option value="Male">Maschio</option>
+            <option value="Female">Femmina</option>
+            <option value="Other">Altro</option>
+        </select>
       </div>
       <div>
         <label for="address">Indirizzo</label>
-        <span><input type="text" name="address" id="address"/></span>
+        <span>
+          <input type="text" name="address[street]" id="address" value="_street_value" />
+          <error_street />
+        </span>
       </div>
       <div>
         <label for="address_number">Civico</label>
-        <span><input type="text" name="address_number" id="address_number"/></span>
+        <span>
+          <input type="text" name="address[number]" id="address_number" value="_number_value" />
+          <error_number />
+        </span>
       </div>
       <div>
         <label for="city">Comune</label>
-        <span><input type="text" name="city" id="city" /></span>
+        <span>
+          <input type="text" name="address[city]" id="city" value="_city_value" />
+          <error_city />
+        </span>
       </div>
       <div>
         <label for="area">Provincia</label>
-        <span><input type="text" name="area" id="area"/></span>
+        <span>
+          <input type="text" name="address[province]" id="area" value="_province_value" />
+          <error_province />
+        </span>
       </div>
       <div>
         <label for="cap">CAP</label>
-        <span><input type="text" name="cap" id="cap" maxlength="5" /></span>
+        <span>
+          <input type="text" name="address[CAP]" id="cap" maxlength="5" value="_CAP_value" />
+          <error_CAP />
+        </span>
       </div>
       <div>
+<<<<<<< HEAD
         <label for="cap">Cellulare</label>
         <span><input type="text" name="telefono" id="telefono" maxlength="10" /></span>
+=======
+        <label for="cap">Telefono</label>
+        <span>
+          <input type="text" name="user[telephone]" id="telefono" maxlength="10" value="_telephone_value" />
+          <error_telephone />
+        </span>
+>>>>>>> 4052cfe817fbc8467beb4c251506737c16621f49
       </div>
-      <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />
+        <input type="submit" name="submitSubscribe" value="Registrati" class="buttons" id="confirmSubscribe" />
     </fieldset>
   </form>
   </div>

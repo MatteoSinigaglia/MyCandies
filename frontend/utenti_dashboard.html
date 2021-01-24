@@ -21,11 +21,11 @@
     <div id="header">
         <div id="navigation">
             <ul id="navigationMenu">
-                <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
+                <li><a href="../backend/riepilogoAcquisti_dashboard.php">Riepilogo acquisti</a></li>
                 <li><span>Utenti</span></li>
-                <li><a href="inserisciProdotto_dashboard.html">Inserisci prodotto</a></li>
-                <li><a href="prodotti_dashboard.html">Prodotti</a></li>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
+                <li><a href="../backend/prodotti_dashboard.php">Prodotti</a></li>
+                <li><a href="../backend/home.php">Home</a></li>
             </ul>
         </div>
     </div>
@@ -35,7 +35,7 @@
     </div>
 
     <div id="utentiDashboard" class="main">
-        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, data di nascita, sesso e azioni.">
+        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
             <thead>
                 <tr>
                     <th id="mail" scope="col">mail</th>
@@ -55,6 +55,7 @@
                     <td headers="sex" title="Sesso"></td>
                     <td headers="actions" title="mail"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
                 </tr>
+                <users />
             </tbody>
         </table>
     </div>

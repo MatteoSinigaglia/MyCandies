@@ -24,7 +24,7 @@
 	<a class="helps" href="#cartContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<a href="home.html">
+			<a href="../backend/home.php">
 				<img id="logo" src="../img/logo.jpeg"
 						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 			</a>
@@ -37,23 +37,23 @@
                     <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
 			</form>
 
-			<a href="formCliente.html" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
+            <a href="../backend/formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
 			<p id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></p>
 		</div>
 	</div>
 	<div id="navigation">
 		<ul id="navigationMenu">
-			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
-			<li><a href="listaProdotti.html">Droghe</a></li>
-			<li><a href="areaPersonale.html">Area personale</a></li>
-			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+			<li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
+			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
 		</ul>
 	</div>
 </div>
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
+        <a href="../backend/home.php">
             <span xml:lang="en" lang="en">Home</span>
         </a>/ Carrello</p>
 </div>
@@ -65,7 +65,7 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, azioni e totale prodotto.">
+		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
 			<thead>
 				<tr>
 					<th id="productName" scope="col">Nome</th>
@@ -77,24 +77,25 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td headers="productName" title="Nome"></td>
-					<td headers="productCode" title="Codice"></td>
-					<td headers="quantity" title="Quantità"></td>
-					<td headers="actions" title="Azioni"></td>
-					<td headers="total" title="Totale prodotto"></td>
+					<td headers="productName" title="Nome" scope="row"></td>
+					<td headers="productCode" title="Codice" scope="row"></td>
+					<td headers="quantity" title="Quantità" scope="row"></td>
+					<td headers="actions" title="Azioni" scope="row"></td>
+					<td headers="total" title="Totale prodotto" scope="row"></td>
 				</tr>
+                <productsInCart />
 			</tbody>
         </table>
         <table summary="Tabella per indicare il totale del carrello.">
             <tbody>
                 <tr>
 					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
-					<td headers="totalCart">0.0$</td>
+					<td headers="totalCart" scope="row">0.0$</td>
 				</tr>
             </tbody>
         </table>
-		<button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button>
-	</div>
+		<a href="../backend/purchase.php"><button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button></a>
+    </div>
 </div>
 <div class="helpBackToHeader">
     <a href="#header" class="backToHeader">Torna su</a>

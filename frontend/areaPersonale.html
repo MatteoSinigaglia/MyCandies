@@ -18,13 +18,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
- 
+
 <body onload="loadMenu();">
 <div id="header">
     <a class="helps" href="#personalArea">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-          <a href="home.html">
+          <a href="../backend/home.php">
             <img id="logo" src="../img/logo.jpeg"
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
           </a>
@@ -37,63 +37,83 @@
                 </div>
             </form>
 
-            <a href="formCliente.html" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
-            <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+            <a_auth_state />
+            <a href="../backend/carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
     </div>
     <div id="navigation">
         <ul id="navigationMenu">
-            <li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
-            <li><a href="listaProdotti.html">Droghe</a></li>
+            <li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+            <li><a href="../backend/listaProdotti.php">Droghe</a></li>
             <li><span>Area personale</span></li>
-            <li><a href="FAQ.html"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+            <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
         </ul>
     </div>
 </div>
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
-            <span xml:lang="en" lang="en">Home</span>
-        </a>/ Area personale</p>
+        <a href="../backend/home.php"><span xml:lang="en" lang="en">Home</span></a>
+        / Area personale
+    </p>
 </div>
 <div class="main" id="areaPersonaleContent">
-    <form id="formAreaPersonale" action="#" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente">
+    <form id="formAreaPersonale" action="../backend/modifyUserData.php" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente">
+        <success_on_modify />
         <!-- da fare tag action per php-->
         <fieldset>
             <!-- Legenda -->
             <legend>I miei dati:</legend>
             <!-- Nome -->
             <label for="nome">Nome:</label>
-            <span><input type="text" id="nome" name="nome"/></span>
+            <span>
+                <input type="text" id="nome" name="user[first_name]" value="_first_name_value" />
+                <error_first_name />
+            </span>
             <!-- value/placeholder??-->
             <!-- Cognome --><label for="cognome"> Cognome:</label>
-            <span><input
-            type="text" id="cognome" name="cognome"/></span>
+            <span>
+                <input type="text" id="cognome" name="user[last_name]" value="_last_name_value" />
+                <error_last_name />
+            </span>
             <!-- Comune -->
             <label for="comune">Comune:</label>
-            <span><input
-            type="text" id="comune" name="comune"/></span>
+            <span>
+                <input type="text" id="comune" name="address[city]" value="_city_value" />
+                <error_city />
+            </span>
             <!-- Provincia -->
             <label for="comune">Provincia:</label>
-            <span><input
-            type="text" id="provincia" name="provincia"/></span>
+            <span>
+                <input type="text" id="provincia" name="address[province]" value="_province_value" />
+                <error_province />
+            </span>
             <!-- Indirizzo -->
             <label for="indirizzo">Indirizzo:</label>
-            <span><input
-            type="text" id="indirizzo" name="indirizzo"/></span>
+            <span>
+                <input type="text" id="indirizzo" name="address[street]" value="_street_value" />
+                <error_street />
+            </span>
             <!-- Numero civico -->
             <label for="civico">Numero civico:</label>
-            <span><input
-            type="text" id="civico" name="civico"/></span>
+            <span>
+                <input type="text" id="civico" name="address[number]" value="_number_value"/>
+                <error_number />
+            </span>
             <!-- CAP -->
             <label for="cap">CAP:</label>
-            <span><input type="text" id="cap" name="cap" maxlength="5"/></span>
+            <span>
+                <input type="text" id="cap" name="address[CAP]" maxlength="5" value="_CAP_value"/>
+                <error_CAP />
+            </span>
             <!-- Telefono -->
             <label for="telefono"> Telefono:</label>
-            <span><input
-            type="text" id="telefono" name="telefono"/></span>
-            <!-- Sesso: --><label for="gender"> Sesso:</label>
-            <select id="gender" name="gender">
+            <span>
+                <input type="text" id="telefono" name="user[telephone]" value="_telephone_value"/>
+                <error_telephone />
+            </span>
+            <!-- Sesso: -->
+            <label for="gender"> Sesso:</label>
+            <select id="gender" name="user[gender]" >
                 <option value="Maschio">Maschio</option>
                 <option value="Femmina">Femmina</option>
                 <option value="Altro">Altro</option>
@@ -101,12 +121,17 @@
             <!-- Data di nascita -->
             <label for="data">Data di nascita:</label>
             <!-- Buttons -->
-            <span><input type="text" id="data" name="data" value=""/></span>
-            <input type="submit" name="Conferma" value="Conferma" id="Confirm" class="buttons"/>
+            <span>
+                <input type="text" id="data" name="user[birthdate]" value="_birthdate_value"/>
+                <error_birthdate />
+            </span>
+            <input type="submit" name="confirm" value="Conferma modifiche" id="Confirm" class="buttons"/>
         </fieldset>
     </form>
     <div id="logoutButton">
-        <button class="buttons">Logout</button>
+        <a href="../backend/logout.php">
+            <button class="buttons">Logout</button>
+        </a>
     </div>
 </div>
 <div class="helpBackToHeader">
