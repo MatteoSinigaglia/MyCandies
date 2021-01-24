@@ -31,7 +31,7 @@ $htmlPage = str_replace("<descrizioneprodotto />", $prodotto['description'], $ht
 $htmlPage = str_replace("<prezzo />", $prodotto['price'], $htmlPage);
 $htmlPage = str_replace("<categoria />", $prodotto['category'], $htmlPage);
 $htmlPage = str_replace("<principioattivo />", $prodotto['activeprinciple'], $htmlPage);
-$htmlPage = str_replace("<percentualeprincipioattivo />", $prodotto['activeprinciplepercentage'] . '%', $htmlPage);
+$htmlPage = str_replace("<percentualeprincipioattivo />", $prodotto['activeprinciplepercentage'] . ' %', $htmlPage);
 $htmlPage = str_replace("<effetti />", $prodotto['effects'], $htmlPage);
 $htmlPage = str_replace("<effetticollaterali />", $prodotto['sideeffects'], $htmlPage);
 

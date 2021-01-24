@@ -457,24 +457,21 @@ display: flex;
 flex-wrap: wrap;
 }
 .product-card {
-margin-top: 1em;
-margin-right: 1em;
+margin: 1em;
 padding: 1em;
 border: 1px solid #ddd;
-}
-.product-image {
-height: 70%;
 }
 .product-image img {
 margin-left: auto;
 margin-right: auto;
 display: block;
-max-width: 17em;
+max-width: 16em;
+max-height: 70%;
 }
-.product-info p,
-.product-info h1 {
+.product-info {
 margin-top: auto;
 text-align: left;
+max-width: 15em;
 }
 #productsPageNumber {
 text-align: center;

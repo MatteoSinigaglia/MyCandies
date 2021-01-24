@@ -461,21 +461,22 @@ margin: 0.5em 0em;
 padding-top: 1em;
 padding-bottom: 1em;
 }
-/* queste regole che seguono sono in previsione di oggetti per il negozio */
-.singleProduct {
-display: flex;
-flex-direction: row;
-padding: 2em;
-border: 1px solid #DDD;
-}
-.singleProduct img {
-text-align: center;
+.product-card {
+margin: 1em;
 padding: 1em;
+border: 1px solid #ddd;
 }
-/* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h2,
-p {
+.product-image img {
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-width: 16em;
+max-height: 70%;
+}
+.product-info {
+margin-top: auto;
 text-align: left;
+max-width: 15em;
 }
 #productsPageNumber {
 text-align: center;
