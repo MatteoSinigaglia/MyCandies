@@ -240,7 +240,7 @@ function validateRegForm() {
 ============= CHECK INSERIMENTO PRODOTTO
 */
 var form_inserisciProdotto = {
-    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto."],
+    "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto.", "Inserire un nome."],
     "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
 };
 function loadProductInsertion() {
