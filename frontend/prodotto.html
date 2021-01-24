@@ -24,7 +24,7 @@
 	<a class="helps" href="#productContent">Vai al contenuto</a>
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
-			<a href="home.html">
+			<a href="../frontend/home.html">
 				<img id="logo" src="../img/logo.jpeg"
 						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 			</a>
@@ -43,72 +43,75 @@
 	</div>
 	<div id="navigation">
 		<ul id="navigationMenu">
-			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
-			<li><a href="listaProdotti.html">Droghe</a></li>
-			<li><a href="areaPersonale.html">Area personale</a></li>
-			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
+			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
 		</ul>
 	</div>
 </div>
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
+        <a href="../backend/home.php">
             <span xml:lang="en" lang="en">Home</span></a> /
-         <a href="listaProdotti.html">Lista prodotti</a>
-			 / *TODO NOMEPRODOTTO *</p>
+         <a href="../backend/listaProdotti.php">Lista prodotti</a>
+			 / <nomeprodotto /></p>
 </div>
 
 <div id="productContent" class="main">
 
 <h2>Descrizione prodotto: </h2>
-<div id="productContenitor">
+<a id="productContenitor">
 	<dl>
-		<dt><strong>Nome temporaneo</strong></dt>
+		<dt><nomeprodotto /></dt>
 		<dd>
-			<img src="../img/out_of_stock.jpg" alt="insieme di pasticche bianche" />
-			<p>Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
-			Testo di prova..Testo di prova..Testo di prova..Testo di prova..Testo di prova..
+			<immagineprodotto />
+			<p>
+				<descrizioneprodotto />
 			</p>
 		</dd>
 	</dl>
-	<button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button>
+	<a href="../backend/addToCart.php?_product_data"><button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button></a>
 </div>
 <div id="productTableContent">
 	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra categoria, prezzo, principio attivo, percentuale principio attivo, effetti, effetti collaterali.">
 		<tr>
+			<th id="tableDrugPrice" scope="col">Prezzo</th>
+		</tr>
+		<tr>
+			<td headers="tableDrugPrice">€ <prezzo /></td>
+		</tr>
+		<tr>
 			<th id="tableDrugCategory" scope="col">Categoria</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugCategory">valore</td> <!-- cannabinoidi, oppiacei, etc -->
+			<td headers="tableDrugCategory"><categoria /></td> <!-- cannabinoidi, oppiacei, etc -->
 		</tr>
 		<tr>
 			<th id="tableDrugComponents" scope="col">Principio attivo</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents">valore</td>
+			<td headers="tableDrugComponents"><principioattivo /></td>
 		</tr>
 		<tr>
 			<th id="tableDrugComponents" scope="col">Percentuale principio attivo</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents">valore</td>
+			<td headers="tableDrugComponents"><percentualeprincipioattivo/></td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugEffects">valore</td>
+			<td headers="tableDrugEffects"><effetti /></td>
 		</tr>
 		<tr>
 			<th id="tableDrugSideEffects" scope="col">Effetti collaterali</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugSideEffects">valore</td>
+			<td headers="tableDrugSideEffects"><effetticollaterali /></td>
 		</tr>
 	</table>
 </div>
