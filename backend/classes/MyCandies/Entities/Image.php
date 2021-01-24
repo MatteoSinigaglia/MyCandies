@@ -36,7 +36,7 @@
                 } else if($_FILES['productImage']['size'] >= 512000) {
                     $this->errors['img_path'] = 'La dimensione massima dell\'immagine è 500kb';
                 } else {
-                    $this->img_path = ROOT.DS.'img'.DS.'products'.DS.$_FILES['productImage']['name'];
+                    $this->img_path = '..'.DS.'img'.DS.'products'.DS.$_FILES['productImage']['name'];
                 }
             }
         }

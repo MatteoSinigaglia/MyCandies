@@ -75,7 +75,7 @@ class Product extends Entity
             $this->errors['price'] = 'Il prezzo inserito non è numerico';
         } else if ($price <= 0 || $price >= 10000) { // è numerico allora ->
             $this->errors['price'] = 'Il prezzo deve essere maggiore di 0 e minore di 10000';
-        } else if (!preg_match('/^\d+(,\d{1,2})?\b$/', $price))
+        } else if (!preg_match('/^\d+(.\d{1,2})?\b$/', $price))
             $this->errors['price'] = 'Il prezzo deve avere al massimo due valori decimali, separati da una virgola';
         else {
             $this->price = filter_var($price, FILTER_VALIDATE_FLOAT);

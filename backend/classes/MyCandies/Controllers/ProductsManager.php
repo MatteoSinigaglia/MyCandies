@@ -185,6 +185,40 @@ class ProductsManager
         }
          return $rows;
     }
+    public function searchProduct($pattern) {
+        $products = array();
+        try{
+            $this->dbh->connect();
+            $products = $this->T_products->searchPattern('name', '%'.$pattern.'%');
+            $images = $this->T_images->find();
+            $productsImages = $this->T_productsImages->find();
+        } catch (Exception $e) {
+            throw $e;
+        } finally {
+            $this->dbh->disconnect();
+        }
+        $rows=[];
+        foreach($products as $product) {
+            $rows[$product->getId()] = [
+                'id'           => $product->getId(),
+                'name'         => $product->getName(),
+                'price'        => $product->getPrice(),
+                'availability' => $product->getAvailability()
+            ];
+        }
+        foreach($productsImages as $productImage) {
+            if(isset($rows[$productImage->getProduct_id()]))
+                $rows[$productImage->getProduct_id()]['img_id'] = $productImage->getImg_id();
+        }
+
+        foreach($rows as $key => &$row) {
+            foreach($images as $image) {
+                if($image->getId() == (int)$row['img_id'])
+                    $row['img_path'] = $image->getImg_path();
+            }
+        }
+        return $rows;
+    }
 
     public function getProductByName($name) {
         $products = array();
@@ -257,19 +291,6 @@ class ProductsManager
             $this->dbh->disconnect();
         }
 
-        // preparazione dell'array associativo da restituire, contenente tutti i dati del prodotto
-        if(isset($activePrinciplesEffects)) {
-            $effectsList = '';
-            foreach ($effects as $effect) {
-                $effectsList .= ', ' . $effect->getName();
-            }
-        }
-        if(isset($activePrinciplesSideEffects)) {
-            $sideEffectsList = '';
-            foreach ($sideEffects as $sideEffect) {
-                $sideEffectsList .= ', ' . $sideEffect->getName();
-            }
-        }
         return [
             'name'                      => $products[0]->getName(),
             'description'               => $products[0]->getDescription(),
@@ -278,8 +299,8 @@ class ProductsManager
             'category'                  => $categories[0]->getName(),
             'activeprinciple'           => $activePrinciple[0]->getName(),
             'activeprinciplepercentage' => $productsActivePrinciple[0]->getPercentage(),
-            'effects'                   => $effectsList,
-            'sideeffects'               => $sideEffectsList
+            'effects'                   => (isset($effects) ? implode(',', $effects) : ''),
+            'sideeffects'               => (isset($sideEffects) ? implode(',', $sideEffects) : '')
         ];
     }
 }

@@ -1,6 +1,6 @@
 var form_inserisciProdotto = {
     "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Il nome deve contenere caratteri alfanumerici."],
-    "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
+    "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."]
 };
 
 function setDefaultValue(input) {

@@ -8,10 +8,13 @@ use MyCandies\Controllers\ProductsManager;
 
 try {
     $productsManager = new ProductsManager();
-    $productsList = $productsManager->getProducts();
+    $productsList = null;
+    if(isset($_GET['productSearchBar'])) {
+        $productsList = $productsManager->searchProduct($_GET['productSearchBar']);
+    } else $productsList = $productsManager->getProducts();
 } catch (Exception $e) {
     // load 404 page, TODO
-    echo $e->getMessage();
+    header("location: ../backend/home.php");
     die();
 }
 
@@ -22,11 +25,11 @@ foreach ($productsList as $product) {
     $productCards .=
                 '<div class="product-card">
                     <div class="product-image">
-                        <img src="' . $product['img_path'] . '" alt="Immagine del prodotto '.$product['name'].'">
+                        <img src="'.$product['img_path'].'"  alt="Immagine del prodotto '.$product['name'].'" />
                     </div>
                     <div class="product-info">
-                        <a href="'."backend".DS."prodotto.php?id=".$product['id'].'">'.$product['name'].'</a>
-                        <p>€'.$product['price'].'</p>
+                        <h1><a href="../'."backend".DS."prodotto.php?id=".$product['id'].'">'.$product['name'].'</a></h1>
+                        <p>€ '.$product['price'].'</p>
                     </div>
                 </div>';
 }

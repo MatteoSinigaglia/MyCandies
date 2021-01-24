@@ -326,7 +326,7 @@ color: #CDA434;
 #productContenitor dl dd img {
 float: left;
 width: 20%;
-margin: 1em 0 0 1em;
+margin: 1em 0 1em 1em;
 }
 #productContenitor dl dd p {
 width: 75%;
@@ -454,11 +454,14 @@ padding-bottom: 1em;
 display: flex;
 flex-wrap: wrap;
 }
-product-card {
+.product-card {
 margin-top: 1em;
 margin-right: 1em;
 padding: 1em;
 border: 1px solid #ddd;
+}
+.product-image {
+height: 70%;
 }
 .product-image img {
 margin-left: auto;
@@ -466,8 +469,10 @@ margin-right: auto;
 display: block;
 max-width: 17em;
 }
-.product-info {
+.product-info p,
+.product-info h1 {
 margin-top: auto;
+text-align: left;
 }
 #productsPageNumber {
 text-align: center;
