@@ -282,7 +282,7 @@ function validateInsertionForm() {
 */
 
 var form_credenziali = {
-    "changePassword": ["Inserisci nuova password", /.{4,20}/, "Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
+    "changePassword": ["Inserisci nuova password", /.{4,20}/, "Password non valida. La lunghezza deve essere tra 4 e 20 caratteri.", "Compilare il campo password."],
     "confirmNewPassword": ["Inserisci password di conferma", /.{4,20}/, "La password non corrisponde."]
 };
 
@@ -308,6 +308,10 @@ function validateChangeCredentialField(input) {
                 printError(input, 2, "form_credenziali");
                 return false;
             }
+        }
+        if(input.id == "changePassword" && input.value == form_credenziali[input.id][0]) {
+            printError(input, 3, "form_credenziali");
+            return false;
         }
         return true;
     }
@@ -421,10 +425,6 @@ for(var key in PAFormDetails){
 return PAcheck;
 };
 
-/*
-=========== CHECK FILTRI
-*/
-
 var FilterValues = {
     "minActivePrinciple": [/^\d{1,3}$/,"Inserire un numero a max. 3 cifre.", "Valore minimo troppo basso.", "Valore minimo troppo alto.", "Il valore minimo è più grande del valore massimo."],
     "maxActivePrinciple": [/^\d{1,3}$/,"Inserire un numero a max. 3 cifre.", "Valore massimo troppo basso.", "Valore massimo troppo alto."],
@@ -516,10 +516,6 @@ var FilterValues = {
     }
     return checkFilters;
   };
-
-  /*
-  ============ MOBILE MENU
-  */
 
  function loadMenu() {
     var menuContenitor = document.getElementById("navigation");
