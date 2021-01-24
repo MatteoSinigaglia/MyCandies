@@ -226,6 +226,9 @@ background-color:  #093013;
 border: 1px solid #000;
 color: #CDA434;
 }
+table td {
+background-color: white;
+}
 /*------- HEADER -------------------------------------------------------------------------------*/
 #header {
 width: 100%;
@@ -403,6 +406,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
+background-color: white;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {

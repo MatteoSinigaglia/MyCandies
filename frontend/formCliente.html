@@ -22,15 +22,15 @@
 <body onload="loadMenu(); loadFormCliente();">
 <div id="header">
   <a class="helps" href="#loginForm">Vai al
-      <span xml:lang="en" lang="en">form</span>
+      <span xml:lang="en">form</span>
       di
-      <span xml:lang="en" lang="en">login</span>
+      <span xml:lang="en">login</span>
   </a>
-  <a class="helps" href="#registrationForm">Vai al <span xml:lang="en" lang="en">form</span> di registrazione</a>
+  <a class="helps" href="#registrationForm">Vai al <span xml:lang="en">form</span> di registrazione</a>
   <div id="headerLogoAndUtility">
       <div id="imageContainer">
         <a href="../backend/home.php">
-          <img id="logo" src="../img/logo.jpeg"
+          <img id="logo" src="../img/logo.png"
               alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </a>
       </div>
@@ -47,7 +47,7 @@
   </div>
   <div id="navigation">
       <ul id="navigationMenu">
-          <li xml:lang="en"><a href="../backend/home.php">Home</a></li>
+          <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
           <li><a href="../backend/listaProdotti.php">Droghe</a></li>
           <li><a href="../backend/areaPersonale.php">Area personale</a></li>
           <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
@@ -57,9 +57,7 @@
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
-            <span xml:lang="en" lang="en">Home</span>
-        </a>/ Accedi-Registrati</p>
+        <a href="home.html" xml:lang="en">Home </a>/ Accedi-Registrati</p>
 </div>
 
 <div id="loginAndRegistrationContent">
@@ -68,7 +66,7 @@
     <form action="../backend/signin.php" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
-        <legend id="loginLegend" xml:lang="en"> E-mail e Password </legend>
+        <legend id="loginLegend" xml:lang="en"> E-mail <span xml:lang="it">e</span> Password </legend>
         <!-- Campo user -->
         <label for="loginEmail" xml:lang="en">E-mail:</label>
         <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
@@ -248,23 +246,23 @@
       </div>
       <div id="social">
           <h2>
-              <span xml:lang="en" lang="en">Link social:</span>
+              <span xml:lang="en">Link social:</span>
           </h2>
           <h3>Puoi trovarci su:</h3>
           <ul class="stylelessList">
-              <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+              <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
               </li>
-              <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+              <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
               </li>
-              <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+              <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
               </li>
-              <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+              <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
               </li>
           </ul>
       </div>
   </div>
   <div id="diritti">
-      <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+    <p><span xml:lang="en">MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova.</p>
   </div>
 </div>
 </body>
