@@ -33,8 +33,7 @@
 			<form class="searchButton" id="headerSearchBar" action="#" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-					<span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
-				</div>
+					<button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
 			</form>
 
 			<a href="../backend/formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
@@ -46,8 +45,7 @@
 			<li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
 			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
 			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
-			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
-			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
 		</ul>
 	</div>
 </div>
@@ -62,7 +60,7 @@
 
 <div id="productContent" class="main">
 
-<h2>Descrizione prodotto: </h2>
+<h1>Descrizione prodotto: </h1>
 <div id="productContenitor">
 	<dl>
 		<dt><nomeprodotto /></dt>
@@ -96,10 +94,10 @@
 			<td headers="tableDrugComponents"><principioattivo /></td>
 		</tr>
 		<tr>
-			<th id="tableDrugComponents" scope="col">Percentuale principio attivo</th>
+			<th id="tablePercentageDrugComponents" scope="col">Percentuale principio attivo</th>
 		</tr>
 		<tr>
-			<td headers="tableDrugComponents"><percentualeprincipioattivo/></td>
+			<td headers="tablePercentageDrugComponents"><percentualeprincipioattivo/></td>
 		</tr>
 		<tr>
 			<th id="tableDrugEffects" scope="col">Effetti</th>
@@ -156,7 +154,7 @@
                 <h3>Padova Stazione</h3>
                 <ul class="stylelessList">
                     <li>Orario: 4:00 - 20:00</li>
-                    <li>Chiuso nei weekend</li>
+                    <li>Chiuso nei <span xml:lang="en">weekend</span></li>
                     <li>Via Marzolo 600</li>
                 </ul>
             </div>
@@ -164,7 +162,7 @@
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
                     <li>Orario: 06:00 - 22:00</li>
-                    <li>Chiuso nei weekend</li>
+                    <li>Chiuso nei <span xml:lang="en">weekend</span></li>
                     <li>Via del Portello 800</li>
                 </ul>
             </div>
@@ -175,13 +173,13 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
                 </li>
             </ul>
         </div>

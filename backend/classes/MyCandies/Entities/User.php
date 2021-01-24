@@ -193,7 +193,7 @@ class User extends Entity {
 			$fields[$key] = $value;
 		}
 		if ($source !== DB) {
-			$fields['birthdate'] = date('d-m-Y', strtotime($this->birthdate));
+			$fields['birthdate'] = date('d/m/Y', strtotime($this->birthdate));
 			$fields['gender'] = $this->decodeGender($this->gender);
 		}
 

@@ -176,10 +176,8 @@ class Authentication {
 		$errors = array();
 		try {
 			$this->registrationSetup($user, $address);
-
 			$this->registration();
 		} catch (EntityException | AuthException $e) {
-			echo '2 ';
 			throw $e;
 		}
 
@@ -386,5 +384,20 @@ class Authentication {
 		}
 		$modified['id'] = $oldData['id'];
 		return $modified;
+	}
+
+	private function getAdmins() : ?array {
+		if (!isset($this->admins))
+			$this->initAdmins();
+
+		try {
+			$this->dbh->connect();
+			$admins = $this->admins->find();
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+		return $admins;
 	}
 }

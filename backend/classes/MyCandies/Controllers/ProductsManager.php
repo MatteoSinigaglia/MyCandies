@@ -303,4 +303,17 @@ class ProductsManager
             'sideeffects'               => (isset($sideEffects) ? implode(',', $sideEffects) : '')
         ];
     }
+
+	public function getProductById($id) {
+
+    	try{
+			$this->dbh->connect();
+			$product = $this->T_products->findById($id);
+		} catch (Exception $e) {
+			throw $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+		return (isset($product) ? $product : null);
+	}
 }

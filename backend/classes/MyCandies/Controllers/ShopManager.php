@@ -59,6 +59,7 @@ class ShopManager {
 	}
 
 	public function getCart() : ?array {
+		echo $_SESSION['cart'];
 		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
 	}
 
