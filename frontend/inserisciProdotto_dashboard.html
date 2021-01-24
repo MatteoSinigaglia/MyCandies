@@ -20,11 +20,12 @@
     <div id="header">
         <div id="navigation">
             <ul>
-                <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
-                <li><a href="utenti_dashboard.html">Utenti</a></li>
+                <li><a href="../frontend/riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
+                <li><a href="../frontend/utenti_dashboard.html">Utenti</a></li>
                 <li><span>Inserisci prodotto</span></li>
-                <li><a href="prodotti_dashboard.html">Prodotti</a></li>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="../backend/prodotti_dashboard.php">Lista prodotti</a></li>
+                <li><a href="../frontend/home.html">Home</a></li>
+                <li><a href="../backend/insertCharacteristics.php">Inserisci caratteristiche</a></li>
             </ul>
         </div>
     </div>
@@ -34,30 +35,53 @@
     </div>
 
     <div id="inserisciProdottoDashboard" class="main">
-        <form action="#" method="post" class="inputForm" onsubmit = "return validateForm();" title="form per l'inserimento di un nuovo prodotto">
+
+        <form action="../backend/inserisciProdotto.php" method="post" class="inputForm" onsubmit = "return validateForm();" enctype="multipart/form-data">
+            <errmsg />
             <fieldset>
                 <!-- Legenda -->
                 <legend>Inserimento nuovo prodotto</legend>
                 <!-- Nome prodotto -->
                 <label for="productName">Nome prodotto:</label>
-                    <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
+                <span><input type="text" id="productName" name="productName" maxlength="30" /></span>
+                <error_name />
                 <!-- Descrizione prodotto -->
                 <label for="productDescription">Descrizione prodotto:</label>
-                    <textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea>
+                <span><textarea id="productDescription" name="productDescription" rows="5" cols="40" maxlenght="255"></textarea></span>
+                <error_description />
                 <!-- Immagine prodotto -->
                 <label for="productImage">Immagine prodotto:</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" />
+                <span><input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg" /></span>
+                <error_img_path />
                 <!-- Prezzo -->
                 <label for="productPrice">Prezzo:</label>
-                    <span><input type="text" id="productPrice" name="productPrice" /></span><!-- controlli via php-->
+                <span><input type="text" id="productPrice" name="productPrice" /></span>
+                <error_price />
+                <!-- Quantità -->
+                <label for="productAvail">Quantità:</label>
+                <span><input type="text" id="productAvail" name="productAvail" /></span>
+                <error_availability />
                 <!-- Categoria -->
-                <label for="category">Categoria:</label>
-                    <select id="category" name="category" class="selectForm">
-                        <option value="" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
-                    </select>
+                <label for="productCategory">Categoria:</label>
+                <select id="productCategory" name="productCategory" class="selectForm">
+                    <option value="-- Seleziona categoria --" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
+                    <categoryOptions />
+                </select>
+                <error_category />
+                <!-- Principio attivo -->
+                <label for="productActivePrinciple">Principio Attivo:</label>
+                <select id="productActivePrinciple" name="productActivePrinciple" class="selectForm">
+                    <option value="-- Seleziona categoria --" selected="selected" disabled="disabled">-- Seleziona categoria --</option>
+                    <activePrinciples />
+                </select>
+                <error_active_principle_id />
+                <!-- Percentuale di principio attivo-->
+                <label for="productPercentage">Percentuale di principio attivo:</label>
+                <span><input type="text" id="productPercentage" name="productPercentage" maxlength="3" /></span>
+                <error_percentage />
                 <!-- Buttons -->
-                <input type="submit" id="aggiungi" value="Aggiungi Prodotto" class="buttons" />
-                <input type="reset" id="cancella" value="Cancella" class="buttons" />
+                <input type="submit" id="aggiungi" value="Aggiungi Prodotto" name = "aggiungi" class="buttons" />
+                <input type="reset" id="cancella" value="Cancella" name = "cancella" class="buttons" />
             </fieldset>
         </form>
     </div>

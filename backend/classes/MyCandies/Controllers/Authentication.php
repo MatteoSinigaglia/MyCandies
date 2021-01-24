@@ -61,6 +61,10 @@ class Authentication {
 	}
 
 	private function initUser() {
+
+		if (!isset($this->users))
+			$this->initUsers();
+
 		try {
 			$this->dbh->connect();
 			$this->user = $this->users->find(['column' => 'email', 'value' => $_SESSION['email']])[0];
@@ -233,12 +237,10 @@ class Authentication {
 			$this->dbh->disconnect();
 		}
 
-//		UID: encrypted user id using md5
 		$_SESSION['email'] = $this->user->getEmail();
 
 //		In the database is stored the hash of the password
 		$_SESSION['password'] = $this->user->getPassword();
-
 		$_SESSION['permissions'] = ($isAdmin ? 'admin' : 'user');
 	}
 
@@ -255,6 +257,7 @@ class Authentication {
 		if (empty($_SESSION['email']))
 			return false;
 
+//		TODO: refactor with $this->initUser()
 		try {
 			$this->dbh->connect();
 			$user = $this->users->find(['column'=>'email', 'value'=>$_SESSION['email']]);

@@ -186,7 +186,10 @@ class Table {
 		$query .= ' WHERE `'.$this->primaryKey.'` = :'.$this->primaryKey.'';
 
 		$fields = $this->processDates($fields);
-
+        echo $query;
+        foreach ($fields as $k => $v) {
+            echo $k.' => '.$v.' ';
+        }
 		try {
 			$this->dbh->query($query, $fields);
 		} catch (DBException $e) {
@@ -202,7 +205,7 @@ class Table {
 			'id' => $id
 		];
 
-		$this->query($query, $parameters);
+		$this->dbh->query($query, $parameters);
 	}
 
 	public function deleteWhere(string $column, $value) {

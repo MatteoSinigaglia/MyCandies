@@ -1,0 +1,4 @@
+# ignores everything
+*
+# except itself
+!.gitignore 
