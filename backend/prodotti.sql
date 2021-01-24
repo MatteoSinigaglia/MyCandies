@@ -29,6 +29,6 @@ INSERT INTO `ActivePrinciplesEffects` (`active_principle_id`, `effect_id`) VALUE
 DELETE FROM `ActivePrinciplesSideEffects`;
 INSERT INTO `ActivePrinciplesSideEffects` (`active_principle_id`, `side_effect_id`) VALUES (1,1),(2,5),(3,3),(4,4),(5,2),(6,8),(7,6),(8,7);
 DELETE FROM `Images`;
-INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'xanax.jpg'),(2,'marijuana.jpg'),(3,'crack.jpg'),(4,'lsd.jpg'),(5,'cocaina.jpg'),(6,'eroina.jpg'),(7,'makatussin.jpg'),(8,'ecstasy.jpg'),(9,'crystal_meth.jpg');
+INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'xanax.jpg'),(2,'marijuana.jpg'),(3,'crack.jpg'),(4,'lsd.jpeg'),(5,'cocaina.jpg'),(6,'eroina.jpg'),(7,'makatussin.jpg'),(8,'ecstasy.jpg'),(9,'crystal_meth.jpg');
 DELETE FROM `ProductImages`;
 INSERT INTO `ProductImages` (`img_id`, `product_id`) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
