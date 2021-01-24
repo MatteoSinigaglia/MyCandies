@@ -38,9 +38,10 @@
           <form role="search" class="searchButton" id="headerSearchBar" action="#" method="get">
               <div>
                   <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" role="search"/>
-                  <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>              </div>
+                  <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>             
+              </div>
           </form>
-          <a id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
+          <p id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></p>
           <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
       </div> 
   </div>
@@ -67,15 +68,15 @@
     <form action="#" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
-        <legend id="loginLegend"> E-mail e Password </legend>
+        <legend id="loginLegend" xml:lang="en"> E-mail e Password </legend>
         <!-- Campo user -->
-        <label for="loginEmail">E-mail:</label>
+        <label for="loginEmail" xml:lang="en">E-mail:</label>
         <span><input type="text" id="loginEmail" name="loginEmail" /></span>
         <!-- Campo password -->
-        <label for="loginPassword">Password:</label>
+        <label for="loginPassword" xml:lang="en">Password:</label>
         <span><input type="password" id="loginPassword" name="loginPassword" maxlength="20" /></span>
         <!-- link recupero credenziali -->
-        <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
+        <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o <span xml:lang="en">password</span>?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
         <input type="submit" id="usernameButton" name="usernameButton" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
@@ -90,15 +91,15 @@
   <form action="#" method="post" id="registrationForm" class="inputForm" onsubmit="return validateRegForm();" title="Form per la registrazione di un nuovo utente">
     <fieldset id="mandatoryFields">
       <div>
-        <label for="email">E-mail</label>
+        <label for="email" xml:lang="en">E-mail</label>
         <span><input type="text" name="email" id="email" class="input-wide"/></span>
       </div>
       <div>
-        <label for="password">Password</label>
+        <label for="password" xml:lang="en">Password</label>
         <span><input type="password" name="password" id="password" maxlength="20"/></span>
       </div>
       <div>
-        <label for="confirmPassword">Conferma password</label>
+        <label for="confirmPassword">Conferma <span xml:lang="en">password</span></label>
         <span><input type="password" name="confirmPassword" id="confirmPassword" maxlength="20" /></span>
       </div>
     </fieldset>
@@ -137,7 +138,7 @@
         <span><input type="text" name="cap" id="cap" maxlength="5" /></span>
       </div>
       <div>
-        <label for="cap">Telefono</label>
+        <label for="cap">Cellulare</label>
         <span><input type="text" name="telefono" id="telefono" maxlength="10" /></span>
       </div>
       <input type="submit" value="Registrati" class="buttons" id="confirmSubscribe" />

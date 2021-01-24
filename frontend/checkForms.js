@@ -96,9 +96,9 @@ var form_registrazione = {
     "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
-    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
+    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri maiuscoli."],
     "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto. Il CAP è una sequenza numerica di 5 valori."],
-    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
+    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra 3."]
 };
 
 function loadFormCliente() {
@@ -334,7 +334,7 @@ var PAFormDetails = {
     "nome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Nome non valido."],
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
     "comune": [/^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Il comune inserito non è corretto."],
-    "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire la sigla in maiuscolo."],
+    "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri in maiuscolo."],
     "indirizzo": [/^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
     "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto. Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],

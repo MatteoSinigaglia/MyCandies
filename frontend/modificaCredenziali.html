@@ -61,20 +61,23 @@
 	<form action="" method="post" class="inputForm" onsubmit="return validateChangeCredentialForm();" title="form per modificare la password">
 		<fieldset>
 			<!-- Legenda -->
-			<legend> Inserimento nuova password </legend>
+			<legend> Inserimento nuova <span xml:lang="en">password</span> </legend>
 			<!-- Campo e-mail -->
             <p id="credentialChange_mail">prova@gmail.com</p>
             <!-- Campo password -->
-			<label for="changePassword">Nuova Password:</label>
+			<label for="changePassword">Nuova <span xml:lang="en">password</span></label>
             <span><input type="text" id="changePassword" name="changePassword" value="" maxlength="50" /></span>
             <!-- Campo password di conferma-->
-			<label for="changePassword">Conferma password:</label>
+			<label for="changePassword">Conferma <span xml:lang="en">password</span></label>
             <span><input type="text" id="confirmNewPassword" name="confirmNewPassword" value="" maxlength="50" /></span>  
 			<!-- Buttons -->
 			<input type="submit" id="credentialChangeConfirm" name="credentialChangeConfirm" value="Modifica" class="buttons" />
 			<input type="reset" id="credentialChangeReset" name="credentialChangeReset" value="Cancella" class="buttons" />
 		</fieldset>
 	</form>
+</div>
+<div class="helpBackToHeader hide">
+	<a href="#header" class="backToHeader">Torna su</a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">
