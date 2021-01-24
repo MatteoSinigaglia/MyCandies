@@ -5,7 +5,9 @@
     require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
     require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
-    use MyCandies\Exceptions\EntityException;
+    use DB\dbh;
+    use Exception;
+    use MyCandies\Tables\Table;
 
     class Category extends Entity {
 
@@ -17,14 +19,16 @@
                 if($source === CATEGORIES_MANAGER) {
                     $this->setName($data['name']);
                 }
-            } catch(EntityException $e) {
+            } catch(Exception $e) {
                 throw $e;
             }
         }
 
         private function setName($name) {
             if(!isset($name) || $name == '')
-                throw new EntityException('Il nome deve essere valorizzato');
+                throw new Exception('Il nome deve essere valorizzato');
+            else if($this->checkUniqueName($name))
+                throw new Exception('Esiste già una categoria con lo stesso nome');
             $this->name = $name;
         }
 
@@ -46,6 +50,19 @@
                 array_push($columns, $key);
             }
             return $columns;
+        }
+
+        private function checkUniqueName($name) : int
+        {
+            $dbh = new dbh();
+            $T_category = new Table($dbh, 'Categories', 'id', Category::class, [DB]);
+            $dbh->connect();
+            $category = $T_category->find([
+                'column' => 'name',
+                'value' => $name
+            ]);
+            $dbh->disconnect();
+            return isset($category[0]);
         }
 
     }
