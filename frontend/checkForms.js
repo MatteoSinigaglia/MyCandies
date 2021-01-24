@@ -92,7 +92,7 @@ var form_registrazione = {
     "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
-    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
+    "birthDate": ["Inserisci data (DD/MM/YYYY)", /^\d{2}\/\d{2}\/\d{4}$/, "Formato data non corretto. Inserire (DD/MM/YYYY).", "Utente minorenne non consentito.", "Data non valida."],
     "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
@@ -145,7 +145,7 @@ function validateLoginForm() {
  **/
 
 function validateDate(input) {
-    var comp = input.value.split("-");
+    var comp = input.value.split("/");
     var today = new Date();
     var birthDate = new Date(comp[2], comp[1]-1, comp[0]);
     // controllo validità della data 
@@ -160,29 +160,34 @@ function validateDate(input) {
     return giorno > 0 && giorno <= monthLength[mese - 1];
 };
 
+function checkMinor(input) {
+    var c = input.value.split("/");
+    var t = new Date();
+    var birthDate = new Date(c[2], c[1]-1, c[0]);
+    var age = t.getFullYear() - birthDate.getFullYear();
+    var m = t.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && t.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    if (age < 18) return false;
+    return true;
+}
+
 function otherCheck(input) {
     var value = input.id;
     switch(value) {
         case "birthDate": {  
-            if (!validateDate(input)) {
+            var p = validateDate(input);
+            if (!p){ 
                 printError(input, 4, "form_registrazione");
                 return false;
-            } else {
-                // controllo sull'età del utente solo se la data è accettata
-                var c = input.value.split("-");
-                var t = new Date();
-                var birthDate = new Date(c[2], c[1]-1, c[0]);
-                var age = t.getFullYear() - birthDate.getFullYear();
-                var m = t.getMonth() - birthDate.getMonth();
-                if (m < 0 || (m === 0 && t.getDate() < birthDate.getDate())) {
-                    age--;
-                }
-                if (age <= 18) {
-                    printError(input, 3, "form_registrazione");
-                    return false;
-                }
-                return true;
             }
+            p = checkMinor(input);
+            if (!p) {
+                printError(input, 3, "form_registrazione"); 
+                return false;
+            }
+            return true;
         } 
         case "confirmPassword": {
             var psw = document.getElementById('password');
@@ -339,7 +344,7 @@ var PAFormDetails = {
     "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto. Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],
     "telefono": [/^\s?([0-9]{10})\s?$/, "Numero non valido. Inserire il proprio numero di cellulare (10 cifre).", "Numero non valido. Il numero deve iniziare con la cifra 3."],
-    "data": [/^\d{2}-\d{2}-\d{4}$/, "Data non valida. Inserire una data di nascita rispettando il formato DD/MM/YYYY.", "Data non valida. Utente non maggiorenne.", "Data non valida. Inserire una data possibile."]
+    "data": [/^\d{2}\/\d{2}\/\d{4}$/, "Formato data non corretto. Inserire (DD/MM/YYYY).", "Utente minorenne non consentito.", "Data non valida."],
 };
 
 function PAShowErr(input, num) {
@@ -361,44 +366,20 @@ switch (input.id) {
         }
     }
 
-    case "data": {
-    var accepted = true;
-    var err = 1;
-    var comp = input.value.split("-");
-    var today = new Date();
-    var birthDate = new Date(comp[2], comp[1]-1, comp[0]);
-    // controllo validità della data 
-    var giorno = parseInt(comp[0]);
-    var mese = parseInt(comp[1]);
-    var anno = parseInt(comp[2]);
-    if (birthDate.getTime() > today.getTime() || anno <= today.getFullYear()-100 || mese == 0 || mese > 12) { 
-        err = 3;
-        accepted = false; 
-    }
-    if (accepted) {
-        var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (anno%4 == 0) { monthLength[1] = 29; }
-        accepted = giorno > 0 && giorno <= monthLength[mese - 1];
-        if (!accepted) err = 3;
-    }
-
-    if (accepted) {
-        // DATA VALIDA -> controllo utente maggiorrenne
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
+    case "data": {  
+        var p = validateDate(input);
+        if (!p){ 
+            printError(input, 3, "PAFormDetails");
+            return false;
         }
-        if (age < 18) {
-            err = 2;
-            accepted = false;
+        p = checkMinor(input);
+        if (!p) {
+            printError(input, 2, "PAFormDetails"); 
+            return false;
         }
+        return true;
+    } 
     }
-    // se ho trovato un errore lo stampo
-    if(err != 1) { PAShowErr(input, err); }
-    return accepted;
-    }
-}
 };
 
 function PAFieldValidate(input) {

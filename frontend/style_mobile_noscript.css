@@ -130,16 +130,24 @@ border-bottom: 1px solid #DDD;
 text-align: center;
 margin-top: 0.5em;
 }
-.backToHeader {
+#footer .helpBackToHeader {
+margin: 0;
+padding: 0;
+}
+.backToHeader,
+#footer .helpBackToHeader .backToHeader{
 font-weight: bold;
 color: white;
 }
 .backToHeader:active,
-.backToHeader:visited:active {
+.backToHeader:visited:active,
+#footer .helpBackToHeader .backToHeader:active,
+#footer .helpBackToHeader .backToHeader:visited:active  {
 color: #CDA434;
 text-decoration: none;
 }
-.backToHeader:visited {
+.backToHeader:visited,
+#footer .helpBackToHeader .backToHeader:visited {
 color: white;
 }
 /*
@@ -261,10 +269,14 @@ color:white;
 margin: 0;
 padding: 0.5em 0.5em;
 }
-#header #utilityBar .buttons:active {
+#header #utilityBar .buttons:active,
+#header #utilityBar .buttons:visited:active {
 border-radius: 4px;
 color: #020E0A;
 background-color: #F2E8CF;
+}
+#header #utilityBar .buttons:visited {
+color: #CDA434;
 }
 #cartButton span,
 #loginButton span {
