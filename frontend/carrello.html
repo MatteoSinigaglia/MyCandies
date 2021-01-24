@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<script type="text/javascript" src="../frontend/mobileMenu.js"></script>
+	<script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
 <body onload="loadMenu();">
@@ -38,7 +38,7 @@
 				</div>
 			</form>
 
-			<a href="formCliente.html" id="loginButton" class="buttons">Accedi</a>
+			<a href="formCliente.html" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
 			<a id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
 		</div>
 	</div>
@@ -66,7 +66,7 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
+		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, azioni e totale prodotto.">
 			<thead>
 				<tr>
 					<th id="productName" scope="col">Nome</th>
@@ -78,19 +78,19 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td headers="productName" title="Nome" scope="row"></td>
-					<td headers="productCode" title="Codice" scope="row"></td>
-					<td headers="quantity" title="Quantità" scope="row"></td>
-					<td headers="actions" title="Azioni" scope="row"></td>
-					<td headers="total" title="Totale prodotto" scope="row"></td>
+					<td headers="productName" title="Nome"></td>
+					<td headers="productCode" title="Codice"></td>
+					<td headers="quantity" title="Quantità"></td>
+					<td headers="actions" title="Azioni"></td>
+					<td headers="total" title="Totale prodotto"></td>
 				</tr>
 			</tbody>
         </table>
-        <table>
+        <table summary="Tabella per indicare il totale del carrello.">
             <tbody>
                 <tr>
 					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
-					<td headers="totalCart" scope="row">0.0$</td>
+					<td headers="totalCart">0.0$</td>
 				</tr>
             </tbody>
         </table>

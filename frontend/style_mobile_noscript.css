@@ -119,21 +119,6 @@ border: 1px solid #DDD;
 background-color: #020E0A;
 color: white;
 }
-#header #utilityBar .buttons {
-border-radius: 4px;
-background-color: #093013;
-color:white;
-}
-#header #utilityBar .buttons:active {
-border-radius: 4px;
-color: #020E0A;
-background-color: #F2E8CF;
-}
-#productSearchButton {
-padding-top: 0.55em;
-padding-bottom: 0.65em;
-margin: 0;
-}
 abbr {
 text-decoration: none;
 }
@@ -249,9 +234,10 @@ width: 80%;
 }
 #imageContainer {
 width: 40%;
+margin: 0 auto;
 }
 #utilityBar {
-padding: 1em;
+padding: 0.3em;
 }
 #headerSearchBar div {
 display: inline;
@@ -259,35 +245,30 @@ width: 100%;
 }
 #headerSearchBar {
 display: inline;
-width: 100%;
-}
-#productSearchBar {
-padding: 0.7em;
-border: 1px solid transparent;
-border-radius: 4px;
 width: 60%;
 }
-#cartButton,
-#loginButton {
-position: absolute;
-padding: 0.6em 1em;
-margin: 0.5em;
+#productSearchBar {
+padding-top: 0.65em;
+padding-bottom: 0.55em;
+border: 1px solid transparent;
 border-radius: 4px;
-font-weight: bold;
-display: inline-block; 
-font-size: 1em;
+width: 55%;
+}
+#header #utilityBar .buttons {
+border-radius: 4px;
+background-color: #093013;
+color:white;
+margin: 0;
+padding: 0.5em 0.5em;
+}
+#header #utilityBar .buttons:active {
+border-radius: 4px;
+color: #020E0A;
+background-color: #F2E8CF;
 }
 #cartButton span,
 #loginButton span {
 display: none;
-}
-#cartButton {
-top: 0.5em;
-right: 0em;
-}
-#loginButton {
-top: 0.5em;
-right: 3.5em;
 }
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -513,6 +494,7 @@ width: 100%;
 background-color: #051C0B;
 color: white;
 min-height: 10em;
+margin-top: 0.5em;
 }
 #footer div {
 display: inline-block;
@@ -614,7 +596,6 @@ font-size: 1.2em;
 margin-left: 15%;
 margin-right: 15%;
 text-align: center;
-font-family: cambria, sans-serif;
 padding-bottom: 1em;
 }
 #contentHome h1{

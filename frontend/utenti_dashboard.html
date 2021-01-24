@@ -13,12 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
     <div id="header">
         <div id="navigation">
-            <ul>
+            <ul id="navigationMenu">
                 <li><a href="riepilogoAcquisti_dashboard.html">Riepilogo acquisti</a></li>
                 <li><span>Utenti</span></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
@@ -33,7 +35,7 @@
     </div>
 
     <div id="utentiDashboard" class="main">
-        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
+        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, data di nascita, sesso e azioni.">
             <thead>
                 <tr>
                     <th id="mail" scope="col">mail</th>
@@ -47,13 +49,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="mail" title="mail" scope="row"></td>
-                    <td headers="name" title="Nome" scope="row"></td>
-                    <td headers="surname" title="Cognome" scope="row"></td>
-                    <td headers="password" title="Password" scope="row"></td>
-                    <td headers="dateOfBirth" title="Data di nascita" scope="row"></td>
-                    <td headers="sex" title="Sesso" scope="row"></td>
-                    <td headers="actions" title="mail" scope="row"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                    <td headers="mail" title="mail"></td>
+                    <td headers="name" title="Nome"></td>
+                    <td headers="surname" title="Cognome"></td>
+                    <td headers="password" title="Password"></td>
+                    <td headers="dateOfBirth" title="Data di nascita"></td>
+                    <td headers="sex" title="Sesso"></td>
+                    <td headers="actions" title="mail"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
                 </tr>
             </tbody>
         </table>
