@@ -32,8 +32,7 @@
 			<form class="searchButton" id="headerSearchBar" action="#" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-					<span><input type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;" /><span class="helps">Cerca</span></span>
-				</div>
+                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
 			</form>
 
 			<a href="formCliente.html" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>
@@ -45,7 +44,7 @@
 			<li xml:lang="en" lang="en"><a href="home.html">Home</a></li>
 			<li><a href="listaProdotti.html">Droghe</a></li>
 			<li><a href="areaPersonale.html">Area personale</a></li>
-			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="FAQ.html"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
 		</ul>
 	</div>
 </div>
@@ -62,20 +61,23 @@
 	<form action="" method="post" class="inputForm" onsubmit="return validateChangeCredentialForm();" title="form per modificare la password">
 		<fieldset>
 			<!-- Legenda -->
-			<legend> Inserimento nuova password </legend>
+			<legend> Inserimento nuova <span xml:lang="en">password</span> </legend>
 			<!-- Campo e-mail -->
             <p id="credentialChange_mail">prova@gmail.com</p>
             <!-- Campo password -->
-			<label for="changePassword">Nuova Password:</label>
+			<label for="changePassword">Nuova <span xml:lang="en">password</span></label>
             <span><input type="text" id="changePassword" name="changePassword" value="" maxlength="50" /></span>
             <!-- Campo password di conferma-->
-			<label for="changePassword">Conferma password:</label>
+			<label for="changePassword">Conferma <span xml:lang="en">password</span></label>
             <span><input type="text" id="confirmNewPassword" name="confirmNewPassword" value="" maxlength="50" /></span>  
 			<!-- Buttons -->
 			<input type="submit" id="credentialChangeConfirm" name="credentialChangeConfirm" value="Modifica" class="buttons" />
 			<input type="reset" id="credentialChangeReset" name="credentialChangeReset" value="Cancella" class="buttons" />
 		</fieldset>
 	</form>
+</div>
+<div class="helpBackToHeader hide">
+	<a href="#header" class="backToHeader">Torna su</a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">
@@ -114,7 +116,7 @@
                 <h3>Padova Stazione</h3>
                 <ul class="stylelessList">
                     <li>Orario: 4:00 - 20:00</li>
-                    <li>Chiuso nei weekend</li>
+                    <li>Chiuso nei <span xml:lang="en">weekend</span></li>
                     <li>Via Marzolo 600</li>
                 </ul>
             </div>
@@ -122,7 +124,7 @@
                 <h3>Padova Portello</h3>
                 <ul class="stylelessList">
                     <li>Orario: 06:00 - 22:00</li>
-                    <li>Chiuso nei weekend</li>
+                    <li>Chiuso nei <span xml:lang="en">weekend</span></li>
                     <li>Via del Portello 800</li>
                 </ul>
             </div>
@@ -133,13 +135,13 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt="facebook logo"/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt="instagram logo"/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt="twitter logo"/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt="youtube logo"/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
                 </li>
             </ul>
         </div>

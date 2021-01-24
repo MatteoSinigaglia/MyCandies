@@ -129,10 +129,14 @@ color: white;
 padding: 0.5em;
 margin: 0.3em;
 }
-#header #utilityBar .buttons:hover {
+#header #utilityBar .buttons:hover,
+#header #utilityBar .buttons:visited:hover {
 border-radius: 4px;
 color: #020E0A;
 background-color: #F2E8CF;
+}
+#header #utilityBar .buttons:visited {
+color: #CDA434;
 }
 #productSearchButton {
 border-top: transparent;
@@ -145,7 +149,7 @@ background-color: #093013;
 padding: 0.6em 0.7em;
 }
 #cartButton span,
-#loginButton span {
+#loginButton span{
 font-weight: bold;
 }
 abbr {
@@ -159,16 +163,24 @@ border-bottom: 1px solid #DDD;
 text-align: center;
 margin-top: 0.5em;
 }
-.backToHeader {
+#footer .helpBackToHeader {
+margin: 0;
+padding: 0;
+}
+.backToHeader,
+#footer .helpBackToHeader .backToHeader{
 font-weight: bold;
 color: white;
 }
 .backToHeader:hover,
-.backToHeader:visited:hover {
+.backToHeader:visited:hover,
+#footer .helpBackToHeader .backToHeader:hover,
+#footer .helpBackToHeader .backToHeader:visited:hover {
 color: #CDA434;
 text-decoration: none;
 }
-.backToHeader:visited {
+.backToHeader:visited,
+#footer .helpBackToHeader .backToHeader:visited {
 color: white;
 }
 /*
