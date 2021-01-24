@@ -39,19 +39,19 @@ class Address extends Entity {
 //					$errors['region'] = 'Errore inserimento regione';
 //				}
 				if ($this->isNotValid('province', $data['province']))
-					$errors['province'] = 'Errore inserimento provincia';
+					$errors['province'] = $this->getErrorMessage('province');
 
 				if (!isset($data['city']) || strlen($data['city']) < 1/* || regex check */)
-					$errors['city'] = 'Errore inserimento comune';
+					$errors['city'] = $this->getErrorMessage('city');
 
 				if (!isset($data['CAP']) || strlen($data['CAP']) < 1/* || regex check */)
-					$errors['CAP'] = 'Errore inserimento CAP';
+					$errors['CAP'] = $this->getErrorMessage('CAP');
 
 				if (!isset($data['street']) || strlen($data['street']) < 1/* || regex check */)
-					$errors['street'] = 'Errore inserimento Indirizzo';
+					$errors['street'] = $this->getErrorMessage('street');
 
 				if (!isset($data['number']) || strlen($data['number']) < 1/* || regex check */)
-					$errors['number'] = 'Errore inserimento civico';
+					$errors['number'] = $this->getErrorMessage('number');
 
 				$this->country = $data['country'];
 				$this->region = $data['region'];

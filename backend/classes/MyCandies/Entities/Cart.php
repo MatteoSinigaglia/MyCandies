@@ -14,7 +14,10 @@ class Cart extends Entity {
 		parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 
 		switch ($source) {
-			case Entities\DB:
+			case DB:
+				break;
+			case SHOP_MANAGER:
+				$this->total = (isset($data['total']) ? (int)$data['total'] : 0);
 				break;
 		}
 

@@ -46,7 +46,12 @@ class ShopManager {
 		$this->productsInCarts = new Table($this->dbh, 'ProductsInCarts', 'id', ProductInCart::class, [Entities\DB]);
 	}
 
-	public function addToCart($product) {
-		
+	public function addToCart(array $product) {
+		if (!isset($_SESSION['cart']))
+			$_SESSION['cart'] = ['info' => new Cart(Entities\SHOP_MANAGER)];
+
+		if (isset($_SESSION['cart'][$product['id']])) {
+			$_SESSION['cart'][$product['id']]['quantity'] += (int)$product[''];
+		}
 	}
 }
