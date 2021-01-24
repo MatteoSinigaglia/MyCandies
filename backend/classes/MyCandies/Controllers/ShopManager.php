@@ -10,6 +10,7 @@ require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductInCart.php';
 
 use DB\dbh;
+use DB\Exceptions\DBException;
 use MyCandies\Entities;
 use MyCandies\Entities\User;
 use MyCandies\Entities\Cart;
@@ -59,5 +60,29 @@ class ShopManager {
 
 	public function getCart() : ?array {
 		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
+	}
+
+	private function getProducts() : ?array {
+		if (!isset($_SESSION['cart']) || count($_SESSION['cart']) < 2)
+//			Cart not set or empty
+			return null;
+
+		$productsInCart = $_SESSION['cart'];
+		unset($productsInCart['info']);
+
+		if (!isset($this->productsInCarts))
+			$this->initProductsInCarts();
+
+		try {
+			$this->dbh->connect();
+			foreach ($productsInCart as $id => $quantity) {
+				$this->productsInCart = $this->productsInCarts->findById($id);
+			}
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+
 	}
 }

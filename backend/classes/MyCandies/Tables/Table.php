@@ -7,9 +7,10 @@ namespace MyCandies\Tables;
 use DateTime;
 use DB\dbh;
 use DB\Exceptions\DBException;
+use MyCandies\Entities;
+use MyCandies\Entities\User;
 use MyCandies\Entities\Address;
 use MyCandies\Entities\Entity;
-use MyCandies\Entities\User;
 use MyCandies\Exceptions\EntityException;
 use mysql_xdevapi\Exception;
 
@@ -134,10 +135,8 @@ class Table {
 				$slice = ['province', 'city', 'CAP', 'number', 'street'];
 			} else {
 				$slice = $entity->getColumns();
-//				echo 'Slice: ';
-//				var_dump($slice);
 			}
-			$fields = array_slice_assoc($entity->getValues(), $slice);
+			$fields = array_slice_assoc($entity->getValues(Entities\DB), $slice);
 
 
 //			Prevents from inserting manually an id and leaves the responsibility to the DBMS
@@ -158,10 +157,10 @@ class Table {
 			$query = 'INSERT INTO `'.$this->table.'` ('.$parameters.') VALUES ('.$values.')';
 			$fields = $this->processDates($fields);
 
-			echo $query;
-			foreach ($fields as $k => $v) {
-				echo $k.' => '.$v.' ';
-			}
+//			echo $query;
+//			foreach ($fields as $k => $v) {
+//				echo $k.' => '.$v.' ';
+//			}
 			$this->dbh->query($query, $fields);
 
 			if ($entity instanceof Entity) {
@@ -173,7 +172,6 @@ class Table {
 			throw $e;
 		} catch (EntityException $e) {
 			echo 'EntityException';
-			var_dump($entity);
 			echo $e;
 		} catch (Exception $e) {
 			echo $e;

@@ -176,8 +176,10 @@ class Authentication {
 		$errors = array();
 		try {
 			$this->registrationSetup($user, $address);
+
 			$this->registration();
 		} catch (EntityException | AuthException $e) {
+			echo '2 ';
 			throw $e;
 		}
 

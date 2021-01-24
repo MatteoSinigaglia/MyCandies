@@ -180,13 +180,22 @@ class User extends Entity {
 		return $this->password;
 	}
 
-	public function getValues() : array {
+	/**
+	 * @return false|string|null
+	 */
+	public function getGender() {
+		return $this->gender;
+	}
+
+	public function getValues(int $source = null) : array {
 		$fields = [];
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}
-		$fields['birthdate'] = date('d-m-Y', strtotime($this->birthdate));
-		$fields['gender'] = $this->decodeGender($this->gender);
+		if ($source !== DB) {
+			$fields['birthdate'] = date('d-m-Y', strtotime($this->birthdate));
+			$fields['gender'] = $this->decodeGender($this->gender);
+		}
 
 		return $fields;
 	}
