@@ -317,6 +317,18 @@ color: white;
 padding: 0.3em;
 margin: 0.7em 0;
 }
+.selectedButton {
+border: 1px solid #DDD;
+border-radius: 4px;
+background-color: #051C0B;
+color: white;
+padding: 0.5em 1em;
+margin: 0.5em;
+font-weight: bold;
+text-decoration: none;
+display: inline-block;
+font-size: 1em;
+}
 /*
 ================ MENU HAMBURGER ===================================
 */
