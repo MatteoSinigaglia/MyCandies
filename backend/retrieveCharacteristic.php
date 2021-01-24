@@ -36,7 +36,7 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertCategory']='Inserisci+categoria';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['effectName']) ? $_POST['effectName'] : null);
+    $name = (isset($_POST['categoryName']) ? $_POST['categoryName'] : null);
     unset($_GET['insertCategory']);
     try {
         $categoriesManager = new CategoriesManager();

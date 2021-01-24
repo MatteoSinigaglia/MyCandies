@@ -241,7 +241,7 @@ function validateRegForm() {
 */
 var form_inserisciProdotto = {
     "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto.", "Inserire un nome."],
-    "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
+    "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."]
 };
 function loadProductInsertion() {
     for(var key in form_inserisciProdotto) {
