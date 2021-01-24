@@ -1,22 +1,3 @@
-var form_login = {
-    "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta."],
-};
-
-var form_registrazione = {
-    "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
-    "password": ["password", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
-    "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
-    "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
-    "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
-    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
-    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
-    "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
-    "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto."],
-    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
-    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto. Il CAP è una sequenza numerica di 5 valori."],
-    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
-};
-
 function printError(input, num, dati) {
     removeError(input);
     var parent = input.parentNode;
@@ -101,9 +82,25 @@ function noDefaultValue(input, dati) {
     }
 };
 
-/*
-===================================================================================
-*/
+var form_login = {
+    "loginEmail": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "La mail inserita non è corretta."],
+};
+
+var form_registrazione = {
+    "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
+    "password": ["password", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
+    "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
+    "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
+    "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
+    "birthDate": ["Inserisci data (DD-MM-YYYY)", /^\d{2}-\d{2}-\d{4}$/, "Formato data non corretto. Inserire (DD-MM-YYYY).", "Utente minorenne non consentito.", "Data non valida."],
+    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
+    "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
+    "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
+    "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire i caratteri maiuscoli."],
+    "cap": ["Inserisci CAP", /^\d{5}$/, "CAP non corretto. Il CAP è una sequenza numerica di 5 valori."],
+    "telefono": ["Inserisci cellulare", /^\d{10}$/, "Cellulare non corretto. Il numero deve iniziare con la cifra '3'."]
+};
+
 function loadFormCliente() {
     for(var i in form_login) {
         var input = document.getElementById(i);
@@ -205,6 +202,12 @@ function otherCheck(input) {
                 return true;
             }
         }
+        case "city": {
+            if(input.value == form_registrazione[input.id][0]) {
+            printError(input, 3, "form_registrazione");
+            return false;
+            }
+        }
     }
 };
 
@@ -215,7 +218,7 @@ function validateRegField(input) {
         printError(input, 2, "form_registrazione");
         return false;
     } else {
-        if(input.id == "birthDate" || input.id == "confirmPassword" || input.id == "telefono") {
+        if(input.id == "birthDate" || input.id == "confirmPassword" || input.id == "telefono" || input.id == "city") {
             return otherCheck(input);
         } else {
             return true; 
@@ -256,6 +259,10 @@ function validateInsertionField(input) {
         printError(input, 2, "form_inserisciProdotto");
         return false;
     } else {
+        if (input.id == "productName" && input.value == form_inserisciProdotto[input.id][0]) {
+            printError(input, 3, "form_inserisciProdotto");
+            return false;
+        }
         return true;
     }
 };
