@@ -25,6 +25,11 @@ try {
 $htmlPage = file_get_contents(VIEW_PATH . DS . "listaProdotti.html");
 $categories = '';
 foreach ($categoriesList as $category) {
+    if(isset($_GET['category']) && $category->getId() == $_GET['category'])
+        $categories .=
+            '<span class="selectedButton">'.$category->getName().'</span>
+        ';
+    else
     $categories .=
         '<a href="../backend/listaProdotti.php?category='.$category->getId().'" class="buttons">'.$category->getName().'</a>
         ';
