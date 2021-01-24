@@ -336,7 +336,7 @@ var PAFormDetails = {
     "comune": [/^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Il comune inserito non è corretto."],
     "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire la sigla in maiuscolo."],
     "indirizzo": [/^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
-    "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto.Inserire il numero civico della propria residenza."],
+    "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto. Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],
     "telefono": [/^\s?([0-9]{10})\s?$/, "Numero non valido. Inserire il proprio numero di cellulare (10 cifre).", "Numero non valido. Il numero deve iniziare con la cifra 3."],
     "data": [/^\d{2}-\d{2}-\d{4}$/, "Data non valida. Inserire una data di nascita rispettando il formato DD/MM/YYYY.", "Data non valida. Utente non maggiorenne.", "Data non valida. Inserire una data possibile."]
