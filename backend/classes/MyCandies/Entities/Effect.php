@@ -3,7 +3,9 @@
 
 namespace MyCandies\Entities;
 
-use MyCandies\Exceptions\EntityException;
+use DB\dbh;
+use Exception;
+use MyCandies\Tables\Table;
 
 class Effect extends Entity {
 
@@ -19,14 +21,20 @@ class Effect extends Entity {
             if($source !== DB) {
                 $this->setName($data['name']);
             }
-        } catch(EntityException $e) {
+        } catch(Exception $e) {
             throw $e;
         }
     }
 
+    /**
+     * @param $name
+     * @throws Exception
+     */
     private function setName($name) {
         if(!isset($name) || $name == '')
-            throw new EntityException('Il nome deve essere valorizzato');
+            throw new Exception('Il nome deve essere valorizzato');
+        else if($this->checkUniqueName($name))
+            throw new Exception('Esiste già un effetto con lo stesso nome');
         $this->name = $name;
     }
 
@@ -51,4 +59,16 @@ class Effect extends Entity {
         return $columns;
     }
 
+    private function checkUniqueName($name) : int
+    {
+        $dbh = new dbh();
+        $T_effects = new Table($dbh, 'Effects', 'id', Effect::class, [DB]);
+        $dbh->connect();
+        $effect = $T_effects->find([
+            'column' => 'name',
+            'value' => $name
+        ]);
+        $dbh->disconnect();
+        return isset($effect[0]);
+    }
 }
