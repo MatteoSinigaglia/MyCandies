@@ -1,4 +1,5 @@
 <?php
+
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
 defined('ROOT') || define('ROOT', __DIR__);
 defined('VIEW_PATH') || define('VIEW_PATH', ROOT.DS.'frontend');
@@ -9,7 +10,5 @@ defined('MYCANDIES_PATH') || define('MYCANDIES_PATH', MODEL_PATH.DS.'classes'.DS
 require_once LIB_PATH.DS.'functions.php';
 require_once __DIR__.'/backend/config/config.php';
 
-//$page = get('home', '404');
 header('location: ./backend/home.php');
 die();
-?>

@@ -17,6 +17,9 @@ require_once __DIR__.'/../../DB/dbh.php';
 require_once __DIR__.'/../../DB/Exceptions/DBException.php';
 require_once __DIR__.'/../Entities/Entity.php';
 require_once __DIR__.'/../Entities/User.php';
+require_once __DIR__.'/../Entities/Admin.php';
+require_once __DIR__.'/../Entities/Address.php';
+require_once __DIR__.'/../Entities/UsersAddresses.php';
 require_once __DIR__.'/../Exceptions/EntityException.php';
 
 class Table {
@@ -71,8 +74,12 @@ class Table {
 			'value' => $value
 		];
 
-		$query = $this->dbh->query($query, $parameters);
-		$query->fetchObject($this->className, $this->constructorArgs);
+		try {
+			$query = $this->dbh->query($query, $parameters);
+		} catch (DBException $e) {
+			echo $e;
+		}
+		return $query->fetchObject($this->className, $this->constructorArgs);
 	}
 
 	public function find(array $where = null, string $orderBy = null, string $groupBy = null, array $having = null, string $limit = null, string  $offset = null) {
@@ -104,7 +111,7 @@ class Table {
 
 			$query = $this->dbh->query($query, $parameters);
 			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
-		} catch (\Exception $e) {
+		} catch (DBException $e) {
 			echo $e;
 		}
 	}
@@ -123,15 +130,12 @@ class Table {
 		try {
 
 			require_once __DIR__.'/../../../lib/functions.php';
-			$slice = [];
-			if ($entity instanceof User) {
-				$slice = ['first_name', 'last_name', 'email', 'password', 'telephone', 'birthdate'];
-			} else if ($entity instanceof Address) {
-				$slice = ['province', 'city', 'CAP', 'number'];
+			if ($entity instanceof Address) {
+				$slice = ['province', 'city', 'CAP', 'number', 'street'];
 			} else {
 				$slice = $entity->getColumns();
-				echo 'Slice: ';
-				var_dump($slice);
+//				echo 'Slice: ';
+//				var_dump($slice);
 			}
 			$fields = array_slice_assoc($entity->getValues(), $slice);
 
@@ -168,7 +172,7 @@ class Table {
 			echo 'DBException';
 			throw $e;
 		} catch (EntityException $e) {
-			echo 'EException';
+			echo 'EntityException';
 			var_dump($entity);
 			echo $e;
 		} catch (Exception $e) {
@@ -182,8 +186,8 @@ class Table {
 		$query = 'UPDATE `'.$this->table.'` SET ';
 
 		foreach ($fields as $key => $value) {
-		    if($key != 'id')
-			    $query .= '`'.$key.'` = :'.$key.',';
+			if($key != 'id')
+				$query .= '`'.$key.'` = :'.$key.',';
 		}
 
 //		Remove last ',' inserted in foreach statement
@@ -214,7 +218,7 @@ class Table {
 		$this->dbh->query($query, $parameters);
 	}
 
-	public function deleteWhere(string $column, mixed $value) {
+	public function deleteWhere(string $column, $value) {
 		$query = 'DELETE FROM `'.$this->table.'` WHERE `'.$column.'` = :value';
 		$parameters = [
 			'value' => $value

@@ -47,10 +47,10 @@
   </div>
   <div id="navigation">
       <ul id="navigationMenu">
-          <li xml:lang="en"><a href="../frontend/home.html">Home</a></li>
-          <li><a href="../frontend/listaProdotti.html">Droghe</a></li>
-          <li><a href="areaPersonale.html">Area personale</a></li>
-          <li><a href="../frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+          <li xml:lang="en"><a href="../backend/home.php">Home</a></li>
+          <li><a href="../backend/listaProdotti.php">Droghe</a></li>
+          <li><a href="../backend/areaPersonale.php">Area personale</a></li>
+          <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
           <li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
       </ul>
   </div>
@@ -65,7 +65,7 @@
 
 <div id="loginAndRegistrationContent">
   <div class="formContainer">
-    <h1>Accedi</h1>
+    <h1 id="h1Accedi">Accedi</h1>
     <form action="../backend/signin.php" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
@@ -73,10 +73,12 @@
         <!-- Campo user -->
         <label for="loginEmail">E-mail:</label>
         <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
-        <error_login />
         <!-- Campo password -->
         <label for="loginPassword">Password:</label>
-        <span><input type="password" id="loginPassword" name="user[password]" maxlength="20" /></span>
+        <span>
+          <input type="password" id="loginPassword" name="user[password]" maxlength="20" />
+          <error_login />
+        </span>
         <!-- link recupero credenziali -->
         <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o password?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
@@ -94,66 +96,98 @@
     <fieldset id="mandatoryFields">
       <div>
         <label for="email">E-mail</label>
-        <span><input type="text" name="user[email]" id="email" class="input-wide" value="_email_value"/></span>
-        <error_email />
+        <span>
+          <input type="text" name="user[email]" id="email" class="input-wide" value="_email_value"/>
+          <error_email />
+        </span>
       </div>
       <div>
         <label for="password">Password</label>
-        <span><input type="password" name="user[password]" id="password" maxlength="20" value="_password_value" /></span>
-        <error_password />
+        <span>
+          <input type="password" name="user[password]" id="password" maxlength="20" value="_password_value" />
+          <error_password />
+        </span>
       </div>
       <div>
         <label for="confirmPassword">Conferma password</label>
-        <span><input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" value="_confirmPassword_value" /></span>
+        <span>
+          <input type="password" name="user[confirmPassword]" id="confirmPassword" maxlength="20" value="_confirmPassword_value" />
           <error_confirmPassword />
+        </span>
       </div>
     </fieldset>
     <fieldset>
       <legend>Dati personali</legend>
       <div>
         <label for="name">Nome</label>
-        <span><input type="text" name="user[first_name]" id="name" value="_first_name_value" /></span>
+        <span>
+          <input type="text" name="user[first_name]" id="name" value="_first_name_value" />
           <error_first_name />
+        </span>
       </div>
       <div>
         <label for="surname">Cognome</label>
-        <span><input type="text" name="user[last_name]" id="surname" value="_last_name_value" /></span>
+        <span>
+          <input type="text" name="user[last_name]" id="surname" value="_last_name_value" />
           <error_last_name />
+        </span>
       </div>
       <div>
         <label for="birthDate">Data di nascita</label>
-        <span><input type="text" name="user[birthdate]" id="birthDate" value="_birthdate_value" /></span>
+        <span>
+          <input type="text" name="user[birthdate]" id="birthDate" value="_birthdate_value" />
           <error_birthdate />
+        </span>
+      </div>
+      <div>
+        <label for="gender"> Sesso:</label>
+        <select id="gender" name="user[gender]">
+            <option value="Male">Maschio</option>
+            <option value="Female">Femmina</option>
+            <option value="Other">Altro</option>
+        </select>
       </div>
       <div>
         <label for="address">Indirizzo</label>
-        <span><input type="text" name="address[street]" id="address" value="_street_value" /></span>
+        <span>
+          <input type="text" name="address[street]" id="address" value="_street_value" />
           <error_street />
+        </span>
       </div>
       <div>
         <label for="address_number">Civico</label>
-        <span><input type="text" name="address[number]" id="address_number" value="_number_value" /></span>
+        <span>
+          <input type="text" name="address[number]" id="address_number" value="_number_value" />
           <error_number />
+        </span>
       </div>
       <div>
         <label for="city">Comune</label>
-        <span><input type="text" name="address[city]" id="city" value="_city_value" /></span>
+        <span>
+          <input type="text" name="address[city]" id="city" value="_city_value" />
           <error_city />
+        </span>
       </div>
       <div>
         <label for="area">Provincia</label>
-        <span><input type="text" name="address[province]" id="area" value="_province_value" /></span>
+        <span>
+          <input type="text" name="address[province]" id="area" value="_province_value" />
           <error_province />
+        </span>
       </div>
       <div>
         <label for="cap">CAP</label>
-        <span><input type="text" name="address[CAP]" id="cap" maxlength="5" value="_CAP_value" /></span>
+        <span>
+          <input type="text" name="address[CAP]" id="cap" maxlength="5" value="_CAP_value" />
           <error_CAP />
+        </span>
       </div>
       <div>
         <label for="cap">Telefono</label>
-        <span><input type="text" name="user[telephone]" id="telefono" maxlength="10" value="_telephone_value" /></span>
+        <span>
+          <input type="text" name="user[telephone]" id="telefono" maxlength="10" value="_telephone_value" />
           <error_telephone />
+        </span>
       </div>
         <input type="submit" name="submitSubscribe" value="Registrati" class="buttons" id="confirmSubscribe" />
     </fieldset>

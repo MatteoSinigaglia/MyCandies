@@ -45,6 +45,20 @@ class UsersAddresses {
 		$this->address_id = $address_id;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getCustomerId() {
+		return $this->customer_id;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAddressId() {
+		return $this->address_id;
+	}
+
 	public function getValues() : array {
 		$fields = [];
 		foreach ($this as $key => $value) {

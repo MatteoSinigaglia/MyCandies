@@ -43,10 +43,10 @@
 	</div>
 	<div id="navigation">
 		<ul id="navigationMenu">
-			<li xml:lang="en" lang="en"><a href="frontend/home.html">Home</a></li>
-			<li><a href="../frontend/listaProdotti.html">Droghe</a></li>
-			<li><a href="../frontend/areaPersonale.html">Area personale</a></li>
-			<li><a href="../frontend/FAQ.html"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
+			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
 			<li><a href="" class="hide">Logout</a></li> <!-- PHP => class=""; -->
 		</ul>
 	</div>
@@ -54,16 +54,16 @@
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="../frontend/home.html">
+        <a href="../backend/home.php">
             <span xml:lang="en" lang="en">Home</span></a> /
-         <a href="../frontend/listaProdotti.html">Lista prodotti</a>
+         <a href="../backend/listaProdotti.php">Lista prodotti</a>
 			 / <nomeprodotto /></p>
 </div>
 
 <div id="productContent" class="main">
 
 <h2>Descrizione prodotto: </h2>
-<div id="productContenitor">
+<a id="productContenitor">
 	<dl>
 		<dt><nomeprodotto /></dt>
 		<dd>
@@ -73,7 +73,7 @@
 			</p>
 		</dd>
 	</dl>
-	<button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button>
+	<a href="../backend/addToCart.php?_product_data"><button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button></a>
 </div>
 <div id="productTableContent">
 	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra categoria, prezzo, principio attivo, percentuale principio attivo, effetti, effetti collaterali.">

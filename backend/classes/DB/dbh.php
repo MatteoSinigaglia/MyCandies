@@ -26,7 +26,7 @@ class dbh {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
 		$this->port = $_SERVER['SERVER_PORT'];
-		$this->psw = '';
+		$this->psw = 'root';
 		$this->user = 'root';
 		$this->charset = 'utf8';
 		$this->options = [
@@ -69,8 +69,11 @@ class dbh {
 			$query->execute($parameters);
 			return $query;
 		} catch (PDOException $e) {
-			$output = 'Unable to execute the given query: '.$sql.' '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
+			$output = 'Unable to execute the given query: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
 			throw new DBException($output, $e->getCode());
+		} catch (Exception $e) {
+			echo $e;
+			die();
 		}
 	}
 

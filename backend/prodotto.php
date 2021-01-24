@@ -14,6 +14,7 @@ $productsManager = new ProductsManager();
 $prodotto = array();
 try {
     $prodotto = $productsManager->getSingleProduct($productId);
+    $prodotto = $prodotto + ['id' => $productId];
 } catch (DBException $e) {
     // TODO pagina 404
     ob_start();
@@ -33,6 +34,9 @@ $htmlPage = str_replace("<principioattivo />", $prodotto['activeprinciple'], $ht
 $htmlPage = str_replace("<percentualeprincipioattivo />", $prodotto['activeprinciplepercentage'] . '%', $htmlPage);
 $htmlPage = str_replace("<effetti />", $prodotto['effects'], $htmlPage);
 $htmlPage = str_replace("<effetticollaterali />", $prodotto['sideeffects'], $htmlPage);
+
+require_once MODEL_PATH.DS.'lib'.DS.'functions.php';
+$htmlPage = str_replace('_product_data', http_build_query(array_slice_assoc($prodotto, ['id', 'name', 'price'])), $htmlPage);
 
 echo $htmlPage;
 

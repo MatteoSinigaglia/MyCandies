@@ -3,10 +3,7 @@
 
 namespace MyCandies\Entities;
 
-use DateTime;
-use Exception;
 use MyCandies\Exceptions\EntityException;
-use ReflectionClass;
 
 require_once __DIR__.'/Entity.php';
 require_once __DIR__.'/../Exceptions/EntityException.php';
@@ -18,71 +15,47 @@ class User extends Entity {
 	private $email;
 	private $password;
 	private $telephone;
-	private $sex;
+	private $gender;
 	private $birthdate;
 
-//	public const REGISTER = 1;
-//	public const LOGIN = 2;
-
 	public function __construct(int $source, array $data=[]) {
-		$errors = array();
 		try {
 //			Ternary operator to remove server's warning
 			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 
-		} catch (EntityException | Exception $e) {
+		} catch (EntityException $e) {
 			throw $e;
 		}
-//	        Switch input control depending on the source of the data
+//	        Switch set of input controls depending on the source of the data
 		switch ($source) {
-//				No controls needed, database should be is consistent, or controls in every field to verify consistency
-			case DB:
 
+			case DB:
+//			No controls needed, database is consistent
 				break;
 
-//				Controls in every field + consistency between password and confirmPassword
 			case REGISTER:
+//			Controls in every field + consistency between password and confirmPassword
 
-				if (!isset($data['email']) || strlen($data['email']) < 1/*|| regex check*/) {
-					$errors['email'] = 'La email inserita non é corretta';
-//						throw new EntityException('La email inserita non é corretta', -5);
-				}
-				if (!isset($data['password']) || strlen($data['email']) < 4 /*|| regex check*/) {
-					$errors['password'] = 'La password inserita non é corretta';
-//						throw new EntityException('La password inserita non é corretta', -6);
-				}
-				if ($data['password'] !== $data['confirmPassword']) {
-					$errors['confirmPassword'] = 'Le password non corrispondono';
-//						throw new EntityException('Le password non corrispondono', -7);
-				}
+				if ($this->isNotValid('email', $data['email']))
+					$errors['email'] = $this->getErrorMessage('email');
 
-				if (!isset($data['first_name']) || strlen($data['first_name']) < 1 /*|| regex check*/) {
-					$errors['first_name'] = 'Nome non corretto';
-//						throw new EntityException('Nome non corretto', -3);
-				}
-				if (!isset($data['last_name']) || strlen($data['last_name']) < 1 /*|| regex check*/) {
-					$errors['last_name'] = 'Cognome non corretto';
-//						throw new EntityException('Cognome non corretto', -4);
-				}
-				if (!isset($data['birthdate']) || strlen($data['birthdate']) < 1  /*|| regex check*/) {
-					$errors['birthdate'] = 'Data di nascita non corretta';
-//						throw new EntityException('Data di nascita non corretta', -4);
-				}
-				if (!isset($data['telephone']) || strlen($data['telephone']) < 1  /*|| regex check*/) {
-					$errors['telephone'] ='Telefono non corretto';
-//						throw new EntityException('Telefono non corretto', -4);
-				}
+				if ($this->isNotValid('password', $data['password']))
+					$errors['password'] = $this->getErrorMessage('password');
 
-//			TODO: remove comment when added in form
-//			        if (!isset($data['birthdate']) /*|| regex check*/) {
-//				        throw new EntityException('Formato data non corretto. Inserire (DD-MM-YYYY).', -8);
-//			        }
-//			        if ($this->isUnderage($data['birthdate'])) {
-//				        throw new EntityException('Utente minorenne non consentito', -9);
-//			        }
-//			        if (!isset($data['telephone']) /*|| regex check*/) {
-//				        throw new EntityException('Cellulare non corretto', -10);
-//			        }
+				if ($this->isNotValid('confirmPassword', $data['confirmPassword'], $data['password']))
+					$errors['confirmPassword'] = $this->getErrorMessage('confirmPassword');
+
+				if ($this->isNotValid('first_name', $data['first_name']))
+					$errors['first_name'] = $this->getErrorMessage('first_name');
+
+				if ($this->isNotValid('last_name', $data['last_name']))
+					$errors['last_name'] = $this->getErrorMessage('last_name');
+
+				if ($this->isNotValid('birthdate', $data['birthdate']))
+					$errors['birthdate'] = $this->getErrorMessage('birthdate');
+
+				if ($this->isNotValid('telephone', $data['telephone']))
+					$errors['telephone'] = $this->getErrorMessage('telephone');
 
 				$this->first_name = $data['first_name'];
 				$this->last_name = $data['last_name'];
@@ -90,16 +63,98 @@ class User extends Entity {
 				$this->password = $this->securePassword($data['password']);
 		        $this->birthdate = date("Y-m-d", strtotime($data['birthdate']));
 				$this->telephone = $data['telephone'];
+				$this->gender = $this->encodeGender($data['gender']);
 				break;
 
-//				Controls only in email and password
 			case LOGIN:
+//			Controls only in email
+				if ($this->isNotValid('email', $data['email']))
+					$errors['login'] = 'L\'email inserita non è valida';
 				$this->email = $data['email'];
 				$this->password = $data['password'];
 				break;
 		}
-		if (count($errors) > 0)
+		if (isset($errors))
 			throw new EntityException($errors, -1);
+	}
+
+	private function isNotValid(string $field, $value, $optional = null) : bool {
+		switch($field) {
+			case 'email':
+				return (!isset($value) || strlen($value) < 1 /*|| regex check*/);
+				break;
+			case 'password':
+				return (!isset($value) || strlen($value) < 4 /*|| regex check*/);
+				break;
+			case 'confirmPassword':
+				return (!isset($value) || ($value !== $optional) /*|| regex check*/);
+				break;
+			case 'first_name':
+				return (!isset($value) || strlen($value) < 2 /*|| regex check*/);
+				break;
+			case 'last_name':
+				return (!isset($value) || strlen($value) < 2 /*|| regex check*/);
+				break;
+			case 'telephone':
+				return (!isset($value) || strlen($value) < 10 /*|| regex check*/);
+				break;
+			case 'birthdate':
+				return (!isset($value) || strlen($value) < 10 /*|| regex check*/);
+				break;
+			default:
+				return false;
+				break;
+		}
+	}
+
+	private function getErrorMessage(string $field) : string {
+		switch ($field) {
+			case 'first_name':
+				return 'Nome non corretto';
+				break;
+			case 'last_name':
+				return 'Cognome non corretto';
+				break;
+			case 'email':
+				return 'La email inserita non é corretta';
+				break;
+			case 'password':
+				return 'La password inserita non é corretta';
+				break;
+			case 'confirmPassword':
+				return 'Le password non corrispondono';
+				break;
+			case 'telephone':
+				return 'Telefono non corretto';
+				break;
+			case 'birthdate':
+				return 'Data di nascita non corretta';
+				break;
+			default:
+				return '';
+				break;
+		}
+	}
+
+	private function encodeGender(string $gender) : ?string {
+		return (isset($gender) ? substr($gender, 0, 1) : null);
+	}
+
+	private function decodeGender(string $gender) : string {
+		switch ($gender) {
+			case 'M':
+				return 'Maschio';
+				break;
+			case 'F':
+				return 'Femmina';
+				break;
+			case 'A':
+				return 'Altro';
+				break;
+			default:
+				return '';
+				break;
+		}
 	}
 
 	private function securePassword(string $plainPassword) : string {
@@ -112,9 +167,9 @@ class User extends Entity {
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
-	public function getEmail() {
+	public function getEmail() : string {
 		return $this->email;
 	}
 
@@ -130,6 +185,9 @@ class User extends Entity {
 		foreach ($this as $key => $value) {
 			$fields[$key] = $value;
 		}
+		$fields['birthdate'] = date('d-m-Y', strtotime($this->birthdate));
+		$fields['gender'] = $this->decodeGender($this->gender);
+
 		return $fields;
 	}
 
@@ -153,5 +211,22 @@ class User extends Entity {
 	 */
 	public function getLastName() {
 		return $this->last_name;
+	}
+
+
+
+	public function update(array $fields) {
+		foreach ($fields as $key => $value) {
+			if ($key != 'id' && $this->isNotValid($key, $value))
+				$errors[$key] = $this->getErrorMessage($key);
+		}
+
+		if (isset($errors))
+			throw new EntityException($errors, -1, 'Errore in fase di modifica dei dati dell\'utente');
+		else {
+			foreach ($fields as $key => $value) {
+				$this->$key = $value;
+			}
+		}
 	}
 }
