@@ -29,12 +29,12 @@ color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
 color: rgb(134, 2, 2);
-padding: 0.5em 0em;
+padding: 0.5em 0;
 display: block;
 }
 .formSuccess {
     color: green;
-    padding: 0.5em 0em;
+    padding: 0.5em 0;
     display: block;
 }
 .rightMessage {
@@ -150,7 +150,6 @@ padding: 0.6em 0.7em;
 #cartButton span,
 #loginButton span{
 font-weight: bold;
-font-family: "Arial", cursive, sans-serif;
 }
 abbr {
 text-decoration: none;
@@ -195,6 +194,9 @@ display: block;
 .selectForm {
 background-color: white;
 border: 1px solid #DDD;
+}
+#category {
+    display: block;
 }
 /*
 ================================ TABELLE  ======================
@@ -326,7 +328,7 @@ color: #CDA434;
 #productContenitor dl dd img {
 float: left;
 width: 20%;
-margin: 1em 0 0 1em;
+margin: 1em 0 1em 1em;
 }
 #productContenitor dl dd p {
 width: 75%;
@@ -454,11 +456,14 @@ padding-bottom: 1em;
 display: flex;
 flex-wrap: wrap;
 }
-product-card {
+.product-card {
 margin-top: 1em;
 margin-right: 1em;
 padding: 1em;
 border: 1px solid #ddd;
+}
+.product-image {
+height: 70%;
 }
 .product-image img {
 margin-left: auto;
@@ -466,8 +471,10 @@ margin-right: auto;
 display: block;
 max-width: 17em;
 }
-.product-info {
+.product-info p,
+.product-info h1 {
 margin-top: auto;
+text-align: left;
 }
 #productsPageNumber {
 text-align: center;
@@ -491,6 +498,7 @@ height: 100%;
 background-color: #051C0B;
 color: white;
 min-height: 10em;
+margin-top: 0.5em;
 }
 #footer div {
 display: inline-block;
@@ -568,7 +576,6 @@ padding-bottom: 2%;
 font-size: 1.2em;
 margin: 0 15%;
 text-align: center;
-font-family: cambria, sans-serif;
 padding-bottom: 1em;
 }
 #contentHome h1{

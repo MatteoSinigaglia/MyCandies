@@ -13,12 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
     <div id="header">
         <div id="navigation">
-            <ul>
+            <ul id="navigationMenu">
                 <li><a href="../backend/riepilogoAcquisti_dashboard.php">Riepilogo acquisti</a></li>
                 <li><span>Utenti</span></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>

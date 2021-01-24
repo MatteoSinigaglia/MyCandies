@@ -12,6 +12,10 @@ class SideEffect extends Entity {
 
     private $name;
 
+    public function __toString() : string {
+        return $this->name;
+    }
+
     public function __construct(int $source, array $data=[]) {
         try {
             parent::__construct($source, (isset($data['id']) ? $data['id'] : null));

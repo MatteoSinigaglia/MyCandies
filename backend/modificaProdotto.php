@@ -6,9 +6,6 @@ require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 
 use MyCandies\Controllers\ProductsManager;
 
-if(!isset($_GET['name']))
-    die('404: non è possibile accedere al server in questo momento, riprova fra qualche minuto');
-
 $name = $_GET['name'];
 $productManager = new ProductsManager();
 
@@ -35,22 +32,25 @@ try {
 
 }
 
-$pattern = "/$name(.*?)<\/tr>/s";
-$replace = "$name
-            <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\" />
+$pattern = "/(<$name \/>)(.*?)(<\/tr>)/s";
+$replace = "
+            <td>
+                $name
+                <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\" />
             </td>
             <td headers=\"price\" scope=\"row\">
                 <input type=\"text\" value=\"{$product->getPrice()}\" id=\"modifyPrice\" name=\"modifyPrice\"/>
+                <errPrice />
             </td>
             <td headers=\"quantity\" scope=\"row\">
                 <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\"/>
+                <errAvailability />
             </td>
             <td headers=\"actions\" scope=\"row\">
                 <input type=\"submit\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
-                <input type=\"submit\" value=\"Cancella\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
+                <input type=\"submit\" value=\"Elimina prodotto\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
                 <messages />
             </td>
-        </tr>
-    ";
+        </tr>";
 $htmlPage = preg_replace($pattern, $replace, $htmlPage, 1);
 echo $htmlPage;

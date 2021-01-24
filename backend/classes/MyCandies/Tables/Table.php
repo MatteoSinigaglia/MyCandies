@@ -116,6 +116,16 @@ class Table {
 		}
 	}
 
+    public function searchPattern($columnName, $pattern) {
+        try {
+            $query = 'SELECT * FROM `' . $this->table . '` WHERE `' . $columnName . '` LIKE  :pattern';
+            $query = $this->dbh->query($query, ['pattern' => $pattern]);
+            return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
+        } catch (\Exception $e) {
+            echo $e;
+        }
+    }
+
 	public function insert(object $entity) : string {
 		try {
 

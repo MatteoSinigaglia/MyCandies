@@ -13,12 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body>
+<body onload="loadMenu();">
     <div id="header">
         <div id="navigation">
-            <ul>
+            <ul id="navigationMenu">
                 <li><span>Riepilogo acquisti</span></li>
                 <li><a href="utenti_dashboard.html">Utenti</a></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
@@ -33,7 +35,7 @@
     </div>
 
     <div id="riepilogoAcquistiDashboard" class="main">
-        <table class="responsiveTable" summary="Tabella riassuntiva degli acquisiti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, quantità e totale">
+        <table class="responsiveTable" summary="Tabella riassuntiva degli acquisiti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, numero prodotti e totale">
             <thead>
                 <tr>
                     <th id="user" scope="col">Utente</th>
@@ -46,12 +48,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="user" title="Utente" scope="row"></td>
-                    <td headers="productCode" title="Codice prodotto" scope="row"></td>
-                    <td headers="date" title="Data acquisto" scope="row"></td>
-                    <td headers="time" title="Ora acquisto" scope="row"></td>
-                    <td headers="number" title="Numero prodotti" scope="row"></td>
-                    <td headers="total" title="Totale" scope="row"></td>
+                    <td headers="user" title="Utente"></td>
+                    <td headers="productCode" title="Codice prodotto"></td>
+                    <td headers="date" title="Data acquisto"></td>
+                    <td headers="time" title="Ora acquisto"></td>
+                    <td headers="number" title="Numero prodotti"></td>
+                    <td headers="total" title="Totale"></td>
                 </tr>
             </tbody>
         </table>
