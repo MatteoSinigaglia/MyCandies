@@ -17,6 +17,6 @@ if  ($auth->isLoggedIn()) {
 		:
 		''), $DOM);
 } else
-	$DOM = str_replace('<a_auth_state />', '<a href="formCliente.php" id="loginButton" class="buttons">Accedi</a>', $DOM);
+	$DOM = str_replace('<a_auth_state />', '<a href="./formCliente.php" id="loginButton" class="buttons">Accedi</a>', $DOM);
 
 echo $DOM;

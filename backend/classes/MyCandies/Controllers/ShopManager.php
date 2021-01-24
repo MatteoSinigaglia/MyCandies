@@ -51,7 +51,13 @@ class ShopManager {
 			$_SESSION['cart'] = ['info' => new Cart(Entities\SHOP_MANAGER)];
 
 		if (isset($_SESSION['cart'][$product['id']])) {
-			$_SESSION['cart'][$product['id']]['quantity'] += (int)$product[''];
+			$_SESSION['cart'][$product['id']]['quantity'] += (int)$product['quantity'];
+		} else {
+			$_SESSION['cart'][$product['id']] = (int)$product['quantity'];
 		}
+	}
+
+	public function getCart() : ?array {
+		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
 	}
 }
