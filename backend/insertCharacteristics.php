@@ -44,8 +44,8 @@ if(isset($_GET['insertActivePrinciple'])) {
             </fieldset>
         </form>
     </div>';
-
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
+    $htmlPage = str_replace('value="Inserisci principio attivo" class="buttons"', 'value="Inserisci principio attivo" class="selectedButton"', $htmlPage);
 } else if(isset($_GET['insertEffect'])) {
     $form = '
    </form>
@@ -63,6 +63,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
+    $htmlPage = str_replace('value="Inserisci effetto" class="buttons"', 'value="Inserisci effetto" class="selectedButton"', $htmlPage);
 } else if(isset($_GET['insertSideEffect'])) {
     $form = '
    </form>
@@ -80,6 +81,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
+    $htmlPage = str_replace('value="Inserisci effetto collaterale" class="buttons"', 'value="Inserisci effetto collaterale" class="selectedButton"', $htmlPage);
 } else if(isset($_GET['insertCategory'])) {
     $form = '
     </form>
@@ -97,6 +99,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
+    $htmlPage = str_replace('value="Inserisci categoria" class="buttons"', 'value="Inserisci categoria" class="selectedButton"', $htmlPage);
 }
 
 echo $htmlPage;
