@@ -9,6 +9,7 @@ require_once MYCANDIES_PATH.DS.'Entities'.DS.'User.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductInCart.php';
+require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
 
 use DB\dbh;
 use DB\Exceptions\DBException;
@@ -18,6 +19,7 @@ use MyCandies\Entities\Cart;
 use MyCandies\Entities\Product;
 use MyCandies\Entities\ProductInCart;
 use MyCandies\Tables\Table;
+use  MyCandies\Controllers\Authentication;
 
 
 class ShopManager {
@@ -35,6 +37,7 @@ class ShopManager {
 
 	public function __construct() {
 
+		Authentication::initSession();
 		$this->dbh = new dbh();
 	}
 
@@ -55,29 +58,30 @@ class ShopManager {
 	}
 
 	public function addToCart(array $product) {
-		if (!isset($_SESSION['cart']))
+		if (!isset($_SESSION['cart']['info']))
 			$_SESSION['cart']['info'] = new Cart(Entities\SHOP_MANAGER);
 
 		if (isset($_SESSION['cart'][(int)$product['id']])) {
 			$this->increaseProductQuantity((int)$product['id']);
 		} else {
-			$_SESSION['cart'][(int)$product['id']] = 1;
 			$productInfo = $this->getProductById((int)$product['id']);
-			$this->addToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
+			$_SESSION['cart']['info']->addPriceToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
+			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
 	}
 
 	public function increaseProductQuantity(int $productId) {
-		$productInfo = $this->getProductById((int)$productId);
-		$this->addToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
-		$_SESSION['cart'][$productId] += 1;
+		if (isset($_SESSION['cart'][$productId])) {
+			($_SESSION['cart']['info'])->addPriceToTotal((float)($this->getProductById($productId)->getPrice()));
+			$_SESSION['cart'][$productId] += 1;
+		}
 	}
 
 	public function decreaseProductQuantity(int $productId) {
 		if ($_SESSION['cart'][$productId] <= 1)
 			$this->removeProduct($productId);
 		else {
-			$this->removeToTotal((float)($this->getProductById($productId)->getPrice()));
+			$_SESSION['cart']['info']->removePriceFromTotal((float)($this->getProductById($productId)->getPrice()));
 			$_SESSION['cart'][$productId] -= 1;
 		}
 	}
@@ -88,14 +92,17 @@ class ShopManager {
 	}
 
 	public function addToTotal(float $price) {
-		if (isset($_SESSION['cart']['info'])) {
-			$_SESSION['cart']['info']->addToTotal($price);
+		require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
+		if ($_SESSION['cart']['info']) {
+			$cart = $_SESSION['cart']['info'];
+			$cart->addToTotal($price);
 		}
 	}
 
 	public function removeToTotal(float $price) {
 		if (isset($_SESSION['cart']['info'])) {
-			$_SESSION['cart']['info']->removeFromTotal($price);
+			$cart = $_SESSION['cart']['info'];
+			$cart->removePriceFromTotal($price);
 		}
 	}
 
@@ -133,7 +140,7 @@ class ShopManager {
 		try {
 			$this->dbh->connect();
 			foreach ($productsInCart as $id => $quantity) {
-				array_push($products, $this->products->find(['column' => 'id', 'value' => $id])[0]);
+				array_push($products, $this->getProductById($id));
 			}
 		} catch (DBException $e) {
 			echo $e;
@@ -142,5 +149,9 @@ class ShopManager {
 		}
 
 		return $products;
+	}
+
+	public function checkout() {
+		if (!isset())
 	}
 }

@@ -12,6 +12,7 @@ require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ShopManager.php';
 $auth = new Authentication();
 $shop = new ShopManager();
 
+
 $cart = $shop->getCart();
 
 $DOM = file_get_contents('../frontend/carrello.html');
@@ -34,7 +35,7 @@ if (!isset($cart)) {
 		$productsInCart .= $productsInfos;
 	}
 	$DOM = str_replace('<productsInCart />', $productsInCart, $DOM);
-	$DOM = str_replace('<total />', '<td headers="totalCart" scope="row">'.$cart['info']->getTotal().'</td>', $DOM);
+	$DOM = str_replace('<total />', '<td headers="totalCart" scope="row">'.(isset($cart['info']) ? round($cart['info']->getTotal(), 2) : '0').'</td>', $DOM);
 }
 
 

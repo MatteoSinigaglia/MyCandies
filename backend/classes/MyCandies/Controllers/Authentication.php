@@ -32,12 +32,16 @@ class Authentication {
 
 
 	public function __construct() {
-		session_start();
 
+		self::initSession();
 		require_once __DIR__.'/../../DB/dbh.php';
 		$this->dbh = new dbh();
 
 		$this->initUsers();
+	}
+
+	static public function initSession() {
+		session_start();
 	}
 
 	private function initUsers() {

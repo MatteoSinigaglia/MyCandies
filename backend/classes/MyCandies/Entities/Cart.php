@@ -3,7 +3,6 @@
 
 namespace MyCandies\Entities;
 
-use MyCandies\Entities;
 use MyCandies\Exceptions\EntityException;
 
 class Cart extends Entity {
@@ -30,11 +29,11 @@ class Cart extends Entity {
 		return $this->total;
 	}
 
-	public function addToTotal(float $price) {
-		$this->total += $price;
+	public function addPriceToTotal(float $price) {
+		$this->total = round($this->total+$price, 2);
 	}
 
-	public function removeFromTotal(float $price) {
-		$this->total -= $price;
+	public function removePriceFromTotal(float $price) {
+		$this->total = round($this->total - $price, 2);
 	}
 }
