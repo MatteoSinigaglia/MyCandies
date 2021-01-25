@@ -5,8 +5,10 @@ namespace MyCandies\Entities;
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
 require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
+use DB\dbh;
 use MyCandies\Entities;
-use MyCandies\Exceptions\EntityException;
+use Exception;
+use MyCandies\Tables\Table;
 
 class ActivePrinciple extends Entity {
 
@@ -18,14 +20,16 @@ class ActivePrinciple extends Entity {
             if($source === Entities\ACTIVE_PRINCIPLES_MANAGER) {
                 $this->setName($data['name']);
             }
-        } catch(EntityException $e) {
+        } catch(Exception $e) {
             throw $e;
         }
     }
 
     private function setName($name) {
         if(!isset($name) || $name == '')
-            throw new EntityException('Il nome deve avere un valore');
+            throw new Exception('Il nome deve avere un valore');
+        else if($this->checkUniqueName($name))
+            throw new Exception('Esiste già un principio attivo con lo stesso nome');
         $this->name = $name;
     }
 
@@ -47,5 +51,18 @@ class ActivePrinciple extends Entity {
             array_push($columns, $key);
         }
         return $columns;
+    }
+
+    private function checkUniqueName($name) : int
+    {
+        $dbh = new dbh();
+        $T_activePrinciples = new Table($dbh, 'ActivePrinciples', 'id', ActivePrinciple::class, [DB]);
+        $dbh->connect();
+        $activePrinciple = $T_activePrinciples->find([
+            'column' => 'name',
+            'value' => $name
+        ]);
+        $dbh->disconnect();
+        return isset($activePrinciple[0]);
     }
 }

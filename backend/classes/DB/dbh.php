@@ -26,7 +26,7 @@ class dbh {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
 		$this->port = $_SERVER['SERVER_PORT'];
-		$this->psw = 'root';
+		$this->psw = '';
 		$this->user = 'root';
 		$this->charset = 'utf8';
 		$this->options = [

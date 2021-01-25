@@ -117,8 +117,6 @@ function loadFormCliente() {
     }
 };
 
-/* Controllo campi per il login
-**/
 function validateLoginField(input) {
     removeError(input);
     var regex = form_login[input.id][1];
@@ -139,10 +137,6 @@ function validateLoginForm() {
     }
     return correct;
 };
-
-
-/* Controllo campi per la registrazione
- **/
 
 function validateDate(input) {
     var comp = input.value.split("/");
@@ -241,12 +235,9 @@ function validateRegForm() {
     return correct;
 };
 
-/*
-============= CHECK INSERIMENTO PRODOTTO
-*/
 var form_inserisciProdotto = {
     "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto.", "Inserire un nome."],
-    "productPrice": ["Prezzo", /^\d+(,\d{1,2})?$/, "Prezzo non corretto."]
+    "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."]
 };
 function loadProductInsertion() {
     for(var key in form_inserisciProdotto) {
@@ -281,10 +272,6 @@ function validateInsertionForm() {
     }
     return correct;
 };
-
-/*
-============= CHECK MODIFICA CREDENZIALI
-*/
 
 var form_credenziali = {
     "changePassword": ["Inserisci nuova password", /.{4,20}/, "Password non valida. La lunghezza deve essere tra 4 e 20 caratteri.", "Compilare il campo password."],
@@ -332,9 +319,6 @@ function validateChangeCredentialForm() {
     return correct;
 };
 
-/*
-============== VALIDATEAREAPERS
-*/
 var PAFormDetails = {
     "nome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Nome non valido."],
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
@@ -406,99 +390,7 @@ for(var key in PAFormDetails){
 return PAcheck;
 };
 
-var FilterValues = {
-    "minActivePrinciple": [/^\d{1,3}$/,"Inserire un numero a max. 3 cifre.", "Valore minimo troppo basso.", "Valore minimo troppo alto.", "Il valore minimo è più grande del valore massimo."],
-    "maxActivePrinciple": [/^\d{1,3}$/,"Inserire un numero a max. 3 cifre.", "Valore massimo troppo basso.", "Valore massimo troppo alto."],
-    "minPrice": [/^\d{1,4}$/,"Formato prezzo minimo non valido.", "Prezzo minimo troppo basso.", "Il valore minimo è più grande del valore massimo."],
-    "maxPrice": [/^\d{1,4}$/,"Formato prezzo massimo non valido.", "Prezzo massimo troppo basso."]
-  };
-  
-  function selectCorrectSpan(input) {
-    var span;
-    switch(input.id) {
-      case "minActivePrinciple": {
-        span = document.getElementById("minAP_errors");
-      }
-        break;
-      case "maxActivePrinciple": {
-        span = document.getElementById("maxAP_errors");
-      }
-        break;
-      case "minPrice": {
-        span = document.getElementById("minPR_errors");
-      }
-        break;
-      case "maxPrice": { 
-        span = document.getElementById("maxPR_errors");
-      }
-        break;
-    }
-    return span;
-  };
-  
-  function filterShowErr(input, num) {
-    var span = selectCorrectSpan(input);
-    var ele = document.createElement("strong");
-    ele.className = "formErrors";
-    ele.appendChild(document.createTextNode(FilterValues[input.id][num]));
-    span.appendChild(ele);
-  };
-  
-  function valueTest(input){
-    var accepted = true;
-    var valore = parseInt(input.value);
-    if(valore == 0) {
-      filterShowErr(input, 2);
-      accepted = false;
-    }
-    if(accepted && (input.id == "minActivePrinciple" && valore > 99) || (input.id == "maxActivePrinciple" && valore > 100)) {
-      filterShowErr(input, 3);
-      accepted = false;
-    } 
-    if(accepted && input.id == "minActivePrinciple") {
-      var maxAp = document.getElementById("maxActivePrinciple");
-      maxAp = parseInt(maxAp.value);
-      if (valore > maxAp) {
-        filterShowErr(input, 4);
-        accepted = false;
-      }
-    }
-    if(accepted && input.id == "minPrice") {
-      var maxPr = document.getElementById("maxPrice");
-      maxPr = parseInt(maxPr.value);
-      if (valore > maxPr) {
-        filterShowErr(input, 3);
-        accepted = false;
-      }
-    }
-    return accepted;
-  };
-  
-  function filterControl(input) {
-    var span = selectCorrectSpan(input);
-    if (span.children.length == 1) {
-        span.removeChild(span.children[0]);
-    }
-    var filterRegex = FilterValues[input.id][0];
-    if (input.value.search(filterRegex) != 0) {
-      filterShowErr(input, 1);
-      return false;
-    } else {
-      return valueTest(input);
-    }
-  };
-  
-  function validateFilters(){
-    var checkFilters = true;
-    for(var key in FilterValues){
-      var input = document.getElementById(key); 
-      var res = filterControl(input);
-      checkFilters = checkFilters && res;
-    }
-    return checkFilters;
-  };
-
- function loadMenu() {
+function loadMenu() {
     var menuContenitor = document.getElementById("navigation");
     var navigationMenu = document.getElementById("navigationMenu");
     if(window.innerWidth <= 767) {

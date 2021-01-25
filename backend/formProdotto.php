@@ -14,8 +14,7 @@ try {
     $activePrinciples = $activePrinciplesManager->getActivePrinciples();
     $categories = $categoryManager->getCategories();
 } catch (Exception $e) {
-    // load 404 page, TODO
-    echo $e->getMessage();
+    header('location: ../backend/home.php');
     die();
 }
 

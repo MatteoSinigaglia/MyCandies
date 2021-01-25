@@ -25,13 +25,13 @@
 	<div id="headerLogoAndUtility">
 		<div id="imageContainer">
 			<a href="../backend/home.php">
-				<img id="logo" src="../img/logo.jpeg"
+				<img id="logo" src="../img/logo.png"
 						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
 			</a>
 		</div>
 
 		<div id="utilityBar">
-			<form class="searchButton" id="headerSearchBar" action="#" method="get">
+			<form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
@@ -43,19 +43,17 @@
 	</div>
 	<div id="navigation">
 		<ul id="navigationMenu">
-			<li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+			<li><a href="../backend/home.php" xml:lang="en">Home</a></li>
 			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
 			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
-			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li>
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
 		</ul>
 	</div>
 </div>
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="../backend/home.php">
-            <span xml:lang="en" lang="en">Home</span>
-        </a>/ Carrello</p>
+        <a href="../backend/home.php" xml:lang="en">Home </a>/ Carrello</p>
 </div>
 
 <div id="cartContent" class="main">
@@ -65,7 +63,7 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
+		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome, codice, quantità, azioni e totale prodotto.">
 			<thead>
 				<tr>
 					<th id="productName" scope="col">Nome</th>
@@ -83,13 +81,6 @@
 					<td headers="actions" title="Azioni" scope="row"></td>
 					<td headers="total" title="Totale prodotto" scope="row">900</td>
                 </tr>
-                <tr>
-					<td headers="productName" title="Nome" scope="row">ecstasy - confezione 10 pacchi</td>
-					<td headers="productCode" title="Codice" scope="row">prova90</td>
-					<td headers="quantity" title="Quantità" scope="row">100</td>
-					<td headers="actions" title="Azioni" scope="row"></td>
-					<td headers="total" title="Totale prodotto" scope="row">0101010</td>
-				</tr>
                 <productsInCart />
 			</tbody>
         </table>
@@ -159,23 +150,23 @@
         </div>
         <div id="social">
             <h2>
-                <span xml:lang="en" lang="en">Link social:</span>
+                <span xml:lang="en">Link social:</span>
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
                 </li>
             </ul>
         </div>
     </div>
     <div id="diritti">
-        <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+        <p><span xml:lang="en">MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova.</p>
     </div>
 </div>
 

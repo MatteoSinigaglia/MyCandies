@@ -27,7 +27,7 @@
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
           <a href="../backend/home.php">
-            <img id="logo" src="../img/logo.jpeg"
+            <img id="logo" src="../img/logo.png"
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
           </a>
         </div>
@@ -45,7 +45,7 @@
     </div>
     <div id="navigation">
         <ul id="navigationMenu">
-            <li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+            <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
             <li><span>Droghe</span></li>
             <li><a href="../backend/areaPersonale.php">Area personale</a></li>
             <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
@@ -53,54 +53,15 @@
     </div>
 </div>
 <div id="breadcrumb">
-    <p>Ti trovi in: <span xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></span> / Lista prodotti</p>
+    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Lista prodotti</p>
 </div>
 <div class="main" id="productList">
     <div id="filters">
-        <h1>Filtri di Ricerca</h1>
-        <form action="#" method="post" id="filtersForm" onsubmit="return validateFilters();">
-            <fieldset id="categoryFilter">
-                <legend>Categoria</legend>
-                <div>
-                    <input type="checkbox" name="marijuana" id="marijuana" value="marijuana"/>
-                    <label for="marijuana">Marijuana</label>
-                </div>
-                <!-- da inserire dei checkbox -->
-            </fieldset>
-            <fieldset id="activePrincipleFilter">
-                <legend>Percentuale principio attivo</legend>
-            </fieldset>
-            <fieldset id="sideEffectsFilter">
-                <legend>Effetti collaterali</legend>
-            </fieldset>
-            <fieldset>
-                <legend>Percentuale principio attivo</legend>
-                <div>
-                    <label for="minActivePrinciple">Min</label>
-                    <input type="text" name="minActivePrinciple" id="minActivePrinciple"/>
-                    <label for="maxActivePrinciple">Max</label>
-                    <input type="text" name="maxActivePrinciple" id="maxActivePrinciple" />
-                    <span id="minAP_errors"></span>
-                    <span id="maxAP_errors"></span>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend>Prezzo</legend>
-                <div>
-                    <label for="minPrice">Min</label>
-                    <input type="text" name="minPrice" id="minPrice" />
-                    <label for="maxPrice">Max</label>
-                    <input type="text" name="maxPrice" id="maxPrice" />
-                    <span id="minPR_errors"></span>
-                    <span id="maxPR_errors"></span>
-                </div>
-            </fieldset>
-            <div>
-                <input type="submit" value="Vai" class="buttons" id="confirmFilter"/>
-            </div>
-        </form>
+        <h1>Filtra per categoria</h1>
+        <categories />
     </div>
     <div id="rightSideContent">
+        <h1>Lista dei prodotti</h1>
         <div class="products">
             <listOfProducts />
         </div>
@@ -162,23 +123,23 @@
         </div>
         <div id="social">
             <h2>
-                <span xml:lang="en" lang="en">Link social:</span>
+                <span xml:lang="en">Link social:</span>
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
                 </li>
             </ul>
         </div>
     </div>
     <div id="diritti">
-        <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+        <p><span xml:lang="en">MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova.</p>
     </div>
 </div>
 </body>

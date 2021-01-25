@@ -17,10 +17,11 @@ if(isset($_POST['submitActivePrinciple'])) {
     $effects = (isset($_POST['effects']) ? $_POST['effects'] : null);
     $sideEffects = (isset($_POST['sideEffects']) ? $_POST['sideEffects'] : null);
     unset($_GET['insertActivePrinciple']);
+    $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
         if($name != null) {
-            $activePrinciplesManager->insertActivePrinciple([
+            $success = $activePrinciplesManager->insertActivePrinciple([
                 'name' => $name], $effects, $sideEffects);
         }
     } catch(Exception $e) {
@@ -28,7 +29,8 @@ if(isset($_POST['submitActivePrinciple'])) {
     } finally {
         if($name == null)
             $htmlPage = str_replace('<errName />', '<strong class="formErrors">Inserire un nome</strong>', $htmlPage);
-        else $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else if($success) $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else str_replace('<success />', '<strong class="formErrors">Inserimento fallito</strong>', $htmlPage);
         echo $htmlPage;
     }
 } else if(isset($_POST['submitCategory'])) {
@@ -36,18 +38,20 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertCategory']='Inserisci+categoria';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['effectName']) ? $_POST['effectName'] : null);
+    $name = (isset($_POST['categoryName']) ? $_POST['categoryName'] : null);
     unset($_GET['insertCategory']);
+    $success = false;
     try {
         $categoriesManager = new CategoriesManager();
         if($name != null)
-            $categoriesManager->insertCategory($name);
+            $success = $categoriesManager->insertCategory($name);
     } catch(Exception $e) {
-        $htmlPage = str_replace('<errName />', '<p>'.$e->getMessage().'</p>', $htmlPage);
+        $htmlPage = str_replace('<errName />', '<strong class="formErrors">'.$e->getMessage().'</strong>', $htmlPage);
     } finally {
         if($name == null)
             $htmlPage = str_replace('<errName />', '<strong class="formErrors">Inserire un nome</strong>', $htmlPage);
-        else $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else if($success) $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else str_replace('<success />', '<strong class="formErrors">Inserimento fallito</strong>', $htmlPage);
         echo $htmlPage;
     }
 } else if(isset($_POST['submitEffect'])) {
@@ -57,16 +61,18 @@ if(isset($_POST['submitActivePrinciple'])) {
     $htmlPage = ob_get_clean();
     $name = (isset($_POST['effectName']) ? $_POST['effectName'] : null);
     unset($_GET['insertEffect']);
+    $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
         if($name != null)
-            $activePrinciplesManager->insertEffect($name);
+            $success = $activePrinciplesManager->insertEffect($name);
     } catch(Exception $e) {
-        $htmlPage = str_replace('<errName />', '<p>'.$e->getMessage().'</p>', $htmlPage);
+        $htmlPage = str_replace('<errName />', '<strong class="formErrors">'.$e->getMessage().'</strong>', $htmlPage);
     } finally {
         if($name == null)
             $htmlPage = str_replace('<errName />', '<strong class="formErrors">Inserire un nome</strong>', $htmlPage);
-        else $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else if($success) $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else str_replace('<success />', '<strong class="formErrors">Inserimento fallito</strong>', $htmlPage);
         echo $htmlPage;
     }
 } else if(isset($_POST['submitSideEffect'])) {
@@ -76,16 +82,18 @@ if(isset($_POST['submitActivePrinciple'])) {
     $htmlPage = ob_get_clean();
     $name = (isset($_POST['sideEffectName']) ? $_POST['sideEffectName'] : null);
     unset($_GET['insertSideEffect']);
+    $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
         if($name != null)
-            $activePrinciplesManager->insertSideEffect($name);
+            $success = $activePrinciplesManager->insertSideEffect($name);
     } catch(Exception $e) {
-        $htmlPage = str_replace('<errName />', '<p>'.$e->getMessage().'</p>', $htmlPage);
+        $htmlPage = str_replace('<errName />', '<strong class="formErrors">'.$e->getMessage().'</strong>', $htmlPage);
     } finally {
         if($name == null)
             $htmlPage = str_replace('<errName />', '<strong class="formErrors">Inserire un nome</strong>', $htmlPage);
-        else $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else if($success) $htmlPage = str_replace('<success />', '<strong class="formSuccess">Valore inserito</strong>', $htmlPage);
+        else str_replace('<success />', '<strong class="formErrors">Inserimento fallito</strong>', $htmlPage);
         echo $htmlPage;
     }
 }

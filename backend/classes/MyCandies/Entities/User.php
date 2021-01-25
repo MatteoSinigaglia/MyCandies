@@ -81,25 +81,22 @@ class User extends Entity {
 	private function isNotValid(string $field, $value, $optional = null) : bool {
 		switch($field) {
 			case 'email':
-				return (!isset($value) || strlen($value) < 1 /*|| regex check*/);
+				return (!isset($value) || strlen($value) < 1 || !preg_match('/^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/', $value));
 				break;
 			case 'password':
-				return (!isset($value) || strlen($value) < 4 /*|| regex check*/);
+				return (!isset($value) || strlen($value) < 4 || !preg_match('/.{4,20}/', $value));
 				break;
 			case 'confirmPassword':
-				return (!isset($value) || ($value !== $optional) /*|| regex check*/);
+				return (!isset($value) || ($value !== $optional) || !preg_match('/.{4,20}/', $value));
 				break;
-			case 'first_name':
-				return (!isset($value) || strlen($value) < 2 /*|| regex check*/);
-				break;
-			case 'last_name':
-				return (!isset($value) || strlen($value) < 2 /*|| regex check*/);
+			case 'first_name': case 'last_name' :
+				return (!isset($value) || strlen($value) < 2 || !preg_match('/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/', $value));
 				break;
 			case 'telephone':
-				return (!isset($value) || strlen($value) < 10 /*|| regex check*/);
+				return (!isset($value) || strlen($value) < 10 || !preg_match('/^\d{10}$/', $value));
 				break;
 			case 'birthdate':
-				return (!isset($value) || strlen($value) < 10 /*|| regex check*/);
+				return (!isset($value) || strlen($value) < 10 || !preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $value));
 				break;
 			default:
 				return false;

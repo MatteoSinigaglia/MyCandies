@@ -225,6 +225,9 @@ background-color:  #093013;
 border: 1px solid #000;
 color: #CDA434;
 }
+table td {
+background-color: white;
+}
 /*------- HEADER -------------------------------------------------------------------------------*/
 #header {
 width: 100%;
@@ -374,6 +377,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
+background-color: transparent;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
@@ -459,21 +463,22 @@ text-align: right;
 padding-top: 1em;
 padding-bottom: 1em;
 }
-/* queste regole che seguono sono in previsione di oggetti per il negozio */
-.singleProduct {
-display: flex;
-flex-direction: row;
-padding: 2em;
-border: 1px solid #DDD;
-}
-.singleProduct img {
-text-align: center;
+.product-card {
+margin: 1em;
 padding: 1em;
+border: 1px solid #ddd;
 }
-/* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h2,
-p {
+.product-image img {
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-width: 16em;
+max-height: 70%;
+}
+.product-info {
+margin-top: auto;
 text-align: left;
+max-width: 15em;
 }
 #productsPageNumber {
 text-align: center;
@@ -503,6 +508,9 @@ display: inline-block;
 text-align: center;
 vertical-align: top;
 padding: 0.3em 0;
+}
+#footer div ul {
+list-style-type: none;
 }
 #upperFooterContainer {
 width: 100%;
