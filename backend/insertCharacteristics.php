@@ -1,6 +1,5 @@
 <?php
 
-// TODO rimuovere inclusione paths_index
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ActivePrinciplesManager.php';
 

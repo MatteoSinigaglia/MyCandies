@@ -1,6 +1,5 @@
 <?php
 
-//TODO rimuovere include a paths
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
