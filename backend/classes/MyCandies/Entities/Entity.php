@@ -19,11 +19,11 @@ class Entity {
 	 * @param mixed|null $id
 	 * @throws EntityException
 	 */
-	public function __construct(int $source, mixed $id=null) {
+	public function __construct(int $source, $id=null) {
 		if ($source === DB) {
 			$this->id = (int)$id;
 		} else if (isset($id)) {
-			throw new EntityException('The given id is illegal', -1);
+			throw new EntityException(['id' => 'The given id is illegal'], -1);
 		}
 	}
 
@@ -33,7 +33,7 @@ class Entity {
 	 */
 	public function setId(int $id): void {
 		if (isset($this->id)) {
-			throw new EntityException('Entity already has an id', -2);
+			throw new EntityException(['id' => 'Entity already has an id'], -2);
 		}
 		$this->id = $id;
 	}

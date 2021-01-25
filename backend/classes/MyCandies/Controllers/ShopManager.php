@@ -7,6 +7,7 @@ require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'dbh.php';
 require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'User.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductInCart.php';
 
 use DB\dbh;
@@ -14,6 +15,7 @@ use DB\Exceptions\DBException;
 use MyCandies\Entities;
 use MyCandies\Entities\User;
 use MyCandies\Entities\Cart;
+use MyCandies\Entities\Product;
 use MyCandies\Entities\ProductInCart;
 use MyCandies\Tables\Table;
 
@@ -28,6 +30,7 @@ class ShopManager {
 
 	private $users;
 	private $carts;
+	private $products;
 	private $productsInCarts;
 
 	public function __construct() {
@@ -43,27 +46,30 @@ class ShopManager {
 		$this->carts = new Table($this->dbh, 'Carts', 'id', Cart::class, [Entities\DB]);
 	}
 
+	private function initProducts() {
+		$this->products = new Table($this->dbh, 'Products', 'id', Product::class, [Entities\DB]);
+	}
+
 	private function initProductsInCarts() {
 		$this->productsInCarts = new Table($this->dbh, 'ProductsInCarts', 'id', ProductInCart::class, [Entities\DB]);
 	}
 
 	public function addToCart(array $product) {
 		if (!isset($_SESSION['cart']))
-			$_SESSION['cart'] = ['info' => new Cart(Entities\SHOP_MANAGER)];
+			$_SESSION['cart']['info'] = new Cart(Entities\SHOP_MANAGER);
 
-		if (isset($_SESSION['cart'][$product['id']])) {
-			$_SESSION['cart'][$product['id']]['quantity'] += (int)$product['quantity'];
+		if (isset($_SESSION['cart'][(int)$product['id']])) {
+			$_SESSION['cart'][(int)$product['id']] += 1;
 		} else {
-			$_SESSION['cart'][$product['id']] = (int)$product['quantity'];
+			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
 	}
 
 	public function getCart() : ?array {
-		echo $_SESSION['cart'];
 		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
 	}
 
-	private function getProducts() : ?array {
+	public function getProducts() : ?array {
 		if (!isset($_SESSION['cart']) || count($_SESSION['cart']) < 2)
 //			Cart not set or empty
 			return null;
@@ -71,13 +77,14 @@ class ShopManager {
 		$productsInCart = $_SESSION['cart'];
 		unset($productsInCart['info']);
 
-		if (!isset($this->productsInCarts))
-			$this->initProductsInCarts();
+		if (!isset($this->products))
+			$this->initProducts();
 
+		$products = array();
 		try {
 			$this->dbh->connect();
 			foreach ($productsInCart as $id => $quantity) {
-				$this->productsInCart = $this->productsInCarts->findById($id);
+				array_push($products, $this->products->findById($id));
 			}
 		} catch (DBException $e) {
 			echo $e;
@@ -85,5 +92,6 @@ class ShopManager {
 			$this->dbh->disconnect();
 		}
 
+		return $products;
 	}
 }

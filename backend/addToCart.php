@@ -11,6 +11,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 	die();
 }
 
+require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
+$auth = new Authentication();
 
 if (!isset($_GET['id'])) {
 	header('location: ' . '.' . DS . 'listaProdotti.php');
@@ -19,7 +21,9 @@ if (!isset($_GET['id'])) {
 	require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ShopManager.php';
 	$shop = new ShopManager();
 	$shop->addToCart($_GET);
-	echo $_SESSION['cart'];
-//	header('location: '.'.'.DS.'prodotto.php?id='.$_GET['id']);
-//	die();
+	$sess =  $_SESSION['cart'];
+
+//	var_dump($sess['10']);
+	header('location: '.'.'.DS.'prodotto.php?id='.$_GET['id']);
+	die();
 }

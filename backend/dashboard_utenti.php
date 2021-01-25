@@ -18,12 +18,12 @@ require_once __DIR__.'/classes/MyCandies/Controllers/Administration.php';
 $users = (new Administration())->getUsers();
 
 $usersRow = [
-	'email'         =>  '<td headers="mail" title="mail" scope="row"><user_email /></td>',
-	'first_name'    =>  '<td headers="name" title="Nome" scope="row"><user_first_name /></td>',
-    'last_name'     =>  '<td headers="surname" title="Cognome" scope="row"><user_last_name /></td>',
-    'birthdate'     =>  '<td headers="dateOfBirth" title="Data di nascita" scope="row"><user_birthdate /></td>',
-	'sex'           =>  '<td headers="sex" title="Sesso" scope="row"><user_gender /></td>',
-	'actions'       =>  '<td headers="actions" title="Azioni" scope="row">
+	'email'         =>  '<td headers="mail" title="E-mail"><user_email /></td>',
+	'first_name'    =>  '<td headers="name" title="Nome"><user_first_name /></td>',
+    'last_name'     =>  '<td headers="surname" title="Cognome"><user_last_name /></td>',
+    'birthdate'     =>  '<td headers="dateOfBirth" title="Data di nascita"><user_birthdate /></td>',
+	'gender'           =>  '<td headers="sex" title="Sesso"><user_gender /></td>',
+	'actions'       =>  '<td headers="actions" title="Azioni">
 <a href="./remove_user.php?email=_user_email" name="remove_user"><button class="buttons">Rimuovi</button></a>
 <make_admin />
 </td>'
