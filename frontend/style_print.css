@@ -118,8 +118,8 @@ font-size: 1.5em;
 margin: 0.5em 0;
 }
 #productContenitor {
-float: left;
-width: 75%;
+margin: 1em auto;
+width: 90%;
 border: 1px solid #000;
 border-radius: 10px;
 }
@@ -137,14 +137,14 @@ margin-left: 1em;
 #productContenitor dl dd p {
 width: 75%;
 padding: 0.5em 1em;
+padding-right: 2em;
 margin-left: 22%;
 }
 /*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
-float: right;
 border-radius: 10px;
-margin-bottom: 1em;
-width: 20%;
+margin: 1em auto;
+width: 40%;
 border: 1px solid #000;
 }
 #productTableContent table {
