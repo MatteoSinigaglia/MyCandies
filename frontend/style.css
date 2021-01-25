@@ -531,6 +531,9 @@ text-align: center;
 vertical-align: top;
 padding: 1em 0;
 }
+#footer div ul {
+list-style-type: none;
+}
 #stores div {
 display: inline-block;
 }
