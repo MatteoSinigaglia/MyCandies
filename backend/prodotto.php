@@ -1,6 +1,5 @@
 <?php
 
-// TODO rimuovere import paths index
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
@@ -16,7 +15,6 @@ try {
     $prodotto = $productsManager->getSingleProduct($productId);
     $prodotto = $prodotto + ['id' => $productId];
 } catch (DBException $e) {
-    // TODO pagina 404
     ob_start();
     require_once 'listaProdotti.php';
     echo ob_get_clean();

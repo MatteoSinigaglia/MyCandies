@@ -1,6 +1,5 @@
 <?php
 
-// TODO remove paths_
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 
@@ -12,7 +11,6 @@ $productList = array();
 try {
     $productList = $productManager->getProducts();
 } catch (Exception $e) {
-    // TODO pagina 404
     $htmlPage = str_replace("<insertRow />", '<strong class="formErrors">Errore nel caricamento</strong>', $htmlPage);
     echo $htmlPage;
     die();
