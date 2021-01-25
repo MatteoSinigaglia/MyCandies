@@ -520,6 +520,7 @@ vertical-align: middle;
 }
 #footer div ul {
 text-align: center;
+list-style-type: none;
 }
 #upperFooterContainer {
 width: 100%;
