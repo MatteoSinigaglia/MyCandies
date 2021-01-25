@@ -331,6 +331,18 @@ color: white;
 padding: 0.3em;
 margin: 0.7em 0;
 }
+span.selectedButton {
+border: 1px solid #DDD;
+border-radius: 4px;
+background-color: #051C0B;
+color: white;
+padding: 0.5em 1em;
+margin: 0.5em;
+font-weight: bold;
+text-decoration: none;
+display: inline-block;
+font-size: 1em;
+}
 /*
 ================ MENU HAMBURGER ===================================
 */
@@ -487,9 +499,6 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-margin: 0.5em 0em;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -499,17 +508,19 @@ margin: 1em;
 padding: 1em;
 border: 1px solid #ddd;
 }
+.product-image {
+width: 16em;
+}
 .product-image img {
 margin-left: auto;
 margin-right: auto;
 display: block;
 max-width: 16em;
-max-height: 70%;
+max-height: 12em;
 }
 .product-info {
 margin-top: auto;
 text-align: left;
-max-width: 15em;
 }
 #productsPageNumber {
 text-align: center;
