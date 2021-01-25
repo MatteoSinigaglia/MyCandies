@@ -152,6 +152,36 @@ class ShopManager {
 	}
 
 	public function checkout() {
-		if (!isset())
+		if (!isset($this->users))
+			$this->initUsers();
+
+		if (!isset($this->carts))
+			$this->initCarts();
+
+		if (!isset($this->products))
+			$this->initProducts();
+
+		if (!isset($this->productsInCarts))
+			$this->initProductsInCarts();
+
+		$cart = $_SESSION['cart'];
+
+		try {
+			$this->dbh->connect();
+			$this->dbh->transactionStart();
+			$cartId = $this->carts->insert($cart['info']);
+			unset($cart['info']);
+			foreach ($cart as $id => $quantity) {
+				$this->productsInCarts->insert(new ProductInCart(Entities\SHOP_MANAGER, ['product_id' => $id, 'cart_id' => $cartId, 'quantity' => $quantity]));
+//				$productId =
+			}
+
+			$this->dbh->transactionCommit();
+		} catch (DBException $e) {
+			$this->dbh->transactionRollback();
+		} finally {
+			$this->dbh->disconnect();
+		}
+
 	}
 }

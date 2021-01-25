@@ -36,4 +36,21 @@ class Cart extends Entity {
 	public function removePriceFromTotal(float $price) {
 		$this->total = round($this->total - $price, 2);
 	}
+
+	public function getValues(int $source = null) : array {
+		$fields = [];
+		foreach ($this as $key => $value) {
+			$fields[$key] = $value;
+		}
+
+		return $fields;
+	}
+
+	public function getColumns() : array {
+		$columns = array();
+		foreach ($this as $key => $value) {
+			array_push($columns, $key);
+		}
+		return $columns;
+	}
 }

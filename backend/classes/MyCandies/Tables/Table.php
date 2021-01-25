@@ -157,10 +157,6 @@ class Table {
 			$query = 'INSERT INTO `'.$this->table.'` ('.$parameters.') VALUES ('.$values.')';
 			$fields = $this->processDates($fields);
 
-//			echo $query;
-//			foreach ($fields as $k => $v) {
-//				echo $k.' => '.$v.' ';
-//			}
 			$this->dbh->query($query, $fields);
 
 			if ($entity instanceof Entity) {
