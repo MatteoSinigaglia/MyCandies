@@ -62,7 +62,6 @@ resize: none;
 #social h3,
 #social img,
 #filters,
-#rightSideContent,
 #loginForm,
 #h1Accedi,
 #cartContent img,
@@ -70,6 +69,7 @@ resize: none;
 #aboutUsContent img,
 #contentHome img,
 #credentialChange,
+.product-image img,
 .formErrors,
 .buttons,
 .nolinkhide,
@@ -171,33 +171,42 @@ border: 1px solid transparent;
 margin: auto;
 text-align: center;
 }
-/*
-==================================Lista prodotti================================
-*/
+/* FILTRI PRODOTTI */
+#rightSideContent {
+overflow: hidden;
+padding: 1em;
+}
+#rightSideContent div {
+overflow: hidden;
+}
+#upperRightSideContent {
+border-bottom: 1px solid #DDD;
+padding-bottom: 1em;
+}
+select {
+padding: 0.3em;
+border-radius: 5px;
+background-color: #c5c4c4;
+}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
 }
 /* queste regole che seguono sono in previsione di oggetti per il negozio */
-.singleProduct {
+.products {
 display: flex;
-flex-direction: row;
-padding: 2em;
-border: 1px solid #000000;
+flex-wrap: wrap;
 }
-.singleProduct img {
-text-align: center;
+.product-card {
+margin: 1em;
 padding: 1em;
+border: 1px solid #ddd;
 }
-/* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h2,
-p {
+.product-info {
+margin-top: auto;
 text-align: left;
-}
-#productsPageNumber {
-text-align: center;
-display: inline-block;
-width: 100%;
+max-width: 15em;
+min-width: 15em;
 }
 #filtersForm fieldset div span {
 float: left;
@@ -205,12 +214,6 @@ float: left;
 .stylelessList {
 list-style-type:none;
 text-align: left;
-}
-#contentFAQ li {
-margin-bottom:0.5em;
-}
-#contentFAQ h2{
-font-size: 18px;
 }
 /*
 ============ FOOTER ===========================================================================
