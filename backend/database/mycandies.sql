@@ -112,7 +112,7 @@ CREATE TABLE `Effects` (
 DROP TABLE IF EXISTS `SideEffects`;
 CREATE TABLE `SideEffects` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(20) NOT NULL UNIQUE,
+	`name` varchar(100) NOT NULL UNIQUE,
 	-- link varchar(512),
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
