@@ -266,6 +266,18 @@ class ProductsManager
         ];
     }
 
+	public function getProductById($id) {
+
+    	try{
+			$this->dbh->connect();
+			$product = $this->T_products->findById($id);
+		} catch (Exception $e) {
+			throw $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+		return (isset($product) ? $product : null);
+	}
     public function findProductsByCategory($category_id) : array {
         try{
             $this->dbh->connect();

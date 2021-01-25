@@ -175,4 +175,11 @@ class Product extends Entity
         $dbh->disconnect();
         return isset($product[0]);
     }
+
+	/**
+	 * @return int Returns the entity's id
+	 */
+	public function getId(): int {
+		return $this->id;
+	}
 }

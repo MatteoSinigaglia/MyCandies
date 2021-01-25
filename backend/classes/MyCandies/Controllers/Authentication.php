@@ -32,12 +32,16 @@ class Authentication {
 
 
 	public function __construct() {
-		session_start();
 
+		self::initSession();
 		require_once __DIR__.'/../../DB/dbh.php';
 		$this->dbh = new dbh();
 
 		$this->initUsers();
+	}
+
+	static public function initSession() {
+		session_start();
 	}
 
 	private function initUsers() {
@@ -383,5 +387,20 @@ class Authentication {
 		}
 		$modified['id'] = $oldData['id'];
 		return $modified;
+	}
+
+	private function getAdmins() : ?array {
+		if (!isset($this->admins))
+			$this->initAdmins();
+
+		try {
+			$this->dbh->connect();
+			$admins = $this->admins->find();
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+		return $admins;
 	}
 }

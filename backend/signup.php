@@ -52,6 +52,5 @@ $fields['password'] = $fields['confirmPassword'] = '';
 foreach ($fields as $item => $value) {
 	$DOM = str_replace('_'.$item.'_value', $value, $DOM);
 }
-var_dump($_POST['user']);
 
 echo $DOM;

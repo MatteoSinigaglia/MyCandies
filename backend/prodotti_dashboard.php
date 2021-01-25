@@ -23,16 +23,16 @@ if(!empty($productList)) {
             "
             <{$row['name']} />
             <tr>
-                <td headers=\"name\" scope=\"row\">
+                <td headers=\"name\">
                     {$row['name']}
                 </td>
-                <td headers=\"price\" scope=\"row\">
+                <td headers=\"price\">
                     {$row['price']}
                 </td>
-                <td headers=\"quantity\" scope=\"row\">
+                <td headers=\"quantity\">
                     {$row['availability']}
                 </td>
-                <td headers=\"actions\" scope=\"row\">
+                <td headers=\"actions\">
                     <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
                 </td>
             </tr>";

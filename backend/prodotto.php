@@ -2,10 +2,14 @@
 
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
+require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
 require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
 
 use MyCandies\Controllers\ProductsManager;
+use MyCandies\Controllers\Authentication;
 use DB\Exceptions\DBException;
+
+$auth = new Authentication();
 
 $productId = $_GET['id'];
 
@@ -34,8 +38,6 @@ $htmlPage = str_replace("<effetti />", $prodotto['effects'], $htmlPage);
 $htmlPage = str_replace("<effetticollaterali />", $prodotto['sideeffects'], $htmlPage);
 
 require_once MODEL_PATH.DS.'lib'.DS.'functions.php';
-$htmlPage = str_replace('_product_data', http_build_query(array_slice_assoc($prodotto, ['id', 'name', 'price'])), $htmlPage);
+$htmlPage = str_replace('_product_data', http_build_query(array_slice_assoc($prodotto, ['id'])), $htmlPage);
 
 echo $htmlPage;
-
-
