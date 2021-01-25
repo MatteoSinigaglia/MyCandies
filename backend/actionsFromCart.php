@@ -11,9 +11,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 }
 
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'Authentication.php';
-$auth = new Authentication();
-
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ShopManager.php';
+
+$auth = new Authentication();
 $shop = new ShopManager();
 
 switch ($_GET['action']) {

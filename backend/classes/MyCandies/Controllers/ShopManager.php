@@ -60,37 +60,42 @@ class ShopManager {
 
 		if (isset($_SESSION['cart'][(int)$product['id']])) {
 			$this->increaseProductQuantity((int)$product['id']);
-			$productInfo = $this->getProductById((int)$product['id']);
-			$this->addToTotal($productInfo->getPrice());
 		} else {
 			$_SESSION['cart'][(int)$product['id']] = 1;
+			$productInfo = $this->getProductById((int)$product['id']);
+			$this->addToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
 		}
 	}
 
 	public function increaseProductQuantity(int $productId) {
+		$productInfo = $this->getProductById((int)$productId);
+		$this->addToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
 		$_SESSION['cart'][$productId] += 1;
 	}
 
 	public function decreaseProductQuantity(int $productId) {
 		if ($_SESSION['cart'][$productId] <= 1)
 			$this->removeProduct($productId);
-		else
+		else {
+			$this->removeToTotal((float)($this->getProductById($productId)->getPrice()));
 			$_SESSION['cart'][$productId] -= 1;
-	}
-
-	public function removeProduct(int $productId) {
-		unset($_SESSION['cart'][$productId]);
-	}
-
-	public function addToTotal(int $price) {
-		if (isset($_SESSION['cart']['info'])) {
-			$_SESSION['cart']['info']->increaseTotal($price);
 		}
 	}
 
-	public function removeToTotal(int $price) {
+	public function removeProduct(int $productId) {
+		$this->removeToTotal((float)($this->getProductById($productId)->getPrice())*(int)$_SESSION['cart'][$productId]);
+		unset($_SESSION['cart'][$productId]);
+	}
+
+	public function addToTotal(float $price) {
 		if (isset($_SESSION['cart']['info'])) {
-			$_SESSION['cart']['info']->decreaseTotal($price);
+			$_SESSION['cart']['info']->addToTotal($price);
+		}
+	}
+
+	public function removeToTotal(float $price) {
+		if (isset($_SESSION['cart']['info'])) {
+			$_SESSION['cart']['info']->removeFromTotal($price);
 		}
 	}
 
@@ -99,15 +104,18 @@ class ShopManager {
 	}
 
 	public function getProductById(int $id) {
+		if (!isset($this->products))
+			$this->initProducts();
+
 		try {
 			$this->dbh->connect();
-			$product = $this->products->find(['column' => 'id', 'value' => $id])[0];
+			$product = $this->products->find(['column' => 'id', 'value' => $id]);
 		} catch (DBException $e) {
 			echo $e;
 		} finally {
 			$this->dbh->disconnect();
 		}
-		return $product;
+		return $product[0];
 	}
 
 	public function getProducts() : ?array {

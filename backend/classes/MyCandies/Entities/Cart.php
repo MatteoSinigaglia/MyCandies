@@ -26,15 +26,15 @@ class Cart extends Entity {
 	/**
 	 * @return int
 	 */
-	public function getTotal(): int {
+	public function getTotal(): float {
 		return $this->total;
 	}
 
-	public function addtoTotal(int $price) {
+	public function addToTotal(float $price) {
 		$this->total += $price;
 	}
 
-	public function removeFromTotal(int $price) {
+	public function removeFromTotal(float $price) {
 		$this->total -= $price;
 	}
 }

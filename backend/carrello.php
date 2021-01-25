@@ -7,10 +7,11 @@ use MyCandies\Controllers\ShopManager;
 
 
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
-$auth = new Authentication();
-
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ShopManager.php';
+
+$auth = new Authentication();
 $shop = new ShopManager();
+
 $cart = $shop->getCart();
 
 $DOM = file_get_contents('../frontend/carrello.html');
