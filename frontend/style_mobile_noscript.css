@@ -169,7 +169,7 @@ top: -9999px;
 }
 .responsiveTable tr td {
 border: none;
-border-bottom: 1px solid rgb(119, 111, 111);
+border: 1px solid rgb(119, 111, 111);
 padding-left: 50%;
 position: relative;
 text-align: right;
@@ -188,6 +188,17 @@ width: 45%;
 }
 .responsiveTable tr td:before {
 content: attr(title);
+}
+.responsiveTable tr {
+margin-bottom: 1em;
+}
+.responsiveTable tr,
+.responsiveTable td {
+background-color: white;
+}
+.responsiveTable [headers="total"] {
+background-color: #093013;
+color: white;
 }
 /*
 ==================================FORMS========================
@@ -320,7 +331,7 @@ color: white;
 padding: 0.3em;
 margin: 0.7em 0;
 }
-.selectedButton {
+span.selectedButton {
 border: 1px solid #DDD;
 border-radius: 4px;
 background-color: #051C0B;
@@ -406,7 +417,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
-background-color: white;
+background-color: transparent;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
@@ -460,6 +471,12 @@ border-bottom: 1px solid #ddd;
 background-color: #F2E8CF;
 margin: 1em auto;
 }
+#filters a{
+display: block;
+width: 60%;
+margin: 0.5em auto;
+text-align: center;
+}
 #filters form div {
 text-align: center;
 }
@@ -482,9 +499,6 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-margin: 0.5em 0em;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -494,17 +508,19 @@ margin: 1em;
 padding: 1em;
 border: 1px solid #ddd;
 }
+.product-image {
+width: 16em;
+}
 .product-image img {
 margin-left: auto;
 margin-right: auto;
 display: block;
 max-width: 16em;
-max-height: 70%;
+max-height: 12em;
 }
 .product-info {
 margin-top: auto;
 text-align: left;
-max-width: 15em;
 }
 #productsPageNumber {
 text-align: center;
@@ -532,6 +548,7 @@ vertical-align: middle;
 }
 #footer div ul {
 text-align: center;
+list-style-type: none;
 }
 #upperFooterContainer {
 width: 100%;

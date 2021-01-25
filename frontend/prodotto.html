@@ -30,7 +30,7 @@
 			</a>
 		</div>
 		<div id="utilityBar">
-			<form class="searchButton" id="headerSearchBar" action="#" method="get">
+			<form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				
@@ -67,15 +67,14 @@
 		<dt><nomeprodotto /></dt>
 		<dd>
 			<immagineprodotto />
-			<p>
-				<descrizioneprodotto />
+			<p><descrizioneprodotto />
 			</p>
 		</dd>
 	</dl>
 	<a href="../backend/addToCart.php?_product_data"><button id="addToCartButton" name="addToCartButton" class="buttons">Aggiungi al carrello</button></a>
 </div>
 <div id="productTableContent">
-	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratterisitica tra prezzo, categoria, principio attivo, percentuale principio attivo, effetti, effetti collaterali.">
+	<table id="productTable" summary="Tabella delle caratteristiche principali della droga descritta. Per ogni riga della tabella viene indicata una diversa caratteristica tra prezzo, categoria, principio attivo, percentuale principio attivo, effetti, effetti collaterali.">
 		<tr>
 			<th id="tableDrugPrice" scope="col">Prezzo</th>
 		</tr>

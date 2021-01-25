@@ -31,7 +31,7 @@
 		</div>
 
 		<div id="utilityBar">
-			<form class="searchButton" id="headerSearchBar" action="#" method="get">
+			<form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
 				<div>
 					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
@@ -63,7 +63,7 @@
 	</div>
 
 	<div id="selectedProduct">
-		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, codice, quantità, aggiungi o rimuovi e totale prodotto.">
+		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome, codice, quantità, azioni e totale prodotto.">
 			<thead>
 				<tr>
 					<th id="productName" scope="col">Nome</th>
@@ -75,12 +75,12 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td headers="productName" title="Nome" scope="row"></td>
-					<td headers="productCode" title="Codice" scope="row"></td>
-					<td headers="quantity" title="Quantità" scope="row"></td>
+					<td headers="productName" title="Nome" scope="row">xanax - confezione 40 pastiglie</td>
+					<td headers="productCode" title="Codice" scope="row"> prova90</td>
+					<td headers="quantity" title="Quantità" scope="row">9</td>
 					<td headers="actions" title="Azioni" scope="row"></td>
-					<td headers="total" title="Totale prodotto" scope="row"></td>
-				</tr>
+					<td headers="total" title="Totale prodotto" scope="row">900</td>
+                </tr>
                 <productsInCart />
 			</tbody>
         </table>
