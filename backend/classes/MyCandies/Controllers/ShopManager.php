@@ -173,7 +173,7 @@ class ShopManager {
 			unset($cart['info']);
 			foreach ($cart as $id => $quantity) {
 				$this->productsInCarts->insert(new ProductInCart(Entities\SHOP_MANAGER, ['product_id' => $id, 'cart_id' => $cartId, 'quantity' => $quantity]));
-//				$productId =
+				$this->products->update(['id' => $id, 'availability' => $quantity]);
 			}
 
 			$this->dbh->transactionCommit();
