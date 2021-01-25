@@ -3,6 +3,7 @@
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'CategoriesManager.php';
+require_once __DIR__.'/classes/MyCandies/Controllers/Authentication.php';
 
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Controllers\CategoriesManager;
