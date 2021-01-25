@@ -84,7 +84,7 @@ class ShopManager {
 		try {
 			$this->dbh->connect();
 			foreach ($productsInCart as $id => $quantity) {
-				array_push($products, $this->products->findById($id));
+				array_push($products, $this->products->find(['column' => 'id', 'value' => $id])[0]);
 			}
 		} catch (DBException $e) {
 			echo $e;

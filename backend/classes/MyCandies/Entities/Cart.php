@@ -22,4 +22,12 @@ class Cart extends Entity {
 		}
 
 	}
+
+	public function addProduct() {
+
+	}
+
+	public function removeProduct() {
+		
+	}
 }
