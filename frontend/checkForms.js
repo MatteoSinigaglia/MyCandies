@@ -273,52 +273,6 @@ function validateInsertionForm() {
     return correct;
 };
 
-var form_credenziali = {
-    "changePassword": ["Inserisci nuova password", /.{4,20}/, "Password non valida. La lunghezza deve essere tra 4 e 20 caratteri.", "Compilare il campo password."],
-    "confirmNewPassword": ["Inserisci password di conferma", /.{4,20}/, "La password non corrisponde."]
-};
-
-function loadChangeCredential() {
-    for(var key in form_credenziali) {
-        var input = document.getElementById(key);
-        defaultValue(input, "form_credenziali");
-        input.onfocus = function() { noDefaultValue(this, "form_credenziali"); };
-        input.onblur = function() { defaultValue(this, "form_credenziali"); };
-    }
-};
-
-function validateChangeCredentialField(input) {
-    removeError(input);
-    var regex = form_credenziali[input.id][1];
-    if(input.value.search(regex) != 0) {
-        printError(input, 2, "form_credenziali");
-        return false;
-    } else {
-        if(input.id == "confirmNewPassword") {
-            var confronto = document.getElementById("changePassword");
-            if(input.value != confronto.value) {
-                printError(input, 2, "form_credenziali");
-                return false;
-            }
-        }
-        if(input.id == "changePassword" && input.value == form_credenziali[input.id][0]) {
-            printError(input, 3, "form_credenziali");
-            return false;
-        }
-        return true;
-    }
-};
-
-function validateChangeCredentialForm() {
-    var correct = true;
-    for(var key in form_credenziali) {
-        var input = document.getElementById(key);
-        var result = validateChangeCredentialField(input);
-        correct = correct && result;
-    }
-    return correct;
-};
-
 var PAFormDetails = {
     "nome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Nome non valido."],
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
