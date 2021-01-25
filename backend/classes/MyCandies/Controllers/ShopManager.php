@@ -59,14 +59,55 @@ class ShopManager {
 			$_SESSION['cart']['info'] = new Cart(Entities\SHOP_MANAGER);
 
 		if (isset($_SESSION['cart'][(int)$product['id']])) {
-			$_SESSION['cart'][(int)$product['id']] += 1;
+			$this->increaseProductQuantity((int)$product['id']);
+			$productInfo = $this->getProductById((int)$product['id']);
+			$this->addToTotal($productInfo->getPrice());
 		} else {
 			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
 	}
 
+	public function increaseProductQuantity(int $productId) {
+		$_SESSION['cart'][$productId] += 1;
+	}
+
+	public function decreaseProductQuantity(int $productId) {
+		if ($_SESSION['cart'][$productId] <= 1)
+			$this->removeProduct($productId);
+		else
+			$_SESSION['cart'][$productId] -= 1;
+	}
+
+	public function removeProduct(int $productId) {
+		unset($_SESSION['cart'][$productId]);
+	}
+
+	public function addToTotal(int $price) {
+		if (isset($_SESSION['cart']['info'])) {
+			$_SESSION['cart']['info']->increaseTotal($price);
+		}
+	}
+
+	public function removeToTotal(int $price) {
+		if (isset($_SESSION['cart']['info'])) {
+			$_SESSION['cart']['info']->decreaseTotal($price);
+		}
+	}
+
 	public function getCart() : ?array {
 		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
+	}
+
+	public function getProductById(int $id) {
+		try {
+			$this->dbh->connect();
+			$product = $this->products->find(['column' => 'id', 'value' => $id])[0];
+		} catch (DBException $e) {
+			echo $e;
+		} finally {
+			$this->dbh->disconnect();
+		}
+		return $product;
 	}
 
 	public function getProducts() : ?array {

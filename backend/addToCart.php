@@ -21,9 +21,7 @@ if (!isset($_GET['id'])) {
 	require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ShopManager.php';
 	$shop = new ShopManager();
 	$shop->addToCart($_GET);
-	$sess =  $_SESSION['cart'];
 
-//	var_dump($sess['10']);
 	header('location: '.'.'.DS.'prodotto.php?id='.$_GET['id']);
 	die();
 }
