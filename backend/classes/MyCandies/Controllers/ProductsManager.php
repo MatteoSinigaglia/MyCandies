@@ -164,28 +164,10 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-         $rows=[];
-         foreach($products as $product) {
-             $rows[$product->getId()] = [
-                 'id'           => $product->getId(),
-                 'name'         => $product->getName(),
-                 'price'        => $product->getPrice(),
-                 'availability' => $product->getAvailability()
-             ];
-         }
-        foreach($productsImages as $productImage) {
-            $rows[$productImage->getProduct_id()]['img_id'] = $productImage->getImg_id();
-        }
-
-        foreach($rows as $key => &$row) {
-            foreach($images as $image) {
-                if($image->getId() == (int)$row['img_id'])
-                    $row['img_path'] = $image->getImg_path();
-            }
-        }
-         return $rows;
+         return $this->prepareProductsForList($products, $productsImages, $images);
     }
-    public function searchProduct($pattern) {
+
+    public function searchProduct($pattern) : array {
         $products = array();
         try{
             $this->dbh->connect();
@@ -197,27 +179,7 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-        $rows=[];
-        foreach($products as $product) {
-            $rows[$product->getId()] = [
-                'id'           => $product->getId(),
-                'name'         => $product->getName(),
-                'price'        => $product->getPrice(),
-                'availability' => $product->getAvailability()
-            ];
-        }
-        foreach($productsImages as $productImage) {
-            if(isset($rows[$productImage->getProduct_id()]))
-                $rows[$productImage->getProduct_id()]['img_id'] = $productImage->getImg_id();
-        }
-
-        foreach($rows as $key => &$row) {
-            foreach($images as $image) {
-                if($image->getId() == (int)$row['img_id'])
-                    $row['img_path'] = $image->getImg_path();
-            }
-        }
-        return $rows;
+        return $this->prepareProductsForList($products, $productsImages, $images);
     }
 
     public function getProductByName($name) {
@@ -316,4 +278,44 @@ class ProductsManager
 		}
 		return (isset($product) ? $product : null);
 	}
+    public function findProductsByCategory($category_id) : array {
+        try{
+            $this->dbh->connect();
+            $products = $this->T_products->find([
+                'column' => 'category_id',
+                'value'  => $category_id
+            ]);
+            $images = $this->T_images->find();
+            $productsImages = $this->T_productsImages->find();
+        } catch (DBException $e) {
+            throw new Exception('Impossibile connettersi al database');
+        } finally {
+            $this->dbh->disconnect();
+        }
+        return $this->prepareProductsForList($products, $productsImages, $images);
+    }
+
+    private function prepareProductsForList($products, $productsImages, $images) : array {
+        $rows=[];
+        foreach($products as $product) {
+            $rows[$product->getId()] = [
+                'id'           => $product->getId(),
+                'name'         => $product->getName(),
+                'price'        => $product->getPrice(),
+                'availability' => $product->getAvailability()
+            ];
+        }
+        foreach($productsImages as $productImage) {
+            if(isset($rows[$productImage->getProduct_id()]))
+                $rows[$productImage->getProduct_id()]['img_id'] = $productImage->getImg_id();
+        }
+
+        foreach($rows as $key => &$row) {
+            foreach($images as $image) {
+                if($image->getId() == (int)$row['img_id'])
+                    $row['img_path'] = $image->getImg_path();
+            }
+        }
+        return $rows;
+    }
 }

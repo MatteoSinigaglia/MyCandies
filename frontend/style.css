@@ -228,6 +228,9 @@ background-color:  #093013;
 border: 1px solid #000;
 color: #CDA434;
 }
+table td {
+background-color: white;
+}
 /*------- HEADER -------------------------------------------------------------------------------*/
 #header {
 width: 100%;
@@ -305,6 +308,18 @@ background-color: #051C0B;
 color: white;
 padding: 0.6em;
 }
+.selectedButton {
+border: 1px solid #DDD;
+border-radius: 4px;
+background-color: #051C0B;
+color: white;
+padding: 0.5em 1em;
+margin: 0.5em;
+font-weight: bold;
+text-decoration: none;
+display: inline-block;
+font-size: 1em;
+}
 /*
 ================ MENU HAMBURGER ===================================
 */
@@ -339,7 +354,8 @@ color: #CDA434;
 }
 #productContenitor dl dd img {
 float: left;
-width: 20%;
+max-width: 17em;
+max-height: 12em;
 margin: 1em 0 1em 1em;
 }
 #productContenitor dl dd p {
@@ -379,6 +395,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
+background-color: transparent;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
@@ -424,6 +441,12 @@ padding: 1.5em;
 border: 1px solid #DDD;
 background-color: #F2E8CF;
 }
+#filters a{
+display: block;
+width: 60%;
+margin: 0.5em auto;
+text-align: center;
+}
 #filters form div {
 text-align: center;
 padding: 0.3em 0;
@@ -453,12 +476,6 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-float: left;
-}
-#productsPerPage {
-text-align: right;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -469,29 +486,24 @@ display: flex;
 flex-wrap: wrap;
 }
 .product-card {
-margin-top: 1em;
-margin-right: 1em;
+margin: 0.5em;
 padding: 1em;
 border: 1px solid #ddd;
 }
 .product-image {
-height: 70%;
+    width: 16em;
 }
 .product-image img {
 margin-left: auto;
 margin-right: auto;
 display: block;
-max-width: 17em;
+max-width: 16em;
+max-height: 12em;
 }
-.product-info p,
-.product-info h1 {
+.product-info {
 margin-top: auto;
 text-align: left;
-}
-#productsPageNumber {
-text-align: center;
-display: inline-block;
-width: 100%;
+max-width: 15em;
 }
 #filtersForm fieldset div span {
 float: left;
@@ -517,6 +529,9 @@ display: inline-block;
 text-align: center;
 vertical-align: top;
 padding: 1em 0;
+}
+#footer div ul {
+list-style-type: none;
 }
 #stores div {
 display: inline-block;
@@ -599,10 +614,6 @@ text-align: center;
 */
 #effects {
 display: block;
-}
-#credentialChange_mail {
-font-weight: bold;
-text-align: center;
 }
 /*
 ======== Su di noi ========================

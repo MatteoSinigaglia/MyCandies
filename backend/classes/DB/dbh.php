@@ -26,7 +26,7 @@ class dbh {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
 		$this->port = $_SERVER['SERVER_PORT'];
-		$this->psw = 'root';
+		$this->psw = '';
 		$this->user = 'root';
 		$this->charset = 'utf8';
 		$this->options = [
@@ -72,7 +72,7 @@ class dbh {
 			$output = 'Unable to execute the given query: '.$e->getMessage().' in '.$e->getFile().':'.$e->getLine();
 			throw new DBException($output, $e->getCode());
 		} catch (Exception $e) {
-			echo $e;
+			throw $e;
 			die();
 		}
 	}
@@ -103,7 +103,6 @@ class dbh {
 		$values = rtrim($values, ',');
 
 		$query = 'INSERT INTO `'.$table.'` ('.$parameters.') VALUES ('.$values.')';
-		echo $query;
 		try {
 			$this->query($query, $fields);
 			return $this->pdo->lastInsertId();
@@ -141,16 +140,13 @@ class dbh {
 			$this->pdo->commit();
 
 		} catch (InvalidArgumentException $e) {
-			echo 'Invalid Argument';
 			throw $e;
 
 		} catch (PDOException $e) {
-			echo 'rollback';
 			$this->pdo->rollback();
 			throw $e;
 
 		} catch (Exception $e) {
-			echo 'exception';
 			throw $e;
 
 		} finally {

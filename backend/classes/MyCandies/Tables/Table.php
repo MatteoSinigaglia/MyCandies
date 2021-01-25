@@ -45,8 +45,6 @@ class Table {
 //		return $query;
 //	}
 
-//  TODO: change fields to object
-
 	/**
 	 * @param string|null $field
 	 * @param mixed|null $value
@@ -78,7 +76,7 @@ class Table {
 		try {
 			$query = $this->dbh->query($query, $parameters);
 		} catch (DBException $e) {
-			echo $e;
+			throw $e;
 		}
 		return $query->fetchObject($this->className, $this->constructorArgs);
 	}
@@ -113,7 +111,7 @@ class Table {
 			$query = $this->dbh->query($query, $parameters);
 			return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
 		} catch (DBException $e) {
-			echo $e;
+			throw $e;
 		}
 	}
 
@@ -123,7 +121,7 @@ class Table {
             $query = $this->dbh->query($query, ['pattern' => $pattern]);
             return $query->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->className, $this->constructorArgs);
         } catch (\Exception $e) {
-            echo $e;
+            throw $e;
         }
     }
 
@@ -141,7 +139,6 @@ class Table {
 
 //			Prevents from inserting manually an id and leaves the responsibility to the DBMS
 			if (isset($fields['id'])) {
-				echo 'ID: '.$fields['id'];
 				unset($fields['id']);
 			}
 
@@ -164,13 +161,11 @@ class Table {
 			}
 			return $this->dbh->getLastInsertId();
 		} catch (DBException $e) {
-			echo 'DBException';
 			throw $e;
 		} catch (EntityException $e) {
-			echo 'EntityException';
-			echo $e;
+			throw $e;
 		} catch (Exception $e) {
-			echo $e;
+			throw $e;
 		}
 	}
 
@@ -190,10 +185,7 @@ class Table {
 		$query .= ' WHERE `'.$this->primaryKey.'` = :'.$this->primaryKey.'';
 
 		$fields = $this->processDates($fields);
-        echo $query;
-        foreach ($fields as $k => $v) {
-            echo $k.' => '.$v.' ';
-        }
+
 		try {
 			$this->dbh->query($query, $fields);
 		} catch (DBException $e) {
@@ -238,23 +230,19 @@ class Table {
 
 	public function save(array $record) {
 
-//		think how to handle pk with composite pks
 		$entity = new $this->className(...$this->constructorArgs);
 
 		try {
 			if ($entity->getId() == '') {
 				$entity->setId(null);
 			}
-//			if ($record[$this->primaryKey] == '') {
-//				$record[$this->primaryKey] = null;
-//			}
+
 			$insertId = $this->insert($entity);
 
 			$entity->{$this->primaryKey} = $insertId;
 		}
 		catch (DBException $e) {
-			echo $e;
-//			$this->update($record);
+            throw $e;
 		}
 
 		foreach ($record as $key => $value) {

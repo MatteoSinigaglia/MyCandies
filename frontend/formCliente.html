@@ -2,13 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-  <title>Registrazione - MyCandies</title>
+  <title>Registrazione/Login- My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="title" content="Registrazione - MyCandies" />
+  <meta name="title" content="Registrazione/Login - My Candies" />
   <meta name="description" content="Form di registrazione e/o accesso di My Candies" />
-  <meta name="keywords" content="MyCandies, login, accedi, registrati, registrazione, email, password"/>
+  <meta name="keywords" content="My Candies, login, accedi, registrati, registrazione, cliente My Candies, sottoscrizione My Candies"/>
   <meta name="author" content="MyCandies&amp;co" />
-  <meta name="keywords" content="Registrazione My Candies, cliente My Candies, sottoscrizione My Candies" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
   <link rel="stylesheet" type="text/css" href="../frontend/style_small_screen.css" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
@@ -22,32 +21,32 @@
 <body onload="loadMenu(); loadFormCliente();">
 <div id="header">
   <a class="helps" href="#loginForm">Vai al
-      <span xml:lang="en" lang="en">form</span>
+      <span xml:lang="en">form</span>
       di
-      <span xml:lang="en" lang="en">login</span>
+      <span xml:lang="en">login</span>
   </a>
-  <a class="helps" href="#registrationForm">Vai al <span xml:lang="en" lang="en">form</span> di registrazione</a>
+  <a class="helps" href="#registrationForm">Vai al <span xml:lang="en">form</span> di registrazione</a>
   <div id="headerLogoAndUtility">
       <div id="imageContainer">
         <a href="../backend/home.php">
-          <img id="logo" src="../img/logo.jpeg"
+          <img id="logo" src="../img/logo.png"
               alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </a>
       </div>
       <div id="utilityBar">
-          <form class="searchButton" id="headerSearchBar" action="#" method="get">
+          <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
               <div>
                   <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30"/>
                   <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>             
               </div>
           </form>
           <p id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></p>
-          <a href="carrello.html" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
+          <a href="../backend/carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
       </div> 
   </div>
   <div id="navigation">
       <ul id="navigationMenu">
-          <li xml:lang="en"><a href="../backend/home.php">Home</a></li>
+          <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
           <li><a href="../backend/listaProdotti.php">Droghe</a></li>
           <li><a href="../backend/areaPersonale.php">Area personale</a></li>
           <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
@@ -57,9 +56,7 @@
 
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="home.html">
-            <span xml:lang="en" lang="en">Home</span>
-        </a>/ Accedi-Registrati</p>
+        <a href="../backend/home.php" xml:lang="en">Home </a>/ Accedi-Registrati</p>
 </div>
 
 <div id="loginAndRegistrationContent">
@@ -68,7 +65,7 @@
     <form action="../backend/signin.php" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
         <!-- Legenda -->
-        <legend id="loginLegend" xml:lang="en"> E-mail e Password </legend>
+        <legend id="loginLegend" xml:lang="en"> E-mail <span xml:lang="it">e</span> Password </legend>
         <!-- Campo user -->
         <label for="loginEmail" xml:lang="en">E-mail:</label>
         <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
@@ -78,8 +75,6 @@
           <input type="password" id="loginPassword" name="user[password]" maxlength="20" />
           <error_login />
         </span>
-        <!-- link recupero credenziali -->
-        <a href="modificaCredenziali.html" class="paragraphLink">Hai dimenticato nome utente o <span xml:lang="en">password</span>?</a> <!-- AGGIUNGERE LINK -->
         <!-- Buttons -->
         <input type="submit" id="usernameButton" name="submitLogin" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
@@ -202,7 +197,7 @@
           <h2>Contatti:</h2>
           <ul class="stylelessList">
               <li>
-                  <a href="../frontend/suDiNoi.html">Chi siamo</a>
+                  <a href="../backend/suDiNoi.php">Chi siamo</a>
               </li>
               <li>Contatti: +911 112113</li>
               <li>
@@ -248,23 +243,23 @@
       </div>
       <div id="social">
           <h2>
-              <span xml:lang="en" lang="en">Link social:</span>
+              <span xml:lang="en">Link social:</span>
           </h2>
           <h3>Puoi trovarci su:</h3>
           <ul class="stylelessList">
-              <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+              <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
               </li>
-              <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+              <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
               </li>
-              <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+              <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
               </li>
-              <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+              <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
               </li>
           </ul>
       </div>
   </div>
   <div id="diritti">
-      <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+    <p><span xml:lang="en">MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova.</p>
   </div>
 </div>
 </body>

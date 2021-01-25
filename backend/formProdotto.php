@@ -1,6 +1,5 @@
 <?php
 
-// TODO import di paths_index.php
 require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'CategoriesManager.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ActivePrinciplesManager.php';
@@ -14,8 +13,7 @@ try {
     $activePrinciples = $activePrinciplesManager->getActivePrinciples();
     $categories = $categoryManager->getCategories();
 } catch (Exception $e) {
-    // load 404 page, TODO
-    echo $e->getMessage();
+    header('location: ../backend/home.php');
     die();
 }
 

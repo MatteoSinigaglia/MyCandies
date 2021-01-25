@@ -169,7 +169,7 @@ top: -9999px;
 }
 .responsiveTable tr td {
 border: none;
-border-bottom: 1px solid rgb(119, 111, 111);
+border: 1px solid rgb(119, 111, 111);
 padding-left: 50%;
 position: relative;
 text-align: right;
@@ -188,6 +188,17 @@ width: 45%;
 }
 .responsiveTable tr td:before {
 content: attr(title);
+}
+.responsiveTable tr {
+margin-bottom: 1em;
+}
+.responsiveTable tr,
+.responsiveTable td {
+background-color: white;
+}
+.responsiveTable [headers="total"] {
+background-color: #093013;
+color: white;
 }
 /*
 ==================================FORMS========================
@@ -225,6 +236,9 @@ table th {
 background-color:  #093013;
 border: 1px solid #000;
 color: #CDA434;
+}
+table td {
+background-color: white;
 }
 /*------- HEADER -------------------------------------------------------------------------------*/
 #header {
@@ -317,6 +331,18 @@ color: white;
 padding: 0.3em;
 margin: 0.7em 0;
 }
+span.selectedButton {
+border: 1px solid #DDD;
+border-radius: 4px;
+background-color: #051C0B;
+color: white;
+padding: 0.5em 1em;
+margin: 0.5em;
+font-weight: bold;
+text-decoration: none;
+display: inline-block;
+font-size: 1em;
+}
 /*
 ================ MENU HAMBURGER ===================================
 */
@@ -391,6 +417,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
+background-color: transparent;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
@@ -444,6 +471,12 @@ border-bottom: 1px solid #ddd;
 background-color: #F2E8CF;
 margin: 1em auto;
 }
+#filters a{
+display: block;
+width: 60%;
+margin: 0.5em auto;
+text-align: center;
+}
 #filters form div {
 text-align: center;
 }
@@ -466,27 +499,27 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-margin: 0.5em 0em;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
 }
-/* queste regole che seguono sono in previsione di oggetti per il negozio */
-.singleProduct {
-display: flex;
-flex-direction: row;
-padding: 2em;
-border: 1px solid #DDD;
-}
-.singleProduct img {
-text-align: center;
+.product-card {
+margin: 1em;
 padding: 1em;
+border: 1px solid #ddd;
 }
-/* titolo del box che contiene il prodotto e descrizione del prodotto*/
-.singleProduct h2,
-p {
+.product-image {
+width: 16em;
+}
+.product-image img {
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-width: 16em;
+max-height: 12em;
+}
+.product-info {
+margin-top: auto;
 text-align: left;
 }
 #productsPageNumber {
@@ -515,6 +548,7 @@ vertical-align: middle;
 }
 #footer div ul {
 text-align: center;
+list-style-type: none;
 }
 #upperFooterContainer {
 width: 100%;

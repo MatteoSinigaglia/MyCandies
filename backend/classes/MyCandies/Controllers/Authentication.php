@@ -261,7 +261,6 @@ class Authentication {
 		if (empty($_SESSION['email']))
 			return false;
 
-//		TODO: refactor with $this->initUser()
 		try {
 			$this->dbh->connect();
 			$user = $this->users->find(['column'=>'email', 'value'=>$_SESSION['email']]);

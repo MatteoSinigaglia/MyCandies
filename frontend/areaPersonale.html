@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Area Personale - MyCandies</title>
+    <title>Area Personale - My Candies</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Area Personale - MyCandies"/>
-    <meta name="description" content="Accedere ai dati personali del profilo"/>
-    <meta name="keywords" content="MyCandies, area personale"/>
+    <meta name="title" content="Area Personale - My Candies"/>
+    <meta name="description" content="Accedere ai dati personali del profilo e modificarli"/>
+    <meta name="keywords" content="My Candies, area personale, informazioni, utente, modifica dati, visualizza dati"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -25,12 +25,12 @@
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
           <a href="../backend/home.php">
-            <img id="logo" src="../img/logo.jpeg"
+            <img id="logo" src="../img/logo.png"
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
           </a>
         </div>
         <div id="utilityBar">
-            <form class="searchButton" id="headerSearchBar" action="#" method="get">
+            <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
                 <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
 					<button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>
@@ -43,7 +43,7 @@
     </div>
     <div id="navigation">
         <ul id="navigationMenu">
-            <li xml:lang="en" lang="en"><a href="../backend/home.php">Home</a></li>
+            <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
             <li><a href="../backend/listaProdotti.php">Droghe</a></li>
             <li><span>Area personale</span></li>
             <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
@@ -52,7 +52,7 @@
 </div>
 <div id="breadcrumb">
     <p>Ti trovi in:
-        <a href="../backend/home.php"><span xml:lang="en" lang="en">Home</span></a>
+        <a href="../backend/home.php" xml:lang="en">Home</a>
         / Area personale
     </p>
 </div>
@@ -70,7 +70,7 @@
                 <error_first_name />
             </span>
             <!-- value/placeholder??-->
-            <!-- Cognome --><label for="cognome"> Cognome:</label>
+            <!-- Cognome --><label for="cognome">Cognome:</label>
             <span>
                 <input type="text" id="cognome" name="user[last_name]" value="_last_name_value" />
                 <error_last_name />
@@ -106,7 +106,7 @@
                 <error_CAP />
             </span>
             <!-- Telefono -->
-            <label for="telefono"> Telefono:</label>
+            <label for="telefono">Cellulare:</label>
             <span>
                 <input type="text" id="telefono" name="user[telephone]" value="_telephone_value"/>
                 <error_telephone />
@@ -143,7 +143,7 @@
             <h2>Contatti:</h2>
             <ul class="stylelessList">
                 <li>
-                    <a href="../frontend/suDiNoi.html">Chi siamo</a>
+                    <a href="../backend/suDiNoi.php">Chi siamo</a>
                 </li>
                 <li>Contatti: +911 112113</li>
                 <li>
@@ -189,23 +189,23 @@
         </div>
         <div id="social">
             <h2>
-                <span xml:lang="en" lang="en">Link social:</span>
+                <span xml:lang="en">Link social:</span>
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
                 </li>
-                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU">Youtube</a>
+                <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
                 </li>
             </ul>
         </div>
     </div>
     <div id="diritti">
-        <p>MyCandies&amp;co, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova</p>
+        <p><span xml:lang="en">MyCandies&amp;co</span>, tutti i diritti riservati, sede legale e amministrativa, Via Luzzatti 420, Padova.</p>
     </div>
 </div>
 </body>

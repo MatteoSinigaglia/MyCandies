@@ -5,8 +5,10 @@ namespace MyCandies\Entities;
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Entity.php';
 require_once MYCANDIES_PATH.DS.'Exceptions'.DS.'EntityException.php';
 
-use MyCandies\Exceptions\EntityException;
+use DB\dbh;
+use Exception;
 use MyCandies\Entities;
+use MyCandies\Tables\Table;
 
 class SideEffect extends Entity {
 
@@ -22,14 +24,16 @@ class SideEffect extends Entity {
             if($source !== Entities\DB) {
                 $this->setName($data['name']);
             }
-        } catch(EntityException $e) {
+        } catch(Exception $e) {
             throw $e;
         }
     }
 
     private function setName($name) {
         if(!isset($name) || $name == '')
-            throw new EntityException('Il nome deve essere valorizzato');
+            throw new Exception('Il nome deve essere valorizzato');
+        else if($this->checkUniqueName($name))
+            throw new Exception('Esiste già un effetto collaterale con lo stesso nome');
         $this->name = $name;
     }
 
@@ -53,4 +57,16 @@ class SideEffect extends Entity {
         return $columns;
     }
 
+    private function checkUniqueName($name) : int
+    {
+        $dbh = new dbh();
+        $T_sideEffects = new Table($dbh, 'SideEffects', 'id', SideEffect::class, [DB]);
+        $dbh->connect();
+        $sideeffect = $T_sideEffects->find([
+            'column' => 'name',
+            'value' => $name
+        ]);
+        $dbh->disconnect();
+        return isset($sideeffect[0]);
+    }
 }

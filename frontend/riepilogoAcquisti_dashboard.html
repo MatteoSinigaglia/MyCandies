@@ -4,9 +4,9 @@
 <head>
 	<title>Dashboard Riepilogo Acquisti - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="title" content="MyCandies" />
+	<meta name="title" content="Dashboard Riepilogo Acquisti - My Candies" />
     <meta name="description" content="Pagina riepilogativa degli acquisti effettuati dai clienti" />
-    <meta name="keywords" content="MyCandies, acquisti, riepilogo" />
+    <meta name="keywords" content="My Candies, acquisti, riepilogo, acquisti ricevuti" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
@@ -25,7 +25,8 @@
                 <li><a href="../backend/dashboard_utenti.php">Utenti</a></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
                 <li><a href="../backend/prodotti_dashboard.php">Lista prodotti</a></li>
-                <li><a href="../backend/insertCharacteristics.php">Inserisci caratteristiche</a></li>
+                <li><a href="../backend/inserimentoCaratteristiche_dashboard.php">Inserisci caratteristiche</a></li>
+                <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
             </ul>
         </div>
     </div>
@@ -35,7 +36,7 @@
     </div>
 
     <div id="riepilogoAcquistiDashboard" class="main">
-        <table class="responsiveTable" summary="Tabella riassuntiva degli acquisti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice prodotto, data acquisto, ora acquisto, numero prodotti e totale">
+        <table class="responsiveTable" summary="Tabella riassuntiva degli acquisti ricevuti. Ogni acquisto è identificato dei seguenti attributi: utente, codice carrello, data e ora di acquisto, totale">
             <thead>
                 <tr>
                     <th id="user" scope="col">Utente</th>

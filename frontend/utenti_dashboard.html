@@ -4,9 +4,9 @@
 <head>
 	<title>Dashboard Visualizza Utenti - My Candies</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="title" content="MyCandies" />
+	<meta name="title" content="Dashboard Visualizza Utenti - My Candies" />
     <meta name="description" content="Pagina riepilogativa degli utenti registrati" />
-    <meta name="keywords" content="MyCandies, utenti, riepilogo" />
+    <meta name="keywords" content="My Candies, utenti, riepilogo, informazioni, dati" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
@@ -24,8 +24,9 @@
                 <li><a href="../backend/riepilogoAcquisti_dashboard.php">Riepilogo acquisti</a></li>
                 <li><span>Utenti</span></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
-                <li><a href="../backend/prodotti_dashboard.php">Prodotti</a></li>
-                <li><a href="../backend/home.php">Home</a></li>
+                <li><a href="../backend/prodotti_dashboard.php">Lista prodotti</a></li>
+                <li><a href="../backend/inserimentoCaratteristiche_dashboard.php">Inserisci caratteristiche</a></li>
+                <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
             </ul>
         </div>
     </div>
@@ -35,10 +36,10 @@
     </div>
 
     <div id="utentiDashboard" class="main">
-        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
+        <table class="responsiveTable" summary="Tabella degli utenti registrati. Ogni utente è identificato dai seguenti attributi: E-mail, nome, cognome, password, data di nascita, sesso e azioni eseguibili.">
             <thead>
                 <tr>
-                    <th id="mail" scope="col">mail</th>
+                    <th id="mail" scope="col" xml:lang="en">E-mail</th>
                     <th id="name" scope="col">Nome</th>
                     <th id="surname" scope="col">Cognome</th>
                     <th id="dateOfBirth" scope="col">Data di nascita</th>
@@ -48,12 +49,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td headers="mail" title="mail"></td>
-                    <td headers="name" title="Nome"></td>
-                    <td headers="surname" title="Cognome"></td>
-                    <td headers="dateOfBirth" title="Data di nascita"></td>
-                    <td headers="sex" title="Sesso"></td>
-                    <td headers="actions" title="mail"></td> <!-- pulsanti per: eliminare utente, modificare credenziali-->
+                    <td headers="mail" title="E-mail">prova@gmail.com</td>
+                    <td headers="name" title="Nome">matteo</td>
+                    <td headers="surname" title="Cognome">sinigaglia</td>
+                    <td headers="dateOfBirth" title="Data di nascita">20-12-1290</td>
+                    <td headers="sex" title="Sesso">MAschio</td>
+                    <td headers="actions" title="Azioni"></td>
                 </tr>
                 <users />
             </tbody>
