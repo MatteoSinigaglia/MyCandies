@@ -405,7 +405,7 @@ color: #CDA434;
 #productTableContent td {
 color: white;
 border: transparent;
-background-color: white;
+background-color: transparent;
 }
 /*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
