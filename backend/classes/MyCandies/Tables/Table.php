@@ -7,9 +7,10 @@ namespace MyCandies\Tables;
 use DateTime;
 use DB\dbh;
 use DB\Exceptions\DBException;
+use MyCandies\Entities;
+use MyCandies\Entities\User;
 use MyCandies\Entities\Address;
 use MyCandies\Entities\Entity;
-use MyCandies\Entities\User;
 use MyCandies\Exceptions\EntityException;
 use mysql_xdevapi\Exception;
 
@@ -133,7 +134,7 @@ class Table {
 			} else {
 				$slice = $entity->getColumns();
 			}
-			$fields = array_slice_assoc($entity->getValues(), $slice);
+			$fields = array_slice_assoc($entity->getValues(Entities\DB), $slice);
 
 
 //			Prevents from inserting manually an id and leaves the responsibility to the DBMS
@@ -162,7 +163,6 @@ class Table {
 		} catch (DBException $e) {
 			throw $e;
 		} catch (EntityException $e) {
-			var_dump($entity);
 			throw $e;
 		} catch (Exception $e) {
 			throw $e;
