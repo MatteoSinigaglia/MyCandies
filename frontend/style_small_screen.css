@@ -412,28 +412,9 @@ background-color: #F2E8CF;
 }
 #purchaseButton {
 margin-left: 70%;
-}
-/*
+}/*
 ==================================Lista prodotti================================
 */
-#filters {
-float: left;
-max-width: 20%;
-min-width: 15em;
-padding: 1.5em;
-border: 1px solid #DDD;
-background-color: #F2E8CF;
-}
-#filters form div {
-text-align: center;
-padding: 0.3em 0;
-}
-#filters label {
-display: inline;
-}
-#filters input[type="text"] {
-width: 4em;
-}
 #rightSideContent {
 overflow: hidden;
 padding: 1em;
@@ -463,6 +444,12 @@ text-align: right;
 padding-top: 1em;
 padding-bottom: 1em;
 }
+
+/* queste regole che seguono sono in previsione di oggetti per il negozio */
+.products {
+display: flex;
+flex-wrap: wrap;
+}
 .product-card {
 margin: 1em;
 padding: 1em;
@@ -479,11 +466,6 @@ max-height: 70%;
 margin-top: auto;
 text-align: left;
 max-width: 15em;
-}
-#productsPageNumber {
-text-align: center;
-display: inline-block;
-width: 100%;
 }
 #filtersForm fieldset div span {
 float: left;

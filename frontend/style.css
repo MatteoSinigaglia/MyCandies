@@ -440,6 +440,12 @@ padding: 1.5em;
 border: 1px solid #DDD;
 background-color: #F2E8CF;
 }
+#filters a{
+display: block;
+width: 60%;
+margin: 0.5em auto;
+text-align: center;
+}
 #filters form div {
 text-align: center;
 padding: 0.3em 0;
@@ -469,12 +475,6 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-float: left;
-}
-#productsPerPage {
-text-align: right;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -500,11 +500,6 @@ max-height: 70%;
 margin-top: auto;
 text-align: left;
 max-width: 15em;
-}
-#productsPageNumber {
-text-align: center;
-display: inline-block;
-width: 100%;
 }
 #filtersForm fieldset div span {
 float: left;
