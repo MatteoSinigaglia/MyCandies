@@ -169,7 +169,7 @@ top: -9999px;
 }
 .responsiveTable tr td {
 border: none;
-border-bottom: 1px solid rgb(119, 111, 111);
+border: 1px solid rgb(119, 111, 111);
 padding-left: 50%;
 position: relative;
 text-align: right;
@@ -188,6 +188,17 @@ width: 45%;
 }
 .responsiveTable tr td:before {
 content: attr(title);
+}
+.responsiveTable tr {
+margin-bottom: 1em;
+}
+.responsiveTable tr,
+.responsiveTable td {
+background-color: white;
+}
+.responsiveTable [headers="total"] {
+background-color: #093013;
+color: white;
 }
 /*
 ==================================FORMS========================
