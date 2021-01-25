@@ -6,7 +6,16 @@ require_once MYCANDIES_PATH.DS.'Controllers'.DS.'CategoriesManager.php';
 
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Controllers\CategoriesManager;
+use MyCandies\Controllers\Authentication;
 
+$auth = new Authentication();
+
+$htmlPage = file_get_contents(VIEW_PATH . DS . "listaProdotti.html");
+//($auth->isLoggedIn()? '<a href="logout.php" id="loginButton" class="buttons">Logout</a>' : '<a href="formCliente.php" id="loginButton" class="buttons">Accedi</a>')
+if  ($auth->isLoggedIn()) {
+    $htmlPage = str_replace('<a_auth_state />', '<a href="logout.php" id="loginButton" class="fa fa-sign-out buttons"><span> Logout</span></a>', $htmlPage);
+} else
+    $htmlPage = str_replace('<a_auth_state />', '<a href="./formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>', $htmlPage);
 try {
     $productsManager = new ProductsManager();
     $categoriesManager = new CategoriesManager();
@@ -21,7 +30,7 @@ try {
     header("location: ../backend/home.php");
     die();
 }
-$htmlPage = file_get_contents(VIEW_PATH . DS . "listaProdotti.html");
+
 $categories = '';
 foreach ($categoriesList as $category) {
     if(isset($_GET['category']) && $category->getId() == $_GET['category'])
