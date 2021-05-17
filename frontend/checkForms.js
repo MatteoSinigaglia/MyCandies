@@ -142,7 +142,6 @@ function validateDate(input) {
     var comp = input.value.split("/");
     var today = new Date();
     var birthDate = new Date(comp[2], comp[1]-1, comp[0]);
-    // controllo validità della data 
     var giorno = parseInt(comp[0]);
     var mese = parseInt(comp[1]);
     var anno = parseInt(comp[2]);
@@ -295,7 +294,7 @@ function PAShowErr(input, num) {
 
 function SpecialTest(input){
 switch (input.id) {
-    case "telefono": { //deve iniziare con 3
+    case "telefono": {
         if (input.value.charAt(0) != 3) {
             PAShowErr(input, 2);
             return false;

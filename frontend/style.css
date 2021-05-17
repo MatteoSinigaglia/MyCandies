@@ -186,9 +186,6 @@ text-decoration: none;
 #footer .helpBackToHeader .backToHeader:visited {
 color: white;
 }
-/*
-==================================FORMS========================
-*/
 .inputForm {
 margin: 2em auto 1em auto;
 text-align: left;
@@ -210,9 +207,6 @@ border: 1px solid #DDD;
 #category {
     display: block;
 }
-/*
-================================ TABELLE  ======================
-*/
 table {
 margin: 3em auto;
 width: 75%;
@@ -231,7 +225,6 @@ color: #CDA434;
 table td {
 background-color: white;
 }
-/*------- HEADER -------------------------------------------------------------------------------*/
 #header {
 width: 100%;
 color: white;
@@ -271,7 +264,6 @@ min-width: 25em;
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-/*----------- MENU ---------------------------------------------------------------------------*/
 #navigation {
 clear: both;
 text-align: center;
@@ -320,9 +312,6 @@ text-decoration: none;
 display: inline-block;
 font-size: 1em;
 }
-/*
-================ MENU HAMBURGER ===================================
-*/
 #mobileMenu {
 display: none;
 }
@@ -330,7 +319,6 @@ display: none;
 width: 100%;
 text-align: center;
 }
-/*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
 #productContent h2 {
 font-size: 1.5em;
 font-weight: bold;
@@ -366,7 +354,6 @@ margin-left: 22%;
 #addToCartButton {
 float: right;
 }
-/*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
 float: right;
 border-radius: 10px;
@@ -397,7 +384,6 @@ color: white;
 border: transparent;
 background-color: transparent;
 }
-/*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
 margin: auto;
 text-align: center;
@@ -407,7 +393,6 @@ display: inline-block;
 vertical-align: top;
 margin: 1em 3em auto 3em;
 }
-/*---------- CARRELLO --------------------------------------------------------------------------*/
 #cartContent {
 border-right: 1px solid #DDD;
 border-left: 1px solid #DDD;
@@ -431,9 +416,6 @@ background-color: #F2E8CF;
 #purchaseButton {
 margin-left: 80%;
 }
-/*
-==================================Lista prodotti================================
-*/
 #filters {
 float: left;
 max-width: 20%;
@@ -480,7 +462,6 @@ display: none;
 padding-top: 1em;
 padding-bottom: 1em;
 }
-/* queste regole che seguono sono in previsione di oggetti per il negozio */
 .products {
 display: flex;
 flex-wrap: wrap;
@@ -512,9 +493,6 @@ float: left;
 list-style-type:none;
 text-align: left;
 }
-/*
-============ FOOTER =========================================
-*/
 #footer {
 display: inline-block;
 width: 100%;
@@ -554,9 +532,6 @@ text-decoration: none;
 #footer a:visited {
 color: #CDA434;
 }
-/*
-================== PUNTI VENDITA ==============================================================
-*/
 #stores {
 min-width: 60%;
 margin: 0 0.3em;
@@ -564,9 +539,6 @@ margin: 0 0.3em;
 #stores div {
 margin: 0.1em 0.5em;
 }
-/*
-=============== SOCIAL ==========================================================================
-*/
 #social ul li {
 padding-bottom: 0.2em;
 }
@@ -584,7 +556,6 @@ font-weight: 400;
 text-align: center;
 color: #FFFFFF;
 }
-/*=============================HOME====================*/
 #contentHome{
 width: 85%;
 margin-left: 7.5%;
@@ -609,15 +580,9 @@ padding-bottom: 1em;
 font-size: 1.6em;
 text-align: center;
 }
-/*
-=============== Inserisci Prodotto ========================
-*/
 #effects {
 display: block;
 }
-/*
-======== Su di noi ========================
-*/
 #aboutUsContent h1 {
 text-align: center;
 font-weight: bold;
@@ -669,9 +634,6 @@ padding: 0.3em;
 padding-left: 2em;
 text-align: left;
 }
-/*
-========= FAQ ==========
-*/
 #contentFAQ div {
 width: 80%;
 background-color: #F2E8CF;

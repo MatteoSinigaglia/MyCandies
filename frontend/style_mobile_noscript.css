@@ -150,9 +150,6 @@ text-decoration: none;
 #footer .helpBackToHeader .backToHeader:visited {
 color: white;
 }
-/*
-============= TABELLE RESPONSIVE PER MOBILE =========================
-*/
 .responsiveTable table,
 .responsiveTable thead,
 .responsiveTable tbody,
@@ -200,9 +197,6 @@ background-color: white;
 background-color: #093013;
 color: white;
 }
-/*
-==================================FORMS========================
-*/
 .inputForm {
 margin: 1em 1.5em;
 text-align: left;
@@ -219,9 +213,6 @@ display: block;
 background-color: white;
 border: 1px solid #DDD;
 }
-/*
-================================ TABELLE  ======================
-*/
 table {
 margin: 3em auto;
 width: 75%;
@@ -240,7 +231,6 @@ color: #CDA434;
 table td {
 background-color: white;
 }
-/*------- HEADER -------------------------------------------------------------------------------*/
 #header {
 width: 100%;
 color: white;
@@ -299,7 +289,6 @@ display: none;
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-/*----------- MENU ---------------------------------------------------------------------------*/
 #navigation {
 text-align: center;
 background-color: #093013;
@@ -343,9 +332,6 @@ text-decoration: none;
 display: inline-block;
 font-size: 1em;
 }
-/*
-================ MENU HAMBURGER ===================================
-*/
 #mobileMenu {
 padding: 0.5em;
 color: white;
@@ -358,7 +344,6 @@ margin-left: 90%;
 width: 100%;
 text-align: center;
 }
-/*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
 #productContent h2 {
 font-size: 1.5em;
 font-weight: bold;
@@ -388,7 +373,6 @@ margin: 0.5em 1em;
 #addToCartButton {
 margin-left: 50%;
 }
-/*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
 border-radius: 10px;
 margin: 0.5em 5em;
@@ -419,7 +403,6 @@ color: white;
 border: transparent;
 background-color: transparent;
 }
-/*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
 margin: auto;
 text-align: center;
@@ -434,7 +417,6 @@ color: rgb(134, 2, 2);
 display: inline;
 vertical-align: top;
 }
-/*---------- CARRELLO --------------------------------------------------------------------------*/
 #cartContent {
 border-right: 1px solid #DDD;
 border-left: 1px solid #DDD;
@@ -459,9 +441,6 @@ background-color: #F2E8CF;
 width: 100%;
 margin: 0.5em auto;
 }
-/*
-==================================Lista prodotti================================
-*/
 #productList {
 width: 100%;
 }
@@ -530,9 +509,6 @@ width: 100%;
 #filtersForm fieldset div span {
 float: left;
 }
-/*
-============ FOOTER ===========================================================================
-*/
 #footer {
 display: inline-block;
 width: 100%;
@@ -580,15 +556,9 @@ margin-bottom: 0.7em;
 #contacts ul li a:active {
 text-decoration: underline;
 }
-/*
-=================== CONTATTI ===================================================================
-*/
 #contacts {
 margin: 1em;
 }
-/* 
-================== PUNTI VENDITA ==============================================================
-*/
 #stores{
 min-width: 78%;
 margin: 1em;
@@ -600,9 +570,6 @@ min-width: 11em;
 #stores h3 {
 text-align: left;
 }
-/* 
-=============== SOCIAL ==========================================================================
-*/
 #social {
 margin: 1em;
 }
@@ -622,7 +589,6 @@ background-color: #020E0A;
 margin: 1em;
 font-weight: 600;
 }
-/*=============================HOME====================*/
 #contentHome{
 width: 85%;
 margin-left: 7.5%;
@@ -648,9 +614,6 @@ padding-bottom: 1em;
 font-size: 1.5em;
 text-align: center;
 }
-/*
-=============== Cose sfuse ========================
-*/
 #effects {
 display: block;
 }
@@ -658,9 +621,6 @@ display: block;
 font-weight: bold;
 text-align: center;
 }
-/*
-======== Su di noi ========================
-*/
 #aboutUsContent h1 {
 text-align: center;
 font-weight: bold;
@@ -711,9 +671,6 @@ background-color: transparent;
 padding: 0.3em;
 text-align: left;
 }
-/*
-========= FAQ ==========
-*/
 #contentFAQ div {
 width: 80%;
 background-color: #F2E8CF;

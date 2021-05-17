@@ -83,9 +83,6 @@ display: none;
 abbr {
 text-decoration: none;
 }
-/*
-==================================FORMS========================
-*/
 .inputForm {
 margin: 2em auto 1em auto;
 text-align: left;
@@ -97,9 +94,6 @@ padding: 1em;
 .selectForm {
 border: 1px solid #000000;
 }
-/*
-==================================TABELLE======================
-*/
 table {
 margin: 3em auto;
 width: 75%;
@@ -112,7 +106,6 @@ table th{
 padding: 0.5em;
 border: 1px solid #000;
 }
-/*---- DESCRIZIONE PRODOTTO ---------------------------------------------------------------------*/
 #productContent h2 {
 font-size: 1.5em;
 margin: 0.5em 0;
@@ -140,7 +133,6 @@ padding: 0.5em 1em;
 padding-right: 2em;
 margin-left: 22%;
 }
-/*------------ TABELLA PRODOTTO -------------------------------------------------------------*/
 #productTableContent {
 border-radius: 10px;
 margin: 1em auto;
@@ -166,12 +158,10 @@ border-top: 1px solid transparent;
 #productTableContent td {
 border: 1px solid transparent;
 }
-/*-------------------LOGIN/REGISTRAZIONE-----------------  */
 #loginAndRegistrationContent {
 margin: auto;
 text-align: center;
 }
-/* FILTRI PRODOTTI */
 #rightSideContent {
 overflow: hidden;
 padding: 1em;
@@ -192,7 +182,6 @@ background-color: #c5c4c4;
 padding-top: 1em;
 padding-bottom: 1em;
 }
-/* queste regole che seguono sono in previsione di oggetti per il negozio */
 .products {
 display: flex;
 flex-wrap: wrap;
@@ -215,9 +204,6 @@ float: left;
 list-style-type:none;
 text-align: left;
 }
-/*
-============ FOOTER ===========================================================================
-*/
 #footer {
 font-size: 0.9em;
 width: 100%;
@@ -233,16 +219,10 @@ width: 100%;
 font-size: 1em;
 margin-bottom: 0.5em;
 }
-/*
-=================== CONTATTI ===================================================================
-*/
 #contacts ul {
 text-align: center;
 margin-bottom: 1em;
 }
-/*
-================== PUNTI VENDITA ==============================================================
-*/
 #stores{
 margin-bottom: 1em;
 }
@@ -253,7 +233,6 @@ display: inline-block;
 #stores h3 {
 text-align: left;
 }
-/*========DIRITTI======*/
 #diritti{
 width: 100%;
 border-top: 1px solid #000;
@@ -262,9 +241,6 @@ border-top: 1px solid #000;
 margin: 1em;
 font-weight: 600;
 }
-/*
-============== SU DI NOI ==========================
-*/
 #aboutUsContent h1 {
 text-align: center;
 }
@@ -288,7 +264,6 @@ border-top: 1px solid #000000;
 #aboutUsContent dl dd p{
 padding: 0.3em;
 }
-/*=============================HOME====================*/
 #contentHome{
 width: 85%;
 margin: 1em auto;
