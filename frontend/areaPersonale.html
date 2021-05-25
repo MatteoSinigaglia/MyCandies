@@ -59,68 +59,55 @@
 <div class="main" id="areaPersonaleContent">
     <form id="formAreaPersonale" action="../backend/modifyUserData.php" method="post" class="inputForm" onsubmit="return validatePAForm();" title="Form contenente i dati dell'utente">
         <success_on_modify />
-        <!-- da fare tag action per php-->
         <fieldset>
-            <!-- Legenda -->
             <legend>I miei dati:</legend>
-            <!-- Nome -->
             <label for="nome">Nome:</label>
             <span>
                 <input type="text" id="nome" name="user[first_name]" value="_first_name_value" />
                 <error_first_name />
             </span>
-            <!-- value/placeholder??-->
-            <!-- Cognome --><label for="cognome">Cognome:</label>
+            <label for="cognome">Cognome:</label>
             <span>
                 <input type="text" id="cognome" name="user[last_name]" value="_last_name_value" />
                 <error_last_name />
             </span>
-            <!-- Comune -->
             <label for="comune">Comune:</label>
             <span>
                 <input type="text" id="comune" name="address[city]" value="_city_value" />
                 <error_city />
             </span>
-            <!-- Provincia -->
             <label for="comune">Provincia:</label>
             <span>
                 <input type="text" id="provincia" name="address[province]" value="_province_value" />
                 <error_province />
             </span>
-            <!-- Indirizzo -->
             <label for="indirizzo">Indirizzo:</label>
             <span>
                 <input type="text" id="indirizzo" name="address[street]" value="_street_value" />
                 <error_street />
             </span>
-            <!-- Numero civico -->
             <label for="civico">Numero civico:</label>
             <span>
                 <input type="text" id="civico" name="address[number]" value="_number_value"/>
                 <error_number />
             </span>
-            <!-- CAP -->
             <label for="cap">CAP:</label>
             <span>
                 <input type="text" id="cap" name="address[CAP]" maxlength="5" value="_CAP_value"/>
                 <error_CAP />
             </span>
-            <!-- Telefono -->
             <label for="telefono">Cellulare:</label>
             <span>
                 <input type="text" id="telefono" name="user[telephone]" value="_telephone_value"/>
                 <error_telephone />
             </span>
-            <!-- Sesso: -->
             <label for="gender"> Sesso:</label>
             <select id="gender" name="user[gender]" >
                 <option value="Maschio">Maschio</option>
                 <option value="Femmina">Femmina</option>
                 <option value="Altro">Altro</option>
             </select>
-            <!-- Data di nascita -->
             <label for="data">Data di nascita:</label>
-            <!-- Buttons -->
             <span>
                 <input type="text" id="data" name="user[birthdate]" value="_birthdate_value"/>
                 <error_birthdate />

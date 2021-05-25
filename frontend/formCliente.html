@@ -64,18 +64,14 @@
     <h1 id="h1Accedi">Accedi</h1>
     <form action="../backend/signin.php" method="post" id="loginForm" class="inputForm" onsubmit="return validateLoginForm();" title="Form per l'accesso di un utente registrato">
       <fieldset id="loginFieldset">
-        <!-- Legenda -->
         <legend id="loginLegend" xml:lang="en"> E-mail <span xml:lang="it">e</span> Password </legend>
-        <!-- Campo user -->
         <label for="loginEmail" xml:lang="en">E-mail:</label>
         <span><input type="text" id="loginEmail" name="user[email]" value="_login_value"/></span>
-        <!-- Campo password -->
         <label for="loginPassword" xml:lang="en">Password:</label>
         <span>
           <input type="password" id="loginPassword" name="user[password]" maxlength="20" />
           <error_login />
         </span>
-        <!-- Buttons -->
         <input type="submit" id="usernameButton" name="submitLogin" value="Accedi" class="buttons" />
         <input type="reset" id="loginReset" name="loginReset" value="Cancella" class="buttons" />
       </fieldset>
