@@ -15,7 +15,6 @@ class dbh {
 	private $host;
 	private $db;
 	private $user;
-	private $port;
 	private $psw;
 	private $charset;
 	private $options;
@@ -25,10 +24,9 @@ class dbh {
 	public function __construct() {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
-		$this->port = $_SERVER['SERVER_PORT'];
 		$this->psw = '';
 		$this->user = 'root';
-		$this->charset = 'utf8';
+		$this->charset = 'utf8mb4';
 		$this->options = [
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -42,7 +40,7 @@ class dbh {
 	public function connect() {
 		try {
 
-			$dsn = 'mysql:host='.$this->host.';port='.$this->port.';dbname='.$this->db.';charset='.$this->charset.';';
+			$dsn = 'mysql:host='.$this->host.';dbname='.$this->db.';charset='.$this->charset.';';
 			$this->pdo = new PDO($dsn, $this->user, $this->psw, $this->options);
 		} catch (PDOException $e) {
 

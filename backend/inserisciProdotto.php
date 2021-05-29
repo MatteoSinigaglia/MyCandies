@@ -1,6 +1,6 @@
 <?php
 
-require_once '..'.DIRECTORY_SEPARATOR.'paths_index.php';
+require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Product.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Image.php';
@@ -10,8 +10,6 @@ require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager
 require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 
 USE DB\Exceptions\DBException;
-use MyCandies\Entities\Product;
-use MyCandies\Entities\Image;
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Controllers\CategoriesManager;
 use MyCandies\Exceptions\EntityException;
@@ -67,5 +65,3 @@ try {
     }
     echo $htmlPage;
 }
-
-

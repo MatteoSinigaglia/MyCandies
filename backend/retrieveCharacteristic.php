@@ -1,6 +1,6 @@
 <?php
 
-require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
+require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ActivePrinciplesManager.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'CategoriesManager.php';
 
