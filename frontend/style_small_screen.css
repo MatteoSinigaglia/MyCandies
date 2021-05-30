@@ -18,7 +18,8 @@ max-width: 1280px;
 }
 .helps,
 .hideProduct,
-.hideClient {
+.hideClient,
+.backToHeader span {
 position: absolute;
 height: 1px;
 width: 1px;
