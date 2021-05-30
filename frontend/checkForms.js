@@ -88,7 +88,7 @@ var form_login = {
 
 var form_registrazione = {
     "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
-    "password": ["password", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
+    "password": ["", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
     "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
