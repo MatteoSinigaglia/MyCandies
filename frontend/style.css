@@ -17,7 +17,8 @@ margin: auto;
 max-width: 1280px;
 }
 .helps,
-.hide {
+.hideProduct,
+.hideClient {
 position: absolute;
 height: 1px;
 width: 1px;
@@ -33,9 +34,9 @@ padding: 0.5em 0;
 display: block;
 }
 .formSuccess {
-    color: green;
-    padding: 0.5em 0;
-    display: block;
+color: green;
+padding: 0.5em 0;
+display: block;
 }
 .rightMessage {
 color: #093013;

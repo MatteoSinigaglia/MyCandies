@@ -16,7 +16,8 @@ font-family: "Arial", cursive, sans-serif;
 margin: auto;
 max-width: 1280px;
 }
-.helps {
+.helps,
+.hideClient {
 position: absolute;
 height: 1px;
 width: 1px;
