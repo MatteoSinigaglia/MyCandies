@@ -299,6 +299,37 @@ background-color: #051C0B;
 color: white;
 padding: 0.6em;
 }
+#navigation_dashboard {
+text-align: center;
+background-color: #093013;
+padding: 0.8em;
+list-style-type: none;
+}
+#navigation_dashboard li {
+list-style-type: none;
+margin: 0.3em 0em;
+border-radius: 4px;
+}
+#navigation_dashboard a:link {
+text-decoration: none;
+color: white;
+}
+#navigation_dashboard a:visited {
+color: #CDA434;
+}
+#navigation_dashboard a:active {
+background-color: #F2E8CF;
+border-radius: 4px;
+color: #051C0B;
+}
+#navigation_dashboard ul li span {
+border: 1px solid #DDD;
+border-radius: 4px;
+background-color: #051C0B;
+color: white;
+padding: 0.2em;
+margin: 0.7em 0;
+}
 span.selectedButton {
 border: 1px solid #DDD;
 border-radius: 4px;
@@ -314,6 +345,14 @@ font-size: 1em;
 #mobileMenu {
 display: none;
 margin-bottom: 0.5em;
+}
+#mobileMenuDashboard {
+padding: 0.5em;
+color: white;
+background-color: #051C0B;
+border: 1px solid #DDD;
+border-radius: 4px;
+margin-left: 90%;
 }
 #logoutButton {
 width: 100%;

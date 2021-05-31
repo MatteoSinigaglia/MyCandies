@@ -344,7 +344,7 @@ return PAcheck;
 function loadMenu() {
     var menuContenitor = document.getElementById("navigation");
     var navigationMenu = document.getElementById("navigationMenu");
-    if(window.innerWidth <= 767) {
+    if (window.innerWidth <= 767) {
         var but = document.getElementById("mobileMenu");
         if (!but) {
             var button = document.createElement("button");
@@ -370,11 +370,9 @@ function loadMenu() {
     }
 }
 
-window.onresize = loadMenu;
-
 function mobileMenu() {
     var menu = document.getElementById("navigationMenu");
-    var button = document.getElementsByClassName("mobileMenu");
+    var button = document.getElementById("mobileMenu");
     if(menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";
@@ -383,3 +381,48 @@ function mobileMenu() {
         button.className = "fa fa-close";
     }
 };
+
+function loadMenuDashboard() {
+    var menuContenitor = document.getElementById("navigation_dashboard");
+    var navigationMenuDash = document.getElementById("navigationMenu_dashboard");
+    if (window.innerWidth <= 1200) {
+        var but = document.getElementById("mobileMenuDashboard");
+        if (!but) {
+            var button = document.createElement("button");
+            button.id = "mobileMenuDashboard";
+            button.className = "fa fa-bars";
+            button.onclick = function() {mobileMenuDashboard();};
+            menuContenitor.insertBefore(button, navigationMenuDash);
+            navigationMenuDash.style.marginTop = "0.5em";
+            navigationMenuDash.style.borderTop = "1px solid #DDD";
+            navigationMenuDash.style.display = "none";
+        }
+        if(navigationMenuDash.style.display == "block") {
+            navigationMenuDash.style.display = "none";
+        }
+    } else {
+        var button = document.getElementById("mobileMenuDashboard");
+        if (button) {
+            menuContenitor.removeChild(button);
+        }
+        navigationMenuDash.style.marginTop = "0";
+        navigationMenuDash.style.borderTop = "transparent";
+        navigationMenuDash.style.display = "block";
+    }
+}
+
+function mobileMenuDashboard() {
+    var menu = document.getElementById("navigationMenu_dashboard");
+    var button = document.getElementById("mobileMenuDashboard");
+    if (!button) button = document.getElementById("mobileMenuDashboard");
+    if(menu.style.display == "block") {
+        menu.style.display = "none";
+        button.className = "fa fa-bars";
+    } else {
+        menu.style.display = "block";
+        button.className = "fa fa-close";
+    }
+};
+
+window.onload = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+window.onresize = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
