@@ -67,10 +67,12 @@ function noFormValues($DOM, $items) {
 	return $DOM;
 }
 
-function noFormErrors($DOM, $items) {
-
-	foreach ($items as $item)
-		$DOM = str_replace('<error_' . $item . ' />', '', $DOM);
+function noFormErrors($DOM, $items=null) {
+    if(empty($items)) {
+        $DOM = preg_replace('/<error_(.*?)\/>/', '', $DOM);
+    } else
+        foreach ($items as $item)
+            $DOM = str_replace('<error_' . $item . ' />', '', $DOM);
 
 	return $DOM;
 }

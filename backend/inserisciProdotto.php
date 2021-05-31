@@ -9,6 +9,7 @@ require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ProductsManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager.php';
 require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 require_once LIB_PATH . DS . 'functions.php';
+require_once LIB_PATH . DS . 'prepareProductsForm.php';
 
 use DB\Exceptions\DBException;
 use MyCandies\Controllers\ProductsManager;
@@ -16,9 +17,21 @@ use MyCandies\Controllers\CategoriesManager;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Controllers\ActivePrinciplesManager;
 
-ob_start();
-require_once 'formProdotto.php';
-$htmlPage = ob_get_clean();
+$categoryManager = null;
+$activePrincipleManager = null;
+try {
+    $categoryManager = new CategoriesManager();
+    $activePrinciplesManager = new ActivePrinciplesManager();
+    $activePrinciples = $activePrinciplesManager->getActivePrinciples();
+    $categories = $categoryManager->getCategories();
+} catch (Exception $e) {
+    header('location:'. MODEL_PATH . DS .'home.php');
+    die();
+}
+
+$htmlPage = file_get_contents(VIEW_PATH . DS . "inserisciProdotto_dashboard.html");
+$htmlPage = insertCategoriesIntoForm($categories, $htmlPage);
+$htmlPage = insertActivePrinciplesIntoForm($activePrinciples, $htmlPage);
 
 if(!isset($_POST['aggiungi'])) {
     echo $htmlPage;
@@ -28,8 +41,6 @@ if(!isset($_POST['aggiungi'])) {
 $success = false;
 $result = '';
 $errOnFields = array();
-$categoryManager = new CategoriesManager();
-$activePrincipleManager = new ActivePrinciplesManager();
 $data = array();
 
 $data['name']                   = $_POST['productName'];
@@ -45,24 +56,25 @@ try {
         $data['category_id'] = $categoryManager->searchIdByName($_POST['productCategory'])->getId();
     } else $errOnFields['category'] = 'Non è stata scelta nessuna categoria';
     if(isset($_POST['productActivePrinciple'])) {
-        $data['active_principle_id'] = $activePrincipleManager->searchIdByName($_POST['productActivePrinciple'])->getId();
+        $data['active_principle_id'] = $activePrinciplesManager->searchIdByName($_POST['productActivePrinciple'])->getId();
     } else $errOnFields['active_principle_id'] = 'Non è stato scelto nessun principio attivo';
     $insertProduct = new ProductsManager();
     $success = $insertProduct->insertProduct($data, (empty($data['active_principle_id']) ? null : $data['active_principle_id']), (empty($data['percentage']) ? null : $data['percentage']));
 } catch(DBException $e) {
-    $result .= '<strong class="formErrors">'.$e->getMessage().'</strong>';
+    $result .= '<p class="formErrors">'.$e->getMessage().'</p>';
 } catch(EntityException $e) {
     $errOnFields = array_merge($errOnFields, $e->getErrors());
 } finally {
     if($success) {
-        $htmlPage = str_replace('<errmsg />', '<strong class="formSuccess">Prodotto caricato con successo</strong>', $htmlPage);
+        $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Prodotto caricato con successo</p>', $htmlPage);
     } else {
-        $htmlPage = str_replace('<errmsg />', '<strong class="formErrors">'.($result == '' ? 'Ci sono errori nel form di inserimento' : $result).'</strong>', $htmlPage);
+        $htmlPage = str_replace('<error_overall />', '<p class="formErrors">'.($result == '' ? 'Ci sono errori nel form di inserimento' : $result).'</p>', $htmlPage);
         if(!empty($errOnFields)) {
             foreach($errOnFields as $key => $value) {
-                $htmlPage = str_replace('<error_' . $key . ' />', '<strong class="formErrors">' . $value . '</strong>', $htmlPage);
+                $htmlPage = str_replace('<error_' . $key . ' />', '<p class="formErrors">' . $value . '</p>', $htmlPage);
             }
         }
     }
+    $htmlPage = noFormErrors($htmlPage);
     echo $htmlPage;
 }
