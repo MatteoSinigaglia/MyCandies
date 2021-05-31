@@ -16,7 +16,8 @@ font-family: "Arial", cursive, sans-serif;
 margin: auto;
 max-width: 1280px;
 }
-.helps {
+.helps,
+.hideClient {
 position: absolute;
 height: 1px;
 width: 1px;
@@ -289,35 +290,41 @@ display: none;
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-#navigation {
+#navigation,
+#navigation_dashboard {
 text-align: center;
 background-color: #093013;
 padding: 0.8em;
 list-style-type: none;
 }
-#navigation li {
+#navigation li,
+#navigation_dashboard li {
 list-style-type: none;
 margin: 0.3em 0em;
 border-radius: 4px;
 }
-#navigation a:link {
+#navigation a:link,
+#navigation_dashboard a:link {
 text-decoration: none;
 color: white;
 }
-#navigation a:visited {
+#navigation a:visited,
+#navigation_dashboard a:visited {
 color: #CDA434;
 }
-#navigation a:active {
+#navigation a:active,
+#navigation_dashboard a:active {
 background-color: #F2E8CF;
 border-radius: 4px;
 color: #051C0B;
 }
-#navigation ul li span {
+#navigation ul li span,
+#navigation_dashboard ul li span {
 border: 1px solid #DDD;
 border-radius: 4px;
 background-color: #051C0B;
 color: white;
-padding: 0.3em;
+padding: 0.2em;
 margin: 0.7em 0;
 }
 span.selectedButton {
@@ -332,7 +339,8 @@ text-decoration: none;
 display: inline-block;
 font-size: 1em;
 }
-#mobileMenu {
+#mobileMenu,
+#mobileMenuDashboard {
 padding: 0.5em;
 color: white;
 background-color: #051C0B;

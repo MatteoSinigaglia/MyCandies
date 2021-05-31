@@ -55,7 +55,6 @@ padding:0.4em;
 border-radius: 5px;
 resize: none;
 }
-
 #header,
 #social h1,
 #social h2,
@@ -79,6 +78,9 @@ resize: none;
 .helps,
 .helpBackToHeader{
 display: none;
+}
+#registrationForm {
+margin-bottom: 5em;
 }
 abbr {
 text-decoration: none;
