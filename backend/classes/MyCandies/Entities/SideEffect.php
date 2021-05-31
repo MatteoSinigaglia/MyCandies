@@ -20,7 +20,7 @@ class SideEffect extends Entity {
 
     public function __construct(int $source, array $data=[]) {
         try {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if($source !== Entities\DB) {
                 $this->setName($data['name']);
             }

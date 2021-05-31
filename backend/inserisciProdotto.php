@@ -8,8 +8,9 @@ require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'CategoriesManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ProductsManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager.php';
 require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
+require_once LIB_PATH . DS . 'functions.php';
 
-USE DB\Exceptions\DBException;
+use DB\Exceptions\DBException;
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Controllers\CategoriesManager;
 use MyCandies\Exceptions\EntityException;

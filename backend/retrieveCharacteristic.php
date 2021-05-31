@@ -12,9 +12,9 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertActivePrinciple']='Inserisci+principio+attivo';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['activePrincipleName']) ? $_POST['activePrincipleName'] : null);
-    $effects = (isset($_POST['effects']) ? $_POST['effects'] : null);
-    $sideEffects = (isset($_POST['sideEffects']) ? $_POST['sideEffects'] : null);
+    $name = ($_POST['activePrincipleName'] ?? null);
+    $effects = ($_POST['effects'] ?? null);
+    $sideEffects = ($_POST['sideEffects'] ?? null);
     unset($_GET['insertActivePrinciple']);
     $success = false;
     try {
@@ -37,7 +37,7 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertCategory']='Inserisci+categoria';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['categoryName']) ? $_POST['categoryName'] : null);
+    $name = ($_POST['categoryName'] ?? null);
     unset($_GET['insertCategory']);
     $success = false;
     try {
@@ -58,7 +58,7 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertEffect']='Inserisci+effetto';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['effectName']) ? $_POST['effectName'] : null);
+    $name = ($_POST['effectName'] ?? null);
     unset($_GET['insertEffect']);
     $success = false;
     try {
@@ -79,7 +79,7 @@ if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertSideEffect']='Inserisci+effetto+collaterale';
     include 'insertCharacteristics.php';
     $htmlPage = ob_get_clean();
-    $name = (isset($_POST['sideEffectName']) ? $_POST['sideEffectName'] : null);
+    $name = ($_POST['sideEffectName'] ?? null);
     unset($_GET['insertSideEffect']);
     $success = false;
     try {

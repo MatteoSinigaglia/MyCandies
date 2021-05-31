@@ -14,7 +14,7 @@
         private $errors;
 
         public function __construct(int $source, array $data=[]) {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if($source !== DB) {
                 $this->errors = array();
                 $this->setImg_path();
