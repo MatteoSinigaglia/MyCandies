@@ -6,16 +6,16 @@ require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 use MyCandies\Controllers\ProductsManager;
 
 $htmlPage = file_get_contents(VIEW_PATH. DS . "prodotti_dashboard.html");
-$productManager = new ProductsManager();
 $productList = array();
 try {
+    $productManager = new ProductsManager();
     $productList = $productManager->getProducts();
 } catch (Exception $e) {
     $htmlPage = str_replace("<insertRow />", '<strong class="formErrors">Errore nel caricamento</strong>', $htmlPage);
     echo $htmlPage;
     die();
 }
-// carica lista dei prodotti dentro la tabella
+
 $tableRows = "";
 if(!empty($productList)) {
     foreach ($productList as $row) {
@@ -23,16 +23,16 @@ if(!empty($productList)) {
             "
             <{$row['name']} />
             <tr>
-                <td headers=\"name\">
+                <td scope=\"name\">
                     {$row['name']}
                 </td>
-                <td headers=\"price\">
+                <td scope=\"price\">
                     {$row['price']}
                 </td>
-                <td headers=\"quantity\">
+                <td scope=\"quantity\">
                     {$row['availability']}
                 </td>
-                <td headers=\"actions\">
+                <td scope=\"actions\">
                     <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
                 </td>
             </tr>";
