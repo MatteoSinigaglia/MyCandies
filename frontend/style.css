@@ -17,7 +17,9 @@ margin: auto;
 max-width: 1280px;
 }
 .helps,
-.hide {
+.hideProduct,
+.hideClient,
+.backToHeader span {
 position: absolute;
 height: 1px;
 width: 1px;
@@ -33,9 +35,9 @@ padding: 0.5em 0;
 display: block;
 }
 .formSuccess {
-    color: green;
-    padding: 0.5em 0;
-    display: block;
+color: green;
+padding: 0.5em 0;
+display: block;
 }
 .rightMessage {
 color: #093013;
@@ -264,36 +266,43 @@ min-width: 25em;
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-#navigation {
+#navigation,
+#navigation_dashboard {
 clear: both;
 text-align: center;
 background-color: #093013;
 padding: 0.8em;
 list-style-type: none;
 }
-#navigation li {
+#navigation li,
+#navigation_dashboard li {
 display: inline;
 margin: 0.2em 1.5em;
 border: 1px solid transparent;
 border-radius: 4px;
 }
-#navigation a {
+#navigation a,
+#navigation_dashboard a {
 padding: 0.6em;
 border: 1px solid transparent;
 }
-#navigation a:link {
+#navigation a:link,
+#navigation_dashboard a:link {
 text-decoration: none;
 color: white;
 }
-#navigation a:visited {
+#navigation a:visited,
+#navigation_dashboard a:visited {
 color: #CDA434;
 }
-#navigation a:hover {
+#navigation a:hover,
+#navigation_dashboard a:hover {
 background-color: #F2E8CF;
 border-radius: 4px;
 color: #051C0B;
 }
-#navigation ul li span {
+#navigation ul li span,
+#navigation_dashboard ul li span {
 border: 1px solid #DDD;
 border-radius: 4px;
 background-color: #051C0B;
@@ -312,7 +321,8 @@ text-decoration: none;
 display: inline-block;
 font-size: 1em;
 }
-#mobileMenu {
+#mobileMenu,
+#mobileMenuDashboard {
 display: none;
 }
 #logoutButton {
