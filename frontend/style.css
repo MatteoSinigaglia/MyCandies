@@ -661,6 +661,8 @@ padding: 0 0.7em 0.3em 0.7em;
 font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
-#content404 img{
+}
+#content404 img {
 width: 100%; 
+margin-bottom: 1em;
 }

@@ -684,3 +684,7 @@ font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
 }
+#content404 img {
+width: 100%; 
+margin-bottom: 1em;
+}
