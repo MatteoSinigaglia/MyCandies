@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Home - My Candies</title>
+    <title>404 Page Not Found</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Home - My Candies"/>
-    <meta name="description" content="Pagina principale di My Candies"/>
-    <meta name="keywords" content="MyCandies&amp;co, My Candies, storia, compagnia, stupefacenti, startup, profitto, legge, Deep Web, home"/>
+    <meta name="title" content="Error 404 - My Candies"/>
+    <meta name="description" content="Pagina non trovata, error 404, MyCandies"/>
+    <meta name="keywords" content="MyCandies&amp;co, My Candies, error, 404, page not found"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -21,9 +21,10 @@
 
 <body onload="loadMenu();">
 <div id="header">
-    <a class="helps" href="#contentHome">Vai al contenuto</a>
+    <a class="helps" href="#content404">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
+            <a href="../backend/home.php">
             <img id="logo" src="../img/logo.png"
                 alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
         </div>
@@ -31,8 +32,8 @@
             <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
                 <div>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>               
-                 </div>
+                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>                
+                </div>
             </form>
 
             <a_auth_state />
@@ -46,20 +47,11 @@
         </ul>
     </div>
 </div>
-
-<div id="breadcrumb">
-    <p>Ti trovi in: <span xml:lang="en">Home</span></p>
+<div id="content404">
+    <img src="../img/error404.jpg" alt="Errore 404: pagina non trovata"/>
 </div>
-
-<div id="contentHome">
-  <img src="../img/Home.jpg" alt="Immagine con dei farmaci stupefacenti e pastiglie di ecstasy"/>
-  <h1><span xml:lang='en'>MyCandies&amp;co</span></h1>
-    <p>
-        <span xml:lang='en'>MyCandies&amp;co</span> è una compagnia fondata a Mestre nel 1969 da un gruppo di quattro tossici benestanti figli del papi i quali, dopo essere stati cacciati di casa a 23 anni in seguito a svariate overdose di eroina gialla, decisero di aprire un negozio di stupefacenti poichè non sapevano far altro che drogarsi. La compagnia ebbe subito un enorme successo poichè in quegli anni si drogavano tutti e nessuna legge ti impediva di farti una pera in piazza alle 7 di mattina. Durante il primo anno di vendite la <span xml:lang='en'>MyCandies&amp;co</span> bruciò ogni record di profitto di una <span xml:lang='en'>startup</span> al primo anno di attività e, nell'anno successivo, i quattro fondatori divennero i quattro uomini più ricchi del mondo (stime della rivista <span xml:lang='en'>Forbes</span>). Gli affari andavano a gonfie vele ma nel 1990 la compagnia subì la più grande perdita di capitale mai registrata. Le cause di tale tracollo finanziario furono essenzialmente due. La prima fu l'approvazione del decreto <abbr title="Descreto del Presidente della Repubblica">D.P.R.</abbr> 309 del 09.10.1990, il quale impediva ai drogati di drogarsi. La causa principale della bancarotta della compagnia fu l'accusa di riciclaggio di denaro contante, reato smascherato grazie all'introduzione fittizia di monente da 50 centesimi per il biglietto del treno nelle principali stazioni del Veneto. L'azienda fu in seguito acquistata dalla magnate portoricana Gombretta Oaggi e conta oggi oltre 1000 dipendenti (da varie sostanze psicotrope). La principale fonte di fatturazione per l'azienda è ad oggi il sito <span xml:lang="en">Internet</span> sul <span xml:lang='en'>Deep Web</span>.
-    </p>
-</div>
-<div class="helpBackToHeader">
-  <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
+<div class="helpBackToHeader hide">
+    <a href="#header" class="backToHeader">Torna su</a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">

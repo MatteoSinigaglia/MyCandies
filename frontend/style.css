@@ -573,10 +573,10 @@ background-color: #F2E8CF;
 border-radius: 10px;
 }
 #contentHome img{
-width: 50%;
-margin-left: 25%;
+width: 70%;
+margin-left: 15%;
 margin-top: 1em;
-padding-bottom: 2%;
+padding-bottom: 1%;
 }
 #contentHome p{
 font-size: 1.2em;
@@ -585,8 +585,9 @@ text-align: center;
 padding-bottom: 1em;
 }
 #contentHome h1{
-font-size: 1.6em;
+font-size: 2em;
 text-align: center;
+color: #093013;
 }
 #effects {
 display: block;
@@ -660,4 +661,6 @@ padding: 0 0.7em 0.3em 0.7em;
 font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
+#content404 img{
+width: 100%; 
 }
