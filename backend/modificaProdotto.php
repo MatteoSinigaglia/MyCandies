@@ -2,16 +2,20 @@
 
 require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
+require_once LIB_PATH . DS . 'productListDashboard.php';
+require_once LIB_PATH . DS . 'functions.php';
 
 use MyCandies\Controllers\ProductsManager;
 
+[
+    'DOM' => $htmlPage,
+    'productList' => $productList,
+] = initProductList();
+
+$htmlPage = insertProductRow($productList, $htmlPage, true);
+
 $name = $_GET['name'];
 $productManager = new ProductsManager();
-
-// esegui e cattura l-output di prodotti_dashboard
-ob_start();
-include 'prodotti_dashboard.php';
-$htmlPage = ob_get_clean();
 
 $search = "<table";
 $replace = "
@@ -31,25 +35,28 @@ try {
 
 }
 
-$pattern = "/(<$name \/>)(.*?)(<\/tr>)/s";
+$pattern = "/(<modify_$name \/>)(.*?)(<\/tr>)/is";
 $replace = "
-            <td>
-                $name
+            <td scope=\"row\">
+                {$name}
                 <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\" />
             </td>
-            <td headers=\"price\" scope=\"row\">
+            <td scope=\"row\">
                 <input type=\"text\" value=\"{$product->getPrice()}\" id=\"modifyPrice\" name=\"modifyPrice\"/>
-                <errPrice />
+                <error_price />
             </td>
-            <td headers=\"quantity\" scope=\"row\">
+            <td scope=\"row\">
                 <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\"/>
-                <errAvailability />
+                <error_availability />
             </td>
-            <td headers=\"actions\" scope=\"row\">
+            <td scope=\"row\">
                 <input type=\"submit\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
                 <input type=\"submit\" value=\"Elimina prodotto\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
-                <messages />
+                <error_overall />
             </td>
         </tr>";
+
 $htmlPage = preg_replace($pattern, $replace, $htmlPage, 1);
+$htmlPage = noModifyTag($htmlPage);
+$htmlPage = noFormErrors($htmlPage);
 echo $htmlPage;

@@ -13,23 +13,15 @@ require_once LIB_PATH . DS . 'productsForm.php';
 
 use DB\Exceptions\DBException;
 use MyCandies\Controllers\ProductsManager;
-use MyCandies\Controllers\CategoriesManager;
 use MyCandies\Exceptions\EntityException;
-use MyCandies\Controllers\ActivePrinciplesManager;
 
-$categoryManager = null;
-$activePrincipleManager = null;
-try {
-    $categoryManager = new CategoriesManager();
-    $activePrinciplesManager = new ActivePrinciplesManager();
-    $activePrinciples = $activePrinciplesManager->getActivePrinciples();
-    $categories = $categoryManager->getCategories();
-} catch (Exception $e) {
-    header('location:'. MODEL_PATH . DS .'home.php');
-    die();
-}
-
-$htmlPage = file_get_contents(VIEW_PATH . DS . "inserisciProdotto_dashboard.html");
+[
+    'categoryManager' => $categoryManager,
+    'activePrinciplesManager' => $activePrinciplesManager,
+    'categories' => $categories,
+    'activePrinciples' => $activePrinciples,
+    'DOM' => $htmlPage,
+] = initProductsForm();
 $htmlPage = insertCategoriesIntoForm($categories, $htmlPage);
 $htmlPage = insertActivePrinciplesIntoForm($activePrinciples, $htmlPage);
 

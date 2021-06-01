@@ -1,5 +1,31 @@
 <?php
 
+require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'CategoriesManager.php';
+require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager.php';
+
+use MyCandies\Controllers\CategoriesManager;
+use MyCandies\Controllers\ActivePrinciplesManager;
+
+function initProductsForm(): array {
+    try {
+        $categoryManager = new CategoriesManager();
+        $activePrinciplesManager = new ActivePrinciplesManager();
+        $activePrinciples = $activePrinciplesManager->getActivePrinciples();
+        $categories = $categoryManager->getCategories();
+        return [
+            'categoryManager' => $categoryManager,
+            'activePrinciplesManager' => $activePrinciplesManager,
+            'categories' => $categories,
+            'activePrinciples' => $activePrinciples,
+            'DOM' => file_get_contents(VIEW_PATH . DS . "inserisciProdotto_dashboard.html"),
+        ];
+    } catch (Exception $e) {
+        // TODO pagina 404
+        header('location:'. MODEL_PATH . DS .'home.php');
+        die();
+    }
+}
+
 function insertCategoriesIntoForm($categories, $DOM): String {
     $categoriesOptions = "";
     foreach ($categories as $category) {

@@ -77,6 +77,10 @@ function noFormErrors($DOM, $items=null) {
 	return $DOM;
 }
 
+function noModifyTag($DOM) {
+    return preg_replace('/<modify_(.*?)\/>/', '', $DOM);
+}
+
 function noForm($DOM, $items) {
 
 	$DOM = noFormErrors($DOM, $items);
