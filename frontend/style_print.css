@@ -285,3 +285,8 @@ text-align: center;
 #breadcrumb{
 margin-top: 0.5em;
 }
+.insertEffects {
+font-weight: bold;
+font-size: 1.2em;
+margin: 0.7em auto;
+}
