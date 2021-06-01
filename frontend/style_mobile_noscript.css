@@ -125,11 +125,8 @@ text-decoration: none;
 }
 .helpBackToHeader {
 width: 100%;
-background-color: #093013;
-border-top: 1px solid #DDD;
-border-bottom: 1px solid #DDD;
 text-align: center;
-margin-top: 0.5em;
+margin-bottom: 0.7em;
 }
 #footer .helpBackToHeader {
 margin: 0;
@@ -139,6 +136,9 @@ padding: 0;
 #footer .helpBackToHeader .backToHeader{
 font-weight: bold;
 color: white;
+background-color: #093013;
+padding: 0.6em 1em;
+border-radius: 5px;
 }
 .backToHeader:active,
 .backToHeader:visited:active,
@@ -599,10 +599,8 @@ font-weight: 600;
 }
 #contentHome{
 width: 85%;
-margin-left: 7.5%;
-margin-right: 7.5%;
+margin: 3% 7.5%;
 background-color: #F2E8CF;
-margin-top: 2em;
 border-radius: 10px;
 }
 #contentHome img{
@@ -691,7 +689,7 @@ font-weight: bold;
 padding: 0.5em 0 0.2em 0.5em;
 }
 #contentFAQ div p {
-padding: 0 0 0.5em 0.5em; 
+padding: 0 0.7em 0.3em 0.7em; 
 }
 .insertEffects {
 font-weight: bold;
