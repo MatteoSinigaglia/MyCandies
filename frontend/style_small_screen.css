@@ -109,7 +109,7 @@ resize: none;
 .buttons {
 padding: 0.5em 1em;
 margin: 0.5em;
-border-radius: 4px;
+border-radius: 5px;
 background-color: #093013;
 color: #CDA434;
 font-weight: bold;
@@ -345,10 +345,6 @@ background-color: #051C0B;
 border: 1px solid #DDD;
 border-radius: 4px;
 margin-left: 90%;
-}
-#logoutButton {
-width: 100%;
-text-align: center;
 }
 #productContent h2 {
 font-size: 1.5em;
