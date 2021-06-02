@@ -28,16 +28,16 @@ function insertProductRow(array $productList, String $DOM, bool $insertTag): Str
                 "
             {$tag}
             <tr>
-                <td scope=\"row\">
+                <td scope=\"row\" title=\"Nome prodotto\">
                     {$row['name']}
                 </td>
-                <td scope=\"row\">
+                <td scope=\"row\" title=\"Prezzo\">
                     {$row['price']}
                 </td>
-                <td scope=\"row\">
+                <td scope=\"row\" title=\"Quantità\">
                     {$row['availability']}
                 </td>
-                <td scope=\"row\">
+                <td scope=\"row\" title=\"Azioni\">
                     <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
                 </td>
             </tr>";
