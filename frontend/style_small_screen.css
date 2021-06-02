@@ -445,16 +445,17 @@ background-color: #F2E8CF;
 margin-left: 70%;
 }
 #filters {
-width: 40%;
-border-bottom: 1px solid #ddd;
-border-radius: 5px;
+float: left;
+max-width: 20%;
+padding: 1.5em;
+border: 1px solid #DDD;
 background-color: #F2E8CF;
-margin: 1em auto;
-padding: 0.3em;
+border-radius: 5px;
+margin-left: 1em;
 }
 #filters a{
 display: block;
-width: 50%;
+width: 80%;
 margin: 0.5em auto;
 text-align: center;
 }
@@ -467,7 +468,6 @@ display: inline;
 #filters input[type="text"] {
 width: 4em;
 }
-
 #rightSideContent {
 overflow: hidden;
 padding: 1em;
@@ -487,12 +487,6 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#orderBy {
-float: left;
-}
-#productsPerPage {
-text-align: right;
-}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -502,7 +496,7 @@ display: flex;
 flex-wrap: wrap;
 }
 .product-card {
-margin: 1em;
+margin: 0.5em;
 padding: 1em;
 border: 1px solid #ddd;
 }

@@ -445,7 +445,7 @@ margin: 0.5em auto;
 width: 100%;
 }
 #filters {
-width: 50%;
+width: 60%;
 border-bottom: 1px solid #ddd;
 border-radius: 5px;
 background-color: #F2E8CF;
@@ -454,7 +454,7 @@ padding: 0.3em;
 }
 #filters a{
 display: block;
-width: 50%;
+width: 60%;
 margin: 0.5em auto;
 text-align: center;
 }
@@ -466,6 +466,10 @@ display: inline;
 }
 #filters input[type="text"] {
 width: 4em;
+}
+#filtersButton {
+display: block;
+margin: 0.5em auto;
 }
 #upperRightSideContent {
 border-bottom: 1px solid #ddd;
