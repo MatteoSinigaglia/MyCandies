@@ -414,8 +414,7 @@ function loadMenuDashboard() {
 function mobileMenuDashboard() {
     var menu = document.getElementById("navigationMenu_dashboard");
     var button = document.getElementById("mobileMenuDashboard");
-    if (!button) button = document.getElementById("mobileMenuDashboard");
-    if(menu.style.display == "block") {
+    if (menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";
     } else {
@@ -424,5 +423,53 @@ function mobileMenuDashboard() {
     }
 };
 
-window.onload = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
-window.onresize = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+function loadMobileFilters() {
+    var productListContenitor = document.getElementById("productList");
+    var filtersContenitor = document.getElementById("filters");
+    if (window.innerWidth <= 767) {
+        var but = document.getElementById("filtersButton");
+        if(!but) {
+            var button = document.createElement("button");
+            button.id = "filtersButton";
+            button.textContent = "Filtri";
+            button.className = "buttons";
+            button.onclick = function() {mobileFilters();};
+            productListContenitor.insertBefore(button, filtersContenitor);
+            filtersContenitor.style.marginTop = "0.5em";
+            filtersContenitor.style.borderTop = "1px solid #DDD";
+            filtersContenitor.style.display = "none";
+        }
+        if(filtersContenitor.style.display == "block") {
+            filtersContenitor.style.display = "none";
+        }
+    } else {
+        var button = document.getElementById("filtersButton");
+        if (button) {
+            productListContenitor.removeChild(button);
+        }
+        filtersContenitor.style.marginTop = "0";
+        filtersContenitor.style.borderTop = "transparent";
+        filtersContenitor.style.display = "block";
+    }
+}
+
+function mobileFilters() {
+    var contenitor = document.getElementById("filters");
+    var button = document.getElementById("filtersButton");
+    if (contenitor.style.display == "block") {
+        contenitor.style.display = "none";
+        button.textContent = "Filtri";
+    } else {
+        contenitor.style.display = "block";
+        button.textContent = "Chiudi";
+    }
+}
+
+window.onload = () => {
+    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+    loadMobileFilters;
+}
+window.onresize = () => {
+    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+    loadMobileFilters;
+}
