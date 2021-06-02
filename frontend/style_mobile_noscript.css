@@ -128,12 +128,7 @@ width: 100%;
 text-align: center;
 margin-bottom: 0.7em;
 }
-#footer .helpBackToHeader {
-margin: 0;
-padding: 0;
-}
-.backToHeader,
-#footer .helpBackToHeader .backToHeader{
+.backToHeader {
 font-weight: bold;
 color: white;
 background-color: #093013;
@@ -141,14 +136,11 @@ padding: 0.6em 1em;
 border-radius: 5px;
 }
 .backToHeader:active,
-.backToHeader:visited:active,
-#footer .helpBackToHeader .backToHeader:active,
-#footer .helpBackToHeader .backToHeader:visited:active  {
+.backToHeader:visited:active {
 color: #CDA434;
 text-decoration: none;
 }
-.backToHeader:visited,
-#footer .helpBackToHeader .backToHeader:visited {
+.backToHeader:visited {
 color: white;
 }
 .responsiveTable table,
@@ -453,14 +445,16 @@ margin: 0.5em auto;
 width: 100%;
 }
 #filters {
-width: 95%;
+width: 50%;
 border-bottom: 1px solid #ddd;
+border-radius: 5px;
 background-color: #F2E8CF;
 margin: 1em auto;
+padding: 0.3em;
 }
 #filters a{
 display: block;
-width: 60%;
+width: 50%;
 margin: 0.5em auto;
 text-align: center;
 }
