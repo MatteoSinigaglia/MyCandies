@@ -656,6 +656,17 @@ font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
 }
+#inserisciCaratteristicheDashboard {
+width: 95%;
+}
+#inserisciCaratteristicheDashboard fieldset input {
+width: 90%;
+display: block;
+margin: 0.5em auto;
+}
+.fieldsetCharacteristics label input{
+padding-right: 0.5em;
+}
 #content404 img {
 width: 100%; 
 margin-bottom: 1em;

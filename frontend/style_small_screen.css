@@ -443,7 +443,8 @@ padding: 1.5em;
 border: 1px solid #DDD;
 background-color: #F2E8CF;
 border-radius: 5px;
-margin-left: 1em;
+margin-top: 5.3em;
+margin-left: 5%;
 }
 #filters a{
 display: block;
@@ -686,6 +687,17 @@ padding: 0em 0.7em 0.3em 0.7em;
 font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
+}
+#inserisciCaratteristicheDashboard {
+width: 95%;
+}
+#inserisciCaratteristicheDashboard fieldset input {
+width: 90%;
+display: block;
+margin: 0.5em auto;
+}
+.fieldsetCharacteristics label input {
+margin-right: 0.5em;
 }
 #content404 img {
 width: 100%; 
