@@ -393,7 +393,7 @@ margin-left: 75%;
 }
 #productTableContent {
 border-radius: 10px;
-margin: 0.5em 5em;
+margin: 0.5em 0.5em 2em 0.5;
 background-color: #093013;
 width: 60%;
 margin: 0 auto;
@@ -604,8 +604,9 @@ text-align: center;
 padding-bottom: 1em;
 }
 #contentHome h1{
-font-size: 1.6em;
+font-size: 2em;
 text-align: center;
+color: #093013;
 }
 #effects {
 display: block;
