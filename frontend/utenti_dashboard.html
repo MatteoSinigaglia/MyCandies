@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenuDashboard();">
+<body onload="loadMenuDashboard();" onresize="loadMenuDashboard();">
     <div id="header">
         <div id="navigation_dashboard">
             <ul id="navigationMenu_dashboard">
@@ -26,7 +26,7 @@
                 <li><span>Utenti</span></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
                 <li><a href="../backend/prodotti_dashboard.php">Lista prodotti</a></li>
-                <li><a href="../backend/inserimentoCaratteristiche_dashboard.php">Inserisci caratteristiche</a></li>
+                <li><a href="../backend/insertCharacteristics.php">Inserisci caratteristiche</a></li>
                 <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
         </table>
     </div>
     <div class="helpBackToHeader">
-        <a href="#header" class="backToHeader">Torna su <span class="fa fa-caret-square-o-up"></span></a>
+        <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
     </div>
 </body>
 </html> 

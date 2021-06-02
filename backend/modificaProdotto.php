@@ -38,7 +38,7 @@ try {
 $pattern = "/(<modify_$name \/>)(.*?)(<\/tr>)/is";
 $replace = "
          <tr>
-            <td scope=\"row\" title=\"Nome prodotto\">
+            <td scope=\"row\" title=\"Nome\">
                 {$name}
                 <input type=\"hidden\" name=\"modifyName\" value=\"{$name}\" />
             </td>

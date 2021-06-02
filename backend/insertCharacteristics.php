@@ -26,17 +26,17 @@ if(isset($_GET['insertActivePrinciple'])) {
     <div>
         <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
             <fieldset>
-                <legend>Inserimento nuovo principio attivo</legend>
+                <legend class="insertEffects">Inserimento nuovo principio attivo</legend>
                 <success />
                 <label for="activePrincipleName">Nome:</label>
                 <span><input type="text" id="activePrincipleName" name="activePrincipleName" /></span>
                 <errName />
                 <fieldset>
-                    <legend>Effetti del principio attivo</legend>
+                    <legend class="insertEffects">Effetti del principio attivo</legend>
                     '.$effectCheckboxes.'
                 </fieldset>
                 <fieldset>
-                    <legend>Effetti collaterali del principio attivo</legend>
+                    <legend class="insertEffects">Effetti collaterali del principio attivo</legend>
                     '.$sideEffectCheckboxes.'
                 </fieldset>
                 <input type="submit" id="submitActivePrinciple" value="Aggiungi" name="submitActivePrinciple" class="buttons" />
@@ -52,7 +52,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         <div>
             <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
                 <fieldset>
-                    <legend>Inserimento nuovo effetto</legend>
+                    <legend class="insertEffects">Inserimento nuovo effetto</legend>
                     <success />
                     <label for="effectName">Nome:</label>
                     <span><input type="text" id="effectName" name="effectName" /></span>
@@ -70,7 +70,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         <div>
             <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
                 <fieldset>
-                    <legend>Inserimento nuovo effetto collaterale</legend>
+                    <legend class="insertEffects">Inserimento nuovo effetto collaterale</legend>
                     <success />
                     <label for="sideEffectName">Nome:</label>
                     <span><input type="text" id="sideEffectName" name="sideEffectName" /></span>
@@ -88,7 +88,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         <div>
         <form action="../backend/retrieveCharacteristic.php" method="post" class="inputForm">
             <fieldset>
-                <legend>Inserimento nuova categoria</legend>
+                <legend class="insertEffects">Inserimento nuova categoria</legend>
                 <success />
                 <label for="categoryName">Nome:</label>
                 <span><input type="text" id="categoryName" name="categoryName" /></span>

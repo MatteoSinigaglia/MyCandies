@@ -28,7 +28,7 @@ function insertProductRow(array $productList, String $DOM, bool $insertTag): Str
                 "
             {$tag}
             <tr>
-                <td scope=\"row\" title=\"Nome prodotto\">
+                <td scope=\"row\" title=\"Nome\">
                     {$row['name']}
                 </td>
                 <td scope=\"row\" title=\"Prezzo\">
