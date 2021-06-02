@@ -1,6 +1,6 @@
 <?php
 
-require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
+require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 
 use MyCandies\Controllers\Authentication;
 use MyCandies\Controllers\ShopManager;

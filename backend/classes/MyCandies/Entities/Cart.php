@@ -10,7 +10,7 @@ class Cart extends Entity {
 	private $total;
 
 	public function __construct(int $source, array $data= []) {
-		parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+		parent::__construct($source, ($data['id'] ?? null));
 
 		switch ($source) {
 			case DB:

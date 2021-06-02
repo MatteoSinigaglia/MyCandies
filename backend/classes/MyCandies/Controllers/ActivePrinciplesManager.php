@@ -36,9 +36,6 @@ class ActivePrinciplesManager
 
     private $dbh;
 
-    /**
-     * ActivePrinciplesManager constructor.
-     */
     public function __construct()
     {
         $this->dbh = new dbh();
@@ -50,14 +47,6 @@ class ActivePrinciplesManager
         $this->T_activePrinciplesSideEffects = new Table($this->dbh, 'ActivePrinciplesSideEffects', 'id', ActivePrincipleSideEffect::class, $constructorargs);
     }
 
-    /**
-     * @param $activePrincipleArray
-     * @param $effectNames
-     * @param $sideEffectNames
-     * @return bool
-     * @throws DBException
-     * @throws EntityException
-     */
     public function insertActivePrinciple($activePrincipleArray, $effectNames, $sideEffectNames): bool
     {
         try {
@@ -127,7 +116,7 @@ class ActivePrinciplesManager
             $sideEffect = new SideEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
                 'name' => $sideEffectName]);
             $this->T_sideEffects->insert($sideEffect);
-        } catch (EntityException | DBException $e) {
+        } catch (Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
         } finally {
@@ -137,7 +126,6 @@ class ActivePrinciplesManager
     }
 
     private function getEffectFromName($name) {
-        $effect = array();
         $effect = $this->T_effects->find([
             'column' => 'name',
             'value'  => $name
@@ -146,12 +134,11 @@ class ActivePrinciplesManager
     }
 
     private function getSideEffectFromName($name) {
-        $sideeffect = array();
-        $sideeffect = $this->T_sideEffects->find([
+        $sideEffect = $this->T_sideEffects->find([
             'column' => 'name',
             'value'  => $name
         ]);
-        return $sideeffect[0];
+        return $sideEffect[0];
     }
 
     public function loadEffects() : array {
@@ -159,7 +146,7 @@ class ActivePrinciplesManager
         try{
             $this->dbh->connect();
             $effects = $this->T_effects->find();
-        } catch (DBException $e) {
+        } catch (Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
@@ -168,28 +155,20 @@ class ActivePrinciplesManager
     }
 
     public function loadSideEffects() : array {
-        $sideeffects = array();
+        $sideEffects = array();
         try{
             $this->dbh->connect();
-            $sideeffects = $this->T_sideEffects->find();
+            $sideEffects = $this->T_sideEffects->find();
         } catch (DBException $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
         }
-        return $sideeffects;
+        return $sideEffects;
     }
 
-    /**
-     * @param $name
-     * @return mixed
-     * @throws DBException
-     */
     public function searchIdByName($name)
     {
-        /**
-         * Il nome di una categoria è UNIQUE nel database
-         */
         try {
             $this->dbh->connect();
             $activePrinciple = $this->T_activePrinciples->find(
@@ -202,14 +181,9 @@ class ActivePrinciplesManager
         } finally {
             $this->dbh->disconnect();
         }
-
         return $activePrinciple[0];
     }
 
-    /**
-     * @return mixed
-     * @throws DBException
-     */
     public function getActivePrinciples()
     {
         try {

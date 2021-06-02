@@ -15,7 +15,7 @@
 
         public function __construct(int $source, array $data=[]) {
             try {
-                parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+                parent::__construct($source, ($data['id'] ?? null));
                 if($source === CATEGORIES_MANAGER) {
                     $this->setName($data['name']);
                 }
