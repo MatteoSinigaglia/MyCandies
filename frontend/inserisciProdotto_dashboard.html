@@ -39,11 +39,11 @@
     <div id="inserisciProdottoDashboard" class="main">
 
         <form action="../backend/inserisciProdotto.php" method="post" class="inputForm" onsubmit = "return validateForm();" enctype="multipart/form-data">
-            <errmsg />
+            <error_overall />
             <fieldset>
                 <legend>Inserimento nuovo prodotto</legend>
                 <label for="productName">Nome prodotto:</label>
-                <span><input type="text" id="productName" name="productName"/ maxlength="30"></span>
+                <span><input type="text" id="productName" name="productName" maxlength="30"/></span>
                 <error_name />
                 <label for="productDescription">Descrizione prodotto:</label>
                 <span><textarea id="productDescription" name="productDescription" rows="5" cols="40"></textarea></span>

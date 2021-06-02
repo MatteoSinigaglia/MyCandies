@@ -7,7 +7,6 @@ require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
 require_once MODEL_PATH . DS . 'classes' . DS . 'DB' . DS . 'dbh.php';
 
-use DB\Exceptions\DBException;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 use DB\dbh;
@@ -116,9 +115,6 @@ class Product extends Entity
         } else return '';
     }
 
-    /**
-     * getters
-     */
     public function getCategory_id()
     {
         return $this->category_id;
@@ -176,9 +172,6 @@ class Product extends Entity
         return isset($product[0]);
     }
 
-	/**
-	 * @return int Returns the entity's id
-	 */
 	public function getId(): int {
 		return $this->id;
 	}
