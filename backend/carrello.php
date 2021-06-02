@@ -35,7 +35,7 @@ if (!isset($cart)) {
 		$productsInCart .= $productsInfos;
 	}
 	$DOM = str_replace('<productsInCart />', $productsInCart, $DOM);
-	$DOM = str_replace('<total />', '<td headers="totalCart" scope="row">'.(isset($cart['info']) ? round($cart['info']->getTotal(), 2) : '0').'</td>', $DOM);
+	$DOM = str_replace('<total />', '<td headers="totalCart" scope="col">'.(isset($cart['info']) ? round($cart['info']->getTotal(), 2) : '0').'</td>', $DOM);
 }
 
 
