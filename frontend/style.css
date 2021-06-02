@@ -14,7 +14,7 @@ font-family: "Arial", cursive, sans-serif;
 }
 .main {
 margin: auto;
-max-width: 1280px;
+max-width: 1800px;
 }
 .helps,
 .hideProduct,
@@ -432,6 +432,8 @@ max-width: 20%;
 padding: 1.5em;
 border: 1px solid #DDD;
 background-color: #F2E8CF;
+margin-top: 4.5%;
+margin-left: 5%;
 }
 #filters a{
 display: block;
@@ -452,6 +454,7 @@ width: 4em;
 #rightSideContent {
 overflow: hidden;
 padding: 1em;
+margin-left: 25%;
 }
 #rightSideContent div {
 overflow: hidden;
@@ -468,22 +471,28 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#productsList {
-padding-top: 1em;
-padding-bottom: 1em;
+#productList {
+
+margin: 0;
+padding: 0;
 }
 .products {
 display: flex;
 flex-wrap: wrap;
 }
 .product-card {
-margin: 0.5em;
+margin: 1em;
 padding: 1em;
+background-color: #DDD;
 border: 1px solid #ddd;
 background-color: #F5F5F5;
 }
+.product-card .paragraphLink{
+    font-size: 0.9em;
+}
 .product-image {
-    width: 16em;
+width: 16em;
+margin-bottom: 0.3em;
 }
 .product-image img {
 margin-left: auto;
