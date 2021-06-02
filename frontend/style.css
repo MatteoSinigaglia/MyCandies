@@ -480,6 +480,7 @@ flex-wrap: wrap;
 margin: 0.5em;
 padding: 1em;
 border: 1px solid #ddd;
+background-color: #F5F5F5;
 }
 .product-image {
     width: 16em;
