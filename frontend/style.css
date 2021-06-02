@@ -302,16 +302,12 @@ color: white;
 padding: 0.6em;
 }
 .selectedButton {
-border: 1px solid #DDD;
-border-radius: 4px;
-background-color: #051C0B;
+display: block;
+margin: 0.5em auto;
+background-color: #031808;
 color: white;
-padding: 0.5em 1em;
-margin: 0.5em;
-font-weight: bold;
-text-decoration: none;
-display: inline-block;
-font-size: 1em;
+width: 60%;
+text-align: center;
 }
 #mobileMenu,
 #mobileMenuDashboard {
@@ -461,7 +457,6 @@ background-color: #c5c4c4;
 display: none;
 }
 #productList {
-
 margin: 0;
 padding: 0;
 }
@@ -477,7 +472,7 @@ border: 1px solid #ddd;
 background-color: #F5F5F5;
 }
 .product-card .paragraphLink{
-    font-size: 0.9em;
+font-size: 0.9em;
 }
 .product-image {
 width: 16em;

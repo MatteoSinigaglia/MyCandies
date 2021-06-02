@@ -35,7 +35,7 @@ $categories = '';
 foreach ($categoriesList as $category) {
     if(isset($_GET['category']) && $category->getId() == $_GET['category'])
         $categories .=
-            '<span class="selectedButton">'.$category->getName().'</span>
+            '<span class="selectedButton buttons">'.$category->getName().'</span>
         ';
     else
     $categories .=
