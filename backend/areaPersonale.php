@@ -19,6 +19,13 @@ $DOM = file_get_contents('../frontend/areaPersonale.html');
 //  Header setup
 $DOM = str_replace('<a_auth_state />', '<a href="logout.php" id="loginButton" class="fa fa-sign-out buttons"><span xml:lang="en"> Logout</span></a>', $DOM);
 
+//  Menu setup
+$DOM = str_replace('<dashboard />', ($auth->isAdmin()
+	?
+	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
+	:
+	''), $DOM);
+
 //  Form setup
 
 $DOM = str_replace('<success_on_modify />', '', $DOM);

@@ -16,6 +16,14 @@ if  ($auth->isLoggedIn()) {
     $htmlPage = str_replace('<a_auth_state />', '<a href="logout.php" id="loginButton" class="fa fa-sign-out buttons"><span xml:lang="en"> Logout</span></a>', $htmlPage);
 } else
     $htmlPage = str_replace('<a_auth_state />', '<a href="./formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>', $htmlPage);
+
+//  Menu setup
+$htmlPage = str_replace('<dashboard />', ($auth->isAdmin()
+	?
+	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
+	:
+	''), $htmlPage);
+
 try {
     $productsManager = new ProductsManager();
     $categoriesManager = new CategoriesManager();

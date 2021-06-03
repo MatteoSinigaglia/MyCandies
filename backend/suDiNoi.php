@@ -14,4 +14,11 @@ if  ($auth->isLoggedIn()) {
 } else
 	$DOM = str_replace('<a_auth_state />', '<a href="./formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>', $DOM);
 
+//  Menu setup
+$DOM = str_replace('<dashboard />', ($auth->isAdmin()
+	?
+	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
+	:
+	''), $DOM);
+
 echo $DOM;
