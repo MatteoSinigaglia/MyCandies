@@ -30,12 +30,13 @@ if (!isset($cart)) {
 				<td scope="row" title="Codice">'.$productId.'</td>
 				<td scope="row" title="Quantità"><a href="../backend/actionsFromCart.php?action=decrease&id='.$productId.'" class="fa fa-minus buttons"><span class="helps">Diminuisci quantità prodotto</span></a>'.$cart[$productId].'<a href="../backend/actionsFromCart.php?action=increase&id='.$productId.'" class="fa fa-plus buttons"><span class="helps">Aumenta quantità prodotto</span></a></td>
 				<td scope="row" title="Azioni"><a href="../backend/actionsFromCart.php?action=remove&id='.$productId.'" class="fa fa-remove buttons"><span class="helps">Rimuovi prodotto dal carrello</span> </a></td>
-				<td scope="row" title="Totale prodotto">'.(float)$cart[$productId]*(float)$product->getPrice().'</td>
+				<td scope="row" title="Totale prodotto">'.(float)$cart[$productId]*(float)$product->getPrice().'&euro;</td>
 			</tr>';
 		$productsInCart .= $productsInfos;
 	}
 	$DOM = str_replace('<productsInCart />', $productsInCart, $DOM);
-	$DOM = str_replace('<total />', '<td scope="col">'.(isset($cart['info']) ? round($cart['info']->getTotal(), 2) : '0').'</td>', $DOM);
+	$total = (isset($cart['info']) ? round($cart['info']->getTotal(), 2) : 0);
+	$DOM = str_replace('<total />', '<td scope="col">'.$total.'&euro;</td>', $DOM);
 }
 
 
