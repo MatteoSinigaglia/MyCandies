@@ -481,23 +481,26 @@ padding-top: 1em;
 padding-bottom: 1em;
 }
 .product-card {
-margin: 1em;
+display: block;
+margin: 0.5em auto;
+width: 70%;
 padding: 1em;
 border: 1px solid #ddd;
+border-radius: 10px;
 }
 .product-image {
 width: 16em;
+display: block;
+margin: 0.5em auto;
 }
 .product-image img {
-margin-left: auto;
-margin-right: auto;
-display: block;
 max-width: 16em;
 max-height: 12em;
+border-radius: 10px;
 }
 .product-info {
 margin-top: auto;
-text-align: left;
+text-align: center;
 }
 #productsPageNumber {
 text-align: center;
