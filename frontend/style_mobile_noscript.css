@@ -69,6 +69,21 @@ color: #CDA434;
 #breadcrumb a:active {
 text-decoration: none;
 }
+#navigation ul li span,
+#navigation_dashboard ul li span {
+color: white;
+text-decoration: none;
+border: 1px solid #DDD;
+border-radius: 5px;
+background-color: #020E0A;
+padding: 0.2em;
+margin: 1em auto;
+}
+#navigation a:active,
+#navigation_dashboard a:active,
+#breadcrumb a:active {
+text-decoration: none;
+}
 h1 {
 font-size: 1.5em;
 font-weight: 700;
@@ -292,6 +307,10 @@ text-align: center;
 background-color: #093013;
 padding: 0.8em;
 list-style-type: none;
+}
+#navigationMenu,
+#navigationMenu_dashboard {
+padding-top: 0.3em;
 }
 #navigation li,
 #navigation_dashboard li {

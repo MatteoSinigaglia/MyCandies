@@ -350,7 +350,7 @@ function loadMenu() {
             var button = document.createElement("button");
             button.id = "mobileMenu";
             button.className = "fa fa-bars";
-            button.onclick = function() {mobileMenu();};
+            button.onclick = () => mobileMenu();
             menuContenitor.insertBefore(button, navigationMenu);
             navigationMenu.style.marginTop = "0.5em";
             navigationMenu.style.borderTop = "1px solid #DDD";
@@ -391,7 +391,7 @@ function loadMenuDashboard() {
             var button = document.createElement("button");
             button.id = "mobileMenuDashboard";
             button.className = "fa fa-bars";
-            button.onclick = function() {mobileMenuDashboard();};
+            button.onclick = () => mobileMenuDashboard();
             menuContenitor.insertBefore(button, navigationMenuDash);
             navigationMenuDash.style.marginTop = "0.5em";
             navigationMenuDash.style.borderTop = "1px solid #DDD";
