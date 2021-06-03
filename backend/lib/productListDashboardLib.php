@@ -6,7 +6,6 @@ use MyCandies\Controllers\ProductsManager;
 
 function initProductList(): array {
     $htmlPage = file_get_contents(VIEW_PATH. DS . "prodotti_dashboard.html");
-    $productList = array();
     try {
         $productManager = new ProductsManager();
         $productList = $productManager->getProducts();
