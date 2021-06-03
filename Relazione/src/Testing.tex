@@ -1,0 +1,18 @@
+\section{Testing}
+Per la fase di testing il primo passo è stato validare le pagine sviluppate.
+Per la validazione dei file HTML si è usato il validatore ufficiale del W3C: \url{https://validator.w3.org/}.
+Per la validazione dei file CSS si è usato il validatore del W3C: \url{https://jigsaw.w3.org/css-validator/}.
+
+\subsection{Test del layout responsive:} Le pagine del sito sono state testate su dispositivi di varia grandezza per verificare la corretta applicazione dei vari fogli di stile creati per un design di tipo responsivo. Le pagine si ridimensionano correttamente sia su schermi grandi che su schermi piccoli. Il test è stato eseguito tramite lo strumento di selezione delle dimensioni dello schermo sia su Firefox che su Chrome. In particolare sono stati testati su tutti gli schermi messi a disposizione da Google Chrome di default (sia tablet che cellulare) con l'aggiunta dello schermo dell'iPhone4 per il testing con schermi molto piccoli. Inoltre le varie pagine sono state testate direttamente sugli schermi dei computer dei membri del gruppo. Riportiamo in seguito le dimensioni degli schermi:
+\begin{itemize}
+    \item 1320x768;
+    \item 1920x1080;
+    \item 2560x1600;
+\end{itemize}
+
+\subsection{Screen reader} Come screen reader per il testing dell'accessibilità abbiamo utilizzato NVDA e Orca Screen Reader. Abbiamo testato l'esplorazione dell'intero sito tramite le combinazioni di tasti indicate dallo screen reader (ctrl+freccia destra per leggere la parola successiva, freccia in giù per scorrere ordinatamente i vari blocchi in cui abbiamo diviso la pagina e TAB per analizzare gli elementi che della pagina che devono essere raggiungibili tramite tabulazione). Per selezionare le voci all'interno di una select è prima necessario aprire il menù a tendina premendo sulla barra spaziatrice. Abbiamo inserito dove indicato e possibile la lingua in cui una determinata parola va letta e le abbreviazioni.
+
+\subsection{Testing del contrasto dei colori:}
+Premettiamo che avendo utilizzato tutti colori derivati dal verde, oltre ai test di contrasto degli strumenti automatici, abbiamo richiesto una valutazione ad un utente affetto da daltonismo, il quale ha fornito una valutazione positiva per quanto riguarda i colori scelti.
+Riportiamo ora l'indice di contrasto dei colori degli elementi della pagina con il proprio sfondo (fonte: strumento dello sviluppatore di Google Chrome).
+\include{src/tabellaContrasti}
