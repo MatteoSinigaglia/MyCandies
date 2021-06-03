@@ -306,7 +306,7 @@ border-radius: 10px;
 margin: 0 0.5em 1em 0;
 }
 #productContenitor dl dt {
-font-size: 1.5em;
+font-size: 1.3em;
 font-weight: bold;
 background-color: #093013;
 border-radius: 8px 8px 0px 0px;
@@ -317,7 +317,8 @@ color: #CDA434;
 float: left;
 max-width: 17em;
 max-height: 12em;
-margin: 1em 0 1em 1em;
+margin: 1em;
+border-radius: 5px;
 }
 #productContenitor dl dd p {
 width: 75%;

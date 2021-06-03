@@ -323,7 +323,7 @@ border-radius: 10px;
 margin: 1em;
 }
 #productContenitor dl dt {
-font-size: 1.5em;
+font-size: 1.3em;
 font-weight: bold;
 background-color: #093013;
 border-radius: 8px 8px 0px 0px;
@@ -334,15 +334,20 @@ color: #CDA434;
 float: left;
 max-width: 17em;
 max-height: 12em;
-margin: 1em 0 0 1em;
+margin: 1em;
+border-radius: 5px;
 }
 #productContenitor dl dd p {
 width: 75%;
 padding: 1em;
 margin-left: 22%;
 }
+#productContenitor a:link {
+text-decoration: none;
+}
 #addToCartButton {
-margin-left: 75%;
+display: block;
+margin: 0.5em auto;
 }
 #productTableContent {
 border-radius: 10px;

@@ -45,6 +45,7 @@ display: block;
 }
 #breadcrumb {
 text-align: left;
+font-size: 0.9em;
 padding: 0.6em;
 border-top: 1px solid #DDD;
 border-bottom: 1px solid #DDD;
@@ -327,7 +328,8 @@ border-radius: 10px;
 margin: 0.5em 1.3em;
 }
 #productContenitor dl dt {
-font-size: 1.5em;
+font-size: 1.1em;
+text-align: center;
 font-weight: bold;
 background-color: #093013;
 border-radius: 8px 8px 0px 0px;
@@ -335,14 +337,21 @@ padding: 0.2em 0.3em;
 color: #CDA434;
 }
 #productContenitor dl dd img {
-max-width: 40%;
-margin: 1em;
+display: block;
+margin: 1em auto;
+max-width: 70%;
+border-radius: 5px;
 }
 #productContenitor dl dd p {
 margin: 0.5em 1em;
+text-align: center;
+}
+#productContenitor a:link {
+text-decoration: none;
 }
 #addToCartButton {
-margin-left: 50%;
+display: block;
+margin: 0.5em auto;
 }
 #productTableContent {
 border-radius: 10px;
