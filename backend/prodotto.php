@@ -26,6 +26,12 @@ try {
 }
 
 $htmlPage = file_get_contents(VIEW_PATH . DS . "prodotto.html");
+
+if  ($auth->isLoggedIn()) {
+	$htmlPage = str_replace('<a_auth_state />', '<a href="logout.php" id="loginButton" class="fa fa-sign-out buttons"><span xml:lang="en"> Logout</span></a>', $htmlPage);
+} else
+	$htmlPage = str_replace('<a_auth_state />', '<a href="./formCliente.php" id="loginButton" class="fa fa-sign-in buttons"><span> Accedi</span></a>', $htmlPage);
+
 $htmlPage = str_replace("<nomeprodotto />", $prodotto['name'], $htmlPage);
 $htmlPage = str_replace("<immagineprodotto />",
     '<img src="'.$prodotto['image'].'" alt="Immagine del prodotto '.$prodotto['name'].'"/>', $htmlPage);
