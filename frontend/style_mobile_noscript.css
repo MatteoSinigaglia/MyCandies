@@ -126,7 +126,7 @@ text-decoration: none;
 .helpBackToHeader {
 width: 100%;
 text-align: center;
-margin-bottom: 0.7em;
+margin-bottom: 0.5em;
 }
 .backToHeader {
 font-weight: bold;
@@ -487,11 +487,12 @@ width: 70%;
 padding: 1em;
 border: 1px solid #ddd;
 border-radius: 10px;
+background-color: #F5F5F5;
 }
 .product-image {
 width: 16em;
 display: block;
-margin: 0.5em auto;
+margin: 0.3em auto;
 }
 .product-image img {
 max-width: 16em;
@@ -499,8 +500,13 @@ max-height: 12em;
 border-radius: 10px;
 }
 .product-info {
-margin-top: auto;
 text-align: center;
+}
+.product-info a {
+font-size: 0.8em;
+}
+#productList .helpBackToHeader {
+margin-top: 1.5em;
 }
 #productsPageNumber {
 text-align: center;

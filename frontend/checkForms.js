@@ -435,7 +435,6 @@ function loadMobileFilters() {
             button.className = "buttons";
             button.onclick = function() {mobileFilters();};
             productListContenitor.insertBefore(button, filtersContenitor);
-            filtersContenitor.style.marginTop = "0.5em";
             filtersContenitor.style.borderTop = "1px solid #DDD";
             filtersContenitor.style.display = "none";
         }
@@ -447,7 +446,6 @@ function loadMobileFilters() {
         if (button) {
             productListContenitor.removeChild(button);
         }
-        filtersContenitor.style.marginTop = "0";
         filtersContenitor.style.borderTop = "transparent";
         filtersContenitor.style.display = "block";
     }
