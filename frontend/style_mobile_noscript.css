@@ -79,6 +79,11 @@ background-color: #020E0A;
 padding: 0.2em;
 margin: 1em auto;
 }
+#navigation a:active,
+#navigation_dashboard a:active,
+#breadcrumb a:active {
+text-decoration: none;
+}
 h1 {
 font-size: 1.5em;
 font-weight: 700;
