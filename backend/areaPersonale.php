@@ -14,12 +14,6 @@ if (!$auth->isLoggedIn()) {
 	die();
 }
 
-//  Checks wether user is admin and in that case redirects to homepage
-if ($auth->isAdmin()) {
-	header('location: ./home.php');
-	die();
-}
-
 $DOM = file_get_contents('../frontend/areaPersonale.html');
 
 //  Header setup
