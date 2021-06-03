@@ -31,6 +31,7 @@ color: rgba(10, 8, 8, 0.479);
 color: rgb(134, 2, 2);
 padding: 0.5em 0em;
 display: block;
+font-size: 0.9em;
 }
 .rightMessage {
 color: #093013;
@@ -191,7 +192,8 @@ background-color: #093013;
 color: white;
 }
 .inputForm {
-margin: 1em 1.5em;
+width: 70%;
+margin: 1em auto;
 text-align: left;
 border-radius: 5px;
 border: 1px solid #DDD;

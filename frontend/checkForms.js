@@ -93,7 +93,7 @@ var form_registrazione = {
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
     "birthDate": ["Inserisci data (DD/MM/YYYY)", /^\d{2}\/\d{2}\/\d{4}$/, "Formato data non corretto. Inserire (DD/MM/YYYY).", "Utente minorenne non consentito.", "Data non valida."],
-    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
+    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?([a-zA-Zàèìòù]{2,20}\s?)+$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri maiuscoli."],
