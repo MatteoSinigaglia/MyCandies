@@ -35,7 +35,8 @@ try {
         $productsList = $productsManager->findProductsByCategory($_GET['category']);
     } else $productsList = $productsManager->getProducts();
 } catch (Exception $e) {
-    header("location: ../backend/home.php");
+    http_response_code(404);
+    include(MODEL_PATH . DS . 'error404.php');
     die();
 }
 
