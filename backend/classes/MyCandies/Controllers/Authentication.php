@@ -41,7 +41,9 @@ class Authentication {
 	}
 
 	static public function initSession() {
-		session_start();
+		if (session_status() !== PHP_SESSION_ACTIVE) {
+			session_start();
+		}
 	}
 
 	private function initUsers() {

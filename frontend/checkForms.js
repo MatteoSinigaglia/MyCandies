@@ -93,7 +93,7 @@ var form_registrazione = {
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
     "birthDate": ["Inserisci data (DD/MM/YYYY)", /^\d{2}\/\d{2}\/\d{4}$/, "Formato data non corretto. Inserire (DD/MM/YYYY).", "Utente minorenne non consentito.", "Data non valida."],
-    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
+    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?([a-zA-Zàèìòù]{2,20}\s?)+$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri maiuscoli."],
@@ -414,8 +414,7 @@ function loadMenuDashboard() {
 function mobileMenuDashboard() {
     var menu = document.getElementById("navigationMenu_dashboard");
     var button = document.getElementById("mobileMenuDashboard");
-    if (!button) button = document.getElementById("mobileMenuDashboard");
-    if(menu.style.display == "block") {
+    if (menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";
     } else {
@@ -424,5 +423,51 @@ function mobileMenuDashboard() {
     }
 };
 
-window.onload = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
-window.onresize = window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+function loadMobileFilters() {
+    var productListContenitor = document.getElementById("productList");
+    var filtersContenitor = document.getElementById("filters");
+    if (window.innerWidth <= 767) {
+        var but = document.getElementById("filtersButton");
+        if(!but) {
+            var button = document.createElement("button");
+            button.id = "filtersButton";
+            button.textContent = "Filtri";
+            button.className = "buttons";
+            button.onclick = function() {mobileFilters();};
+            productListContenitor.insertBefore(button, filtersContenitor);
+            filtersContenitor.style.borderTop = "1px solid #DDD";
+            filtersContenitor.style.display = "none";
+        }
+        if(filtersContenitor.style.display == "block") {
+            filtersContenitor.style.display = "none";
+        }
+    } else {
+        var button = document.getElementById("filtersButton");
+        if (button) {
+            productListContenitor.removeChild(button);
+        }
+        filtersContenitor.style.borderTop = "transparent";
+        filtersContenitor.style.display = "block";
+    }
+}
+
+function mobileFilters() {
+    var contenitor = document.getElementById("filters");
+    var button = document.getElementById("filtersButton");
+    if (contenitor.style.display == "block") {
+        contenitor.style.display = "none";
+        button.textContent = "Filtri";
+    } else {
+        contenitor.style.display = "block";
+        button.textContent = "Chiudi";
+    }
+}
+
+window.onload = () => {
+    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+    loadMobileFilters;
+}
+window.onresize = () => {
+    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
+    loadMobileFilters;
+}

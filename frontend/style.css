@@ -14,7 +14,7 @@ font-family: "Arial", cursive, sans-serif;
 }
 .main {
 margin: auto;
-max-width: 1280px;
+max-width: 1800px;
 }
 .helps,
 .hideProduct,
@@ -33,26 +33,18 @@ color: rgba(10, 8, 8, 0.479);
 color: rgb(134, 2, 2);
 padding: 0.5em 0;
 display: block;
+font-size: 0.9em;
 }
 .formSuccess {
 color: green;
 padding: 0.5em 0;
 display: block;
+font-size: 0.9em;
 }
 .rightMessage {
 color: #093013;
 display: block;
-}
-.paragraphLink:link {
-color: #093013;
-font-weight: bold;
-}
-.paragraphLink:hover{
-color: purple;
-text-decoration: none;
-}
-.paragraphLink:visited{
-color: rgb(134, 2, 2);
+font-size: 0.9em;
 }
 #breadcrumb {
 text-align: left;
@@ -63,15 +55,21 @@ font-weight: bold;
 color: black;
 background-color: #244224;
 }
+#navigation a:link,
+#navigation_dashboard a:link,
 #breadcrumb p,
 #breadcrumb a:link {
 color: white;
 }
-#breadcrumb a:hover {
-text-decoration: none;
-}
+#navigation a:visited,
+#navigation_dashboard a:visited,
 #breadcrumb a:visited {
 color: #CDA434;
+}
+#navigation a:hover,
+#navigation_dashboard a:hover,
+#breadcrumb a:hover {
+text-decoration: none;
 }
 h1 {
 font-size: 1.5em;
@@ -114,7 +112,7 @@ resize: none;
 .buttons {
 padding: 0.5em 1em;
 margin: 0.5em;
-border-radius: 4px;
+border-radius: 5px;
 background-color: #093013;
 color: #CDA434;
 font-weight: bold;
@@ -163,14 +161,9 @@ text-decoration: none;
 .helpBackToHeader {
 width: 100%;
 text-align: center;
-margin-bottom: 0.7em;
+margin-bottom: 0.5em;
 }
-#footer .helpBackToHeader {
-margin: 0;
-padding: 0;
-}
-.backToHeader,
-#footer .helpBackToHeader .backToHeader{
+.backToHeader{
 font-weight: bold;
 color: white;
 background-color: #093013;
@@ -178,14 +171,11 @@ padding: 0.6em 1em;
 border-radius: 5px;
 }
 .backToHeader:hover,
-.backToHeader:visited:hover,
-#footer .helpBackToHeader .backToHeader:hover,
-#footer .helpBackToHeader .backToHeader:visited:hover {
+.backToHeader:visited:hover {
 color: #CDA434;
 text-decoration: none;
 }
-.backToHeader:visited,
-#footer .helpBackToHeader .backToHeader:visited {
+.backToHeader:visited {
 color: white;
 }
 .inputForm {
@@ -207,7 +197,7 @@ background-color: white;
 border: 1px solid #DDD;
 }
 #category {
-    display: block;
+display: block;
 }
 table {
 margin: 3em auto;
@@ -283,51 +273,24 @@ border-radius: 4px;
 }
 #navigation a,
 #navigation_dashboard a {
-padding: 0.6em;
 border: 1px solid transparent;
-}
-#navigation a:link,
-#navigation_dashboard a:link {
-text-decoration: none;
-color: white;
-}
-#navigation a:visited,
-#navigation_dashboard a:visited {
-color: #CDA434;
-}
-#navigation a:hover,
-#navigation_dashboard a:hover {
-background-color: #F2E8CF;
-border-radius: 4px;
-color: #051C0B;
 }
 #navigation ul li span,
 #navigation_dashboard ul li span {
-border: 1px solid #DDD;
-border-radius: 4px;
-background-color: #051C0B;
 color: white;
-padding: 0.6em;
+text-decoration: none;
 }
 .selectedButton {
-border: 1px solid #DDD;
-border-radius: 4px;
-background-color: #051C0B;
+display: block;
+margin: 0.5em auto;
+background-color: #031808;
 color: white;
-padding: 0.5em 1em;
-margin: 0.5em;
-font-weight: bold;
-text-decoration: none;
-display: inline-block;
-font-size: 1em;
+width: 60%;
+text-align: center;
 }
 #mobileMenu,
 #mobileMenuDashboard {
 display: none;
-}
-#logoutButton {
-width: 100%;
-text-align: center;
 }
 #productContent h2 {
 font-size: 1.5em;
@@ -343,7 +306,7 @@ border-radius: 10px;
 margin: 0 0.5em 1em 0;
 }
 #productContenitor dl dt {
-font-size: 1.5em;
+font-size: 1.3em;
 font-weight: bold;
 background-color: #093013;
 border-radius: 8px 8px 0px 0px;
@@ -354,7 +317,8 @@ color: #CDA434;
 float: left;
 max-width: 17em;
 max-height: 12em;
-margin: 1em 0 1em 1em;
+margin: 1em;
+border-radius: 5px;
 }
 #productContenitor dl dd p {
 width: 75%;
@@ -432,6 +396,9 @@ max-width: 20%;
 padding: 1.5em;
 border: 1px solid #DDD;
 background-color: #F2E8CF;
+border-radius: 5px;
+margin-top: 5.3em;
+margin-left: 2.5em;
 }
 #filters a{
 display: block;
@@ -452,6 +419,7 @@ width: 4em;
 #rightSideContent {
 overflow: hidden;
 padding: 1em;
+margin-left: 25%;
 }
 #rightSideContent div {
 overflow: hidden;
@@ -468,28 +436,36 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
-#productsList {
-padding-top: 1em;
-padding-bottom: 1em;
+#productList {
+margin: 0;
+padding: 0;
+}
+#productList .helpBackToHeader {
+clear: both;
 }
 .products {
 display: flex;
 flex-wrap: wrap;
 }
 .product-card {
-margin: 0.5em;
+margin: 1em;
 padding: 1em;
-border: 1px solid #ddd;
+border: 1px solid #DDD;
+border-radius: 5px;
+background-color: #F5F5F5;
+}
+.product-card .paragraphLink{
+font-size: 0.9em;
 }
 .product-image {
-    width: 16em;
+width: 16em;
+display: block;
+margin: 0.3em auto;
 }
 .product-image img {
-margin-left: auto;
-margin-right: auto;
-display: block;
 max-width: 16em;
 max-height: 12em;
+border-radius: 5px;
 }
 .product-info {
 margin-top: auto;
@@ -661,6 +637,17 @@ padding: 0 0.7em 0.3em 0.7em;
 font-weight: bold;
 font-size: 1.2em;
 margin: 0.7em auto;
+}
+#inserisciCaratteristicheDashboard {
+width: 95%;
+}
+#inserisciCaratteristicheDashboard fieldset input {
+width: 90%;
+display: block;
+margin: 0.5em auto;
+}
+.fieldsetCharacteristics label input{
+padding-right: 0.5em;
 }
 #content404 img {
 width: 100%; 

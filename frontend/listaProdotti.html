@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenu();" onresize="loadMenu();">
+<body onload="loadMenu(); loadMobileFilters();" onresize="loadMenu(); loadMobileFilters();">
 
 <div id="header">
     <a class="helps" href="#productList">Vai al contenuto</a>
@@ -48,11 +48,12 @@
             <li><span>Droghe</span></li>
             <li><a href="../backend/areaPersonale.php">Area personale</a></li>
             <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+            <dashboard />
         </ul>
     </div>
 </div>
 <div id="breadcrumb">
-    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Lista prodotti</p>
+    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Droghe</p>
 </div>
 <div class="main" id="productList">
     <div id="filters">
@@ -65,9 +66,9 @@
             <listOfProducts />
         </div>
     </div>
-</div>
-<div class="helpBackToHeader">
-    <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
+    <div class="helpBackToHeader">
+        <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
+    </div>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">

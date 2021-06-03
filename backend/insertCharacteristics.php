@@ -2,8 +2,17 @@
 
 require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ActivePrinciplesManager.php';
+require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
 
+use MyCandies\Controllers\Authentication;
 use MyCandies\Controllers\ActivePrinciplesManager;
+
+$auth = new Authentication();
+
+if (!isset($_SERVER['HTTP_REFERER']) || !$auth->isAdmin()) {
+	header('location: ./home.php');
+	die();
+}
 
 $htmlPage = file_get_contents(VIEW_PATH . DS . "inserimentoCaratteristiche_dashboard.html");
 $pattern = "/<\/form>(.*?)<\/div>/s";
@@ -31,11 +40,11 @@ if(isset($_GET['insertActivePrinciple'])) {
                 <label for="activePrincipleName">Nome:</label>
                 <span><input type="text" id="activePrincipleName" name="activePrincipleName" /></span>
                 <errName />
-                <fieldset>
+                <fieldset class="fieldsetCharacteristics">
                     <legend class="insertEffects">Effetti del principio attivo</legend>
                     '.$effectCheckboxes.'
                 </fieldset>
-                <fieldset>
+                <fieldset class="fieldsetCharacteristics">
                     <legend class="insertEffects">Effetti collaterali del principio attivo</legend>
                     '.$sideEffectCheckboxes.'
                 </fieldset>
@@ -44,7 +53,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         </form>
     </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    $htmlPage = str_replace('value="Inserisci principio attivo" class="buttons"', 'value="Inserisci principio attivo" class="selectedButton"', $htmlPage);
+    $htmlPage = str_replace('value="Inserisci principio attivo" class="buttons"', 'value="Inserisci principio attivo" class="selectedButton buttons"', $htmlPage);
 } else if(isset($_GET['insertEffect'])) {
     $form = '
    </form>
@@ -62,7 +71,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    $htmlPage = str_replace('value="Inserisci effetto" class="buttons"', 'value="Inserisci effetto" class="selectedButton"', $htmlPage);
+    $htmlPage = str_replace('value="Inserisci effetto" class="buttons"', 'value="Inserisci effetto" class="selectedButton buttons"', $htmlPage);
 } else if(isset($_GET['insertSideEffect'])) {
     $form = '
    </form>
@@ -80,7 +89,7 @@ if(isset($_GET['insertActivePrinciple'])) {
             </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    $htmlPage = str_replace('value="Inserisci effetto collaterale" class="buttons"', 'value="Inserisci effetto collaterale" class="selectedButton"', $htmlPage);
+    $htmlPage = str_replace('value="Inserisci effetto collaterale" class="buttons"', 'value="Inserisci effetto collaterale" class="selectedButton buttons"', $htmlPage);
 } else if(isset($_GET['insertCategory'])) {
     $form = '
     </form>
@@ -98,7 +107,7 @@ if(isset($_GET['insertActivePrinciple'])) {
         </form>
         </div>';
     $htmlPage = preg_replace($pattern, $form, $htmlPage, 1);
-    $htmlPage = str_replace('value="Inserisci categoria" class="buttons"', 'value="Inserisci categoria" class="selectedButton"', $htmlPage);
+    $htmlPage = str_replace('value="Inserisci categoria" class="buttons"', 'value="Inserisci categoria" class="selectedButton buttons"', $htmlPage);
 }
 
 echo $htmlPage;

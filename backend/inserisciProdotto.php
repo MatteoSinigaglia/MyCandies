@@ -4,6 +4,7 @@ require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Product.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Image.php';
+require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'Authentication.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'CategoriesManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ProductsManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager.php';
@@ -12,8 +13,16 @@ require_once LIB_PATH . DS . 'functions.php';
 require_once LIB_PATH . DS . 'productsForm.php';
 
 use DB\Exceptions\DBException;
+use MyCandies\Controllers\Authentication;
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Exceptions\EntityException;
+
+$auth = new Authentication();
+
+if (!isset($_SERVER['HTTP_REFERER']) || !$auth->isAdmin()) {
+	header('location: ./home.php');
+	die();
+}
 
 [
     'categoryManager' => $categoryManager,
