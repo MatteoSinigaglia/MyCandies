@@ -16,11 +16,10 @@ if  ($auth->isLoggedIn()) {
 
 $DOM = str_replace('<navbar />', ($auth->isAdmin()
 	?
-	'<li><a href="../backend/riepilogoAcquisti_dashboard.php">Riepilogo acquisti</a></li>'.
-	'<li><a href="../backend/utenti_dashboard.php">Utenti</a></li>'.
-	'<li><a href="../backend/inserisciProdotto.php">Inserisci prodotto</a></li>'.
-	'<li><a href="../backend/prodotti_dashboard.php">Lista prodotti</a></li>'.
-	'<li><a href="../backend/insertCharacteristics.php">Inserisci caratteristiche</a></li>'
+	'<li><a href="../backend/listaProdotti.php">Droghe</a></li>'.
+	'<li><a href="../backend/areaPersonale.php">Area personale</a></li>'.
+	'<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>'.
+	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
 	:
 	'<li><a href="../backend/listaProdotti.php">Droghe</a></li>'.
 	'<li><a href="../backend/areaPersonale.php">Area personale</a></li>'.
