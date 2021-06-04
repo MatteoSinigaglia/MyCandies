@@ -358,6 +358,7 @@ function loadMenu() {
         }
         if(navigationMenu.style.display == "block") {
             navigationMenu.style.display = "none";
+            but.className = "fa fa-bars";
         }
     } else {
         var button = document.getElementById("mobileMenu");
@@ -399,6 +400,7 @@ function loadMenuDashboard() {
         }
         if(navigationMenuDash.style.display == "block") {
             navigationMenuDash.style.display = "none";
+            but.className = "fa fa-bars";
         }
     } else {
         var button = document.getElementById("mobileMenuDashboard");
@@ -464,10 +466,8 @@ function mobileFilters() {
 }
 
 window.onload = () => {
-    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
     loadMobileFilters;
 }
 window.onresize = () => {
-    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
     loadMobileFilters;
 }
