@@ -112,7 +112,7 @@ function insertCategory(String $htmlPage, String $pattern, bool $insertErrTag=fa
                 <error_overall />
                 <label for="categoryName">Nome:</label>
                 <span><input type="text" id="categoryName" name="categoryName" /></span>
-                <errName />
+                <error_name />
                 <input type="submit" id="submitCategory" value="Aggiungi" name="submitCategory" class="buttons" />
             </fieldset>
         </form>

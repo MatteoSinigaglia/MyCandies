@@ -25,8 +25,9 @@
         }
 
         private function setName($name) {
-            if(!isset($name) || $name == '')
+            if(!isset($name) || $name == '') {
                 throw new Exception('Il nome deve essere valorizzato');
+            }
             else if($this->checkUniqueName($name))
                 throw new Exception('Esiste già una categoria con lo stesso nome');
             $this->name = $name;

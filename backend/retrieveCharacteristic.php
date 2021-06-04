@@ -24,34 +24,26 @@ if(isset($_POST['submitActivePrinciple'])) {
     $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
-        if($name != null) {
-            $success = $activePrinciplesManager->insertActivePrinciple([
-                'name' => $name], $effects, $sideEffects);
-        }
+        $success = $activePrinciplesManager->insertActivePrinciple(['name' => $name], $effects, $sideEffects);
     } catch(Exception $e) {
         $htmlPage = str_replace('<error_name />', '<p class="formErrors">'.$e->getMessage().'</p>', $htmlPage);
     } finally {
-        if($name == null)
-            $htmlPage = str_replace('<error_name />', '<p class="formErrors">Inserire un nome</p>', $htmlPage);
-        else if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
+        if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
         else $htmlPage = str_replace('<error_overall />', '<p class="formErrors">Inserimento fallito</p>', $htmlPage);
     }
 } else if(isset($_POST['submitCategory'])) {
     $_GET['insertCategory']='Inserisci+categoria';
-    $htmlPage = insertCategory($htmlPage, $pattern);
+    $htmlPage = insertCategory($htmlPage, $pattern, true);
     $name = ($_POST['categoryName'] ?? null);
     unset($_GET['insertCategory']);
     $success = false;
     try {
         $categoriesManager = new CategoriesManager();
-        if($name != null)
-            $success = $categoriesManager->insertCategory($name);
+        $success = $categoriesManager->insertCategory($name);
     } catch(Exception $e) {
         $htmlPage = str_replace('<error_name />', '<p class="formErrors">'.$e->getMessage().'</p>', $htmlPage);
     } finally {
-        if($name == null)
-            $htmlPage = str_replace('<error_name />', '<p class="formErrors">Inserire un nome</p>', $htmlPage);
-        else if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
+        if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
         else $htmlPage = str_replace('<error_overall />', '<p class="formErrors">Inserimento fallito</p>', $htmlPage);
     }
 } else if(isset($_POST['submitEffect'])) {
@@ -62,14 +54,11 @@ if(isset($_POST['submitActivePrinciple'])) {
     $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
-        if($name != null)
-            $success = $activePrinciplesManager->insertEffect($name);
+        $success = $activePrinciplesManager->insertEffect($name);
     } catch(Exception $e) {
         $htmlPage = str_replace('<error_name />', '<p class="formErrors">'.$e->getMessage().'</p>', $htmlPage);
     } finally {
-        if($name == null)
-            $htmlPage = str_replace('<error_name />', '<p class="formErrors">Inserire un nome</p>', $htmlPage);
-        else if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
+        if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
         else $htmlPage = str_replace('<error_overall />', '<p class="formErrors">Inserimento fallito</p>', $htmlPage);
     }
 } else if(isset($_POST['submitSideEffect'])) {
@@ -80,14 +69,11 @@ if(isset($_POST['submitActivePrinciple'])) {
     $success = false;
     try {
         $activePrinciplesManager = new ActivePrinciplesManager();
-        if($name != null)
-            $success = $activePrinciplesManager->insertSideEffect($name);
+        $success = $activePrinciplesManager->insertSideEffect($name);
     } catch(Exception $e) {
         $htmlPage = str_replace('<error_name />', '<p class="formErrors">'.$e->getMessage().'</p>', $htmlPage);
     } finally {
-        if($name == null)
-            $htmlPage = str_replace('<error_name />', '<p class="formErrors">Inserire un nome</p>', $htmlPage);
-        else if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
+        if($success) $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Valore inserito</p>', $htmlPage);
         else $htmlPage = str_replace('<error_overall />', '<p class="formErrors">Inserimento fallito</p>', $htmlPage);
     }
 }

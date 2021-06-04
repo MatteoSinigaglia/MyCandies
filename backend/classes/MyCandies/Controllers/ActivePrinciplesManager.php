@@ -65,7 +65,7 @@ class ActivePrinciplesManager
                 foreach ($activePrincipleEffects as &$i) {
                     $this->T_activePrinciplesEffects->insert($i);
                 }
-            }
+            } else throw new Exception('Il principio attivo deve avere almeno un effetto');
             if($sideEffectNames != null) {
                 $activePrincipleSideEffects = array();
                 foreach ($sideEffectNames as $i) {
@@ -77,12 +77,12 @@ class ActivePrinciplesManager
                 foreach ($activePrincipleSideEffects as $i) {
                     $this->T_activePrinciplesSideEffects->insert($i);
                 }
-            }
+            } else throw new Exception('Il principio attivo deve avere almeno un effetto collaterale');
             $this->dbh->transactionCommit();
         } catch (DBException $e) {
             $this->dbh->transactionRollback();
             throw $e;
-        } catch(EntityException $e) {
+        } catch(EntityException | Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
@@ -99,7 +99,7 @@ class ActivePrinciplesManager
                 'name' => $effectName]);
             $this->T_effects->insert($effect);
             $this->dbh->transactionCommit();
-        } catch (EntityException | DBException $e) {
+        } catch (EntityException | DBException | Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
         } finally {
