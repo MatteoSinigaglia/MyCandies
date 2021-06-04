@@ -78,12 +78,14 @@
                 <productsInCart />
 			</tbody>
         </table>
-        <table summary="Tabella per indicare il totale del carrello.">
-            <tbody>
+        <table class="responsiveTable" summary="Tabella per indicare il totale del carrello.">
+            <thead>
                 <tr>
 					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
-                    <total />
 				</tr>
+            </thead>
+            <tbody>
+                <total />
             </tbody>
         </table>
 		<a href="../backend/purchase.php"><button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button></a>

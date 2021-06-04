@@ -350,7 +350,7 @@ function loadMenu() {
             var button = document.createElement("button");
             button.id = "mobileMenu";
             button.className = "fa fa-bars";
-            button.onclick = function() {mobileMenu();};
+            button.onclick = () => mobileMenu();
             menuContenitor.insertBefore(button, navigationMenu);
             navigationMenu.style.marginTop = "0.5em";
             navigationMenu.style.borderTop = "1px solid #DDD";
@@ -358,6 +358,7 @@ function loadMenu() {
         }
         if(navigationMenu.style.display == "block") {
             navigationMenu.style.display = "none";
+            but.className = "fa fa-bars";
         }
     } else {
         var button = document.getElementById("mobileMenu");
@@ -391,7 +392,7 @@ function loadMenuDashboard() {
             var button = document.createElement("button");
             button.id = "mobileMenuDashboard";
             button.className = "fa fa-bars";
-            button.onclick = function() {mobileMenuDashboard();};
+            button.onclick = () => mobileMenuDashboard();
             menuContenitor.insertBefore(button, navigationMenuDash);
             navigationMenuDash.style.marginTop = "0.5em";
             navigationMenuDash.style.borderTop = "1px solid #DDD";
@@ -399,6 +400,7 @@ function loadMenuDashboard() {
         }
         if(navigationMenuDash.style.display == "block") {
             navigationMenuDash.style.display = "none";
+            but.className = "fa fa-bars";
         }
     } else {
         var button = document.getElementById("mobileMenuDashboard");
@@ -464,10 +466,8 @@ function mobileFilters() {
 }
 
 window.onload = () => {
-    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
     loadMobileFilters;
 }
 window.onresize = () => {
-    window.location.pathname.split("/").pop().includes("_dashboard") ? loadMenuDashboard : loadMenu;
     loadMobileFilters;
 }

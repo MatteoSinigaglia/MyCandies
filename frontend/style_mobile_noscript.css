@@ -69,6 +69,21 @@ color: #CDA434;
 #breadcrumb a:active {
 text-decoration: none;
 }
+#navigation ul li span,
+#navigation_dashboard ul li span {
+color: white;
+text-decoration: none;
+border: 1px solid #DDD;
+border-radius: 5px;
+background-color: #020E0A;
+padding: 0.2em;
+margin: 1em auto;
+}
+#navigation a:active,
+#navigation_dashboard a:active,
+#breadcrumb a:active {
+text-decoration: none;
+}
 h1 {
 font-size: 1.5em;
 font-weight: 700;
@@ -99,13 +114,26 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="file"],
-textarea {
+textarea,
+.selectForm {
 box-sizing: border-box;
-width: 100%;
+width: 90%;
+display: block;
+margin: auto;
 border: 1px solid #DDD;
 padding: 0.8em;
 border-radius: 5px;
 resize: none;
+background-color: white;
+}
+#aggiungi,
+#cancella,
+#submitActivePrinciple,
+#submitEffect,
+#submitSideEffect,
+#submitCategory {
+display: block;
+margin: 0.6em auto 0 auto;
 }
 .buttons {
 padding: 0.5em 1em;
@@ -161,13 +189,11 @@ left: -9999px;
 top: -9999px;
 }
 .responsiveTable tr td {
-border: none;
 border: 1px solid rgb(119, 111, 111);
 padding-left: 50%;
 position: relative;
 text-align: right;
 white-space: normal;
-padding: 1em;
 }
 .responsiveTable tr td:before {
 font-weight: bold;
@@ -194,21 +220,23 @@ background-color: #093013;
 color: white;
 }
 .inputForm {
-width: 70%;
+width: 75%;
 margin: 1em auto;
 text-align: left;
 border-radius: 5px;
 border: 1px solid #DDD;
-padding: 1em;
+padding: 0.5em;
 background-color: #F2E8CF;
+}
+.inputForm label {
+width: 85%;
+}
+.inputForm label input[type="checkbox"] {
+margin: 0em 0.4em;
 }
 .inputForm a {
 font-weight: bold;
 display: block;
-}
-.selectForm {
-background-color: white;
-border: 1px solid #DDD;
 }
 table {
 margin: 3em auto;
@@ -283,6 +311,11 @@ color: #CDA434;
 #loginButton span {
 display: none;
 }
+#purchaseButton {
+display: block;
+margin: 1em auto;
+text-decoration: none;
+}
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -292,6 +325,10 @@ text-align: center;
 background-color: #093013;
 padding: 0.8em;
 list-style-type: none;
+}
+#navigationMenu,
+#navigationMenu_dashboard {
+padding-top: 0.3em;
 }
 #navigation li,
 #navigation_dashboard li {
@@ -420,6 +457,9 @@ background-color: #F2E8CF;
 #selectedProduct table {
 width: 100%;
 margin: 0.5em auto;
+}
+#selectedProduct a {
+text-decoration: none;
 }
 #productList {
 width: 100%;
@@ -582,7 +622,8 @@ background-color: #020E0A;
 }
 #diritti p {
 margin: 1em;
-font-weight: 600;
+font-weight: bold;
+font-size: 0.8em;
 }
 #contentHome{
 width: 85%;
@@ -592,9 +633,9 @@ border-radius: 10px;
 }
 #contentHome img{
 width: 50%;
-margin-left: 25%;
-margin-top: 1em;
-padding-bottom: 2%;
+display: block;
+margin: 1em auto;
+padding-top: 1em;
 }
 #contentHome p{
 font-size: 1.2em;
