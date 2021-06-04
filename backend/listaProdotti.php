@@ -40,7 +40,9 @@ try {
     die();
 }
 
-$categories = '';
+$categories = isset($_GET['category']) ?
+    '<a href="../backend/listaProdotti.php" class="buttons">Tutte le categorie</a>'
+    : '<span class="selectedButton buttons">Tutte le categorie</span>';
 foreach ($categoriesList as $category) {
     if(isset($_GET['category']) && $category->getId() == $_GET['category'])
         $categories .=
