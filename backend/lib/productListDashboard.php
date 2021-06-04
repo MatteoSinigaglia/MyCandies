@@ -38,7 +38,7 @@ function insertProductRow(array $productList, String $DOM, bool $insertTag): Str
                     {$row['availability']}
                 </td>
                 <td scope=\"row\" title=\"Azioni\">
-                    <a href=\"modificaProdotto.php?name={$row['name']}\">Modifica</a>
+                    <a href=\"modificaProdotto.php?name={$row['name']}\" class=\"buttons\">Modifica</a>
                 </td>
             </tr>";
         }
