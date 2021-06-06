@@ -18,10 +18,9 @@ $prodotto = array();
 try {
     $prodotto = $productsManager->getSingleProduct($productId);
     $prodotto = $prodotto + ['id' => $productId];
-} catch (DBException $e) {
-    ob_start();
-    require_once 'listaProdotti.php';
-    echo ob_get_clean();
+} catch (DBException | Exception $e) {
+    http_response_code(404);
+    include(MODEL_PATH . DS . 'error404.php');
     die();
 }
 

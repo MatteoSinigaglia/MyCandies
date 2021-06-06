@@ -28,7 +28,6 @@ use MyCandies\Entities\ProductImage;
 use MyCandies\Entities\ProductsActivePrinciple;
 use MyCandies\Entities\SideEffect;
 use MyCandies\Entities\Effect;
-use MyCandies\Exceptions\EntityException;
 use MyCandies\Entities\ActivePrincipleEffect;
 use MyCandies\Entities\ActivePrincipleSideEffect;
 use MyCandies\Tables\Table;

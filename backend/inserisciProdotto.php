@@ -10,7 +10,7 @@ require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ProductsManager.php';
 require_once MYCANDIES_PATH . DS . 'Controllers' . DS . 'ActivePrinciplesManager.php';
 require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 require_once LIB_PATH . DS . 'functions.php';
-require_once LIB_PATH . DS . 'productsForm.php';
+require_once LIB_PATH . DS . 'productsFormLib.php';
 
 use DB\Exceptions\DBException;
 use MyCandies\Controllers\Authentication;

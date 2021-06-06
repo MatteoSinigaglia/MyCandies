@@ -24,8 +24,7 @@ class dbh {
 	public function __construct() {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
-		$this->port = $_SERVER['SERVER_PORT'];
-		$this->psw = 'root';
+		$this->psw = '';
 		$this->user = 'root';
 		$this->charset = 'utf8mb4';
 		$this->options = [

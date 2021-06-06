@@ -20,8 +20,8 @@ function initProductsForm(): array {
             'DOM' => file_get_contents(VIEW_PATH . DS . "inserisciProdotto_dashboard.html"),
         ];
     } catch (Exception $e) {
-        // TODO pagina 404
-        header('location:'. MODEL_PATH . DS .'home.php');
+        http_response_code(404);
+        include(MODEL_PATH . DS . 'error404.php');
         die();
     }
 }

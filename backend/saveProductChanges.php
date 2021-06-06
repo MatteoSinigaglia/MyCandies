@@ -3,7 +3,7 @@
 require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
-require_once LIB_PATH . DS . 'productListDashboard.php';
+require_once LIB_PATH . DS . 'productListDashboardLib.php';
 
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Entities\Product;

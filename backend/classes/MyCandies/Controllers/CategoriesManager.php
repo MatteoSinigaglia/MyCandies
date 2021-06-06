@@ -4,11 +4,9 @@ namespace MyCandies\Controllers;
 
 require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Category.php';
-require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 require_once MYCANDIES_PATH . DS . 'Entities' . DS . 'Entity.php';
 
 use DB\dbh;
-use DB\Exceptions\DBException;
 use Exception;
 use MyCandies\Entities\Category;
 use MyCandies\Entities;

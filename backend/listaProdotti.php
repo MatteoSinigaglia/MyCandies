@@ -35,11 +35,14 @@ try {
         $productsList = $productsManager->findProductsByCategory($_GET['category']);
     } else $productsList = $productsManager->getProducts();
 } catch (Exception $e) {
-    header("location: ../backend/home.php");
+    http_response_code(404);
+    include(MODEL_PATH . DS . 'error404.php');
     die();
 }
 
-$categories = '';
+$categories = isset($_GET['category']) ?
+    '<a href="../backend/listaProdotti.php" class="buttons">Tutte le categorie</a>'
+    : '<span class="selectedButton buttons">Tutte le categorie</span>';
 foreach ($categoriesList as $category) {
     if(isset($_GET['category']) && $category->getId() == $_GET['category'])
         $categories .=

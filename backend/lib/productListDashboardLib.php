@@ -6,12 +6,13 @@ use MyCandies\Controllers\ProductsManager;
 
 function initProductList(): array {
     $htmlPage = file_get_contents(VIEW_PATH. DS . "prodotti_dashboard.html");
-    $productList = array();
     try {
         $productManager = new ProductsManager();
         $productList = $productManager->getProducts();
     } catch (Exception $e) {
-        $htmlPage = str_replace("<insertRow />", '<p colgroup="4" class="formErrors">Errore nel caricamento</p>', $htmlPage);
+        http_response_code(404);
+        include(MODEL_PATH . DS . 'error404.php');
+        die();
     }
     return [
       'DOM' => $htmlPage,
