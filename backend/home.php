@@ -15,12 +15,12 @@ if  ($auth->isLoggedIn()) {
 
 $DOM = str_replace('<navbar />', ($auth->isAdmin()
 	?
-	'<li><a href="../backend/listaProdotti.php">Droghe</a></li>'.
+	'<li><a href="../backend/listaProdotti.php">Prodotti</a></li>'.
 	'<li><a href="../backend/areaPersonale.php">Area personale</a></li>'.
 	'<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>'.
 	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
 	:
-	'<li><a href="../backend/listaProdotti.php">Droghe</a></li>'.
+	'<li><a href="../backend/listaProdotti.php">Prodotti</a></li>'.
 	'<li><a href="../backend/areaPersonale.php">Area personale</a></li>'.
 	'<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>'), $DOM);
 

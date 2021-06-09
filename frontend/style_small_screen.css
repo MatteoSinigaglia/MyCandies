@@ -345,9 +345,7 @@ margin: 1em;
 border-radius: 5px;
 }
 #productContenitor dl dd p {
-width: 75%;
 padding: 1em;
-margin-left: 22%;
 }
 #productContenitor a:link {
 text-decoration: none;
@@ -404,18 +402,22 @@ width: 10%;
 margin: 1em 3em;
 }
 #cartContent h1 {
-float: left;
-margin-top: 10%;
+font-size: 2em;
 }
 #selectedProduct {
 clear: left;
 padding: 1em;
-margin: 3em;
+margin: 1em 3em;
 border-radius: 10px;
 background-color: #F2E8CF;
 }
+#selectedProduct a:link {
+text-decoration: none;
+}
 #purchaseButton {
-margin-left: 70%;
+display: block;
+margin: 0.5em auto;
+text-decoration: none;
 }
 #filters {
 float: left;
@@ -576,7 +578,8 @@ color: #FFFFFF;
 }
 #contentHome{
 width: 85%;
-margin: 3% 7.5%;
+display: block;
+margin: 1em auto;
 background-color: #F2E8CF;
 border-radius: 10px;
 }
@@ -588,7 +591,7 @@ padding-top: 1em;
 }
 #contentHome p{
 font-size: 1.2em;
-margin: 0 15%;
+margin: 0 2em;
 text-align: center;
 padding-bottom: 1em;
 }
