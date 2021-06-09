@@ -443,16 +443,15 @@ float: left;
 width: 15%;
 margin: 1em 3em;
 }
-#cartContent h1 {
-float: left;
-margin-top: 2.5em;
-}
 #selectedProduct {
 clear: left;
 padding: 1em;
-margin: 1em 0.1em;
+margin: 1em;
 border-radius: 10px;
 background-color: #F2E8CF;
+}
+#selectedProduct a:link {
+text-decoration: none;
 }
 #selectedProduct table {
 width: 100%;
@@ -627,7 +626,8 @@ font-size: 0.8em;
 }
 #contentHome{
 width: 85%;
-margin: 3% 7.5%;
+display: block;
+margin: 1em auto;
 background-color: #F2E8CF;
 border-radius: 10px;
 }
@@ -639,8 +639,7 @@ padding-top: 1em;
 }
 #contentHome p{
 font-size: 1.2em;
-margin-left: 15%;
-margin-right: 15%;
+margin: 1em;
 text-align: center;
 padding-bottom: 1em;
 }
