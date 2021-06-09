@@ -42,7 +42,7 @@ DELETE FROM `ActivePrinciplesSideEffects`;
 INSERT INTO `ActivePrinciplesSideEffects` (`active_principle_id`, `side_effect_id`) VALUES (1,1),(2,5),(3,3),(4,4),(5,2),(6,8),(7,6),(8,7);
 
 DELETE FROM `Images`;
-INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/'),(2,'../img/products/'),(3,'../img/products/'),(4,'../img/products/'),(5,'../img/products/'),(6,'../img/products/'),(7,'../img/products/'),(8,'../img/products/'),(9,'../img/products/');
+INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/orsetti.jpg'),(2,'../img/products/cola_zuccherate.jpg'),(3,'../img/products/gommose_rosa.jpg'),(4,'../img/products/liquirizia_ripiena.jpg'),(5,'../img/products/perle_colorate.jpg'),(6,'../img/products/rotelle_liquirizia.jpg'),(7,'../img/products/strisce_colorate.jpg'),(8,'../img/products/uova'),(9,'../img/products/zuccherate');
 
 DELETE FROM `ProductsImages`;
 INSERT INTO `ProductsImages` (`img_id`, `product_id`) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
