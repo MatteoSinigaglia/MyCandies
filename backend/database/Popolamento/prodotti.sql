@@ -1,9 +1,9 @@
 DELETE FROM `Products`;
 INSERT INTO `Products` (`id`, `category_id`, `name`, `description`, `price`, `availability`) VALUES 
 
-(1, 1, "Balsamiche nootropiche", "nootropi", 8.99, 30),
+(1, 1, "Balsamiche nootropiche", "Questa classica caramella ha da sempre una forma rettangolare. Il suo gusto è familiare, gradevole e aromatico, e viene in aiuto in caso di tosse ma in questa versione permette lo sviluppo di telecinesi. La ricetta dell’originale cristallo di zucchero alle erbe tanto apprezzato in tutto il mondo è rimasta praticamente invariata dal 1940 ed è custodita con la massima segretezza. Una cosa però la sveliamo: la forza di questa caramella è data dai nootropi. I nootropi conosciuti anche come (farmaci intelligenti), sono sostanze che aumentano le capacità cognitive dell'essere umano (abilità e funzionalità del cervello). Generalmente, i nootropi lavorano aumentando il rilascio di agenti neurochimici (neurotrasmettitori, enzimi e ormoni), migliorando l'apporto di ossigeno al cervello o stimolando la crescita nervosa.", 8.99, 30),
 
-(2, 2, "Taurina mou", "taurina", 10, 300),
+(2, 2, "Taurina mou", "Le caramelle mou si ottengono sciogliendo nel latte freddo lo zucchero per poi portarlo ad ebollizione mescolando frequentemente fino a raggiungere un composto tipo marmellata. La nostra versione prevede l'aggiunta di grosse quantità di taurina, la quale permette, in seguito all'assunzione, di muoversi a super velocità. <span xml:lang='en'>Grant Gustin</span>, attore che interpreta <span xml:lang='en'>Barry Allen</span>, nella famosa serie <span xml:lang='en'>The Flash</span>, assume regolarmente 'Taurina mou' prima delle scena d'azione, rendendo così inutile il ruolo di controfigure ed effetti speciali.", 10, 300),
 
 (3, 5, "Cola ionizzate", "gas ionizzato", 23.00, 450),
 
@@ -42,7 +42,7 @@ DELETE FROM `ActivePrinciplesSideEffects`;
 INSERT INTO `ActivePrinciplesSideEffects` (`active_principle_id`, `side_effect_id`) VALUES (1,1),(2,5),(3,3),(4,4),(5,2),(6,8),(7,6),(8,7);
 
 DELETE FROM `Images`;
-INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/balsamiche.jpg'),(2,'../img/products/mou.jpg'),(3,'../img/products/cola_gommose.jpg'),(4,'../img/products/anguria.jpg'),(5,'../img/products/squali_gommosi.jpg'),(6,'../img/products/cola.jpg'),(7,'../img/products/orsetti.jpg'),(8,'../img/products/liquirizia_ripiene.jpg'),(9,'../img/products/caffe.png');
+INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/balsamiche.png'),(2,'../img/products/mou.jpg'),(3,'../img/products/cola_gommose.jpg'),(4,'../img/products/anguria.jpg'),(5,'../img/products/squali_gommosi.jpg'),(6,'../img/products/cola.jpg'),(7,'../img/products/orsetti.jpg'),(8,'../img/products/liquirizia_ripiene.jpg'),(9,'../img/products/caffe.png');
 
 DELETE FROM `ProductsImages`;
 INSERT INTO `ProductsImages` (`img_id`, `product_id`) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
