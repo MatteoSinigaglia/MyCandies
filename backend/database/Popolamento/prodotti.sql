@@ -42,7 +42,7 @@ DELETE FROM `ActivePrinciplesSideEffects`;
 INSERT INTO `ActivePrinciplesSideEffects` (`active_principle_id`, `side_effect_id`) VALUES (1,1),(2,5),(3,3),(4,4),(5,2),(6,8),(7,6),(8,7);
 
 DELETE FROM `Images`;
-INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/balsamiche.png'),(2,'../img/products/mou.jpg'),(3,'../img/products/cola_gommose.jpg'),(4,'../img/products/anguria.jpg'),(5,'../img/products/coccodri.jpg'),(6,'../img/products/cola.jpg'),(7,'../img/products/orsetti.jpg'),(8,'../img/products/liquirizia_ripiene.jpg'),(9,'../img/products/eucalipto.jpg');
+INSERT INTO `Images` (`id`, `img_path`) VALUES (1,'../img/products/balsamiche.jpg'),(2,'../img/products/mou.jpg'),(3,'../img/products/cola_gommose.jpg'),(4,'../img/products/anguria.jpg'),(5,'../img/products/coccodri.jpg'),(6,'../img/products/cola.jpg'),(7,'../img/products/orsetti.jpg'),(8,'../img/products/liquirizia_ripiene.jpg'),(9,'../img/products/eucalipto.jpg');
 
 DELETE FROM `ProductsImages`;
 INSERT INTO `ProductsImages` (`img_id`, `product_id`) VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
