@@ -1,56 +1,71 @@
+\newpage
 \section{Layout e contenuto delle pagine}
 
 \subsection{Header}
 L'header è composto dal \textit{logo}, dalla \textit{barra di ricerca} (con il proprio pulsante cerca associato) ed i due \textit{pulsanti} principali: Accedi e Carrello. Il menù di navigazione principale è inoltre parte integrante dell'header.
-Ogni elemento dell' header è stato posizionato in funzione delle aree della pagina che gli utenti in genere associano alla ricerca della funzionalità desiderata. 
+Ogni elemento dell'header è stato posizionato in funzione delle aree della pagina che gli utenti in genere associano alla ricerca della funzionalità desiderata. 
 
 \subsubsection{Header lato utente}
-L'header visibile ad un utente comune contiene tutte le funzionalità maggiormente ricercate dal cliente, quali la ricerca dei prodotti, la visualizzazione del carrello e l'accesso all'area personale. Inoltre contiene i link alle altre pagine del sito.
-\paragraph{Logo:}il logo è situato in alto a sinistra. Esso possiede un link per tornare alla homepage (disattivato nella homepage stessa). Il posizionamento del logo precedentemente descritto e la funzionalità ad esso associata rappresentano due convenzioni esterne in genere molto ricercate dagli utenti nella navigazione in un sito di e-commerce.
+L'header visibile ad un utente comune contiene tutte le funzionalità maggiormente ricercate dal cliente, quali la ricerca dei prodotti, la visualizzazione del carrello e le funzionalità di login e/o registrazione. Inoltre contiene i link alle altre pagine del sito.
 
-\paragraph{Barra di ricerca:}la barra di ricerca è situata al centro dell'header. Tramite essa è possibile cercare immediatamente un prodotto di interesse digitando al suo interno il testo ricercato o (parte di esso) e cliccando il pulsante \textit{Cerca} situato alla destra della barra stessa (o premendo \textbf{Invio}). 
+\subsubsection{Logo}: il logo è situato in alto a sinistra. Esso possiede un link per tornare alla homepage (disattivato nella homepage stessa). Il posizionamento del logo precedentemente descritto e la funzionalità ad esso associata rappresentano due convenzioni esterne in genere molto ricercate dagli utenti nella navigazione in un sito di e-commerce.
 
-\paragraph{Pulsante "Accedi":} il pulsante \textit{Accedi} è situato in alto a destra. Esso permette di accedere all'area dedicata ai form di login e registrazione. Il pulsante cambia dinamicamente quando l'utente effettua il login, permettendo effettuare il logout TODO:logout o nome dell utente??????????????. 
+\subsubsection{Barra di ricerca}: la barra di ricerca è situata al centro dell'header. Tramite essa è possibile cercare immediatamente un prodotto di interesse digitando al suo interno il testo ricercato o (parte di esso) e cliccando il pulsante \textit{Cerca} situato alla destra della barra stessa (o premendo \textbf{Invio}). 
 
-\paragraph{Pulsante "Carrello":} tale pulsante è situato alla destra del pulsante \textit{Accedi}. Esso permette di visualizzare la pagina con i prodotti selezionati per l'acquisto in forma tabellare.
+\subsubsection{Pulsante "Accedi"}: il pulsante \textit{Accedi} è situato in alto a destra. Esso permette di accedere all'area dedicata ai form di login e registrazione. Il pulsante cambia dinamicamente quando l'utente effettua il login, permettendo effettuare il logout. 
 
-\paragraph{Menù di navigazione: }il menù di navigazione principale è parte integrante dell' header. Esso è situato sotto gli elementi precedentemente descritti ed è centrato orizzontalmente. Il menù dell'utente possiede quattro voci:
+\subsubsection{Pulsante "Carrello"}: tale pulsante è situato alla destra del pulsante \textit{Accedi}. Esso permette di visualizzare la pagina con i prodotti selezionati per l'acquisto in forma tabellare.
+
+\subsubsection{Menù di navigazione}: il menù di navigazione principale è parte integrante dell' header. Esso è situato sotto gli elementi precedentemente descritti ed è centrato orizzontalmente. Il menù dell'utente possiede quattro voci:
 \begin{itemize}
     \item Home;
-    \item Droghe;
+    \item Prodotti;
     \item Area personale;
     \item FAQ.
 \end{itemize}
-\subsection{Header lato amministratore} TODO: continua da qua
-Il menù della dashboard dell' (Riepilogo acquisti, Utenti, Inserisci prodotto, Prodotti, Home, Inserisci caratteristiche) . Il menu evidenzia la pagina correntemente attiva per facilitare l'utente a capire dove si trova.
+La voce del menù corrispondente alla pagina correntemente visitata viene evidenziata e resa non cliccabile.
 
-    
-    
+\subsubsection{Header lato amministratore}
+L'header presente nella pagina dashboard è ridotto ad un semplice menù. Quest'ultimo è composto dalle voci:
+\begin{itemize}
+	\item Riepilogo acquisti;
+	\item Utenti;
+	\item Inserisci prodotto;
+	\item Prodotti;
+	\item Inserisci caratteristiche;
+	\item Home;
+	\item Logout.
+\end{itemize}
+Il menu evidenzia la pagina correntemente attiva, rendendola non cliccabile, per facilitare l'utente amministratore a capire dove si trova.
+
 \subsection{Breadcrumb} 
 La breadcrumb è situata direttamente sotto l'header ed è allineata a sinistra. Contiene il percorso di pagine seguite per arrivare a quella corrente. Le voci che indicano le pagine precedenti possiedono un link che riconduce ad esse. La breadcrumb è fondamentale per garantire l'orientamento dell'utente poiché è in grado di fornire informazioni relative alla posizione attuale in cui ci si trova e il percorso seguito per arrivare alla pagina corrente. 
+
 \subsection{Contenuto}
-Il sito si propone come un E-Commerce per la vendita di sostanze stupefacenti. In questo caso il layout  permette di visualizzare tutto il contenuto informativo principale nell'area sicura.
+Il sito si propone come un E-Commerce per la vendita di caramelle speciali. In questo caso il layout permette di visualizzare tutto il contenuto informativo principale nell'area sicura.
 Le pagine che compongono il contenuto sono le seguenti:
 \begin{itemize}
     \item \textbf{home}: è la pagina principale visualizzata quando si accede al sito. Contiene la descrizione della storia della compagnia MyCandies\&co;
-    \item \textbf{listaProdotti}: è la pagina a cui si arriva a seguito di una ricerca tramite la barra di navigazione o attraverso la voce "Droghe" nel menù. In questa pagina l'utente può visualizzare tutti i prodotti disponibili ed eventualmente applicare dei filtri;
+    \item \textbf{listaProdotti}: è la pagina a cui si arriva a seguito di una ricerca tramite la barra di navigazione o attraverso la voce "Prodotti" nel menù. In questa pagina l'utente può visualizzare tutti i prodotti disponibili ed eventualmente applicare dei filtri di ricerca;
     \item \textbf{prodotto}: in questa pagina si arriva dopo aver selezionato un prodotto dalla pagina di ricerca, fornisce una descrizione dettagliata di un prodotto. E' presente una tabella riassuntiva che elenca le informazioni principali. E' possibile aggiungere il prodotto al carrello tramite l'apposito pulsante;
-    \item \textbf{carrello}: in questa pagina si visualizza il riepilogo dei prodotti aggiunti al carrello. E' possibile rimuovere un prodotto o incrementarne la quantità prima di fare acquisti tramite l'apposito bottone;
-    \item \textbf{areaPersonale}: questa sezione permette all'utente di visualizzare e modificare in modo agevole le informazioni del suo profilo. In fondo alla pagina è possibile effettuare il logout;
+    \item \textbf{carrello}: in questa pagina si visualizza il riepilogo dei prodotti aggiunti al carrello. E' possibile rimuovere un prodotto o incrementarne la quantità prima completare l'acquisto tramite l'apposito bottone;
+    \item \textbf{areaPersonale}: questa sezione permette all'utente di visualizzare e modificare in modo agevole le informazioni del suo profilo;
     \item \textbf{FAQ}: questa pagina è raggiungibile solo tramite il menù. Contiene una sequenza di domande frequenti con relative risposte. Può essere utile all'utente per reperire velocemente informazioni;
-    \item \textbf{formCliente}: questa pagina è raggiungibile in seguito al click sul pulsante "Accedi". Mette a disposizione 2 form, il primo per effettuare il login (richiede utente non autenticato) e il secondo per effettuare la registrazione (richiede utente non registrato);
-    \item \textbf{suDiNoi}: è possibile accedere a questa pagina tramite il link apposito sul footer. Contiene una breve descrizione dei responsabili del nostro E-Commerce. 
+    \item \textbf{formCliente}: questa pagina è raggiungibile in seguito al click sul pulsante "Accedi". Mette a disposizione 2 form, il primo per effettuare il login e il secondo per effettuare la registrazione (richiede utente non registrato);
+    \item \textbf{suDiNoi}: è possibile accedere a questa pagina tramite il link apposito "Chi siamo" sul footer. Contiene una breve descrizione dei responsabili del nostro E-Commerce. 
 \end{itemize}
-    Le pagine successive fanno tutte parte della dashboard, alla quale  può accedere l'admin in seguito al login.
+    Le pagine successive fanno tutte parte della dashboard, alla quale può accedere solo un utente amministratore autenticato.
 \begin{itemize}
-    \item \textbf{formProdotto}: questa pagina mette a disposizione un form che permette all'admin di inserire un nuovo prodotto nel database e conseguentemente nello store del sito;
-    \item \textbf{dashboard\_utenti}: questa pagina permette all' admin di visualizzare gli utenti registrati ed i relativi dati. L'admin ha la possibilità di eliminare un utente dal sistema;
+    \item \textbf{inserisciProdotto}: questa pagina mette a disposizione un form che permette all'admin di inserire un nuovo prodotto nel database e conseguentemente nello store del sito;
+    \item \textbf{dashboard\_utenti}: questa pagina permette all'admin di visualizzare gli utenti registrati ed i relativi dati. L'admin ha la possibilità di eliminare un utente dal sistema;
     \item \textbf{prodotti\_dashboard}: questa pagina permette all'admin di visualizzare tutti i prodotti inseriti del database potendo interagire con i vari dati dei prodotti;
     \item \textbf{riepilogoAcquisti\_dashboard}: questa pagina contiene tutti gli ordini ricevuti, i prodotti ordinati, le quantità per ciascun prodotto associate al compratore e i totali, così da avere un riepilogo e poter organizzare le spedizioni;
     \item \textbf{insertCharacteristic}: questa pagina consente di inserire un nuovo principio attivo, un effetto, un effetto collaterale o una categoria. Ogni pulsante della pagina causa l'apertura di un form specifico per l'inserimento di una delle voci precedentemente citate.
 \end{itemize}
+
 \subsection{Footer}
-Il footer è diviso in 3 macro sezioni. Una sezione è dedicata ai \textit{Contatti} dove è possibile seguire il link alla pagina "Chi siamo" dove è possibile leggere una presentazione dei responsabili dello store e i relativi contatti personali. \newline
+Il footer è diviso in 3 macro sezioni.
+Una sezione è dedicata ai \textit{Contatti}.
 La sezione \textit{Punti Vendita} che indica i 4 negozi fisici e i relativi dati (indirizzo, orario).
 La sezione \textit{Social} dove sono presenti i link per raggiungere le pagine social dell'attività.
 In fondo al footer compare la dicitura per il \textit{copyright}.
