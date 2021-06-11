@@ -267,36 +267,35 @@ display: inline-block;
 width: 100%;
 }
 #logo {
-width: 80%;
+width: 100%;
 }
 #imageContainer {
 width: 40%;
 margin: 0 auto;
 }
 #utilityBar {
-padding: 0.3em;
+width: 70%;
+float: left;
+margin-left: 0.3em;
 }
-#headerSearchBar div {
-display: inline;
-width: 100%;
-}
-#headerSearchBar {
-display: inline;
-width: 60%;
+#utilityButtons {
+float: right;
+margin-right: 0.3em;
 }
 #productSearchBar {
-padding-top: 0.65em;
-padding-bottom: 0.55em;
-border: 1px solid transparent;
-border-radius: 4px;
-width: 55%;
+width: 75%;
+display: inline-block;
+padding: 0.65em 0em 0.45em 0.5em;
+border-radius: 14px;
 }
-#header #utilityBar .buttons {
-border-radius: 4px;
-background-color: #093013;
-color:white;
+#utilityButtons .buttons,
+#utilityBar .buttons {
+border-radius: 14px;
+padding: 0.5em;
 margin: 0;
-padding: 0.5em 0.5em;
+}
+#utilityBar .buttons {
+color: white;
 }
 #header #utilityBar .buttons:active,
 #header #utilityBar .buttons:visited:active {
@@ -321,6 +320,7 @@ font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 #navigation,
 #navigation_dashboard {
+margin-top: 0.5em;
 text-align: center;
 background-color: #093013;
 padding: 0.8em;
@@ -644,7 +644,7 @@ text-align: center;
 padding-bottom: 1em;
 }
 #contentHome h1{
-font-size: 2em;
+font-size: 1.8em;
 text-align: center;
 color: #093013;
 }
