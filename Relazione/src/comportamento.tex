@@ -4,10 +4,10 @@
 Javascript è stato utilizzato per fornire delle funzioni aggiuntive, non essenziali, per il controllo lato client del form e per l'implementazione del menù sui dispositivi mobili. Come già ripetuto, in caso di mancata disponibilità tutto il sito rimane fruibile. 
 Il controllo dei form ha cercato di essere quanto più completo possibile, fornendo indicazioni precise per guidare correttamente l'utente.
 Si è scelto di non implementare il menù "intelligente" per gusto personale degli autori. 
-E' stato realizzato un solo foglio Javascript per evitare un numero eccessivo di file scaricati, che, sopratutto nel mobile, potrebbero rallentare il sistema. Il controllo dei form prevedere la raccolta di tutti gli errori di inserimento commessi prima della loro visualizzazione. In questo modo l'utente ha la possibilità di visualizzare immediatamente tutti gli errori e può riuscire a correggerli con una sola compilazione. Se invece venissero visualizzati gli errori uno per volta il processo di compilazione diventerebbe lungo e frustrante.
+E' stato realizzato un solo foglio Javascript per evitare un numero eccessivo di file scaricati. Il controllo dei form prevedere la raccolta di tutti gli errori di inserimento commessi prima della loro visualizzazione. In questo modo l'utente ha la possibilità di visualizzare immediatamente tutti gli errori e può riuscire a correggerli con una sola compilazione. Se invece venissero visualizzati gli errori uno per volta il processo di compilazione diventerebbe lungo e frustrante.
 Nel file checkForms.js sono presenti le seguenti funzioni con relativi ruoli:
 \begin{itemize}
-    \item \textbf{defaultValue()}: il mancato utilizzo di HTML5 ha reso impossibile l'utilizzo del tag \textit{placeholder}. Per l'inserimento dei placeholder si è seguita la tecnica vista in laboratorio. La funzione si occupa di inserire i placeholder nel form corrispondente. Le pagine con form che richiedono il placeholder invocano le funzioni che gestiscono le chiamate nel file Javascript tramite l'evento \textit{onload} nel tag  $<$body$>$, queste ultime invocano \textit{defaultValue()} per inserire i placeholder.
+    \item \textbf{defaultValue()}: il mancato utilizzo di HTML5 ha reso impossibile l'utilizzo del tag \textit{placeholder}. Per l'inserimento dei placeholder si è seguito l'approccio visto in laboratorio. La funzione si occupa di inserire i placeholder nel form corrispondente. Le pagine con form che richiedono il placeholder invocano le funzioni che gestiscono le chiamate nel file Javascript tramite l'evento \textit{onload} nel tag  $<$body$>$, queste ultime invocano \textit{defaultValue()} per inserire i placeholder.
     L'utilizzo della funzione non è limitata al caricamento, viene invocata anche quando un input perde il focus senza essere stato valorizzato;
     
     \item \textbf{noDefaultValue()}: questa funzione ha lo scopo di rimuovere i placeholder dagli input che ricevono il focus dal utente per permettergli di inserire i valori;
@@ -22,20 +22,20 @@ Nel file checkForms.js sono presenti le seguenti funzioni con relativi ruoli:
         \item \textbf{printRightPassword()}: controlla che la password scelta e la password di conferma siano uguali, in caso negativo avvisa l'utente di questa incongruenza, in caso contrario stampa un messaggio di conferma;
         \item \textbf{validateDate()}: è una funzione per il form di registrazione. Se questa funzione è stata invocata siamo già certi della correttezza del formato inserito. Ci si limita quindi a valutare che una data di nascita sia accettabile (numero di giorni per mesi, un anno non futuro, etc..);
         \item \textbf{otherCheck()}: invocata nel form di registrazione, effettua controllo specifici sull'età di un utente che tenta di registrarsi, controlla che un numero di cellulare sia accettabile;
-        \item \textbf{specialTest()}: effettua controlli simili a quelli sopra esposti limitatamente alle modifiche apportate tramite il form dell'area personale;
-        \item \textbf{valueTest()}: questa funzione controlla che i filtri di selezione del prodotto siano inseriti correttamente. Per esempio l'assenza di percentuali troppo alte o discordanze tra i valori massimi e minimi ricercati.
+        \item \textbf{specialTest()}: effettua controlli simili a quelli sopra esposti limitatamente alle modifiche apportate tramite il form dell'area personale.
     \end{itemize}
     
-    \item \textbf{funzioni per la stampa degli errori}: le funzioni \textit{printLoginError()}, \textit{printRegError()}, \textit{printInsertionError()} e \textit{PAShowErr()} hanno tutte la funzione di stampare l'errore del relativo form in corrispondenza dell'input esatto in cui l'errore si è verificato. Una volta che l'errore viene identificato si invoca la corretta funzione di stampa che recupera i possibili messaggi di errore in modo da fornirli all'utente nel modo più preciso possibile, guidandolo nella risoluzione dei problemi;
+    \item \textbf{printError()}: ha la funzione di aggiungere gli errori del relativo form in corrispondenza dell'input esatto in cui l'errore si è verificato. Essa è unica per tutti i form presenti;
     
-    \item \textbf{removeError()}: questa funzione viene utilizzata dalle funzioni che si occupano di stampare gli errori all'interno dei controlli sui form. Il suo compito è quello di eliminare eventuali errori inseriti al di sotto di un campo di input compilato in modo scorretto. Questo è necessario in caso di compilazioni errate multiple per impedire che gli errori si accumulino e/o risultino non aggiornati. Quando viene rilevato un nuovo errore, esso viene stampato tramite le apposite funzioni, le quali invocano \textit{removeError()} che controlla la presenza di un errore ed in caso lo elimina, prima che venga aggiunto quello nuovo corrispondente all'ultima compilazione del form;
+    \item \textbf{removeError()}: il suo compito è quello di eliminare eventuali errori inseriti al di sotto di un campo di input compilato in modo scorretto. Questo è necessario in caso di compilazioni errate multiple per impedire che gli errori si accumulino e/o risultino non aggiornati. Quando viene rilevato un nuovo errore,si invoca \textit{removeError()} che controlla la presenza di un errore ed in caso lo elimina, prima che venga aggiunto quello nuovo corrispondente all'ultima compilazione del form;
     
-    \item \textbf{loadMenu()}: viene invocato nel tag $<$body$>$ tramite \textit{onload}, quindi al caricamento, e si occupa di creare un pulsante per il menù e nascondere quest'ultimo nei mobile e in generale nelle finestre con dimensione inferiore al punto di rottura definito;
+    \item \textbf{loadMenu(), loadMenuDashboard()}: viene invocato nel tag $<$body$>$ tramite \textit{onload} e \textit{onresize} e si occupa di creare un pulsante per il menù e nascondere quest'ultimo nei mobile e in generale nelle finestre con dimensione inferiore al punto di rottura definito;
     
-    \item \textbf{mobileMenu()}: questa funzione definisce il comportamento del pulsante creato con la funzione loadMenu();
+    \item \textbf{mobileMenu(), menuDashboard()}: questa funzione definisce il comportamento del pulsante creato con la funzione loadMenu().
     
 \end{itemize}
-Molte funzioni si sarebbero potute accorpare con le dovute accortezze. I file sono però stati sviluppati separatamente e da diversi membri, sono stati uniti solo in un secondo momento. Per poter ridurre le righe di codice sarebbe stata necessaria una riscrittura profonda del codice, che in tempi vicini alla consegna, avrebbe potuto compromettere il funzionamento del codice.
+Si è cercato di accorpare quanto più possibile le funzioni, in modo da rendere i file Javascript più leggeri.
+
 \subsection{PHP}
 Tramite PHP è stata realizzata la parte server-side, nonchè il comportamento di My Candies. Come da specifiche non sono state utilizzate feature di versioni PHP superiori alla 7.2.
 In particolare:
