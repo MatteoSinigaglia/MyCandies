@@ -297,13 +297,17 @@ margin: 0;
 #utilityBar .buttons {
 color: white;
 }
-#header #utilityBar .buttons:active,
-#header #utilityBar .buttons:visited:active {
-border-radius: 4px;
+#cartButton:active,
+#loginButton:active,
+#productSearchButton:active,
+#cartButton:visited:active,
+#loginButton:visited:active,
+#productSearchButton:visited:active {
 color: #020E0A;
 background-color: #F2E8CF;
 }
-#header #utilityBar .buttons:visited {
+#cartButton:visited,
+#loginButton:visited{
 color: #CDA434;
 }
 #cartButton span,
