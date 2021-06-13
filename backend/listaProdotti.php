@@ -35,7 +35,7 @@ try {
         $productsList = $productsManager->findProductsByCategory($_GET['category']);
     } else $productsList = $productsManager->getProducts();
 } catch(\MyCandies\Exceptions\EntityException $e) {
-    $htmlPage = str_replace("<listOfProducts />", "<p class='formErrors'>{$e->getMessage()}</p>", $htmlPage);
+    $htmlPage = str_replace("<listOfProducts />", "<strong class='formErrors'>{$e->getMessage()}</strong>", $htmlPage);
 } catch (Exception $e) {
     http_response_code(404);
     include(MODEL_PATH . DS . 'error404.php');
