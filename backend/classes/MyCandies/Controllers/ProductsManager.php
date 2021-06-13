@@ -30,6 +30,7 @@ use MyCandies\Entities\SideEffect;
 use MyCandies\Entities\Effect;
 use MyCandies\Entities\ActivePrincipleEffect;
 use MyCandies\Entities\ActivePrincipleSideEffect;
+use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 
 class ProductsManager
@@ -169,9 +170,12 @@ class ProductsManager
         try{
             $this->dbh->connect();
             $products = $this->T_products->searchPattern('name', '%'.$pattern.'%');
+            if(empty($products)) {
+                throw new EntityException([], 0, "Non sono stati trovati prodotti");
+            }
             $images = $this->T_images->find();
             $productsImages = $this->T_productsImages->find();
-        } catch (Exception $e) {
+        } catch(EntityException | Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();

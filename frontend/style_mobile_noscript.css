@@ -522,6 +522,7 @@ background-color: #F5F5F5;
 }
 .product-image {
 width: 16em;
+height: 12em;
 display: block;
 margin: 0.3em auto;
 }

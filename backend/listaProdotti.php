@@ -27,13 +27,15 @@ $htmlPage = str_replace('<dashboard />', ($auth->isAdmin()
 try {
     $productsManager = new ProductsManager();
     $categoriesManager = new CategoriesManager();
-    $productsList = null;
-    $categoriesList = $categoriesManager->getCategories();
+    $productsList = array();
+    $categoriesList = $categoriesManager->getCategories() ?? array();
     if(isset($_GET['productSearchBar'])) {
         $productsList = $productsManager->searchProduct($_GET['productSearchBar']);
     } else if(isset($_GET['category'])) {
         $productsList = $productsManager->findProductsByCategory($_GET['category']);
     } else $productsList = $productsManager->getProducts();
+} catch(\MyCandies\Exceptions\EntityException $e) {
+    $htmlPage = str_replace("<listOfProducts />", "<p class='formErrors'>{$e->getMessage()}</p>", $htmlPage);
 } catch (Exception $e) {
     http_response_code(404);
     include(MODEL_PATH . DS . 'error404.php');
