@@ -125,36 +125,6 @@ border: 1px solid #DDD;
 background-color: #020E0A;
 color: white;
 }
-#header #utilityBar .buttons {
-border-radius: 0px;
-border-top: transparent;
-border-bottom: transparent;
-background-color: #020E0A;
-color: white;
-}
-#header #utilityBar .buttons:hover,
-#header #utilityBar .buttons:visited:hover {
-border-radius: 4px;
-color: #020E0A;
-background-color: #F2E8CF;
-}
-#header #utilityBar .buttons:visited {
-color: #CDA434;
-}
-#productSearchButton {
-border-top: transparent;
-border-bottom: transparent;
-background-color: #093013;
-}
-#cartButton,
-#loginButton,
-#productSearchButton {
-padding: 0.6em 0.7em;
-}
-#cartButton span,
-#loginButton span{
-font-weight: bold;
-}
 abbr {
 text-decoration: none;
 }
@@ -227,34 +197,60 @@ font-weight: bold;
 background-color: #020E0A;
 }
 #headerLogoAndUtility {
-display: inline-block;
 width: 100%;
+min-height: 6em;
 }
 #logo {
 width: 100%;
 height: 100%;
 }
 #imageContainer {
-vertical-align: middle;
 width: 15%;
-display: inline-block;
+float: left;
+margin: 0.3em 0.8em 0 0;
 }
 #utilityBar {
-padding: 1em;
-display: inline;
+float: left;
+margin-top: 1.8em;
+width: 65%;
 }
-#headerSearchBar div {
-display: inline;
-}
-#headerSearchBar {
-display: inline;
+#utilityButtons {
+float: right;
+margin-top: 1.8em;
+margin-right: 1em;
 }
 #productSearchBar {
-padding: 0.7em;
-width: 50%;
-border: 1px solid transparent;
+width: 85%;
+display: inline-block;
+padding: 0.8em 0.5em 0.6em 0.5em;
 border-radius: 4px;
-min-width: 25em;
+}
+#utilityBar .buttons {
+color: white;
+}
+#cartButton,
+#loginButton,
+#productSearchButton {
+padding: 0.6em;
+margin: 0 0.2em;
+}
+#cartButton span,
+#loginButton span{
+font-weight: bold;
+}
+#cartButton:hover,
+#loginButton:hover,
+#productSearchButton:hover,
+#cartButton:visited:hover,
+#loginButton:visited:hover,
+#productSearchButton:visited:hover {
+border-radius: 4px;
+color: #020E0A;
+background-color: #F2E8CF;
+}
+#cartButton:visited,
+#loginButton:visited{
+color: #CDA434;
 }
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -328,9 +324,7 @@ margin: 1em;
 border-radius: 5px;
 }
 #productContenitor dl dd p {
-width: 75%;
 padding: 1em;
-margin-left: 22%;
 }
 #addToCartButton {
 float: right;
@@ -384,18 +378,21 @@ width: 10%;
 margin: 1em 3em;
 }
 #cartContent h1 {
-float: left;
-margin-top: 10%;
+font-size: 2em;
 }
 #selectedProduct {
 clear: left;
 padding: 1em;
-margin: 3em;
+margin: 1em 3em;
 border-radius: 10px;
 background-color: #F2E8CF;
 }
+#selectedProduct a:link {
+text-decoration: none;
+}
 #purchaseButton {
-margin-left: 80%;
+display: block;
+margin: 0.5em auto;
 }
 #filters {
 float: left;
@@ -551,7 +548,8 @@ color: #FFFFFF;
 }
 #contentHome{
 width: 85%;
-margin: 3% 7.5%;
+display: block;
+margin: 1em auto;
 background-color: #F2E8CF;
 border-radius: 10px;
 }

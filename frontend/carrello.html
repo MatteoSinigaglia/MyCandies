@@ -26,17 +26,16 @@
 		<div id="imageContainer">
 			<a href="../backend/home.php">
 				<img id="logo" src="../img/logo.png"
-						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+						alt="logo del sito con una caramella e la scritta MyCandies"/>
 			</a>
 		</div>
-
-		<div id="utilityBar">
-			<form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
-				<div>
-					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
-			</form>
-
+        <div id="utilityBar">
+            <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
+                <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>               
+            </form>
+        </div>
+        <div id="utilityButtons">
             <a_auth_state />
 			<p id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></p>
 		</div>
@@ -44,7 +43,7 @@
 	<div id="navigation">
 		<ul id="navigationMenu">
 			<li><a href="../backend/home.php" xml:lang="en">Home</a></li>
-			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
+			<li><a href="../backend/listaProdotti.php">Prodotti</a></li>
 			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
 			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
             <dashboard />
@@ -58,11 +57,7 @@
 </div>
 
 <div id="cartContent" class="main">
-	<div>
-		<img src="../img/shopping-cart.png" alt="Icona carrello" />
-		<h1>Carrello</h1>
-	</div>
-
+	<h1>Carrello</h1>
 	<div id="selectedProduct">
 		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome, codice, quantità, azioni e totale prodotto.">
 			<thead>

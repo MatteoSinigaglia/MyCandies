@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="title" content="Prodotti - My Candies"/>
     <meta name="description" content="Elenco dei prodotti acquistabili dal sito"/>
-    <meta name="keywords" content="My Candies, droghe, prodotti, sostante, categorie, categoria, prezzo, anfetamina, cocaina, ecstasy, marijuana" />
+    <meta name="keywords" content="My Candies, caramelle, prodotti, categorie, categoria, prezzo" />
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -27,17 +27,16 @@
         <div id="imageContainer">
           <a href="../backend/home.php">
             <img id="logo" src="../img/logo.png"
-                alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+                alt="logo del sito con una caramella e la scritta MyCandies"/>
           </a>
         </div>
         <div id="utilityBar">
             <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
-                <div>
-                    <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>
-                </div>
+                <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>               
             </form>
-
+        </div>
+        <div id="utilityButtons">
             <a_auth_state />
             <a href="../backend/carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
@@ -45,7 +44,7 @@
     <div id="navigation">
         <ul id="navigationMenu">
             <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
-            <li><span>Droghe</span></li>
+            <li><span>Prodotti</span></li>
             <li><a href="../backend/areaPersonale.php">Area personale</a></li>
             <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
             <dashboard />
@@ -53,7 +52,7 @@
     </div>
 </div>
 <div id="breadcrumb">
-    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Droghe</p>
+    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Prodotti</p>
 </div>
 <div class="main" id="productList">
     <div id="filters">
