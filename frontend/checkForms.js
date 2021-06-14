@@ -223,6 +223,7 @@ function validateRegField(input) {
         }
     }
 };
+
 function validateRegForm() {
     var correct = true;
     for(var key in form_registrazione) {
@@ -232,11 +233,13 @@ function validateRegForm() {
     }
     return correct;
 };
+
 var form_inserisciProdotto = {
     "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto.", "Inserire un nome."],
     "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."],
     "productDescription": ["Descrizione", /^[a-zA-Z0-9._\s]{1,255}$/, "Descrizione troppo lunga, massimo 255 caratteri."]
 };
+
 function loadProductInsertion() {
     for(var key in form_inserisciProdotto) {
         var input = document.getElementById(key);
@@ -245,6 +248,7 @@ function loadProductInsertion() {
         input.onblur = function() { defaultValue(this, "form_inserisciProdotto"); };
     }
 };
+
 function validateInsertionField(input) {
     removeError(input);
     var regex = form_inserisciProdotto[input.id][1];
@@ -466,8 +470,31 @@ function mobileFilters() {
 }
 
 window.onload = () => {
-    loadMobileFilters;
+    if(document.getElementById("navigationMenu")) {
+        loadMenu();
+    }
+    if(document.getElementById("productList")) {
+        loadMobileFilters();
+    }
+    if(document.getElementById("navigation_dashboard")) {
+        loadMenuDashboard();
+    }
+    if(document.getElementById("inserisciProdottoDashboard")) {
+        loadProductInsertion();
+    }
+    if(document.getElementById("loginForm")) {
+        loadFormCliente();
+    }
 }
+
 window.onresize = () => {
-    loadMobileFilters;
+    if(document.getElementById("navigationMenu")) {
+        loadMenu();
+    }
+    if(document.getElementById("productList")) {
+        loadMobileFilters();
+    }
+    if(document.getElementById("navigation_dashboard")) {
+        loadMenuDashboard();
+    }
 }
