@@ -125,7 +125,7 @@ class Table {
         }
     }
 
-	public function insert(object $entity) : string {
+    public function insert(object $entity) : string {
 		try {
 
 			require_once __DIR__.'/../../../lib/functions.php';

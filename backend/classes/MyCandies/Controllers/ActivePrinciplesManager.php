@@ -47,7 +47,7 @@ class ActivePrinciplesManager
         $this->T_activePrinciplesSideEffects = new Table($this->dbh, 'ActivePrinciplesSideEffects', 'id', ActivePrincipleSideEffect::class, $constructorargs);
     }
 
-    public function insertActivePrinciple($activePrincipleArray, $effectNames, $sideEffectNames): bool
+    public function insertActivePrinciple(array $activePrincipleArray, array $effectNames, array $sideEffectNames): bool
     {
         try {
             $activePrinciple = new ActivePrinciple(Entities\ACTIVE_PRINCIPLES_MANAGER, $activePrincipleArray);
