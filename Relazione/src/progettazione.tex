@@ -54,7 +54,7 @@ Diverse caratteristiche del database non sono state poi implementate nell'interf
 \subsection{Accessibilità}
 Per garantire l'accessibilità si è cercato di attenersi alle linea guida viste nel corso di \textit{Tecnologie Web}. Per avere un risconto quanto più preciso per attestare l'accessibilità del sito si è seguito lo standard europeo WCAG 2.0.
 \subsubsection{Separazione tra presentazione, struttura e comportamento}
-Ognuna di queste 3 componenti è stata realizzata mantenendo una completa separazione. 
+Ognuna di queste 3 componenti è stata realizzata mantenendo una mutuale separazione tra le parti. 
 La \textit{struttura} è stata realizzata con XHTML per garantire il supporto anche ai più vecchi browser ancora in circolazione ed evitando l'utilizzo di tag deprecati, garantendo così l'assenza di discriminazione tecnologica.
 Non si sono utilizzati tag html a fini presentazionali, come l'utlizzo delle tabelle per l'ordinamento del layout.
 La parte di \textit{presentazione} è stata realizzata tramite l'applicazione di fogli di stile importati. Per garantire la separazione non sono state definite applicazione di stile inline o embedded.
@@ -63,7 +63,7 @@ La parte di \textit{comportamento} realizzata tramite Javascript assicura una de
  L'accessibilità è stata garantita anche attraverso altri strumenti utili all'orientamento e alla navigazione.
  \begin{itemize}
      \item \textbf{Breadcrumb}: le breadcrumb rappresentato la lista di pagine visitate per arrivare alla pagina corrente, che è l'unica senza link. E' utile all'utente perché permette di capire dove si trova, come è arrivato in una data pagina e come poter eventualmente tornare alle pagine precedenti. Ogni breadcrumb comincia con il testo "Ti trovi in:" per esplicitare il ruolo di quest'ultima;
-     \item \textbf{Link}: sono stati inseriti diversi link per facilitare la navigazione. In fondo ad ogni pagina, prima del footer, è presente un link "Torna su" per tornare rapidamente al header. Alcuni di questi con la medesima funzione sono nascosti nelle versioni desktop per renderli visibili agli screen reader. 
+     \item \textbf{Link}: sono stati inseriti diversi link per facilitare la navigazione. In fondo ad ogni pagina, prima del footer, è presente un link "Torna su" per tornare rapidamente all' header. Alcuni di questi con la medesima funzione sono nascosti nelle versioni desktop per renderli visibili agli screen reader. 
      I link nascosti sopra citati sono resi disponibili a tutti gli utenti nella versione mobile, per garantire un rapido ritorno senza effettuare molto scroll.
      Nel header sono presenti, a seconda delle pagine, dei link visibili agli screen reader per passare al contenuto della pagina, saltando le voci di menù che risulterebbero ripetitive.
      \item \textbf{Marcatori HTML}: Per rendere il sito accessibile si è fatto un corretto uso dei marcatori.
