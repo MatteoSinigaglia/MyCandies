@@ -55,7 +55,7 @@ Diverse caratteristiche del database non sono state poi implementate nell'interf
 Per garantire l'accessibilità si è cercato di attenersi alle linea guida viste nel corso di \textit{Tecnologie Web}. Per avere un risconto quanto più preciso per attestare l'accessibilità del sito si è seguito lo standard europeo WCAG 2.0.
 \subsubsection{Separazione tra presentazione, struttura e comportamento}
 Ognuna di queste 3 componenti è stata realizzata mantenendo una mutuale separazione tra le parti. 
-La \textit{struttura} è stata realizzata con XHTML per garantire il supporto anche ai più vecchi browser ancora in circolazione ed evitando l'utilizzo di tag deprecati, garantendo così l'assenza di discriminazione tecnologica.
+La \textit{struttura} è stata realizzata con XHTML per garantire il supporto anche ai più vecchi browser ancora in circolazione ed evitando l'utilizzo di tag deprecati, garantendo così l'assenza di discriminazione dei dispositivi più datati.
 Non si sono utilizzati tag html a fini presentazionali, come l'utlizzo delle tabelle per l'ordinamento del layout.
 La parte di \textit{presentazione} è stata realizzata tramite l'applicazione di fogli di stile importati. Per garantire la separazione non sono state definite applicazione di stile inline o embedded.
 La parte di \textit{comportamento} realizzata tramite Javascript assicura una degradazione elegante. Javascript è stato utilizzato solamente per il controllo dei form lato client e per la visualizzazione mobile. Nei mobile dato il poco spazio a disposizione si è scelto di implementare un menù a comparsa. Nel caso in cui Javascript non funzionasse o fosse disattivato non verrebbe effettutata alcuna modifica, lasciando il menù visibile e privo di tasto per aprire/chiudere il menù. Quindi nel caso di problemi il menù sarebbe sempre accessibile ed utilizzabile.
@@ -68,4 +68,10 @@ La parte di \textit{comportamento} realizzata tramite Javascript assicura una de
      Nel header sono presenti, a seconda delle pagine, dei link visibili agli screen reader per passare al contenuto della pagina, saltando le voci di menù che risulterebbero ripetitive.
      \item \textbf{Marcatori HTML}: Per rendere il sito accessibile si è fatto un corretto uso dei marcatori.
      Le tabelle solo state utilizzate solamente per la rappresentazione ordinata dei dati. Sapendo che gli screen reader linearizzano le tabelle sono stati utilizzati tutti i tag utili a renderle accessibili (summary, scope, etc..). Sono stati esplicitati i linguaggi naturali utilizzando l'attributo "lang" per indicare parole in lingua diversa da quella italiana. Si è fatto uso del tag "abbr" ove necessario. Queste accortezze servono a garantire una corretta lettura del testo da parte degli screen reader.
+ \end{itemize}
+ \subsubsection{Ulteriori precisazioni nelle scelte effettuate}
+ \begin{itemize}
+     \item \textbf{Alt nelle immagini dei prodotti:} si è deciso di inserire degli alt composti da una stringa di default e dal nome del prodotto in questione, poiché essi non avrebbero apportato sostanziali informazioni aggiuntive in quanto, a seguito dell'immagine, è presente una descrizione del prodotto.
+     \item \textbf{Placeholder nella barra di ricerca:} si è scelto di inserire un placeholder nella barra di ricerca per garantire informazioni aggiuntive sull'effettivo scopo di tale strumento, altrimenti lo screen reader lo avrebbe identificato come semplice campo di digitazione, senza  attribuirgli una reale funzione.
+     \item 
  \end{itemize}
