@@ -3,6 +3,8 @@
 
 namespace MyCandies\Entities;
 
+use DB\dbh;
+use DB\Exceptions\DBException;
 use MyCandies\Exceptions\EntityException;
 
 require_once __DIR__.'/Entity.php';
@@ -17,6 +19,14 @@ class User extends Entity {
 	private $telephone;
 	private $gender;
 	private $birthdate;
+
+	static public function getFromId(dbh $dbh, int $id): ?User {
+		try {
+			return $dbh->findById('Customers', 'id', $id, User::class, [DB]);
+		} catch (DBException $e) {
+			return null;
+		}
+	}
 
 	public function __construct(int $source, array $data=[]) {
 		try {
@@ -235,4 +245,5 @@ class User extends Entity {
 			}
 		}
 	}
+
 }

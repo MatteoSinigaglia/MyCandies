@@ -7,6 +7,7 @@ require_once MYCANDIES_PATH . DS . 'Exceptions' . DS . 'EntityException.php';
 require_once MYCANDIES_PATH . DS . 'Tables' . DS . 'Table.php';
 require_once MODEL_PATH . DS . 'classes' . DS . 'DB' . DS . 'dbh.php';
 
+use DB\Exceptions\DBException;
 use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 use DB\dbh;
@@ -20,6 +21,14 @@ class Product extends Entity
     private $availability;
 
     private $errors;
+
+    static public function getProductFromId(dbh $dbh, int $id): ?Product {
+	    try {
+		    return $dbh->findById('Products', 'id', $id, Product::class, [DB]);
+	    } catch (DBException $e) {
+	    	return null;
+	    }
+    }
 
     public function __construct(int $source, array $data = [])
     {
@@ -174,5 +183,38 @@ class Product extends Entity
 
 	public function getId(): int {
 		return $this->id;
+	}
+
+	public function updateAvailability(dbh $dbh, int $updatedAvailability) {
+		try {
+			echo 'Old: '.$this->getAvailability();
+			echo 'New: '.$updatedAvailability;
+			$this->setAvailability($updatedAvailability);
+			$dbh->update('Products', 'id', [
+				'id'            =>  $this->id,
+				'availability'  =>  $this->availability
+			]);
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
+
+public function update(dbh $dbh) {
+		try {
+			$dbh->update('Products', 'id', $this->toAssociativeArray());
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
+
+	private function toAssociativeArray() {
+    	return [
+//    		'id'            =>  $this->id,
+//		    'category_id'   =>  $this->category_id,
+		    'name'          =>  $this->name,
+		    'description'   =>  $this->description,
+		    'price'         =>  $this->price,
+		    'availability'  =>  $this->availability
+	    ];
 	}
 }
