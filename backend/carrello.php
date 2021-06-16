@@ -54,7 +54,6 @@ if (!isset($cart)) {
 	}
 	$DOM = str_replace('<productsInCart />', $productsInCart, $DOM);
 	$total = (isset($cart['info']) ? round($cart['info']->getTotal(), 2) : 0);
-	echo $total;
 	$DOM = str_replace('<total />', '<td scope="row" title="Totale carello">&euro;'.$total.'</td>', $DOM);
 }
 
