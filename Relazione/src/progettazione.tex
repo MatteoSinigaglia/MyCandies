@@ -21,6 +21,8 @@ Per implementare il \textit{responsive web} sono stati definiti 3 intervalli, se
     \item \textbf{Desktop molto grandi (min 1201px)}: questo intervallo è quello in cui è stato sviluppato il sito in prima battuta. 
 \end{itemize}
 
+\subsection{Layout di stampa:} si è scelto di implementare un ulteriore foglio di stile per definire il layout di stampa. Vengono così mostrate solamente le informazioni indispensabili di ciascuna pagina rimuovendo i pulsanti e le aree che non portano alcun'arricchimento informativo in una possibile stampa, al fine di ridurre al minimo le risorse utilizzate per effettuare la stampa della pagina. Vengono inoltre rimosse tutte le immagini, ad esclusione dell'immagine raffigurante il prodotto nella pagina di dettaglio del medesimo, necessaria per fornire dettagli visivi al consumatore.
+
 \subsection{Database}
 A supporto del comportamento è stato creato un database relazionale, allo scopo di tenere traccia di prodotti, utenti e transazioni. Il database è in 2NF:
 \begin{itemize}
@@ -75,3 +77,4 @@ La parte di \textit{comportamento} realizzata tramite Javascript assicura una de
      \item \textbf{Placeholder nella barra di ricerca:} si è scelto di inserire un placeholder nella barra di ricerca per garantire informazioni aggiuntive sull'effettivo scopo di tale strumento, altrimenti lo screen reader lo avrebbe identificato come semplice campo di digitazione, senza  attribuirgli una reale funzione.
      \item 
  \end{itemize}
+
