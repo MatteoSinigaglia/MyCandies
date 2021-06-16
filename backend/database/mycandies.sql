@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `activeprinciples`
+-- Struttura della tabella `ActivePrinciples`
 --
 
-CREATE TABLE `activeprinciples` (
+CREATE TABLE `ActivePrinciples` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -35,10 +35,10 @@ CREATE TABLE `activeprinciples` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `activeprincipleseffects`
+-- Struttura della tabella `ActivePrinciplesEffects`
 --
 
-CREATE TABLE `activeprincipleseffects` (
+CREATE TABLE `ActivePrinciplesEffects` (
   `active_principle_id` int(11) NOT NULL,
   `effect_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -46,10 +46,10 @@ CREATE TABLE `activeprincipleseffects` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `activeprinciplessideeffects`
+-- Struttura della tabella `ActivePrinciplesSideEffects`
 --
 
-CREATE TABLE `activeprinciplessideeffects` (
+CREATE TABLE `ActivePrinciplesSideEffects` (
   `active_principle_id` int(11) NOT NULL,
   `side_effect_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -57,10 +57,10 @@ CREATE TABLE `activeprinciplessideeffects` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `addresses`
+-- Struttura della tabella `Addresses`
 --
 
-CREATE TABLE `addresses` (
+CREATE TABLE `Addresses` (
   `id` int(11) NOT NULL,
   `country` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `region` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -74,20 +74,20 @@ CREATE TABLE `addresses` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `admins`
+-- Struttura della tabella `Admins`
 --
 
-CREATE TABLE `admins` (
+CREATE TABLE `Admins` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `carts`
+-- Struttura della tabella `Carts`
 --
 
-CREATE TABLE `carts` (
+CREATE TABLE `Carts` (
   `id` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -95,10 +95,10 @@ CREATE TABLE `carts` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `categories`
+-- Struttura della tabella `Categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `Categories` (
   `id` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -106,10 +106,10 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `customers`
+-- Struttura della tabella `Customers`
 --
 
-CREATE TABLE `customers` (
+CREATE TABLE `Customers` (
   `id` int(11) NOT NULL,
   `first_name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -121,19 +121,19 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dump dei dati per la tabella `customers`
+-- Dump dei dati per la tabella `Customers`
 --
 
-INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `telephone`, `password`, `gender`, `birthdate`) VALUES
+INSERT INTO `Customers` (`id`, `first_name`, `last_name`, `email`, `telephone`, `password`, `gender`, `birthdate`) VALUES
 (1, 'My', 'Candies', 'user@gmail.com', NULL, 'user', 'A', '1900-01-01');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `customersaddresses`
+-- Struttura della tabella `CustomersAddresses`
 --
 
-CREATE TABLE `customersaddresses` (
+CREATE TABLE `CustomersAddresses` (
   `customer_id` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
   `address_type` enum('Delivery','Billing') COLLATE utf8_unicode_ci DEFAULT NULL
@@ -145,7 +145,7 @@ CREATE TABLE `customersaddresses` (
 -- Struttura della tabella `effects`
 --
 
-CREATE TABLE `effects` (
+CREATE TABLE `Effects` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -156,7 +156,7 @@ CREATE TABLE `effects` (
 -- Struttura della tabella `images`
 --
 
-CREATE TABLE `images` (
+CREATE TABLE `Images` (
   `id` int(11) NOT NULL,
   `img_path` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -167,7 +167,7 @@ CREATE TABLE `images` (
 -- Struttura della tabella `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `Products` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -179,10 +179,10 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productsactiveprinciples`
+-- Struttura della tabella `ProductsActivePrinciples`
 --
 
-CREATE TABLE `productsactiveprinciples` (
+CREATE TABLE `ProductsActivePrinciples` (
   `product_id` int(11) NOT NULL,
   `active_principle_id` int(11) NOT NULL,
   `percentage` float NOT NULL
@@ -191,10 +191,10 @@ CREATE TABLE `productsactiveprinciples` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productsimages`
+-- Struttura della tabella `ProductsImages`
 --
 
-CREATE TABLE `productsimages` (
+CREATE TABLE `ProductsImages` (
   `product_id` int(11) NOT NULL,
   `img_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -202,10 +202,10 @@ CREATE TABLE `productsimages` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productsincarts`
+-- Struttura della tabella `ProductsinCarts`
 --
 
-CREATE TABLE `productsincarts` (
+CREATE TABLE `ProductsInCarts` (
   `cart_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` float NOT NULL
@@ -214,10 +214,10 @@ CREATE TABLE `productsincarts` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `sideeffects`
+-- Struttura della tabella `sideEffects`
 --
 
-CREATE TABLE `sideeffects` (
+CREATE TABLE `SideEffects` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -228,7 +228,7 @@ CREATE TABLE `sideeffects` (
 -- Struttura della tabella `transactions`
 --
 
-CREATE TABLE `transactions` (
+CREATE TABLE `Transactions` (
   `customer_id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL,
@@ -240,117 +240,117 @@ CREATE TABLE `transactions` (
 --
 
 --
--- Indici per le tabelle `activeprinciples`
+-- Indici per le tabelle `ActivePrinciples`
 --
-ALTER TABLE `activeprinciples`
+ALTER TABLE `ActivePrinciples`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indici per le tabelle `activeprincipleseffects`
+-- Indici per le tabelle `ActivePrinciplesEffects`
 --
-ALTER TABLE `activeprincipleseffects`
+ALTER TABLE `ActivePrinciplesEffects`
   ADD PRIMARY KEY (`active_principle_id`,`effect_id`),
   ADD KEY `effect_id` (`effect_id`);
 
 --
--- Indici per le tabelle `activeprinciplessideeffects`
+-- Indici per le tabelle `ActivePrinciplesSideEffects`
 --
-ALTER TABLE `activeprinciplessideeffects`
+ALTER TABLE `ActivePrinciplesSideEffects`
   ADD PRIMARY KEY (`active_principle_id`,`side_effect_id`),
   ADD KEY `side_effect_id` (`side_effect_id`);
 
 --
--- Indici per le tabelle `addresses`
+-- Indici per le tabelle `Addresses`
 --
-ALTER TABLE `addresses`
+ALTER TABLE `Addresses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `admins`
+-- Indici per le tabelle `Admins`
 --
-ALTER TABLE `admins`
+ALTER TABLE `Admins`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indici per le tabelle `carts`
+-- Indici per le tabelle `Carts`
 --
-ALTER TABLE `carts`
+ALTER TABLE `Carts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `categories`
+-- Indici per le tabelle `Categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `Categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indici per le tabelle `customers`
+-- Indici per le tabelle `Customers`
 --
-ALTER TABLE `customers`
+ALTER TABLE `Customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `customersaddresses`
+-- Indici per le tabelle `CustomersAddresses`
 --
-ALTER TABLE `customersaddresses`
+ALTER TABLE `CustomersAddresses`
   ADD PRIMARY KEY (`customer_id`,`address_id`),
   ADD KEY `address_id` (`address_id`);
 
 --
--- Indici per le tabelle `effects`
+-- Indici per le tabelle `Effects`
 --
-ALTER TABLE `effects`
+ALTER TABLE `Effects`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indici per le tabelle `images`
+-- Indici per le tabelle `Images`
 --
-ALTER TABLE `images`
+ALTER TABLE `Images`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `products`
+-- Indici per le tabelle `Products`
 --
-ALTER TABLE `products`
+ALTER TABLE `Products`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indici per le tabelle `productsactiveprinciples`
+-- Indici per le tabelle `ProductsActivePrinciples`
 --
-ALTER TABLE `productsactiveprinciples`
+ALTER TABLE `ProductsActivePrinciples`
   ADD PRIMARY KEY (`product_id`,`active_principle_id`),
   ADD KEY `active_principle_id` (`active_principle_id`);
 
 --
--- Indici per le tabelle `productsimages`
+-- Indici per le tabelle `ProductsImages`
 --
-ALTER TABLE `productsimages`
+ALTER TABLE `ProductsImages`
   ADD PRIMARY KEY (`product_id`,`img_id`),
   ADD KEY `img_id` (`img_id`);
 
 --
--- Indici per le tabelle `productsincarts`
+-- Indici per le tabelle `ProductsInCarts`
 --
-ALTER TABLE `productsincarts`
+ALTER TABLE `ProductsInCarts`
   ADD PRIMARY KEY (`cart_id`,`product_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indici per le tabelle `sideeffects`
+-- Indici per le tabelle `SideEffects`
 --
-ALTER TABLE `sideeffects`
+ALTER TABLE `SideEffects`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indici per le tabelle `transactions`
+-- Indici per le tabelle `Transactions`
 --
-ALTER TABLE `transactions`
+ALTER TABLE `Transactions`
   ADD PRIMARY KEY (`customer_id`,`cart_id`),
   ADD KEY `cart_id` (`cart_id`),
   ADD KEY `address_id` (`address_id`);
@@ -360,57 +360,57 @@ ALTER TABLE `transactions`
 --
 
 --
--- AUTO_INCREMENT per la tabella `activeprinciples`
+-- AUTO_INCREMENT per la tabella `ActivePrinciples`
 --
-ALTER TABLE `activeprinciples`
+ALTER TABLE `ActivePrinciples`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `addresses`
+-- AUTO_INCREMENT per la tabella `Addresses`
 --
-ALTER TABLE `addresses`
+ALTER TABLE `Addresses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `carts`
+-- AUTO_INCREMENT per la tabella `Carts`
 --
-ALTER TABLE `carts`
+ALTER TABLE `Carts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `categories`
+-- AUTO_INCREMENT per la tabella `Categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `Categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `customers`
+-- AUTO_INCREMENT per la tabella `Customers`
 --
-ALTER TABLE `customers`
+ALTER TABLE `Customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT per la tabella `effects`
+-- AUTO_INCREMENT per la tabella `Effects`
 --
-ALTER TABLE `effects`
+ALTER TABLE `Effects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `images`
+-- AUTO_INCREMENT per la tabella `Images`
 --
-ALTER TABLE `images`
+ALTER TABLE `Images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `products`
+-- AUTO_INCREMENT per la tabella `Products`
 --
-ALTER TABLE `products`
+ALTER TABLE `Products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `sideeffects`
+-- AUTO_INCREMENT per la tabella `SideEffects`
 --
-ALTER TABLE `sideeffects`
+ALTER TABLE `SideEffects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -418,66 +418,66 @@ ALTER TABLE `sideeffects`
 --
 
 --
--- Limiti per la tabella `activeprincipleseffects`
+-- Limiti per la tabella `ActivePrinciplesEffects`
 --
-ALTER TABLE `activeprincipleseffects`
-  ADD CONSTRAINT `activeprincipleseffects_ibfk_1` FOREIGN KEY (`active_principle_id`) REFERENCES `activeprinciples` (`id`),
-  ADD CONSTRAINT `activeprincipleseffects_ibfk_2` FOREIGN KEY (`effect_id`) REFERENCES `effects` (`id`);
+ALTER TABLE `ActivePrinciplesEffects`
+  ADD CONSTRAINT `ActivePrinciplesEffects_ibfk_1` FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples` (`id`),
+  ADD CONSTRAINT `ActivePrinciplesEffects_ibfk_2` FOREIGN KEY (`effect_id`) REFERENCES `Effects` (`id`);
 
 --
--- Limiti per la tabella `activeprinciplessideeffects`
+-- Limiti per la tabella `ActivePrinciplesSideEffects`
 --
-ALTER TABLE `activeprinciplessideeffects`
-  ADD CONSTRAINT `activeprinciplessideeffects_ibfk_1` FOREIGN KEY (`active_principle_id`) REFERENCES `activeprinciples` (`id`),
-  ADD CONSTRAINT `activeprinciplessideeffects_ibfk_2` FOREIGN KEY (`side_effect_id`) REFERENCES `sideeffects` (`id`);
+ALTER TABLE `ActivePrinciplesSideEffects`
+  ADD CONSTRAINT `ActivePrinciplesSideEffects_ibfk_1` FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples` (`id`),
+  ADD CONSTRAINT `ActivePrinciplesSideEffects_ibfk_2` FOREIGN KEY (`side_effect_id`) REFERENCES `SideEffects` (`id`);
 
 --
--- Limiti per la tabella `admins`
+-- Limiti per la tabella `Admins`
 --
-ALTER TABLE `admins`
-  ADD CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `customers` (`id`);
+ALTER TABLE `Admins`
+  ADD CONSTRAINT `Admins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Customers` (`id`);
 
 --
--- Limiti per la tabella `customersaddresses`
+-- Limiti per la tabella `CustomersAddresses`
 --
-ALTER TABLE `customersaddresses`
-  ADD CONSTRAINT `customersaddresses_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `customersaddresses_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`) ON DELETE CASCADE;
+ALTER TABLE `CustomersAddresses`
+  ADD CONSTRAINT `CustomersAddresses_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `CustomersAddresses_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `Addresses` (`id`) ON DELETE CASCADE;
 
 --
--- Limiti per la tabella `products`
+-- Limiti per la tabella `Products`
 --
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+ALTER TABLE `Products`
+  ADD CONSTRAINT `Products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`);
 
 --
--- Limiti per la tabella `productsactiveprinciples`
+-- Limiti per la tabella `ProductsActivePrinciples`
 --
-ALTER TABLE `productsactiveprinciples`
-  ADD CONSTRAINT `productsactiveprinciples_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productsactiveprinciples_ibfk_2` FOREIGN KEY (`active_principle_id`) REFERENCES `activeprinciples` (`id`);
+ALTER TABLE `ProductsActivePrinciples`
+  ADD CONSTRAINT `ProductsActivePrinciples_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ProductsActivePrinciples_ibfk_2` FOREIGN KEY (`active_principle_id`) REFERENCES `ActivePrinciples` (`id`);
 
 --
--- Limiti per la tabella `productsimages`
+-- Limiti per la tabella `ProductsImages`
 --
-ALTER TABLE `productsimages`
-  ADD CONSTRAINT `productsimages_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productsimages_ibfk_2` FOREIGN KEY (`img_id`) REFERENCES `images` (`id`);
+ALTER TABLE `ProductsImages`
+  ADD CONSTRAINT `ProductsImages_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ProductsImages_ibfk_2` FOREIGN KEY (`img_id`) REFERENCES `Images` (`id`);
 
 --
--- Limiti per la tabella `productsincarts`
+-- Limiti per la tabella `ProductsInCarts`
 --
-ALTER TABLE `productsincarts`
-  ADD CONSTRAINT `productsincarts_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`),
-  ADD CONSTRAINT `productsincarts_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+ALTER TABLE `ProductsInCarts`
+  ADD CONSTRAINT `ProductsInCarts_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `Carts` (`id`),
+  ADD CONSTRAINT `ProductsInCarts_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `Products` (`id`) ON DELETE CASCADE;
 
 --
--- Limiti per la tabella `transactions`
+-- Limiti per la tabella `Transactions`
 --
-ALTER TABLE `transactions`
-  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`),
-  ADD CONSTRAINT `transactions_ibfk_3` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`);
+ALTER TABLE `Transactions`
+  ADD CONSTRAINT `Transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`),
+  ADD CONSTRAINT `Transactions_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `Carts` (`id`),
+  ADD CONSTRAINT `Transactions_ibfk_3` FOREIGN KEY (`address_id`) REFERENCES `Addresses` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
