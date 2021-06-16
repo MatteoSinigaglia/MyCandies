@@ -295,6 +295,9 @@ text-align: center;
 #mobileMenuDashboard {
 display: none;
 }
+#productContent {
+padding: 1em 2em;
+}
 #productContent h2 {
 font-size: 1.5em;
 font-weight: bold;
@@ -306,7 +309,6 @@ width: 75%;
 background-color: #F2E8CF;
 border: 1px solid #093013;
 border-radius: 10px;
-margin: 0 0.5em 1em 0;
 }
 #productContenitor dl dt {
 font-size: 1.3em;
@@ -334,6 +336,7 @@ float: right;
 border-radius: 10px;
 background-color: #093013;
 width: 20%;
+margin-bottom: 2em;
 }
 #productTableContent table {
 margin: 1em auto;
