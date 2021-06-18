@@ -29,6 +29,15 @@ clip: rect(1px, 1px, 1px, 1px);
 .default-text {
 color: rgba(10, 8, 8, 0.479);
 }
+.product-card .paragraphLink{
+font-size: 0.9em;
+}
+.product-card .paragraphLink a:link { 
+color: #093013;
+}
+.product-card .paragraphLink a:visited { 
+color: #CDA434;
+}
 .formErrors {
 color: rgb(134, 2, 2);
 padding: 0.5em 0;
@@ -684,5 +693,4 @@ margin-right: 0.5em;
 }
 #content404 img {
 width: 100%; 
-margin-bottom: 1em;
 }

@@ -64,7 +64,7 @@ foreach ($productsList as $product) {
                         <img src="'.$product['img_path'].'"  alt="Immagine del prodotto '.$product['name'].'" />
                     </div>
                     <div class="product-info">
-                        <h2><a href="../'."backend".DS."prodotto.php?id=".$product['id'].'" class="paragraphLink">'.$product['name'].'</a></h2>
+                        <h2><a href="../'."backend".DS."prodotto.php?id=".$product['id'].'" class="productLink">'.$product['name'].'</a></h2>
                         <p>€ '.$product['price'].'</p>
                     </div>
                 </div>';

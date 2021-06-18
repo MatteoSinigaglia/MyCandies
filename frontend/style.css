@@ -464,6 +464,12 @@ background-color: #F5F5F5;
 .product-card .paragraphLink{
 font-size: 0.9em;
 }
+.product-card .paragraphLink a:link { 
+color: #093013;
+}
+.product-card .paragraphLink a:visited { 
+color: #CDA434;
+}
 .product-image {
 width: 16em;
 height: 12em;
@@ -660,5 +666,4 @@ padding-right: 0.5em;
 }
 #content404 img {
 width: 100%; 
-margin-bottom: 1em;
 }
