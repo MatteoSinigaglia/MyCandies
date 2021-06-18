@@ -459,10 +459,13 @@ background-color: #c5c4c4;
 display: none;
 }
 .products a:link{
-    color: #051C0B;
+color: #051C0B;
 }
 .products a:visited{
-    color: #BC4749;
+color: #BC4749;
+}
+.products a:hover{
+text-decoration: none;
 }
 #productsList {
 padding-top: 1em;
