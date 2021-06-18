@@ -18,6 +18,7 @@ max-width: 1800px;
 }
 .helps,
 .hideDesktop,
+.hideProduct,
 .hideClient,
 .backToHeader span {
 position: absolute;
