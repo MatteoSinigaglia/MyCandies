@@ -17,6 +17,7 @@ margin: auto;
 max-width: 1280px;
 }
 .helps,
+.hideDesktop,
 .hideClient,
 .backToHeader span {
 position: absolute;
@@ -206,7 +207,7 @@ height: 100%;
 #imageContainer {
 width: 15%;
 float: left;
-margin: 0.3em 0.5em 0 0;
+margin: 0.3em 0.5em 0 0.5em;
 }
 #utilityBar {
 float: left;
