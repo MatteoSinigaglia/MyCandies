@@ -443,6 +443,12 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
+.products a:link{
+    color: #051C0B;
+}
+.products a:visited{
+    color: #BC4749;
+}
 #productList {
 margin: 0;
 padding: 0;
@@ -461,15 +467,7 @@ border: 1px solid #DDD;
 border-radius: 5px;
 background-color: #F5F5F5;
 }
-.product-card .paragraphLink{
-font-size: 0.9em;
-}
-.product-card .paragraphLink a:link { 
-color: #093013;
-}
-.product-card .paragraphLink a:visited { 
-color: #CDA434;
-}
+
 .product-image {
 width: 16em;
 height: 12em;

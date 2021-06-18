@@ -29,15 +29,7 @@ clip: rect(1px, 1px, 1px, 1px);
 .default-text {
 color: rgba(10, 8, 8, 0.479);
 }
-.product-card .paragraphLink{
-font-size: 0.9em;
-}
-.product-card .paragraphLink a:link { 
-color: #093013;
-}
-.product-card .paragraphLink a:visited { 
-color: #CDA434;
-}
+
 .formErrors {
 color: rgb(134, 2, 2);
 padding: 0.5em 0;
@@ -465,6 +457,12 @@ background-color: #c5c4c4;
 .hiddenChoice {
 display: none;
 }
+.products a:link{
+    color: #051C0B;
+}
+.products a:visited{
+    color: #BC4749;
+}
 #productsList {
 padding-top: 1em;
 padding-bottom: 1em;
@@ -502,6 +500,7 @@ float: left;
 #productList .helpBackToHeader {
 clear: both;
 }
+
 .stylelessList {
 list-style-type:none;
 text-align: left;
