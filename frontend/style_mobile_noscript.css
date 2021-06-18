@@ -521,15 +521,15 @@ border-radius: 10px;
 background-color: #F5F5F5;
 }
 .product-image {
-width: 16em;
+max-width: 16em;
 height: 12em;
 display: block;
 margin: 0.3em auto;
 }
 .product-image img {
-max-width: 16em;
-max-height: 12em;
-border-radius: 10px;
+width: 100%;
+height: auto;
+border-radius: 5px;
 }
 .product-info {
 text-align: center;
