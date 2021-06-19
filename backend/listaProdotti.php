@@ -24,16 +24,18 @@ $htmlPage = str_replace('<dashboard />', ($auth->isAdmin()
 	:
 	''), $htmlPage);
 
+$productsList = array();
+$categoriesList = array();
 try {
     $productsManager = new ProductsManager();
     $categoriesManager = new CategoriesManager();
-    $productsList = array();
-    $categoriesList = $categoriesManager->getCategories() ?? array();
+
+    $categoriesList = array();
     if(isset($_GET['productSearchBar'])) {
         $productsList = $productsManager->searchProduct($_GET['productSearchBar']);
     } else if(isset($_GET['category'])) {
         $productsList = $productsManager->findProductsByCategory($_GET['category']);
-    } else $productsList = $productsManager->getProducts();
+    } else $productsList = $productsManager->getProducts(false);
 } catch(\MyCandies\Exceptions\EntityException $e) {
     $htmlPage = str_replace("<listOfProducts />", "<strong class='formErrors'>{$e->getMessage()}</strong>", $htmlPage);
 } catch (Exception $e) {
