@@ -31,19 +31,21 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-color: rgb(134, 2, 2);
+    text-align: center;
+color: #94181a;
 padding: 0.5em 0;
 display: block;
-font-size: 0.9em;
+font-size: 1.1em;
 }
 .formSuccess {
-color: green;
+    text-align: center;
+color: #0f5320;
 padding: 0.5em 0;
 display: block;
-font-size: 0.9em;
+font-size: 1.1em;
 }
 .rightMessage {
-color: #093013;
+color: #0f5320;
 display: block;
 font-size: 0.9em;
 }
@@ -282,7 +284,7 @@ text-decoration: none;
 border: 1px solid #DDD;
 border-radius: 5px;
 background-color: #020E0A;
-padding: 0.2em;
+padding: 0.5em;
 }
 .selectedButton {
 display: block;
@@ -670,6 +672,7 @@ padding-right: 0.5em;
 width: 100%; 
 }
 #aggiungi,
+#confirm,
 #cancella,
 #submitActivePrinciple,
 #submitEffect,
