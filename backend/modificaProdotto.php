@@ -56,12 +56,12 @@ $replace = "
                 <error_price />
             </td>
             <td scope=\"row\" title=\"Quantità\">
-                <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\"/>
+                <input type=\"text\" value=\"{$product->getAvailability()}\" name=\"modifyAvailability\" id=\"modifyAvailability\"/>
                 <error_availability />
             </td>
             <td scope=\"row\" title=\"Azioni\">
-                <input type=\"submit\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
-                <input type=\"submit\" value=\"Elimina prodotto\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
+                <input type=\"submit\" class=\"buttons\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
+                <input type=\"submit\" class=\"buttons\" value=\"Elimina\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
                 <error_overall />
             </td>
         </tr>";
