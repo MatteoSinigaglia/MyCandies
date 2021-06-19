@@ -57,5 +57,19 @@ if (!isset($cart)) {
 	$DOM = str_replace('<total />', '<td scope="row" title="Totale carello">&euro;'.$total.'</td>', $DOM);
 }
 
+if (isset($_SESSION['log'])) {
 
+	$class = (isset($_SESSION['logtype']) && $_SESSION['logtype'] === 'success' ? 'formSuccess' : 'formErrors');
+	$statusLog = "
+		<div>
+			<strong class='{$class}'>{$_SESSION['log']}</strong>
+		</div>";
+
+} else {
+	$statusLog = '';
+}
+
+$DOM = str_replace('<status-log />', $statusLog, $DOM);
+
+unset($_SESSION['log']);
 echo $DOM;

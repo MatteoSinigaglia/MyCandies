@@ -24,4 +24,20 @@ $DOM = str_replace('<navbar />', ($auth->isAdmin()
 	'<li><a href="../backend/areaPersonale.php">Area personale</a></li>'.
 	'<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>'), $DOM);
 
+if (isset($_SESSION['log'])) {
+
+	$class = (isset($_SESSION['logtype']) && $_SESSION['logtype'] === 'success' ? 'formSuccess' : 'formErrors');
+	$statusLog = "
+		<div>
+			<strong class='{$class}'>{$_SESSION['log']}</strong>
+		</div>";
+
+} else {
+	$statusLog = '';
+}
+
+$DOM = str_replace('<status-log />', $statusLog, $DOM);
+
+unset($_SESSION['log']);
+
 echo $DOM;

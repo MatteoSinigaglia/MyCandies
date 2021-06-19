@@ -52,4 +52,20 @@ $htmlPage = str_replace("<effetticollaterali />", $prodotto['sideeffects'], $htm
 require_once MODEL_PATH.DS.'lib'.DS.'functions.php';
 $htmlPage = str_replace('_product_data', http_build_query(array_slice_assoc($prodotto, ['id'])), $htmlPage);
 
+if (isset($_SESSION['log'])) {
+
+	$class = (isset($_SESSION['logtype']) && $_SESSION['logtype'] === 'success' ? 'formSuccess' : 'formErrors');
+	$statusLog = "
+		<div>
+			<strong class='{$class}'>{$_SESSION['log']}</strong>
+		</div>";
+
+} else {
+	$statusLog = '';
+}
+
+$htmlPage = str_replace('<status-log />', $statusLog, $htmlPage);
+
+unset($_SESSION['log']);
+
 echo $htmlPage;

@@ -13,6 +13,7 @@ require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductInCart.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Transaction.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
 
+use Exception;
 use DB\dbh;
 use DB\Exceptions\DBException;
 use MyCandies\Entities;
@@ -76,6 +77,9 @@ class ShopManager {
 			$_SESSION['cart']['info']->addPriceToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
 			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
+//		Move when adding check for availability of product
+		$_SESSION['log'] = 'Prodotto aggiunto al carrello.';
+		$_SESSION['logtype'] = 'success';
 	}
 
 	public function increaseProductQuantity(int $productId) {
@@ -161,6 +165,7 @@ class ShopManager {
 
 	public function checkout(array $cart, Authentication $auth) {
 
+
 		try {
 			$this->dbh->connect();
 			$this->dbh->transactionStart();
@@ -188,11 +193,16 @@ class ShopManager {
 			$transaction->insert($this->dbh);
 			$this->dbh->transactionCommit();
 			unset($_SESSION['cart']);
-
+			$_SESSION['log'] = 'Grazie per l\'acquisto';
+			$_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 			$this->dbh->transactionRollback();
+			$_SESSION['log'] = 'Si è verificato un errore, riprovare più tardi';
+			$_SESSION['logtype'] = 'failure';
+			throw new Exception('Si è verificato un errore, riprovare più tardi');
 		} finally {
 			$this->dbh->disconnect();
 		}
+
 	}
 }
