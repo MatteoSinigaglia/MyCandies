@@ -45,12 +45,33 @@ function defaultValue(input, dati) {
             break;
             case "form_credenziali": input.value = form_credenziali[input.id][0];
             break;
+            case "searchBar": input.value = product_search[input.id][0];
+            break;
         }
     }
 };
 
+var product_search = {
+    "productSearchBar": ["Cerca prodotto"]
+};
+
+function loadSearchBarPlaceholder() {
+    var input = document.getElementById("productSearchBar");
+    defaultValue(input, "searchBar");
+    input.onfocus = function() { noDefaultValue(this, "searchBar"); };
+    input.onblur = function() { defaultValue(this, "searchBar"); };
+    var label = document.getElementById("searchBarLabel");
+    label.style.display = "none";
+};
+
 function noDefaultValue(input, dati) {
     switch(dati) {
+        case "searchBar" : {
+            if (input.value == product_search[input.id][0]) {
+                input.value = "";
+            }
+        }
+        break;
         case "form_login": {
             if (input.value == form_login[input.id][0]) {
                 input.value = "";
@@ -484,6 +505,9 @@ window.onload = () => {
     }
     if(document.getElementById("loginForm")) {
         loadFormCliente();
+    }
+    if(document.getElementById("productSearchBar")) {
+        loadSearchBarPlaceholder();
     }
 }
 
