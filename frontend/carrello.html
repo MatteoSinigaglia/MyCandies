@@ -32,6 +32,7 @@
         <div id="utilityBar">
             <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
                 <fieldset>
+                <label for="productSearchBar" class="helps" id="searchBarLabel">Cerca prodotto</label>
                 <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                 <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>               
                 </fieldset>
@@ -60,6 +61,7 @@
 
 <div id="cartContent" class="main">
 	<h1>Carrello</h1>
+    <status-log />
 	<div id="selectedProduct">
 		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome, codice, quantità, azioni e totale prodotto.">
 			<thead>
