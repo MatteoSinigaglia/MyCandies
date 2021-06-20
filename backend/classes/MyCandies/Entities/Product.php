@@ -60,7 +60,7 @@ class Product extends Entity
         if ($name == '' || $name == 'Nome prodotto') {
             $this->errors['name'] = 'Non è stato inserito il nome';
         } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
-            $this->errors['name'] = 'Il nome non può contenere solamente numeri';
+            $this->errors['name'] = 'Nome non corretto, non può contenere caratteri speciali o solo valori numerici';
         } else if($this->checkUniqueName($name)) {
             $this->errors['name'] = 'Esiste già un prodotto con questo nome';
         }else {

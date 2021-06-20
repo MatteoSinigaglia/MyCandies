@@ -31,7 +31,7 @@
             else if($this->checkUniqueName($name))
                 throw new Exception('Esiste già una categoria con lo stesso nome');
             else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) 
-                throw new Exception('Il nome non può contenere solamente numeri') ;  
+                throw new Exception('Nome non corretto, non può contenere caratteri speciali o solo valori numerici') ;  
             $this->name = $name;
         }
 

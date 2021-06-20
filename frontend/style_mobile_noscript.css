@@ -133,16 +133,6 @@ border-radius: 5px;
 resize: none;
 background-color: white;
 }
-#aggiungi,
-#confirm,
-#cancella,
-#submitActivePrinciple,
-#submitEffect,
-#submitSideEffect,
-#submitCategory {
-display: block;
-margin: 0.6em auto 0 auto;
-}
 .buttons {
 padding: 0.5em 1em;
 margin: 0.5em;
@@ -761,4 +751,15 @@ padding-right: 1em;
 }
 #content404 img {
 width: 100%;
+}
+#aggiungi,
+#confirm,
+#cancella,
+#submitActivePrinciple,
+#submitEffect,
+#submitSideEffect,
+#submitCategory,
+#confirmSubscribe {
+display: block;
+margin: 0.6em auto 0 auto;
 }

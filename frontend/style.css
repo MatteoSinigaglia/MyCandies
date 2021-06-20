@@ -680,7 +680,8 @@ width: 100%;
 #submitActivePrinciple,
 #submitEffect,
 #submitSideEffect,
-#submitCategory {
+#submitCategory,
+#confirmSubscribe {
 display: block;
 margin: 0.6em auto 0 auto;
 }

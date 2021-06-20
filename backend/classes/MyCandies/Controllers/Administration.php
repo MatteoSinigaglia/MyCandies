@@ -63,7 +63,7 @@ class Administration {
                 $_SESSION['logtype'] = 'failure';
             }
 		} catch (DBException $e) {
-            $_SESSION['log'] = 'Errore durante l\'eliminazione dell\'utente, riprovare più tardi.';
+            $_SESSION['log'] = 'Errore durante l\'eliminazione dell\'utente, riprovare più tardi!';
             $_SESSION['logtype'] = 'failure';
 			throw $e;
 		} finally {
@@ -85,7 +85,7 @@ class Administration {
             $_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 
-            $_SESSION['log'] = 'Errore durante l\'aggiunta dell\' admin.';
+            $_SESSION['log'] = 'Errore durante l\'aggiunta dell\' admin!';
             $_SESSION['logtype'] = 'failure';
             throw new DBException($e->getMessage() . print_r($newAdmin)."\nUser id: ".$newAdmin[0]->getId());
 		} finally {
