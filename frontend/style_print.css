@@ -136,6 +136,9 @@ padding: 0.5em 1em;
 padding-right: 2em;
 margin-left: 22%;
 }
+#productContenitor dl dd {
+min-height: 8em;
+}
 #productTableContent {
 border-radius: 10px;
 margin: 1em auto;

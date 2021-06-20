@@ -331,6 +331,9 @@ border-radius: 5px;
 #productContenitor dl dd p {
 padding: 1em;
 }
+#productContenitor dl dd {
+min-height: 13em;
+}
 #addToCartButton {
 float: right;
 }

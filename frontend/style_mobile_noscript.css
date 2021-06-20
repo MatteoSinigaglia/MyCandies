@@ -370,6 +370,11 @@ font-size: 1.5em;
 font-weight: bold;
 margin: 0.5em 0.9em;
 }
+#productContenitor a:link {
+text-decoration: none;
+text-align: center;
+width: 40%;
+}
 #productContenitor {
 background-color: #F2E8CF;
 border: 1px solid #093013;
@@ -394,9 +399,6 @@ border-radius: 5px;
 #productContenitor dl dd p {
 margin: 0.5em 1em;
 text-align: center;
-}
-#productContenitor a:link {
-text-decoration: none;
 }
 #addToCartButton {
 display: block;

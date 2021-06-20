@@ -31,19 +31,19 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-    text-align: center;
-    color: #94181a;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    }
+text-align: center;
+color: #94181a;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+}
 .formSuccess {
-    text-align: center;
-    color: #0f5320;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    }
+text-align: center;
+color: #0f5320;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+}
 .rightMessage {
 color: #0f5320;
 display: block;
@@ -343,8 +343,13 @@ border-radius: 5px;
 #productContenitor dl dd p {
 padding: 1em;
 }
+#productContenitor dl dd {
+min-height: 13em;
+}
 #productContenitor a:link {
 text-decoration: none;
+width: 17%;
+text-align: center;
 }
 #addToCartButton {
 display: block;
