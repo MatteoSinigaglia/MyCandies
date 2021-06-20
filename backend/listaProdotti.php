@@ -30,7 +30,7 @@ try {
     $productsManager = new ProductsManager();
     $categoriesManager = new CategoriesManager();
 
-    $categoriesList = array();
+    $categoriesList = $categoriesManager->getCategories();
     if(isset($_GET['productSearchBar'])) {
         $productsList = $productsManager->searchProduct($_GET['productSearchBar']);
     } else if(isset($_GET['category'])) {

@@ -164,7 +164,7 @@ class ProductsManager
         }
         $rows = array();
         foreach ($products as $product) {
-            if($products->getAvailability() > 0 || $isForDashboard) {
+            if($product->getAvailability() > 0 || $isForDashboard) {
                 array_push($rows, $product);
             }
         }
