@@ -9,7 +9,8 @@
     <meta name="keywords" content="My Candies, prodotti, dettagli, disponibilità" />
 	<meta name="author" content="MyCandies&amp;co" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 768px)"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
+    <link rel="stylesheet" type="text/css" href="../frontend/style_small_screen.css" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_print.css" media="print"/>
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
@@ -17,10 +18,10 @@
     <script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenu();">
+<body>
     <div id="header">
-        <div id="navigation">
-            <ul id="navigationMenu">
+        <div id="navigation_dashboard">
+            <ul id="navigationMenu_dashboard">
                 <li><a href="../backend/riepilogoAcquisti_dashboard.php">Riepilogo acquisti</a></li>
                 <li><a href="../backend/utenti_dashboard.php">Utenti</a></li>
                 <li><a href="../backend/formProdotto.php">Inserisci prodotto</a></li>
@@ -36,8 +37,8 @@
     </div>
 
     <div id="prodottiDashboard" class="main">
-        <messages />
-        <table class="responsiveTable" id="elencoProdotti" summary="Tabella riassuntiva dei prodotti venduti. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, prezzo, quantità e le azioni.">
+        <error_overall />
+        <table class="responsiveTable" id="elencoProdotti" summary="Tabella riassuntiva dei prodotti venduti. Ogni prodotto è identificato dai seguenti attributi: Nome prodotto, prezzo, quantità e le azioni disponibili per quel prodotto.">
             <thead>
                 <tr>
                     <th id="name" scope="col">Nome prodotto</th>
@@ -52,7 +53,7 @@
         </table>
     </div>
     <div class="helpBackToHeader">
-        <a href="#header" class="backToHeader">Torna su</a>
+        <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
     </div>
 </body>
 </html>

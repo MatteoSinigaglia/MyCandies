@@ -16,9 +16,10 @@ try {
 		require_once __DIR__.'/classes/MyCandies/Controllers/Administration.php';
 		$admin = new Administration();
 		$admin->deleteUser($_GET['email']);
-		header('location: ./dashboard_utenti.php');
-		die();
 	}
 } catch (Exception $e) {
 	echo $e;
 }
+header('location: ./utenti_dashboard.php');
+die();
+

@@ -15,7 +15,6 @@ class dbh {
 	private $host;
 	private $db;
 	private $user;
-	private $port;
 	private $psw;
 	private $charset;
 	private $options;
@@ -25,10 +24,8 @@ class dbh {
 	public function __construct() {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
-		$this->port = $_SERVER['SERVER_PORT'];
-		$this->psw = '';
 		$this->user = 'root';
-		$this->charset = 'utf8';
+		$this->charset = 'utf8mb4';
 		$this->options = [
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
@@ -42,7 +39,7 @@ class dbh {
 	public function connect() {
 		try {
 
-			$dsn = 'mysql:host='.$this->host.';port='.$this->port.';dbname='.$this->db.';charset='.$this->charset.';';
+			$dsn = 'mysql:host='.$this->host.';dbname='.$this->db.';charset='.$this->charset.';';
 			$this->pdo = new PDO($dsn, $this->user, $this->psw, $this->options);
 		} catch (PDOException $e) {
 
@@ -73,7 +70,6 @@ class dbh {
 			throw new DBException($output, $e->getCode());
 		} catch (Exception $e) {
 			throw $e;
-			die();
 		}
 	}
 
@@ -81,15 +77,44 @@ class dbh {
 		return $this->pdo->lastInsertId();
 	}
 
-	public function find(string $table, string $column, mixed $value) {
+	public function find(string $table, string $column, $value) {
 		$query = 'SELECT * FROM `'.$table.'` WHERE `'.$column.'`=:value';
 
 		$parameters = [
 			'value' => $value
 		];
 
-		$query = $this->$query($query, $parameters);
-		return $query->fetchAll();
+		try {
+			$query = $this->query($query, $parameters);
+			return $query->fetchAll();
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
+
+	public function findById(string $table, string $id, int $value, $className, $args =[]) {
+//		think how to handle pk with composite pks
+		$query = 'SELECT * FROM `'.$table.'` WHERE `'.$id.'` = :value';
+		$parameters = [
+			'value' => $value
+		];
+
+		try {
+			$query = $this->query($query, $parameters);
+		} catch (DBException $e) {
+			throw $e;
+		}
+		return $query->fetchObject($className, $args);
+	}
+
+	public function findAll(string $table) {
+		$query = 'SELECT * FROM `'.$table.'`';
+		try {
+			$query = $this->query($query);
+			return $query->fetchAll();
+		} catch (DBException $e) {
+			throw $e;
+		}
 	}
 
 	public function insert(string $table, array $fields) : int {
@@ -107,7 +132,32 @@ class dbh {
 			$this->query($query, $fields);
 			return $this->pdo->lastInsertId();
 		} catch (Exception $e) {
-			throw new Exception($e->getMessage(), $e->getCode());
+			throw new DBException($e->getMessage(), $e->getCode());
+		}
+	}
+
+	public function update(string $table, string $id, array $fields) {
+
+//		think how to handle pk with composite pks
+		$query = 'UPDATE `'.$table.'` SET ';
+
+		foreach ($fields as $key => $value) {
+			if($key != $id)
+				$query .= '`'.$key.'` = :'.$key.',';
+		}
+
+//		Remove last ',' inserted in foreach statement
+		$query = rtrim($query, ',');
+
+		$query .= ' WHERE `'.$id.'` = :'.$id.'';
+
+		echo $query;
+//		$fields = $this->processDates($fields);
+
+		try {
+			$this->query($query, $fields);
+		} catch (Exception $e) {
+			throw new DBException($e->getMessage(), $e->getCode());
 		}
 	}
 

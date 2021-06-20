@@ -3,7 +3,7 @@
 
 namespace MyCandies\Entities;
 
-use MyCandies\Exceptions\EntityException;
+use Exception;
 
 class ActivePrincipleEffect {
 
@@ -17,14 +17,14 @@ class ActivePrincipleEffect {
                 $this->setActive_principle_id($data['active_principle_id']);
                 $this->effect_id = $data['effect_id'];
             }
-        } catch(EntityException $e) {
+        } catch(Exception $e) {
             throw  $e;
         }
     }
 
     private function setActive_principle_id($active_principle_id) {
         if(!isset($active_principle_id) || $active_principle_id == '')
-            throw new EntityException('Non esiste un principio attivo senza effetti');
+            throw new Exception('Non esiste un principio attivo senza effetti');
         $this->active_principle_id = $active_principle_id;
     }
     public function getActive_principle_id() : int {

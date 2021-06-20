@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Prodotti - My Candies</title>
+    <title>404 Page Not Found</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Prodotti - My Candies"/>
-    <meta name="description" content="Elenco dei prodotti acquistabili dal sito"/>
-    <meta name="keywords" content="My Candies, caramelle, prodotti, categorie, categoria, prezzo" />
+    <meta name="title" content="Error 404 - My Candies"/>
+    <meta name="description" content="Pagina non trovata, error 404, MyCandies"/>
+    <meta name="keywords" content="MyCandies&amp;co, My Candies, error, 404, page not found"/>
     <meta name="author" content="MyCandies&amp;co"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../frontend/style.css" media="screen and (min-width: 1201px)"/>
@@ -16,19 +16,18 @@
 	<link rel="stylesheet" type="text/css" href="../frontend/style_mobile_noscript.css"
 		media="handheld, screen and (min-width:280px) and (max-width:767px), all and (min-device-width: 280px) and (max-device-width:767px)" id="mobileStyleSheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script type="text/javascript" src="../frontend/checkForms.js"></script>
+	<script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
 <body>
-
 <div id="header">
-    <a class="helps" href="#productList">Vai al contenuto</a>
+    <a class="helps" href="#content404">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
-          <a href="../backend/home.php">
-            <img id="logo" src="../img/logo.png"
-                alt="logo del sito con una caramella e la scritta MyCandies"/>
-          </a>
+            <a href="../backend/home.php">
+                <img id="logo" src="../img/logo.png"
+                    alt="logo del sito con una caramella e la scritta MyCandies"/>
+            </a>
         </div>
         <div id="utilityBar">
             <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
@@ -47,31 +46,18 @@
     <div id="navigation">
         <ul id="navigationMenu">
             <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
-            <li><span>Prodotti</span></li>
-            <li><a href="../backend/areaPersonale.php">Area personale</a></li>
-            <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+			<li><a href="../backend/listaProdotti.php">Prodotti</a></li>
+			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
+			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
             <dashboard />
         </ul>
     </div>
 </div>
-<div id="breadcrumb">
-    <p>Ti trovi in: <a href="../backend/home.php" xml:lang="en">Home</a> / Prodotti</p>
+<div id="content404">
+    <img src="../img/error404.jpg" alt="Errore 404: pagina non trovata"/>
 </div>
-<div class="main" id="productList">
-    <div id="filters">
-        <h1>Filtra per categoria</h1>
-        <a href="#rightSideContent" class="helps">Salta i filtri e vai ai prodotti</a>
-        <categories />
-    </div>
-    <div id="rightSideContent">
-        <h1>Lista dei prodotti</h1>
-        <div class="products">
-            <listOfProducts />
-        </div>
-    </div>
-    <div class="helpBackToHeader">
-        <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
-    </div>
+<div class="helpBackToHeader helps">
+    <a href="#header" class="backToHeader">Torna su</a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">
@@ -129,7 +115,7 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/ZuccheroFornaciari" xml:lang="en">Facebook</a>
+         <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/ZuccheroFornaciari" xml:lang="en">Facebook</a>
                 </li>
                 <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/mentosau/?hl=it" xml:lang="en">Instagram</a>
                 </li>

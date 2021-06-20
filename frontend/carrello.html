@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenu();">
+<body>
 
 <div id="header">
 	<a class="helps" href="#cartContent">Vai al contenuto</a>
@@ -26,17 +26,19 @@
 		<div id="imageContainer">
 			<a href="../backend/home.php">
 				<img id="logo" src="../img/logo.png"
-						alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+						alt="logo del sito con una caramella e la scritta MyCandies"/>
 			</a>
 		</div>
-
-		<div id="utilityBar">
-			<form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
-				<div>
-					<input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
-                    <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>				</div>
-			</form>
-
+        <div id="utilityBar">
+            <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
+                <fieldset>
+                <label for="productSearchBar" class="helps" id="searchBarLabel">Cerca prodotto</label>
+                <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
+                <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>               
+                </fieldset>
+            </form>
+        </div>
+        <div id="utilityButtons">
             <a_auth_state />
 			<p id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></p>
 		</div>
@@ -44,9 +46,10 @@
 	<div id="navigation">
 		<ul id="navigationMenu">
 			<li><a href="../backend/home.php" xml:lang="en">Home</a></li>
-			<li><a href="../backend/listaProdotti.php">Droghe</a></li>
+			<li><a href="../backend/listaProdotti.php">Prodotti</a></li>
 			<li><a href="../backend/areaPersonale.php">Area personale</a></li>
 			<li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+            <dashboard />
 		</ul>
 	</div>
 </div>
@@ -57,11 +60,8 @@
 </div>
 
 <div id="cartContent" class="main">
-	<div>
-		<img src="../img/shopping-cart.png" alt="Icona carrello" />
-		<h1>Carrello</h1>
-	</div>
-
+	<h1>Carrello</h1>
+    <status-log />
 	<div id="selectedProduct">
 		<table class="responsiveTable" summary="Tabella riassuntiva dei prodotti inseriti nel carrello. Ogni prodotto è identificato dai seguenti attributi: Nome, codice, quantità, azioni e totale prodotto.">
 			<thead>
@@ -77,19 +77,21 @@
                 <productsInCart />
 			</tbody>
         </table>
-        <table summary="Tabella per indicare il totale del carrello.">
-            <tbody>
+        <table class="responsiveTable" summary="Tabella per indicare il totale del carrello.">
+            <thead>
                 <tr>
 					<th id="totalCart" scope="rowgroup" colspan="4">Totale carrello</th>
-					<td scope="row">0.0$</td>
 				</tr>
+            </thead>
+            <tbody>
+                <total />
             </tbody>
         </table>
 		<a href="../backend/purchase.php"><button id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</button></a>
     </div>
 </div>
 <div class="helpBackToHeader">
-    <a href="#header" class="backToHeader">Torna su</a>
+    <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">
@@ -147,11 +149,11 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/ZuccheroFornaciari" xml:lang="en">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/mentosau/?hl=it" xml:lang="en">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/hariboit" xml:lang="en">Twitter</a>
                 </li>
                 <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
                 </li>

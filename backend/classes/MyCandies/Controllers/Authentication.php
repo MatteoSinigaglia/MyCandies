@@ -41,7 +41,9 @@ class Authentication {
 	}
 
 	static public function initSession() {
-		session_start();
+		if (session_status() !== PHP_SESSION_ACTIVE) {
+			session_start();
+		}
 	}
 
 	private function initUsers() {
@@ -74,6 +76,7 @@ class Authentication {
 			$this->user = $this->users->find(['column' => 'email', 'value' => $_SESSION['email']])[0];
 		} catch (DBException $e) {
 			echo $e;
+			throw $e;
 		} finally {
 			$this->dbh->disconnect();
 		}
@@ -282,7 +285,7 @@ class Authentication {
 	}
 
 	public function isAdmin() : bool {
-		return (isset($_SESSION['permissions']) ? $_SESSION['permissions'] == "admin" : false);
+		return (isset($_SESSION['permissions']) ? $_SESSION['permissions'] === "admin" : false);
 	}
 
 	public function logout() {
@@ -309,11 +312,48 @@ class Authentication {
 				$this->address = $this->addresses->findById($this->userAddress->getAddressId());
 			} catch (DBException $e) {
 				echo $e;
+				throw $e;
 			} finally {
 				$this->dbh->disconnect();
 			}
 		}
 		return (isset($this->address) ? $this->address->getValues() : null);
+	}
+
+	public function getUserId(): ?int {
+
+		if (!isset($this->user)) {
+			try {
+				$this->initUser();
+			} catch (DBException $e) {
+				return null;
+			}
+		}
+
+//		User already set
+		return $this->user->getId();
+	}
+
+	public function getAddressId(): ?int {
+
+		try {
+			$this->dbh->connect();
+
+			if (!isset($this->userAddress)) {
+				$userId = $this->getUserId();
+				$usersAddresses = UsersAddresses::getFromUserId($this->dbh, $userId);
+				$this->userAddress = $usersAddresses[0];
+//				$this->initUsersAddresses();
+//				$this->userAddress = $this->usersAddresses->find(['column' => 'customer_id', 'value' => $userId])[0];
+			}
+
+			return $this->userAddress->getAddressId();
+		} catch (DBException $e) {
+			echo $e;
+			return null;
+		} finally {
+			$this->dbh->disconnect();
+		}
 	}
 
 	public function getData() : array {

@@ -22,9 +22,17 @@ class Product extends Entity
 
     private $errors;
 
+    static public function getProductFromId(dbh $dbh, int $id): ?Product {
+	    try {
+		    return $dbh->findById('Products', 'id', $id, Product::class, [DB]);
+	    } catch (DBException $e) {
+	    	return null;
+	    }
+    }
+
     public function __construct(int $source, array $data = [])
     {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if ($source === PRODUCTS_MANAGER) {
                 $this->errors = array();
                 $this->setCategory_id($data['category_id']);
@@ -51,8 +59,8 @@ class Product extends Entity
     {
         if ($name == '' || $name == 'Nome prodotto') {
             $this->errors['name'] = 'Non è stato inserito il nome';
-        } else if(!preg_match('/^\w+(\s\w+)*$/', $name)) {
-            $this->errors['name'] = 'Il nome deve contenere caratteri alfanumerici';
+        } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
+            $this->errors['name'] = 'Il nome non può contenere solamente numeri';
         } else if($this->checkUniqueName($name)) {
             $this->errors['name'] = 'Esiste già un prodotto con questo nome';
         }else {
@@ -96,7 +104,7 @@ class Product extends Entity
     {
         if (!is_numeric($availability)) {
             $this->errors['availability'] = 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
             $this->errors['availability'] = 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             $this->errors['availability'] = 'La quantità deve essere un valore intero';
@@ -109,16 +117,13 @@ class Product extends Entity
     public static function validateAvailability($availability) : string {
         if (!is_numeric($availability)) {
             return 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
             return 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             return 'La quantità deve essere un valore intero';
         } else return '';
     }
 
-    /**
-     * getters
-     */
     public function getCategory_id()
     {
         return $this->category_id;
@@ -176,10 +181,40 @@ class Product extends Entity
         return isset($product[0]);
     }
 
-	/**
-	 * @return int Returns the entity's id
-	 */
 	public function getId(): int {
 		return $this->id;
+	}
+
+	public function updateAvailability(dbh $dbh, int $updatedAvailability) {
+		try {
+			echo 'Old: '.$this->getAvailability();
+			echo 'New: '.$updatedAvailability;
+			$this->setAvailability($updatedAvailability);
+			$dbh->update('Products', 'id', [
+				'id'            =>  $this->id,
+				'availability'  =>  $this->availability
+			]);
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
+
+public function update(dbh $dbh) {
+		try {
+			$dbh->update('Products', 'id', $this->toAssociativeArray());
+		} catch (DBException $e) {
+			throw $e;
+		}
+	}
+
+	private function toAssociativeArray() {
+    	return [
+//    		'id'            =>  $this->id,
+//		    'category_id'   =>  $this->category_id,
+		    'name'          =>  $this->name,
+		    'description'   =>  $this->description,
+		    'price'         =>  $this->price,
+		    'availability'  =>  $this->availability
+	    ];
 	}
 }

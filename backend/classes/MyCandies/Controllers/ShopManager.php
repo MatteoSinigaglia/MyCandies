@@ -4,13 +4,16 @@
 namespace MyCandies\Controllers;
 
 require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'dbh.php';
+require_once MODEL_PATH.DS.'classes'.DS.'DB'.DS.'Exceptions'.DS.'DBException.php';
 require_once MYCANDIES_PATH.DS.'Tables'.DS.'Table.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'User.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'ProductInCart.php';
+require_once MYCANDIES_PATH.DS.'Entities'.DS.'Transaction.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
 
+use Exception;
 use DB\dbh;
 use DB\Exceptions\DBException;
 use MyCandies\Entities;
@@ -18,8 +21,9 @@ use MyCandies\Entities\User;
 use MyCandies\Entities\Cart;
 use MyCandies\Entities\Product;
 use MyCandies\Entities\ProductInCart;
+use MyCandies\Entities\Transaction;
 use MyCandies\Tables\Table;
-use  MyCandies\Controllers\Authentication;
+use MyCandies\Controllers\Authentication;
 
 
 class ShopManager {
@@ -45,9 +49,9 @@ class ShopManager {
 		$this->users = new Table($this->dbh, 'Customers', 'id', User::class, [Entities\DB]);
 	}
 
-	private function initCarts() {
-		$this->carts = new Table($this->dbh, 'Carts', 'id', Cart::class, [Entities\DB]);
-	}
+//	private function initCarts() {
+//		$this->carts = new Table($this->dbh, 'Carts', 'id', Cart::class, [Entities\DB]);
+//	}
 
 	private function initProducts() {
 		$this->products = new Table($this->dbh, 'Products', 'id', Product::class, [Entities\DB]);
@@ -58,8 +62,13 @@ class ShopManager {
 	}
 
 	public function addToCart(array $product) {
+//		if (!isset($_SESSION['cart'])) {
+//			$cart = new Cart();
+//			$_SESSION['cart'] = serialize($cart);
+//		}
+
 		if (!isset($_SESSION['cart']['info']))
-			$_SESSION['cart']['info'] = new Cart(Entities\SHOP_MANAGER);
+			$_SESSION['cart']['info'] = new Cart();
 
 		if (isset($_SESSION['cart'][(int)$product['id']])) {
 			$this->increaseProductQuantity((int)$product['id']);
@@ -68,6 +77,9 @@ class ShopManager {
 			$_SESSION['cart']['info']->addPriceToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
 			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
+//		Move when adding check for availability of product
+		$_SESSION['log'] = 'Prodotto aggiunto al carrello!';
+		$_SESSION['logtype'] = 'success';
 	}
 
 	public function increaseProductQuantity(int $productId) {
@@ -110,7 +122,7 @@ class ShopManager {
 		return (isset($_SESSION['cart']) ? $_SESSION['cart'] : null);
 	}
 
-	public function getProductById(int $id) {
+	public function getProductById(int $id): Product {
 		if (!isset($this->products))
 			$this->initProducts();
 
@@ -151,34 +163,43 @@ class ShopManager {
 		return $products;
 	}
 
-	public function checkout() {
-		if (!isset($this->users))
-			$this->initUsers();
+	public function checkout(array $cart, Authentication $auth) {
 
-		if (!isset($this->carts))
-			$this->initCarts();
-
-		if (!isset($this->products))
-			$this->initProducts();
-
-		if (!isset($this->productsInCarts))
-			$this->initProductsInCarts();
-
-		$cart = $_SESSION['cart'];
 
 		try {
 			$this->dbh->connect();
 			$this->dbh->transactionStart();
-			$cartId = $this->carts->insert($cart['info']);
+
+			$cartId = $cart['info']->insert($this->dbh);
 			unset($cart['info']);
-			foreach ($cart as $id => $quantity) {
-				$this->productsInCarts->insert(new ProductInCart(Entities\SHOP_MANAGER, ['product_id' => $id, 'cart_id' => $cartId, 'quantity' => $quantity]));
-				$this->products->update(['id' => $id, 'availability' => $quantity]);
+			foreach ($cart as $productId => $productQuantity) {
+				$productInCart = new ProductInCart(Entities\SHOP_MANAGER, [
+					'product_id'    =>  $productId,
+					'cart_id'       =>  $cartId,
+					'quantity'      =>  $productQuantity]);
+				$productInCart->insert($this->dbh);
+
+//				New availability = product availability - product quantity
+				$product = Product::getProductFromId($this->dbh, $productId);
+				$product->updateAvailability($this->dbh, $product->getAvailability() - $productQuantity);
 			}
 
+			$transaction = new Transaction([
+				'customer_id'   =>  $auth->getUserId(),
+				'cart_id'       =>  $cartId,
+				'address_id'    =>  $auth->getAddressId()
+			]);
+
+			$transaction->insert($this->dbh);
 			$this->dbh->transactionCommit();
+			unset($_SESSION['cart']);
+			$_SESSION['log'] = 'Grazie per l\'acquisto!';
+			$_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 			$this->dbh->transactionRollback();
+			$_SESSION['log'] = 'Si è verificato un errore, riprovare più tardi';
+			$_SESSION['logtype'] = 'failure';
+			throw new Exception('Si è verificato un errore, riprovare più tardi');
 		} finally {
 			$this->dbh->disconnect();
 		}

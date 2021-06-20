@@ -1,8 +1,9 @@
 <?php
 
-require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
+require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ProductsManager.php';
 require_once MYCANDIES_PATH.DS.'Entities'.DS.'Product.php';
+require_once LIB_PATH . DS . 'productListDashboardLib.php';
 
 use MyCandies\Controllers\ProductsManager;
 use MyCandies\Entities\Product;
@@ -18,32 +19,34 @@ if(isset($_POST['modifyProduct'])) {
     $data['availability'] = $_POST['modifyAvailability'];
     $data['name'] = $_POST['modifyName'];
     try {
-        $errorMsg .= '<strong class="formErrors">'.Product::validateAvailability($data['availability']).'</strong>';
-        $errorMsg .= '<strong class="formErrors">'.Product::validatePrice($data['price']).'</strong>';
-        if($errorMsg == '')
+        $errorMsg .= Product::validateAvailability($data['availability']) ? '<p class="formErrors">'.Product::validateAvailability($data['availability']).'</p>' : '';
+        $errorMsg .= Product::validatePrice($data['price']) ? '<p class="formErrors">'.Product::validatePrice($data['price']).'</p>' : '';
+        if($errorMsg == '') {
             $success = $productManager->modifyProduct($data);
+        }
     } catch (DBException | Exception $e) {
-        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '</strong>';
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '!</strong>';
     }
 } else if(isset($_POST['deleteProduct'])) {
-    $errorMsg = '';
     $data = array();
     $data['name'] = $_POST['modifyName'];
     try {
         $success = $productManager->removeProduct($data['name']);
     } catch (DBException | Exception $e) {
-        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '</strong>';
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '!</strong>';
     }
 }
 
-ob_start();
-include 'prodotti_dashboard.php';
-$htmlPage = ob_get_clean();
+[
+    'DOM' => $htmlPage,
+    'productList' => $productList,
+] = initProductList();
+
+$htmlPage = insertProductRow($productList, $htmlPage, false);
 
 if($success == true) {
-    $htmlPage = str_replace('<messages />', '<strong class="formSuccess">Operazione completata con successo</strong>', $htmlPage);
+    $htmlPage = str_replace('<error_overall />', '<strong class="formSuccess">Operazione completata con successo!</strong>', $htmlPage);
 } else {
-    $htmlPage = str_replace('<messages />', $errorMsg, $htmlPage);
-
+    $htmlPage = str_replace('<error_overall />', $errorMsg, $htmlPage);
 }
 echo $htmlPage;

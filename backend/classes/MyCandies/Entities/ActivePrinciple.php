@@ -16,7 +16,7 @@ class ActivePrinciple extends Entity {
 
     public function __construct(int $source, array $data=[]) {
         try {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if($source === Entities\ACTIVE_PRINCIPLES_MANAGER) {
                 $this->setName($data['name']);
             }
@@ -26,8 +26,11 @@ class ActivePrinciple extends Entity {
     }
 
     private function setName($name) {
-        if(!isset($name) || $name == '')
+        if(!isset($name) || $name == '') {
             throw new Exception('Il nome deve avere un valore');
+        } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
+            throw new Exception('Il nome non può contenere solamente numeri');
+        }
         else if($this->checkUniqueName($name))
             throw new Exception('Esiste già un principio attivo con lo stesso nome');
         $this->name = $name;

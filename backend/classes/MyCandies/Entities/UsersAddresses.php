@@ -4,6 +4,7 @@
 namespace MyCandies\Entities;
 
 
+use DB\dbh;
 use MyCandies\Exceptions\EntityException;
 
 require_once __DIR__.'/Entity.php';
@@ -15,6 +16,18 @@ class UsersAddresses {
 
 	public const REGISTER = 1;
 
+	static public function getFromUserId(dbh $dbh, int $userId): array {
+		$usersAddressesArrays = $dbh->find('CustomersAddresses', 'customer_id', (string)$userId);
+
+		$usersAddresses = [];
+		foreach ($usersAddressesArrays as $usersAddressesElement) {
+			array_push($usersAddresses, new UsersAddresses(DB, [
+				'customer_id'   =>  $userId,
+				'address_id'    =>  $usersAddressesElement['address_id']
+			]));
+		}
+		return $usersAddresses;
+	}
 	public function __construct(int $source, array $data=[]) {
 
 		switch ($source) {
@@ -75,4 +88,5 @@ class UsersAddresses {
 		}
 		return $columns;
 	}
+
 }

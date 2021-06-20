@@ -18,25 +18,27 @@
 	<script type="text/javascript" src="../frontend/checkForms.js"></script>
 </head>
 
-<body onload="loadMenu();">
+<body>
 
 <div id="header">
-    <a class="helps" href="#suDiNoiContent">Vai al contenuto</a>
+    <a class="helps" href="#aboutUsContent">Vai al contenuto</a>
     <div id="headerLogoAndUtility">
         <div id="imageContainer">
             <a href="../backend/home.php">
                 <img id="logo" src="../img/logo.png"
-                        alt="logo del sito con una pastiglia e la scritta MyCandies Sei spacciato"/>
+                        alt="logo del sito con una caramella e la scritta MyCandies"/>
             </a>
         </div>
         <div id="utilityBar">
             <form class="searchButton" id="headerSearchBar" action="../backend/listaProdotti.php" method="get">
-                <div>
+                <fieldset>
+                    <label for="productSearchBar" class="helps" id="searchBarLabel">Cerca prodotto</label>
                     <input type="text" id="productSearchBar" name="productSearchBar" maxlength="30" />
                     <button type="submit" id="productSearchButton" name="productSearchButton" class="buttons fa-search" value="&#xf002;"><p class="helps">Cerca</p></button>
-                </div>
+                </fieldset>
             </form>
-
+        </div>
+        <div id="utilityButtons">
             <a_auth_state />
             <a href="../backend/carrello.php" id="cartButton" class="fa fa-shopping-cart buttons"><span> Carrello</span></a>
         </div>
@@ -44,9 +46,10 @@
     <div id="navigation">
         <ul id="navigationMenu">
             <li><a href="../backend/home.php" xml:lang="en">Home</a></li>
-            <li><a href="../backend/listaProdotti.php">Droghe</a></li>
+            <li><a href="../backend/listaProdotti.php">Prodotti</a></li>
             <li><a href="../backend/areaPersonale.php">Area personale</a></li>
             <li><a href="../backend/FAQ.php"><abbr title="Frequently Asked Questions" xml:lang="en">FAQ</abbr></a></li>
+            <dashboard />
         </ul>
     </div>
 </div>
@@ -59,36 +62,34 @@
 
 <div id="aboutUsContent">
 	<h1 id="aboutUsTitle"> Chi siamo </h1>
-    <p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito e vi augura una buona drogata nella speranza di rivedervi presto in preda all'astinenza:</p>
+    <p>Il personale della ditta, di cui forniamo una rapida presentazione di seguito, vi ringrazia cortesemente per aver visitato il sito.</p>
     <div>
     <dl>
         <dt>Matteo Sinigaglia</dt>
         <dd>
-            <img src="../img/WalterWhite.png" alt="Uomo anziano con un cappello (Walter White), protagonista della serie tv Breaking Bad." />
-            <p>Matteo Sinigaglia è l'addetto alle vendite della compagnia. Si occupa dello spaccio diretto dei prodotti.</p>
+            <img src="../img/jeff_bezos.jpg" alt="Jeff Bezos, proprietario della piattaforma Amazon, che passeggia con abbigliamento casual" />
+            <p>Matteo Sinigaglia è l'addetto alle vendite della compagnia. Si occupa di gestire le spedizioni verso tutto il mondo. La foto che lo ritrae è sufficiente per capire che la sua fama di venditore, lo precede.</p>
         </dd>
 		<dt>Alessandro Flori</dt>
         <dd>
-            <img src="../img/LapoElkann.jpg" alt="Lapo Elkann, uomo biondo con i capelli lunghi in evidente stato d'ebbrezza." />
-            <p>Alessandro Flori è l'addetto al controllo qualità del prodotto. Si occupa di provare personalmente i prodotti.</p>
+            <img src="../img/Clark_kent.jpg" alt="Clark Kent, ovvero Superman, che indossa un abito elegante e sotto di esso il costume del famoso supereroe" />
+            <p>Alessandro Flori è l'addetto al controllo qualità del prodotto. Si occupa di provare personalmente i prodotti. La prova vivente dell'efficacia delle nostre caramelle. Ha un secondo lavoro segreto ed è fondamentale che resti tale.</p>
         </dd>
 		<dt>Alessio Trevisan</dt>
 		<dd>
-            <img src="../img/MarkRenton.jpeg" alt="Giovane ragazzo che fuma in discoteca (Mark Renton), protagonista del film Trainspotting"  />
-            <p>Alessio Trevisan è l'addetto alla contabilità. Si occupa di stabilire il giusto prezzo per derubare inconsciamente i clienti.</p>
+            <img src="../img/WalterWhite.png" alt="Uomo anziano con un cappello (Walter White), protagonista della serie tv Breaking Bad"  />
+            <p>Alessio Trevisan è l'addetto alla produzione. Esperto chimico, che nel tempo libero produce caramelle speciali per lasciare una grossa ereditarietà alla sua famiglia.</p>
         </dd>
-       
 		<dt>Daniel Eduardo Contro</dt>
         <dd>
-            <img src="../img/PabloEscobar.jpg" alt="Pablo Escobar,carcerato sorridente che tiene un cartello in mano. " />
-            <p>Daniel Eduardo Contro è l'addetto alla sicurezza. Si occupa di tenere a bada gli <span xml:lang="en">hacker</span> e i clienti che vogliono il rimborso.</p>
+            <img src="../img/john-wick.jpg" alt="John Wick, interpretato da Keanu Reeves, vestito in elegante abito nero che cammina con una pistola nella mano destra" />
+            <p>Daniel Eduardo Contro è l'addetto alla sicurezza. Si occupa di tenere a bada gli <span xml:lang="en">hacker</span> e i clienti in cerca di un rimborso. Nel suo lavoro non ha rivali.</p>
         </dd>
     </dl>
     </div>
 </div>
-
-<div class="helpBackToHeader hide">
-	<a href="#header" class="backToHeader">Torna su</a>
+<div class="helpBackToHeader">
+    <a href="#header" class="backToHeader">Torna su <span class="fa fa-angle-double-up"></span></a>
 </div>
 <div id="footer">
     <div id="upperFooterContainer">
@@ -146,11 +147,11 @@
             </h2>
             <h3>Puoi trovarci su:</h3>
             <ul class="stylelessList">
-                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/vascorossi" xml:lang="en">Facebook</a>
+                <li><img src="../img/facebook.png" alt=""/><a href="https://it-it.facebook.com/ZuccheroFornaciari" xml:lang="en">Facebook</a>
                 </li>
-                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/sonoilkingdelledruoghe/?hl=it" xml:lang="en">Instagram</a>
+                <li><img src="../img/instagram.png" alt=""/><a href="https://www.instagram.com/mentosau/?hl=it" xml:lang="en">Instagram</a>
                 </li>
-                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/lapoelkann_" xml:lang="en">Twitter</a>
+                <li><img src="../img/twitter.png" alt=""/><a href="https://twitter.com/hariboit" xml:lang="en">Twitter</a>
                 </li>
                 <li><img src="../img/youtube.png" alt=""/><a href="https://www.youtube.com/watch?v=rRMTaLxuxlU" xml:lang="en">Youtube</a>
                 </li>

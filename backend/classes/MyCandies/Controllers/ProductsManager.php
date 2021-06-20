@@ -28,9 +28,9 @@ use MyCandies\Entities\ProductImage;
 use MyCandies\Entities\ProductsActivePrinciple;
 use MyCandies\Entities\SideEffect;
 use MyCandies\Entities\Effect;
-use MyCandies\Exceptions\EntityException;
 use MyCandies\Entities\ActivePrincipleEffect;
 use MyCandies\Entities\ActivePrincipleSideEffect;
+use MyCandies\Exceptions\EntityException;
 use MyCandies\Tables\Table;
 
 class ProductsManager
@@ -82,10 +82,8 @@ class ProductsManager
             $this->T_productsActivePrinciples->insert($productsActivePrinciples);
             $this->uploadImage(); // carica l'immagine nel server
             $this->dbh->transactionCommit();
-        } catch (DBException | Exception $e) {
+        } catch (Exception $e) {
             $this->dbh->transactionRollback();
-            throw $e;
-        } catch (EntityException $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
@@ -112,7 +110,7 @@ class ProductsManager
                 'availability' => $data['availability']
             ]);
             $this->dbh->transactionCommit();
-        } catch(DBException | Exception $e) {
+        } catch(Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
         } finally {
@@ -140,7 +138,7 @@ class ProductsManager
             $this->deleteImage($img_path);
             $this->T_images->delete($image_id);
             $this->dbh->transactionCommit();
-        } catch (Exception | DBException $e) {
+        } catch (Exception $e) {
             throw $e;
         }
         return true;
@@ -152,7 +150,7 @@ class ProductsManager
         } else throw new Exception('Non è stato possibile eliminare l\'immagine');
     }
 
-    public function getProducts() : array
+    public function getProducts(bool $isForDashboard = true) : array
     {
         try{
             $this->dbh->connect();
@@ -164,7 +162,13 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-         return $this->prepareProductsForList($products, $productsImages, $images);
+        $rows = array();
+        foreach ($products as $product) {
+            if($product->getAvailability() > 0 || $isForDashboard) {
+                array_push($rows, $product);
+            }
+        }
+        return $this->prepareProductsForList($rows, $productsImages, $images);
     }
 
     public function searchProduct($pattern) : array {
@@ -172,9 +176,12 @@ class ProductsManager
         try{
             $this->dbh->connect();
             $products = $this->T_products->searchPattern('name', '%'.$pattern.'%');
+            if(empty($products)) {
+                throw new EntityException([], 0, "Non sono stati trovati prodotti");
+            }
             $images = $this->T_images->find();
             $productsImages = $this->T_productsImages->find();
-        } catch (Exception $e) {
+        } catch(EntityException | Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
@@ -201,7 +208,6 @@ class ProductsManager
     public function getSingleProduct($id) : array {
         try{
             $this->dbh->connect();
-            // trova il prodotto
             $products = $this->T_products->find([
                 'column' => 'id',
                 'value'  => $id
@@ -210,7 +216,6 @@ class ProductsManager
                 'column' => 'id',
                 'value'  => $products[0]->getCategory_id()
             ]);
-            // mi aspetto che nel database ogni prodotto abbia UNA SOLA immagine anche se sarebbe possibile averne di più
             $productsImages = $this->T_productsImages->find([
                 'column' => 'product_id',
                 'value'  => $id
@@ -219,7 +224,6 @@ class ProductsManager
                 'column' => 'id',
                 'value'  => $productsImages[0]->getImg_id()
             ]);
-            // ogni prodotto ha un solo principio attivo collegato anche se sarebbe possibile averne più di uno
             $productsActivePrinciple = $this->T_productsActivePrinciples->find([
                 'column' => 'product_id',
                 'value'  => $id
@@ -236,7 +240,6 @@ class ProductsManager
                 'column' => 'active_principle_id',
                 'value'  => $activePrinciple[0]->getId()
             ]);
-            // effects e sideEffects sono le uniche query che potrebbero restituire 1 o più elementi
             if(isset($activePrinciplesEffects[0]))
                 $effects = $this->T_effects->find([
                     'column' => 'id',
@@ -247,7 +250,7 @@ class ProductsManager
                     'column' => 'id',
                     'value'  =>  $activePrinciplesSideEffects[0]->getSide_effect_id()
                 ]);
-        } catch (Exception | DBException $e) {
+        } catch (Exception $e) {
             throw $e;
         } finally {
             $this->dbh->disconnect();
@@ -276,9 +279,10 @@ class ProductsManager
 		} finally {
 			$this->dbh->disconnect();
 		}
-		return (isset($product) ? $product : null);
+		return ($product ?? null);
 	}
-    public function findProductsByCategory($category_id) : array {
+
+	public function findProductsByCategory($category_id) : array {
         try{
             $this->dbh->connect();
             $products = $this->T_products->find([

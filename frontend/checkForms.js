@@ -10,8 +10,6 @@ function printError(input, num, dati) {
         break;
         case "form_inserisciProdotto": element.appendChild(document.createTextNode(form_inserisciProdotto[input.id][num]));
         break;
-        case "form_credenziali": element.appendChild(document.createTextNode(form_credenziali[input.id][num]));
-        break;
         case "PAFormDetails": element.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
         break;
     }
@@ -43,14 +41,33 @@ function defaultValue(input, dati) {
             break;
             case "form_inserisciProdotto": input.value = form_inserisciProdotto[input.id][0];
             break;
-            case "form_credenziali": input.value = form_credenziali[input.id][0];
+            case "searchBar": input.value = product_search[input.id][0];
             break;
         }
     }
 };
 
+var product_search = {
+    "productSearchBar": ["Cerca prodotto"]
+};
+
+function loadSearchBarPlaceholder() {
+    var input = document.getElementById("productSearchBar");
+    defaultValue(input, "searchBar");
+    input.onfocus = function() { noDefaultValue(this, "searchBar"); };
+    input.onblur = function() { defaultValue(this, "searchBar"); };
+    var label = document.getElementById("searchBarLabel");
+    label.style.display = "none";
+};
+
 function noDefaultValue(input, dati) {
     switch(dati) {
+        case "searchBar" : {
+            if (input.value == product_search[input.id][0]) {
+                input.value = "";
+            }
+        }
+        break;
         case "form_login": {
             if (input.value == form_login[input.id][0]) {
                 input.value = "";
@@ -72,13 +89,7 @@ function noDefaultValue(input, dati) {
             }
         }
         break;
-        case "form_credenziali": {
-            if(input.value == form_credenziali[input.id][0]) {
-                input.className = "";
-                input.value = "";
-            }
-        }
-        break;
+       
     }
 };
 
@@ -88,12 +99,12 @@ var form_login = {
 
 var form_registrazione = {
     "email": ["Inserisci e-mail", /^([a-z0-9]+[_\.-]?)+@([\da-z\.-]+)\.([a-z\.]{2,6})$/ , "La mail inserita non è corretta."],
-    "password": ["password", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
+    "password": ["", /.{4,20}/,"Password non valida. La lunghezza deve essere tra 4 e 20 caratteri."],
     "confirmPassword": ["", /.{4,20}/,"La password non corrisponde a quella scelta."],
     "name": ["Inserisci nome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/ , "Nome non corretto. Il nome deve iniziare con una maiuscola."],
     "surname": ["Inserisci cognome", /^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non corretto. Il nome deve iniziare con una maiuscola."],
     "birthDate": ["Inserisci data (DD/MM/YYYY)", /^\d{2}\/\d{2}\/\d{4}$/, "Formato data non corretto. Inserire (DD/MM/YYYY).", "Utente minorenne non consentito.", "Data non valida."],
-    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non corretto."],
+    "address": ["Inserisci via", /^([a-zA-Z]{3}\s)?([a-zA-Zàèìòù]{2,20}\s?)+$/, "Indirizzo non corretto."],
     "address_number": ["Inserisci civico", /^[0-9]{1,3}([a-zA-Z]?)$/, "Civico non corretto."],
     "city": ["Inserisci comune", /^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Comune non corretto.", "Compila il campo."],
     "area": ["Inserisci provincia", /^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri maiuscoli."],
@@ -236,8 +247,10 @@ function validateRegForm() {
 
 var form_inserisciProdotto = {
     "productName": ["Nome prodotto", /^\w+(\s\w+)*$/, "Nome non corretto.", "Inserire un nome."],
-    "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."]
+    "productPrice": ["Prezzo", /^\d+(.\d{1,2})?$/, "Prezzo non corretto."],
+    "productDescription": ["Descrizione", /^[a-zA-Z0-9._\s]{1,255}$/, "Descrizione troppo lunga, massimo 255 caratteri."]
 };
+
 function loadProductInsertion() {
     for(var key in form_inserisciProdotto) {
         var input = document.getElementById(key);
@@ -277,7 +290,7 @@ var PAFormDetails = {
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
     "comune": [/^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Il comune inserito non è corretto."],
     "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri in maiuscolo."],
-    "indirizzo": [/^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
+    "indirizzo": [/^([a-zA-Z]{3}\s)?([a-zA-Zàèìòù]{2,20}\s?)+$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
     "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto. Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],
     "telefono": [/^\s?([0-9]{10})\s?$/, "Numero non valido. Inserire il proprio numero di cellulare (10 cifre).", "Numero non valido. Il numero deve iniziare con la cifra 3."],
@@ -334,6 +347,8 @@ function PAFieldValidate(input) {
 };
 
 function validatePAForm(){
+var formSuccess = document.getElementsByClassName("formSuccess");
+formSuccess.style.display = "none";
 var PAcheck = true;
 for(var key in PAFormDetails){
     var input = document.getElementById(key);
@@ -346,13 +361,13 @@ return PAcheck;
 function loadMenu() {
     var menuContenitor = document.getElementById("navigation");
     var navigationMenu = document.getElementById("navigationMenu");
-    if(window.innerWidth <= 767) {
+    if (window.innerWidth <= 767) {
         var but = document.getElementById("mobileMenu");
         if (!but) {
             var button = document.createElement("button");
             button.id = "mobileMenu";
             button.className = "fa fa-bars";
-            button.onclick = function() {mobileMenu();};
+            button.onclick = () => mobileMenu();
             menuContenitor.insertBefore(button, navigationMenu);
             navigationMenu.style.marginTop = "0.5em";
             navigationMenu.style.borderTop = "1px solid #DDD";
@@ -360,6 +375,7 @@ function loadMenu() {
         }
         if(navigationMenu.style.display == "block") {
             navigationMenu.style.display = "none";
+            but.className = "fa fa-bars";
         }
     } else {
         var button = document.getElementById("mobileMenu");
@@ -372,11 +388,9 @@ function loadMenu() {
     }
 }
 
-window.onresize = loadMenu;
-
 function mobileMenu() {
     var menu = document.getElementById("navigationMenu");
-    var button = document.getElementsByClassName("mobileMenu");
+    var button = document.getElementById("mobileMenu");
     if(menu.style.display == "block") {
         menu.style.display = "none";
         button.className = "fa fa-bars";
@@ -385,3 +399,118 @@ function mobileMenu() {
         button.className = "fa fa-close";
     }
 };
+
+function loadMenuDashboard() {
+    var menuContenitor = document.getElementById("navigation_dashboard");
+    var navigationMenuDash = document.getElementById("navigationMenu_dashboard");
+    if (window.innerWidth <= 1200) {
+        var but = document.getElementById("mobileMenuDashboard");
+        if (!but) {
+            var button = document.createElement("button");
+            button.id = "mobileMenuDashboard";
+            button.className = "fa fa-bars";
+            button.onclick = () => mobileMenuDashboard();
+            menuContenitor.insertBefore(button, navigationMenuDash);
+            navigationMenuDash.style.marginTop = "0.5em";
+            navigationMenuDash.style.borderTop = "1px solid #DDD";
+            navigationMenuDash.style.display = "none";
+        }
+        if(navigationMenuDash.style.display == "block") {
+            navigationMenuDash.style.display = "none";
+            but.className = "fa fa-bars";
+        }
+    } else {
+        var button = document.getElementById("mobileMenuDashboard");
+        if (button) {
+            menuContenitor.removeChild(button);
+        }
+        navigationMenuDash.style.marginTop = "0";
+        navigationMenuDash.style.borderTop = "transparent";
+        navigationMenuDash.style.display = "block";
+    }
+}
+
+function mobileMenuDashboard() {
+    var menu = document.getElementById("navigationMenu_dashboard");
+    var button = document.getElementById("mobileMenuDashboard");
+    if (menu.style.display == "block") {
+        menu.style.display = "none";
+        button.className = "fa fa-bars";
+    } else {
+        menu.style.display = "block";
+        button.className = "fa fa-close";
+    }
+};
+
+function loadMobileFilters() {
+    var productListContenitor = document.getElementById("productList");
+    var filtersContenitor = document.getElementById("filters");
+    if (window.innerWidth <= 767) {
+        var but = document.getElementById("filtersButton");
+        if(!but) {
+            var button = document.createElement("button");
+            button.id = "filtersButton";
+            button.textContent = "Filtri";
+            button.className = "buttons";
+            button.onclick = function() {mobileFilters();};
+            productListContenitor.insertBefore(button, filtersContenitor);
+            filtersContenitor.style.borderTop = "1px solid #DDD";
+            filtersContenitor.style.display = "none";
+        }
+        if(filtersContenitor.style.display == "block") {
+            filtersContenitor.style.display = "none";
+        }
+    } else {
+        var button = document.getElementById("filtersButton");
+        if (button) {
+            productListContenitor.removeChild(button);
+        }
+        filtersContenitor.style.borderTop = "transparent";
+        filtersContenitor.style.display = "block";
+    }
+}
+
+function mobileFilters() {
+    var contenitor = document.getElementById("filters");
+    var button = document.getElementById("filtersButton");
+    if (contenitor.style.display == "block") {
+        contenitor.style.display = "none";
+        button.textContent = "Filtri";
+    } else {
+        contenitor.style.display = "block";
+        button.textContent = "Chiudi";
+    }
+}
+
+window.onload = () => {
+    if(document.getElementById("navigationMenu")) {
+        loadMenu();
+    }
+    if(document.getElementById("productList")) {
+        loadMobileFilters();
+    }
+    if(document.getElementById("navigation_dashboard")) {
+        loadMenuDashboard();
+    }
+    if(document.getElementById("inserisciProdottoDashboard")) {
+        loadProductInsertion();
+    }
+    if(document.getElementById("loginForm")) {
+        loadFormCliente();
+    }
+    if(document.getElementById("productSearchBar")) {
+        loadSearchBarPlaceholder();
+    }
+}
+
+window.onresize = () => {
+    if(document.getElementById("navigationMenu")) {
+        loadMenu();
+    }
+    if(document.getElementById("productList")) {
+        loadMobileFilters();
+    }
+    if(document.getElementById("navigation_dashboard")) {
+        loadMenuDashboard();
+    }
+}

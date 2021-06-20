@@ -3,7 +3,7 @@
 use MyCandies\Controllers\Authentication;
 use MyCandies\Controllers\ShopManager;
 
-require_once '..' . DIRECTORY_SEPARATOR . 'paths_index.php';
+require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 
 if (!isset($_SERVER['HTTP_REFERER'])) {
 //	Php file has been accessed irregularly

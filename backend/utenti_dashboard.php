@@ -18,12 +18,12 @@ require_once __DIR__.'/classes/MyCandies/Controllers/Administration.php';
 $users = (new Administration())->getUsers();
 
 $usersRow = [
-	'email'         =>  '<td headers="mail" title="E-mail"><user_email /></td>',
-	'first_name'    =>  '<td headers="name" title="Nome"><user_first_name /></td>',
-    'last_name'     =>  '<td headers="surname" title="Cognome"><user_last_name /></td>',
-    'birthdate'     =>  '<td headers="dateOfBirth" title="Data di nascita"><user_birthdate /></td>',
-	'gender'           =>  '<td headers="sex" title="Sesso"><user_gender /></td>',
-	'actions'       =>  '<td headers="actions" title="Azioni">
+	'email'         =>  '<td scope="row" title="E-mail"><user_email /></td>',
+	'first_name'    =>  '<td scope="row" title="Nome"><user_first_name /></td>',
+    'last_name'     =>  '<td scope="row" title="Cognome"><user_last_name /></td>',
+    'birthdate'     =>  '<td scope="row" title="Data nascita"><user_birthdate /></td>',
+	'gender'        =>  '<td scope="row" title="Sesso"><user_gender /></td>',
+	'actions'       =>  '<td scope="row" title="Azioni">
 <a href="./remove_user.php?email=_user_email" name="remove_user"><button class="buttons">Rimuovi</button></a>
 <make_admin />
 </td>'
@@ -44,5 +44,20 @@ foreach ($users as $user) {
 }
 
 $DOM = str_replace('<users />', $usersData, $DOM);
+
+if (isset($_SESSION['log'])) {
+
+    $class = (isset($_SESSION['logtype']) && $_SESSION['logtype'] === 'success' ? 'formSuccess' : 'formErrors');
+    $statusLog = "
+		<div>
+			<strong class='{$class}'>{$_SESSION['log']}</strong>
+		</div>";
+    unset($_SESSION['log']);
+    unset($_SESSION['logtype']);
+} else {
+    $statusLog = '';
+}
+
+$DOM = str_replace('<status-log />', $statusLog, $DOM);
 
 echo $DOM;

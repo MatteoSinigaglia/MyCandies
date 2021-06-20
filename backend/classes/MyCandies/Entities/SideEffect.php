@@ -20,7 +20,7 @@ class SideEffect extends Entity {
 
     public function __construct(int $source, array $data=[]) {
         try {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if($source !== Entities\DB) {
                 $this->setName($data['name']);
             }
@@ -30,9 +30,11 @@ class SideEffect extends Entity {
     }
 
     private function setName($name) {
-        if(!isset($name) || $name == '')
+        if(!isset($name) || $name == '') {
             throw new Exception('Il nome deve essere valorizzato');
-        else if($this->checkUniqueName($name))
+        } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
+            throw new Exception('Il nome non può contenere solamente numeri');
+        } else if($this->checkUniqueName($name))
             throw new Exception('Esiste già un effetto collaterale con lo stesso nome');
         $this->name = $name;
     }
