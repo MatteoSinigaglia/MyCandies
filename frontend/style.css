@@ -387,6 +387,7 @@ margin: 1em 3em auto 3em;
 #cartContent {
 border-right: 1px solid #DDD;
 border-left: 1px solid #DDD;
+margin-bottom: 5em;
 }
 #cartContent img {
 float: left;
