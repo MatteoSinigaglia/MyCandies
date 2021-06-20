@@ -25,7 +25,7 @@ if(isset($_POST['modifyProduct'])) {
             $success = $productManager->modifyProduct($data);
         }
     } catch (DBException | Exception $e) {
-        $errorMsg .= '<p class="formErrors">' . $e->getMessage() . '</p>';
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '!</strong>';
     }
 } else if(isset($_POST['deleteProduct'])) {
     $data = array();
@@ -33,7 +33,7 @@ if(isset($_POST['modifyProduct'])) {
     try {
         $success = $productManager->removeProduct($data['name']);
     } catch (DBException | Exception $e) {
-        $errorMsg .= '<p class="formErrors">' . $e->getMessage() . '</p>';
+        $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '!</strong>';
     }
 }
 
@@ -45,7 +45,7 @@ if(isset($_POST['modifyProduct'])) {
 $htmlPage = insertProductRow($productList, $htmlPage, false);
 
 if($success == true) {
-    $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Operazione completata con successo</p>', $htmlPage);
+    $htmlPage = str_replace('<error_overall />', '<strong class="formSuccess">Operazione completata con successo!</strong>', $htmlPage);
 } else {
     $htmlPage = str_replace('<error_overall />', $errorMsg, $htmlPage);
 }

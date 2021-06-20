@@ -28,19 +28,21 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-color: rgb(134, 2, 2);
-padding: 0.5em 0;
-display: block;
-font-size: 0.9em;
+    color: #94181a;
+    padding: 0.5em 0;
+    display: block;
+    font-size: 1.1em;
+    text-align: center;
 }
 .formSuccess {
-color: green;
-padding: 0.5em 0;
-display: block;
-font-size: 0.9em;
+    color: #0f5320;
+    padding: 0.5em 0;
+    display: block;
+    font-size: 1.1em;
+    text-align: center;
 }
 .rightMessage {
-color: #093013;
+color: #0f5320;
 display: block;
 }
 #breadcrumb {
@@ -132,6 +134,7 @@ resize: none;
 background-color: white;
 }
 #aggiungi,
+#confirm,
 #cancella,
 #submitActivePrinciple,
 #submitEffect,

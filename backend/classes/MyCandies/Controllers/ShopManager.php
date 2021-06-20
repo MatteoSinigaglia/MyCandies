@@ -78,7 +78,7 @@ class ShopManager {
 			$_SESSION['cart'][(int)$product['id']] = 1;
 		}
 //		Move when adding check for availability of product
-		$_SESSION['log'] = 'Prodotto aggiunto al carrello.';
+		$_SESSION['log'] = 'Prodotto aggiunto al carrello!';
 		$_SESSION['logtype'] = 'success';
 	}
 
@@ -193,7 +193,7 @@ class ShopManager {
 			$transaction->insert($this->dbh);
 			$this->dbh->transactionCommit();
 			unset($_SESSION['cart']);
-			$_SESSION['log'] = 'Grazie per l\'acquisto';
+			$_SESSION['log'] = 'Grazie per l\'acquisto!';
 			$_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 			$this->dbh->transactionRollback();
