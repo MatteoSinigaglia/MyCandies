@@ -9,7 +9,7 @@ class Admin {
 	private $user_id;
 
 	public function __construct(int $id=null) {
-		$user_id = $id;
+		$this->user_id = $id;
 	}
 
 	public function getColumns() : array {
