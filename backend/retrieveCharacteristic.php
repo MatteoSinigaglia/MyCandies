@@ -17,9 +17,9 @@ use MyCandies\Controllers\CategoriesManager;
 if(isset($_POST['submitActivePrinciple'])) {
     $_GET['insertActivePrinciple']='Inserisci+principio+attivo';
     $htmlPage = insertActivePrinciple($htmlPage, $pattern, true);
-    $name = ($_POST['activePrincipleName'] ?? null);
-    $effects = ($_POST['effects'] ?? null);
-    $sideEffects = ($_POST['sideEffects'] ?? null);
+    $name = ($_POST['activePrincipleName'] ?? array());
+    $effects = ($_POST['effects'] ?? array());
+    $sideEffects = ($_POST['sideEffects'] ?? array());
     unset($_GET['insertActivePrinciple']);
     $success = false;
     try {

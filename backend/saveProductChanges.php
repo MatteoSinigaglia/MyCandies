@@ -19,17 +19,15 @@ if(isset($_POST['modifyProduct'])) {
     $data['availability'] = $_POST['modifyAvailability'];
     $data['name'] = $_POST['modifyName'];
     try {
-        $errorMsg .= Product::validateAvailability($data['availability']) ?? '<strong class="formErrors">'.Product::validateAvailability($data['availability']).'</strong>';
-        $errorMsg .= Product::validatePrice($data['price']) ?? '<strong class="formErrors">'.Product::validatePrice($data['price']).'</strong>';
+        $errorMsg .= Product::validateAvailability($data['availability']) ? '<p class="formErrors">'.Product::validateAvailability($data['availability']).'</p>' : '';
+        $errorMsg .= Product::validatePrice($data['price']) ? '<p class="formErrors">'.Product::validatePrice($data['price']).'</p>' : '';
         if($errorMsg == '') {
             $success = $productManager->modifyProduct($data);
         }
-        echo $errorMsg;
     } catch (DBException | Exception $e) {
         $errorMsg .= '<strong class="formErrors">' . $e->getMessage() . '!</strong>';
     }
 } else if(isset($_POST['deleteProduct'])) {
-    $errorMsg = '';
     $data = array();
     $data['name'] = $_POST['modifyName'];
     try {

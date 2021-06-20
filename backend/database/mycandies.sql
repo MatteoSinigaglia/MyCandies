@@ -121,15 +121,6 @@ CREATE TABLE `Customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dump dei dati per la tabella `Customers`
---
-
-INSERT INTO `Customers` (`id`, `first_name`, `last_name`, `email`, `telephone`, `password`, `gender`, `birthdate`) VALUES
-(1, 'My', 'Candies', 'user@gmail.com', NULL, 'user', 'A', '1900-01-01');
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `CustomersAddresses`
 --
 
