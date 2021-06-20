@@ -392,10 +392,6 @@ display: inline-block;
 vertical-align: top;
 margin: 1em 3em auto 3em;
 }
-#cartContent {
-border-right: 1px solid #DDD;
-border-left: 1px solid #DDD;
-}
 #cartContent img {
 float: left;
 width: 10%;

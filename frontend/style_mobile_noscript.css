@@ -432,10 +432,6 @@ color: rgb(134, 2, 2);
 display: inline;
 vertical-align: top;
 }
-#cartContent {
-border-right: 1px solid #DDD;
-border-left: 1px solid #DDD;
-}
 #cartContent img {
 float: left;
 width: 15%;
