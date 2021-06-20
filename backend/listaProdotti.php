@@ -62,15 +62,13 @@ $productCards = '';
 foreach ($productsList as $product) {
     $productCards .=
                 '<div class="product-card">
-                    <a href="../'."backend".DS."prodotto.php?id=".$product['id'].'" >
                     <div class="product-image">
                         <img src="'.$product['img_path'].'"  alt="Immagine del prodotto '.$product['name'].'" />
                     </div>
                     <div class="product-info">
-                        <h2>'.$product['name'].'</h2>
+                        <h2><a href="../'."backend".DS."prodotto.php?id=".$product['id'].'" >'.$product['name'].'</a></h2>
                         <p>€ '.$product['price'].'</p>
                     </div>
-                    </a>
                 </div>'
             ;
 }

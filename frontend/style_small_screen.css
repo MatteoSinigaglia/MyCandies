@@ -346,14 +346,13 @@ padding: 1em;
 #productContenitor dl dd {
 min-height: 13em;
 }
-#productContenitor a:link {
+#addToCartButton,
+#purchaseButton {
+display: block;
+margin: 0.5em auto;
 text-decoration: none;
 width: 17%;
 text-align: center;
-}
-#addToCartButton {
-display: block;
-margin: 0.5em auto;
 }
 #productTableContent {
 border-radius: 10px;
@@ -411,14 +410,6 @@ padding: 1em;
 margin: 1em 3em;
 border-radius: 10px;
 background-color: #F2E8CF;
-}
-#selectedProduct a:link {
-text-decoration: none;
-}
-#purchaseButton {
-display: block;
-margin: 0.5em auto;
-text-decoration: none;
 }
 #filters {
 float: left;
@@ -710,7 +701,9 @@ width: 100%;
 #submitEffect,
 #submitSideEffect,
 #submitCategory,
-#confirmSubscribe {
+#confirmSubscribe,
+#usernameButton,
+#loginReset {
 display: block;
 margin: 0.6em auto 0 auto;
 }

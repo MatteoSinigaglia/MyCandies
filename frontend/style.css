@@ -31,14 +31,14 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-    text-align: center;
+text-align: center;
 color: #94181a;
 padding: 0.5em 0;
 display: block;
 font-size: 1.1em;
 }
 .formSuccess {
-    text-align: center;
+text-align: center;
 color: #0f5320;
 padding: 0.5em 0;
 display: block;
@@ -336,6 +336,13 @@ min-height: 13em;
 }
 #addToCartButton {
 float: right;
+}
+#purchaseButton {
+display: block;
+margin: 0.5em auto;
+text-decoration: none;
+width: 17%;
+text-align: center;
 }
 #productTableContent {
 float: right;
