@@ -1,4 +1,3 @@
-\newpage
 \section{Progettazione}
 Si è scelto di utilizzare XHTML 1.0 strict e CSS 3.0 per garantire una buona compatibilità con i browser non aggiornati, in modo tale da non ostacolare gli utenti con dispositivi più datati.
 Il gruppo ha deciso di adottare la strategia \textit{Responsive Web} per coniugare le esigenze di diversi dispositivi. L'utilizzo di CSS 3.0 è stato indispensabile per l'impiego delle flexbox per la configurazione della struttura a faccette della pagina contenente la lista dei prodotti.
@@ -21,7 +20,7 @@ Per implementare il \textit{responsive web} sono stati definiti 3 intervalli, se
     \item \textbf{Desktop molto grandi (min 1201px)}: questo intervallo è quello in cui è stato sviluppato il sito in prima battuta. 
 \end{itemize}
 
-\subsection{Layout di stampa:} si è scelto di implementare un ulteriore foglio di stile per definire il layout di stampa. Vengono così mostrate solamente le informazioni indispensabili di ciascuna pagina rimuovendo i pulsanti e le aree che non portano alcun'arricchimento informativo in una possibile stampa, al fine di ridurre al minimo le risorse utilizzate per effettuare la stampa della pagina. Vengono inoltre rimosse tutte le immagini, ad esclusione dell'immagine raffigurante il prodotto nella pagina di dettaglio del medesimo, necessaria per fornire dettagli visivi al consumatore.
+\subsection{Layout di stampa:} si è scelto di implementare un ulteriore foglio di stile per definire il layout di stampa. Vengono così mostrate solamente le informazioni indispensabili di ciascuna pagina rimuovendo i pulsanti, i messaggi di conferma e di errore e le aree che non portano alcun'arricchimento informativo in una possibile stampa, al fine di ridurre al minimo le risorse utilizzate per effettuare la stampa della pagina. Vengono inoltre rimosse tutte le immagini, ad esclusione dell'immagine raffigurante il prodotto nella pagina di dettaglio del medesimo, necessaria per fornire dettagli visivi al consumatore.
 
 \subsection{Database}
 A supporto del comportamento è stato creato un database relazionale, allo scopo di tenere traccia di prodotti, utenti e transazioni. Il database è in 2NF perché:
@@ -61,6 +60,7 @@ La \textit{struttura} è stata realizzata con XHTML per garantire il supporto an
 Non sono stati utilizzati tag html a fini presentazionali, come l'utilizzo delle tabelle per l'ordinamento del layout.
 La parte di \textit{presentazione} è stata realizzata tramite l'applicazione di fogli di stile importati. Per garantire la separazione non sono state definite applicazioni di stile inline o embedded.
 La parte di \textit{comportamento} realizzata tramite Javascript assicura una degradazione elegante. Javascript è stato utilizzato solamente per il controllo dei form lato client e per la visualizzazione mobile. Nei mobile dato il poco spazio a disposizione si è scelto di implementare un menù a comparsa. Nel caso in cui Javascript non funzionasse o fosse disattivato non verrebbe effettutata alcuna modifica, lasciando il menù visibile e privo di tasto per aprire/chiudere il menù. Quindi nel caso di problemi il menù sarebbe sempre accessibile ed utilizzabile.
+\newpage
 \subsubsection{Aiuti alla navigazione}
  L'accessibilità è stata garantita anche attraverso altri strumenti utili all'orientamento e alla navigazione.
  \begin{itemize}
@@ -76,5 +76,6 @@ La parte di \textit{comportamento} realizzata tramite Javascript assicura una de
      \item \textbf{Alt nelle immagini dei prodotti:} si è deciso di inserire degli alt composti da una stringa di default e dal nome del prodotto in questione, poiché essi non avrebbero apportato sostanziali informazioni aggiuntive in quanto, a seguito dell'immagine, è presente una descrizione del prodotto.
      \item \textbf{Label nella barra di ricerca:} si è scelto di inserire una label nella barra di ricerca (opportunamente nascosta tramite CSS e visibile allo screen reader qualora Javascript solo nel caso in cui Javascript sia disattivato) per garantire informazioni aggiuntive sull'effettivo scopo di tale componente. Nel caso in cui Javascript sia attivo, l'etichetta viene nascosta anche allo screen reader e viene inserito un placeholder all'interno della barra di ricerca, con scopo analogo a quanto precedentemente dichiarato.  
      \item \textbf{Link nascosto nella pagina listaProdotti:} si è scelto di inserire un ulteriore link all'inizio della sezione che racchiude i filtri nella pagina contenente la lista dei prodotti in vendita. Tale link è opportunamente nascosto tramite CSS ma è visibile allo screen reader. L'utente che richiede l'utilizzo di screen reader per la navigazione è così in grado di accedere in maniera più rapida alla lista dei prodotti, senza dover necessariamente scorrere l'intera lista di filtri anche nel caso egli non sia intenzionato ad utilizzarli.
+     \item \textbf{Alt mancante nelle immagini dei social networks nel footer:} si è scelto di lasciare vuoto l'alt nelle immagini raffiguranti i loghi dei social networks per non rendere ridondante l'informazione comunicata dallo screen reader. 
  \end{itemize}
 
