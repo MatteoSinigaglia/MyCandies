@@ -349,7 +349,7 @@ float: right;
 border-radius: 10px;
 background-color: #093013;
 width: 20%;
-margin-bottom: 5em;
+margin-bottom: 4.5em;
 }
 #productTableContent table {
 margin: 1em auto;
@@ -385,9 +385,8 @@ vertical-align: top;
 margin: 1em 3em auto 3em;
 }
 #cartContent {
-border-right: 1px solid #DDD;
-border-left: 1px solid #DDD;
 margin-bottom: 5em;
+margin-top: 1.9em;
 }
 #cartContent img {
 float: left;
