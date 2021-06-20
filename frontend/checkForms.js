@@ -10,8 +10,6 @@ function printError(input, num, dati) {
         break;
         case "form_inserisciProdotto": element.appendChild(document.createTextNode(form_inserisciProdotto[input.id][num]));
         break;
-        case "form_credenziali": element.appendChild(document.createTextNode(form_credenziali[input.id][num]));
-        break;
         case "PAFormDetails": element.appendChild(document.createTextNode(PAFormDetails[input.id][num]));
         break;
     }
@@ -42,8 +40,6 @@ function defaultValue(input, dati) {
             case "form_registrazione": input.value = form_registrazione[input.id][0];
             break;
             case "form_inserisciProdotto": input.value = form_inserisciProdotto[input.id][0];
-            break;
-            case "form_credenziali": input.value = form_credenziali[input.id][0];
             break;
             case "searchBar": input.value = product_search[input.id][0];
             break;
@@ -93,13 +89,7 @@ function noDefaultValue(input, dati) {
             }
         }
         break;
-        case "form_credenziali": {
-            if(input.value == form_credenziali[input.id][0]) {
-                input.className = "";
-                input.value = "";
-            }
-        }
-        break;
+       
     }
 };
 
@@ -300,7 +290,7 @@ var PAFormDetails = {
     "cognome": [/^[A-Z][a-z]{2,20}(\s[A-Z][a-z]{2,20})?$/, "Cognome non valido."],
     "comune": [/^([a-zA-Zàèìòù]{2,20}\s?)+$/, "Il comune inserito non è corretto."],
     "provincia": [/^[A-Z]{2}$/, "Provincia non corretta. Inserire due caratteri in maiuscolo."],
-    "indirizzo": [/^([a-zA-Z]{3}\s)?[a-zA-Z]+(\s[a-zA-Z])*$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
+    "indirizzo": [/^([a-zA-Z]{3}\s)?([a-zA-Zàèìòù]{2,20}\s?)+$/, "Indirizzo non valido. Inserire l'indirizzo di residenza."],
     "civico": [/^[0-9]{1,3}([a-zA-Z]?)$/, "Numero civico non corretto. Inserire il numero civico della propria residenza."],
     "cap": [/^\d{5}$/, "CAP non valido. Inserire il CAP della propria residenza (5 cifre)."],
     "telefono": [/^\s?([0-9]{10})\s?$/, "Numero non valido. Inserire il proprio numero di cellulare (10 cifre).", "Numero non valido. Il numero deve iniziare con la cifra 3."],
@@ -357,6 +347,8 @@ function PAFieldValidate(input) {
 };
 
 function validatePAForm(){
+var formSuccess = document.getElementsByClassName("formSuccess");
+formSuccess.style.display = "none";
 var PAcheck = true;
 for(var key in PAFormDetails){
     var input = document.getElementById(key);

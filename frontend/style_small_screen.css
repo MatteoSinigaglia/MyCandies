@@ -30,21 +30,22 @@ clip: rect(1px, 1px, 1px, 1px);
 .default-text {
 color: rgba(10, 8, 8, 0.479);
 }
-
 .formErrors {
-color: rgb(134, 2, 2);
-padding: 0.5em 0;
-display: block;
-font-size: 0.9em;
-}
+    text-align: center;
+    color: #94181a;
+    padding: 0.5em 0;
+    display: block;
+    font-size: 1.1em;
+    }
 .formSuccess {
-color: green;
-padding: 0.5em 0;
-display: block;
-font-size: 0.9em;
-}
+    text-align: center;
+    color: #0f5320;
+    padding: 0.5em 0;
+    display: block;
+    font-size: 1.1em;
+    }
 .rightMessage {
-color: #093013;
+color: #0f5320;
 display: block;
 font-size: 0.9em;
 }
@@ -698,6 +699,7 @@ margin-right: 0.5em;
 width: 100%; 
 }
 #aggiungi,
+#confirm,
 #cancella,
 #submitActivePrinciple,
 #submitEffect,

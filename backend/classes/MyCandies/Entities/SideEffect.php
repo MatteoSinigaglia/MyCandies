@@ -30,9 +30,11 @@ class SideEffect extends Entity {
     }
 
     private function setName($name) {
-        if(!isset($name) || $name == '')
+        if(!isset($name) || $name == '') {
             throw new Exception('Il nome deve essere valorizzato');
-        else if($this->checkUniqueName($name))
+        } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
+            throw new Exception('Il nome deve contenere caratteri alfanumerici');
+        } else if($this->checkUniqueName($name))
             throw new Exception('Esiste già un effetto collaterale con lo stesso nome');
         $this->name = $name;
     }

@@ -150,7 +150,7 @@ class ProductsManager
         } else throw new Exception('Non è stato possibile eliminare l\'immagine');
     }
 
-    public function getProducts() : array
+    public function getProducts(bool $isForDashboard = true) : array
     {
         try{
             $this->dbh->connect();
@@ -162,7 +162,13 @@ class ProductsManager
         } finally {
             $this->dbh->disconnect();
         }
-         return $this->prepareProductsForList($products, $productsImages, $images);
+        $rows = array();
+        foreach ($products as $product) {
+            if($product->getAvailability() > 0 || $isForDashboard) {
+                array_push($rows, $product);
+            }
+        }
+        return $this->prepareProductsForList($rows, $productsImages, $images);
     }
 
     public function searchProduct($pattern) : array {
