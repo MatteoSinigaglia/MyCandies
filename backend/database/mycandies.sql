@@ -120,6 +120,7 @@ CREATE TABLE `Customers` (
   `birthdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 --
 -- Struttura della tabella `CustomersAddresses`
 --
@@ -426,7 +427,7 @@ ALTER TABLE `ActivePrinciplesSideEffects`
 -- Limiti per la tabella `Admins`
 --
 ALTER TABLE `Admins`
-  ADD CONSTRAINT `Admins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Customers` (`id`);
+  ADD CONSTRAINT `Admins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Customers` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `CustomersAddresses`
@@ -466,7 +467,7 @@ ALTER TABLE `ProductsInCarts`
 -- Limiti per la tabella `Transactions`
 --
 ALTER TABLE `Transactions`
-  ADD CONSTRAINT `Transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`),
+  ADD CONSTRAINT `Transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `Transactions_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `Carts` (`id`),
   ADD CONSTRAINT `Transactions_ibfk_3` FOREIGN KEY (`address_id`) REFERENCES `Addresses` (`id`);
 COMMIT;

@@ -138,7 +138,8 @@ class Table {
 
 
 //			Prevents from inserting manually an id and leaves the responsibility to the DBMS
-			if (isset($fields['id'])) {
+            error_log('Admin id: '.$fields['id']);
+			if (isset($fields['id']) && !($entity instanceof Entities\Admin)) {
 				unset($fields['id']);
 			}
 

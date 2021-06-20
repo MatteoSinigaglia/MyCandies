@@ -32,12 +32,13 @@ if (isset($_SESSION['log'])) {
 			<strong class='{$class}'>{$_SESSION['log']}</strong>
 		</div>";
 
+    unset($_SESSION['log']);
+    unset($_SESSION['logtype']);
 } else {
 	$statusLog = '';
 }
 
 $DOM = str_replace('<status-log />', $statusLog, $DOM);
 
-unset($_SESSION['log']);
 
 echo $DOM;

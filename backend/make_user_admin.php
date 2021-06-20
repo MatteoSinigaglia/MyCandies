@@ -15,7 +15,8 @@ require_once __DIR__.'/classes/MyCandies/Controllers/Administration.php';
 try {
 	$admin = new Administration();
 	$admin->makeAdmin($_GET['email']);
-	header('location: ./utenti_dashboard.php');
 } catch (Exception $e) {
 	echo $e;
 }
+header('location: ./utenti_dashboard.php');
+die();
