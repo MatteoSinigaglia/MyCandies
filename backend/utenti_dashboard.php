@@ -45,4 +45,19 @@ foreach ($users as $user) {
 
 $DOM = str_replace('<users />', $usersData, $DOM);
 
+if (isset($_SESSION['log'])) {
+
+    $class = (isset($_SESSION['logtype']) && $_SESSION['logtype'] === 'success' ? 'formSuccess' : 'formErrors');
+    $statusLog = "
+		<div>
+			<strong class='{$class}'>{$_SESSION['log']}</strong>
+		</div>";
+    unset($_SESSION['log']);
+    unset($_SESSION['logtype']);
+} else {
+    $statusLog = '';
+}
+
+$DOM = str_replace('<status-log />', $statusLog, $DOM);
+
 echo $DOM;

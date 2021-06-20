@@ -48,10 +48,23 @@ class Administration {
 	}
 
 	public function deleteUser(string $userEmail) {
+        $admins = new Table($this->dbh, 'Admins', 'user_id', Admin::class);
 		try {
 			$this->dbh->connect();
-			$this->users->deleteWhere('email', $userEmail);
+			$user = $this->users->find(['column' => 'email', 'value' => $userEmail])[0];
+			$admin = $admins->findById($user->getId());
+			error_log($admin);
+			if ($admin === false) {
+                $this->users->deleteWhere('email', $userEmail);
+                $_SESSION['log'] = 'Utente eliminato.';
+                $_SESSION['logtype'] = 'success';
+            } else {
+                $_SESSION['log'] = 'Impossibile rimuovere un admin';
+                $_SESSION['logtype'] = 'failure';
+            }
 		} catch (DBException $e) {
+            $_SESSION['log'] = 'Errore durante l\'eliminazione dell\'utente, riprovare più tardi.';
+            $_SESSION['logtype'] = 'failure';
 			throw $e;
 		} finally {
 			$this->dbh->disconnect();
@@ -64,9 +77,17 @@ class Administration {
 		try {
 			$this->dbh->connect();
 			$newAdmin = $this->users->find(['column' => 'email', 'value' => $userEmail]);
-			$admins->insert(new Admin($newAdmin[0]->getId()));
+            $admin = new Admin($newAdmin[0]->getId());
+            error_log('Admin columns: '.implode(', ', $admin->getColumns()));
+            error_log('Admin values: '.implode(', ', $admin->getValues()));
+			$admins->insert($admin);
+            $_SESSION['log'] = 'Admin aggiunto.';
+            $_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 
+            $_SESSION['log'] = 'Errore durante l\'aggiunta dell\' admin.';
+            $_SESSION['logtype'] = 'failure';
+            throw new DBException($e->getMessage() . print_r($newAdmin)."\nUser id: ".$newAdmin[0]->getId());
 		} finally {
 			$this->dbh->disconnect();
 		}

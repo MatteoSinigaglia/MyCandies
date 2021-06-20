@@ -60,12 +60,12 @@ if (isset($_SESSION['log'])) {
 			<strong class='{$class}'>{$_SESSION['log']}</strong>
 		</div>";
 
+    unset($_SESSION['log']);
+    unset($_SESSION['logtype']);
 } else {
 	$statusLog = '';
 }
 
 $htmlPage = str_replace('<status-log />', $statusLog, $htmlPage);
-
-unset($_SESSION['log']);
 
 echo $htmlPage;
