@@ -56,10 +56,10 @@ class Administration {
 			error_log($admin);
 			if ($admin === false) {
                 $this->users->deleteWhere('email', $userEmail);
-                $_SESSION['log'] = 'Utente eliminato.';
+                $_SESSION['log'] = 'Utente eliminato!';
                 $_SESSION['logtype'] = 'success';
             } else {
-                $_SESSION['log'] = 'Impossibile rimuovere un admin';
+                $_SESSION['log'] = 'Impossibile rimuovere un admin!';
                 $_SESSION['logtype'] = 'failure';
             }
 		} catch (DBException $e) {
