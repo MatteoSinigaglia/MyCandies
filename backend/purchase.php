@@ -25,7 +25,7 @@ if (!isset($cart)) {
 
 try{
 	$shop->checkout($cart, $auth);
-} catch (Exception $e) {
-}
+} catch (Exception $e) {}
+
 header('location: .'.DS.'carrello.php');
 die();

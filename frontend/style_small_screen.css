@@ -31,19 +31,19 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-    text-align: center;
-    color: #94181a;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    }
+text-align: center;
+color: #94181a;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+}
 .formSuccess {
-    text-align: center;
-    color: #0f5320;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    }
+text-align: center;
+color: #0f5320;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+}
 .rightMessage {
 color: #0f5320;
 display: block;
@@ -343,12 +343,16 @@ border-radius: 5px;
 #productContenitor dl dd p {
 padding: 1em;
 }
-#productContenitor a:link {
-text-decoration: none;
+#productContenitor dl dd {
+min-height: 13em;
 }
-#addToCartButton {
+#addToCartButton,
+#purchaseButton {
 display: block;
 margin: 0.5em auto;
+text-decoration: none;
+width: 17%;
+text-align: center;
 }
 #productTableContent {
 border-radius: 10px;
@@ -388,10 +392,6 @@ display: inline-block;
 vertical-align: top;
 margin: 1em 3em auto 3em;
 }
-#cartContent {
-border-right: 1px solid #DDD;
-border-left: 1px solid #DDD;
-}
 #cartContent img {
 float: left;
 width: 10%;
@@ -406,14 +406,6 @@ padding: 1em;
 margin: 1em 3em;
 border-radius: 10px;
 background-color: #F2E8CF;
-}
-#selectedProduct a:link {
-text-decoration: none;
-}
-#purchaseButton {
-display: block;
-margin: 0.5em auto;
-text-decoration: none;
 }
 #filters {
 float: left;
@@ -704,7 +696,10 @@ width: 100%;
 #submitActivePrinciple,
 #submitEffect,
 #submitSideEffect,
-#submitCategory {
+#submitCategory,
+#confirmSubscribe,
+#usernameButton,
+#loginReset {
 display: block;
 margin: 0.6em auto 0 auto;
 }

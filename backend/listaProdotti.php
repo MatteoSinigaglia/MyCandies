@@ -69,7 +69,8 @@ foreach ($productsList as $product) {
                         <h2><a href="../'."backend".DS."prodotto.php?id=".$product['id'].'" >'.$product['name'].'</a></h2>
                         <p>€ '.$product['price'].'</p>
                     </div>
-                </div>';
+                </div>'
+            ;
 }
 $htmlPage = str_replace("<listOfProducts />", $productCards, $htmlPage);
 echo $htmlPage;

@@ -28,18 +28,18 @@ clip: rect(1px, 1px, 1px, 1px);
 color: rgba(10, 8, 8, 0.479);
 }
 .formErrors {
-    color: #94181a;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    text-align: center;
+color: #94181a;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+text-align: center;
 }
 .formSuccess {
-    color: #0f5320;
-    padding: 0.5em 0;
-    display: block;
-    font-size: 1.1em;
-    text-align: center;
+color: #0f5320;
+padding: 0.5em 0;
+display: block;
+font-size: 1.1em;
+text-align: center;
 }
 .rightMessage {
 color: #0f5320;
@@ -133,16 +133,6 @@ border-radius: 5px;
 resize: none;
 background-color: white;
 }
-#aggiungi,
-#confirm,
-#cancella,
-#submitActivePrinciple,
-#submitEffect,
-#submitSideEffect,
-#submitCategory {
-display: block;
-margin: 0.6em auto 0 auto;
-}
 .buttons {
 padding: 0.5em 1em;
 margin: 0.5em;
@@ -198,7 +188,7 @@ top: -9999px;
 }
 .responsiveTable tr td {
 border: 1px solid rgb(119, 111, 111);
-padding: 1em;
+padding: 1.5em;
 position: relative;
 text-align: right;
 white-space: normal;
@@ -322,11 +312,6 @@ color: #CDA434;
 #loginButton span {
 display: none;
 }
-#purchaseButton {
-display: block;
-margin: 1em auto;
-text-decoration: none;
-}
 .fa-search {
 font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -370,6 +355,14 @@ font-size: 1.5em;
 font-weight: bold;
 margin: 0.5em 0.9em;
 }
+#addToCartButton,
+#purchaseButton {
+display: block;
+margin: 0.5em auto;
+text-decoration: none;
+text-align: center;
+width: 40%;
+}
 #productContenitor {
 background-color: #F2E8CF;
 border: 1px solid #093013;
@@ -394,13 +387,6 @@ border-radius: 5px;
 #productContenitor dl dd p {
 margin: 0.5em 1em;
 text-align: center;
-}
-#productContenitor a:link {
-text-decoration: none;
-}
-#addToCartButton {
-display: block;
-margin: 0.5em auto;
 }
 #productTableContent {
 border-radius: 10px;
@@ -446,10 +432,6 @@ color: rgb(134, 2, 2);
 display: inline;
 vertical-align: top;
 }
-#cartContent {
-border-right: 1px solid #DDD;
-border-left: 1px solid #DDD;
-}
 #cartContent img {
 float: left;
 width: 15%;
@@ -462,15 +444,9 @@ margin: 1em;
 border-radius: 10px;
 background-color: #F2E8CF;
 }
-#selectedProduct a:link {
-text-decoration: none;
-}
 #selectedProduct table {
 width: 100%;
 margin: 0.5em auto;
-}
-#selectedProduct a {
-text-decoration: none;
 }
 #productList {
 width: 100%;
@@ -759,4 +735,17 @@ padding-right: 1em;
 }
 #content404 img {
 width: 100%;
+}
+#aggiungi,
+#confirm,
+#cancella,
+#submitActivePrinciple,
+#submitEffect,
+#submitSideEffect,
+#submitCategory,
+#confirmSubscribe,
+#usernameButton,
+#loginReset {
+display: block;
+margin: 0.6em auto 0 auto;
 }
