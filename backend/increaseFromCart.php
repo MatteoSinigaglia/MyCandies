@@ -16,7 +16,7 @@ $auth = new Authentication();
 require_once MYCANDIES_PATH.DS.'Controllers'.DS.'ShopManager.php';
 $shop = new ShopManager();
 
-$shop->increaseProductQuantity((int)$_GET['id']);
+$shop->addToCart($_GET);
 
 header('location: .'.DS.'carrello.php');
 die();

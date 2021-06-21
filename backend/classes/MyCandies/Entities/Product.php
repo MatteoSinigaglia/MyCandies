@@ -24,7 +24,9 @@ class Product extends Entity
 
     static public function getProductFromId(dbh $dbh, int $id): ?Product {
 	    try {
-		    return $dbh->findById('Products', 'id', $id, Product::class, [DB]);
+		    $product = $dbh->findById('Products', 'id', $id, Product::class, [DB]);
+		    $product->setId($id);
+		    return $product;
 	    } catch (DBException $e) {
 	    	return null;
 	    }
@@ -187,12 +189,10 @@ class Product extends Entity
 
 	public function updateAvailability(dbh $dbh, int $updatedAvailability) {
 		try {
-			echo 'Old: '.$this->getAvailability();
-			echo 'New: '.$updatedAvailability;
 			$this->setAvailability($updatedAvailability);
 			$dbh->update('Products', 'id', [
 				'id'            =>  $this->id,
-				'availability'  =>  $this->availability
+				'availability'  =>  $this->getAvailability()
 			]);
 		} catch (DBException $e) {
 			throw $e;

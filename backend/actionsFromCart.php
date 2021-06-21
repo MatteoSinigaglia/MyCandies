@@ -21,7 +21,7 @@ switch ($_GET['action']) {
 		$shop->decreaseProductQuantity((int)$_GET['id']);
 		break;
 	case 'increase':
-		$shop->increaseProductQuantity((int)$_GET['id']);
+		$shop->addToCart($_GET);
 		break;
 	case 'remove':
 		$shop->removeProduct((int)$_GET['id']);

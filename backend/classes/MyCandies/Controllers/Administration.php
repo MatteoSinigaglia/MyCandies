@@ -53,7 +53,6 @@ class Administration {
 			$this->dbh->connect();
 			$user = $this->users->find(['column' => 'email', 'value' => $userEmail])[0];
 			$admin = $admins->findById($user->getId());
-			error_log($admin);
 			if ($admin === false) {
                 $this->users->deleteWhere('email', $userEmail);
                 $_SESSION['log'] = 'Utente eliminato.';
@@ -119,4 +118,20 @@ class Administration {
 			'total'     =>  $cart->getTotal()
 		];
 	}
+
+	public function isAdmin(int $userId): bool {
+        try {
+            $this->dbh->connect();
+            $admins = Admin::selectAll($this->dbh);
+            $adminsIds = [];
+            foreach ($admins as $admin) {
+                array_push($adminsIds, $admin['user_id']);
+            }
+            return in_array($userId, $adminsIds);
+        } catch (DBException $e) {
+            return false;
+        } finally {
+            $this->dbh->disconnect();
+        }
+    }
 }

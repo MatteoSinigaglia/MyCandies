@@ -23,13 +23,9 @@ if (!isset($cart)) {
 	die();
 }
 
-print_r($cart);
 try{
 	$shop->checkout($cart, $auth);
-	header('location: .'.DS.'home.php');
-	die();
 } catch (Exception $e) {
-	header('location: .'.DS.'carrello.php');
-	die();
 }
-
+header('location: .'.DS.'carrello.php');
+die();
