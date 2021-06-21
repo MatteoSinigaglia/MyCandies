@@ -34,7 +34,7 @@ class Product extends Entity
 
     public function __construct(int $source, array $data = [])
     {
-            parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
+            parent::__construct($source, ($data['id'] ?? null));
             if ($source === PRODUCTS_MANAGER) {
                 $this->errors = array();
                 $this->setCategory_id($data['category_id']);
@@ -61,7 +61,7 @@ class Product extends Entity
     {
         if ($name == '' || $name == 'Nome prodotto') {
             $this->errors['name'] = 'Non è stato inserito il nome';
-        } else if(!preg_match('/^\w+(\s\w+)*$/', $name)) {
+        } else if(!(preg_match('/^\w+(\s\w+)*$/', $name) && preg_match('/.*[aA-zZ].*/', $name))) {
             $this->errors['name'] = 'Il nome deve contenere caratteri alfanumerici';
         } else if($this->checkUniqueName($name)) {
             $this->errors['name'] = 'Esiste già un prodotto con questo nome';
@@ -106,7 +106,7 @@ class Product extends Entity
     {
         if (!is_numeric($availability)) {
             $this->errors['availability'] = 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
             $this->errors['availability'] = 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             $this->errors['availability'] = 'La quantità deve essere un valore intero';
@@ -119,7 +119,7 @@ class Product extends Entity
     public static function validateAvailability($availability) : string {
         if (!is_numeric($availability)) {
             return 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 && $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
             return 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             return 'La quantità deve essere un valore intero';

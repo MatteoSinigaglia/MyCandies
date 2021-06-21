@@ -214,7 +214,7 @@ class ShopManager {
 			$transaction->insert($this->dbh);
 			$this->dbh->transactionCommit();
 			unset($_SESSION['cart']);
-			$_SESSION['log'] = 'Grazie per l\'acquisto';
+			$_SESSION['log'] = 'Grazie per l\'acquisto!';
 			$_SESSION['logtype'] = 'success';
 		} catch (DBException $e) {
 			$this->dbh->transactionRollback();

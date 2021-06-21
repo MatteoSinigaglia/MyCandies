@@ -61,7 +61,7 @@ $replace = "
             </td>
             <td scope=\"row\" title=\"Azioni\">
                 <input type=\"submit\" class=\"buttons\" value=\"Salva\" id =\"modifyProduct\" name=\"modifyProduct\" />
-                <input type=\"submit\" class=\"buttons\" value=\"Elimina\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
+                <input type=\"submit\" class=\"buttons\" value=\"Elimina prodotto\" id =\"deleteProduct\" name=\"deleteProduct\" /> 
                 <error_overall />
             </td>
         </tr>";

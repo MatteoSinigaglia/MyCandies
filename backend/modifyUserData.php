@@ -24,6 +24,13 @@ $DOM = file_get_contents('../frontend/areaPersonale.html');
 //  Header setup
 $DOM = str_replace('<a_auth_state />', '<a href="logout.php" id="loginButton" class="fa fa-sign-out buttons"> Logout</a>', $DOM);
 
+//  Menu setup
+$DOM = str_replace('<dashboard />', ($auth->isAdmin()
+	?
+	'<li><a href="../backend/inserisciProdotto.php">Gestione</a></li>'
+	:
+	''), $DOM);
+
 if (!isset($errors)) {
 	$DOM = str_replace('<success_on_modify />', '<strong class="formSuccess">Dati dell\'utente modificati con successo</strong>', $DOM);
 

@@ -62,17 +62,17 @@ try {
     $insertProduct = new ProductsManager();
     $success = $insertProduct->insertProduct($data, (empty($data['active_principle_id']) ? null : $data['active_principle_id']), (empty($data['percentage']) ? null : $data['percentage']));
 } catch(DBException $e) {
-    $result .= '<p class="formErrors">'.$e->getMessage().'</p>';
+    $result .= '<strong class="formErrors">'.$e->getMessage().'</strong>';
 } catch(EntityException $e) {
     $errOnFields = array_merge($errOnFields, $e->getErrors());
 } finally {
     if($success) {
-        $htmlPage = str_replace('<error_overall />', '<p class="formSuccess">Prodotto caricato con successo</p>', $htmlPage);
+        $htmlPage = str_replace('<error_overall />', '<strong class="formSuccess">Prodotto caricato con successo!</strong>', $htmlPage);
     } else {
-        $htmlPage = str_replace('<error_overall />', '<p class="formErrors">'.($result == '' ? 'Ci sono errori nel form di inserimento' : $result).'</p>', $htmlPage);
+        $htmlPage = str_replace('<error_overall />', '<strong class="formErrors">'.($result == '' ? 'Ci sono errori nel form di inserimento' : $result).'!</strong>', $htmlPage);
         if(!empty($errOnFields)) {
             foreach($errOnFields as $key => $value) {
-                $htmlPage = str_replace('<error_' . $key . ' />', '<p class="formErrors">' . $value . '</p>', $htmlPage);
+                $htmlPage = str_replace('<error_' . $key . ' />', '<strong class="formErrors">' . $value . '!</strong>', $htmlPage);
             }
         }
     }

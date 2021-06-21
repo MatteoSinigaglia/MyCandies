@@ -120,9 +120,7 @@ CREATE TABLE `Customers` (
   `birthdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
 -- --------------------------------------------------------
-
 --
 -- Struttura della tabella `CustomersAddresses`
 --
