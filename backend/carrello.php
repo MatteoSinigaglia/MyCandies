@@ -43,11 +43,17 @@ if (!isset($cart) || $cart['info']->getTotal() == 0) {
 	$products = $shop->getProducts();
 	foreach ($products as $product) {
 		$productId = $product->getId();
+		$decreaseProductQuantity = ($shop->isMinimumQuantity($cart[$productId]) ?
+            '<span class="disabledQuantity buttons">Diminuisci quantità prodotto</span>' :
+            '<a href="../backend/actionsFromCart.php?action=decrease&id='.$productId.'" class="fa fa-minus buttons"><span class="helps">Diminuisci quantità prodotto</span></a>');
+		$increaseProductQuantity = ($shop->isMaximumQuantity($cart[$productId], $product) ?
+            '<span class="disabledQuantity buttons">Aumenta quantità prodotto</span>' :
+            '<a href="../backend/actionsFromCart.php?action=increase&id='.$productId.'" class="fa fa-plus buttons"><span class="helps">Aumenta quantità prodotto</span></a>');
 		$productsInfos =
 			'<tr>
 				<td scope="row" title="Nome">'.$product->getName().'</td>
 				<td scope="row" title="Codice">'.$productId.'</td>
-				<td scope="row" title="Quantità"><a href="../backend/actionsFromCart.php?action=decrease&id='.$productId.'" class="fa fa-minus buttons"><span class="helps">Diminuisci quantità prodotto</span></a>'.$cart[$productId].'<a href="../backend/actionsFromCart.php?action=increase&id='.$productId.'" class="fa fa-plus buttons"><span class="helps">Aumenta quantità prodotto</span></a></td>
+				<td scope="row" title="Quantità">'.$decreaseProductQuantity.$cart[$productId].$increaseProductQuantity.'</td>
 				<td scope="row" title="Azioni"><a href="../backend/actionsFromCart.php?action=remove&id='.$productId.'" class="fa fa-remove buttons"><span class="helps">Rimuovi prodotto dal carrello</span> </a></td>
 				<td scope="row" title="Totale prodotto">&euro;'.(float)$cart[$productId]*(float)$product->getPrice().'</td>
 			</tr>';

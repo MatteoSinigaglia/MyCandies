@@ -226,4 +226,12 @@ class ShopManager {
 		}
 
 	}
+
+	public function isMinimumQuantity($productQuantity): bool {
+	    return $productQuantity <= 1;
+    }
+
+    public function isMaximumQuantity($productQuantity, Product $product): bool {
+	    return ($product->getAvailability() - (int)$productQuantity < 1);
+    }
 }

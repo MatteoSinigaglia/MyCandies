@@ -42,11 +42,11 @@ foreach ($users as $user) {
 	$isAdmin = $administration->isAdmin((int)$userData['id']);
 	$removeUser = (!$isAdmin ?
         '<a href="./remove_user.php?email=_user_email" name="remove_user"><button class="buttons">Rimuovi</button></a>' :
-        '');
+        '<span class="disabled buttons">Rimuovi</span>');
 
 	$makeAdmin = (!$isAdmin ?
         '<a href="./make_user_admin.php?email=_user_email" name="make_admin"><button class="buttons">Rendi admin</button></a>' :
-        '');
+        '<span class="disabled buttons">Rendi admin</span>');
 	$userRow = str_replace( '<remove-user />', $removeUser, $userRow);
 	$userRow = str_replace( '<make_admin />', $makeAdmin, $userRow);
 	$userRow = str_replace('_user_email', urlencode($userData['email']), $userRow);
