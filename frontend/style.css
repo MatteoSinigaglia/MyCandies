@@ -286,8 +286,7 @@ border-radius: 5px;
 background-color: #020E0A;
 padding: 0.5em;
 }
-.selectedButton,
-.disabled {
+.selectedButton {
 display: block;
 margin: 0.5em auto;
 background-color: #020E0A;
@@ -296,7 +295,10 @@ width: 60%;
 text-align: center;
 }
 .disabled {
-width: 30%;
+display: inline-block;
+background-color: #020E0A;
+color: white;
+text-align: center;
 }
 .disabledQuantity {
 width: 5%;
