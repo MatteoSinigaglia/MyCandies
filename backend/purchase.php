@@ -23,7 +23,6 @@ if (!isset($cart)) {
 	die();
 }
 
-print_r($cart);
 try{
 	$shop->checkout($cart, $auth);
 } catch (Exception $e) {}

@@ -32,7 +32,7 @@ class Entity {
 	 * @throws EntityException Throws an exception if the id is already set
 	 */
 	public function setId(int $id): void {
-		if (isset($this->id)) {
+		if (isset($this->id) && $this->id !== 0) {
 			throw new EntityException(['id' => 'Entity already has an id'], -2);
 		}
 		$this->id = $id;

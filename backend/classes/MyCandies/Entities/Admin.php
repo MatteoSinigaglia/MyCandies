@@ -4,6 +4,8 @@
 namespace MyCandies\Entities;
 
 
+use DB\dbh;
+
 class Admin {
 
 	private $user_id;
@@ -11,6 +13,15 @@ class Admin {
 	public function __construct(int $id=null) {
 		$this->user_id = $id;
 	}
+
+    /**
+     * @param dbh $dbh
+     * @return Admin[]
+     * @throws \DB\Exceptions\DBException
+     */
+	static public function selectAll(dbh $dbh) {
+	    return $dbh->findAll('Admins');
+    }
 
 	public function getColumns() : array {
 		$columns = array();
@@ -27,4 +38,11 @@ class Admin {
 		}
 		return $fields;
 	}
+
+    /**
+     * @return int|null
+     */
+    public function getUserId(): ?int {
+        return $this->user_id;
+    }
 }

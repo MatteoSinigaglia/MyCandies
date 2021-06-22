@@ -28,7 +28,7 @@ $DOM = str_replace('<dashboard />', ($auth->isAdmin()
 	:
 	''), $DOM);
 
-if (!isset($cart)) {
+if (!isset($cart) || $cart['info']->getTotal() == 0) {
 
 	$DOM = str_replace('<productsInCart />', '<tr>
 				<td scope="row" title="Nome"></td>
@@ -37,6 +37,7 @@ if (!isset($cart)) {
 				<td scope="row" title="Azioni"></td>
 				<td scope="row" title="Totale prodotto"></td>
 			</tr>', $DOM);
+    $DOM = str_replace('<total />', '<td scope="row" title="Totale carello">&euro;0</td>', $DOM);
 } else {
 	$productsInCart = '';
 	$products = $shop->getProducts();
@@ -65,11 +66,12 @@ if (isset($_SESSION['log'])) {
 			<strong class='{$class}'>{$_SESSION['log']}</strong>
 		</div>";
 
+    unset($_SESSION['log']);
+    unset($_SESSION['logtype']);
 } else {
 	$statusLog = '';
 }
 
 $DOM = str_replace('<status-log />', $statusLog, $DOM);
 
-unset($_SESSION['log']);
 echo $DOM;

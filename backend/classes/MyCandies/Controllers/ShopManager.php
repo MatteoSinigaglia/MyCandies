@@ -62,29 +62,41 @@ class ShopManager {
 	}
 
 	public function addToCart(array $product) {
-//		if (!isset($_SESSION['cart'])) {
-//			$cart = new Cart();
-//			$_SESSION['cart'] = serialize($cart);
-//		}
 
-		if (!isset($_SESSION['cart']['info']))
-			$_SESSION['cart']['info'] = new Cart();
+        $productId = (int)$product['id'];
+        $productObject = $this->getProductById($productId);
+        $productQuantityInCart = (isset($_SESSION['cart'][$productId]) ? (int)$_SESSION['cart'][$productId] : 0);
 
-		if (isset($_SESSION['cart'][(int)$product['id']])) {
-			$this->increaseProductQuantity((int)$product['id']);
-		} else {
-			$productInfo = $this->getProductById((int)$product['id']);
-			$_SESSION['cart']['info']->addPriceToTotal((isset($productInfo) ? $productInfo->getPrice() : 0));
-			$_SESSION['cart'][(int)$product['id']] = 1;
-		}
-//		Move when adding check for availability of product
-		$_SESSION['log'] = 'Prodotto aggiunto al carrello!';
-		$_SESSION['logtype'] = 'success';
+        if (!isset($_SESSION['cart']['info']))
+            $_SESSION['cart']['info'] = new Cart();
+
+        if (!isset($productObject) || $productObject === false) {
+            $_SESSION['log'] = 'Errore durante l\'aggiunta del prodotto, riprovare più tardi';
+            $_SESSION['logtype'] = 'failure';
+        } elseif ($productObject->getAvailability() - $productQuantityInCart === 0) {
+            $_SESSION['log'] = 'Quantità del prodotto richiesta non disponibile';
+            $_SESSION['logtype'] = 'failure';
+        } else if (isset($_SESSION['cart'][$productId])) {
+            $this->increaseProductQuantity($productId);
+            $_SESSION['log'] = 'Aumentata quantità del prodotto nel carrello.';
+            $_SESSION['logtype'] = 'success';
+        } else {
+            $_SESSION['cart']['info']->addPriceToTotal(($productObject !== false ? $productObject->getPrice() : 0));
+            $_SESSION['cart'][$productId] = 1;
+            $_SESSION['log'] = 'Prodotto aggiunto al carrello.';
+            $_SESSION['logtype'] = 'success';
+        }
 	}
 
 	public function increaseProductQuantity(int $productId) {
-		if (isset($_SESSION['cart'][$productId])) {
-			($_SESSION['cart']['info'])->addPriceToTotal((float)($this->getProductById($productId)->getPrice()));
+
+	    $productObject = $this->getProductById($productId);
+
+		if (isset($_SESSION['cart'][$productId]) &&
+            $productObject !== false &&
+            ($productObject->getAvailability() - $_SESSION['cart'][$productId]) > 0) {
+
+			$_SESSION['cart']['info']->addPriceToTotal((float)($this->getProductById($productId)->getPrice()));
 			$_SESSION['cart'][$productId] += 1;
 		}
 	}
@@ -95,15 +107,19 @@ class ShopManager {
 		else {
 			$_SESSION['cart']['info']->removePriceFromTotal((float)($this->getProductById($productId)->getPrice()));
 			$_SESSION['cart'][$productId] -= 1;
+            $_SESSION['log'] = 'Diminuita quantità del prodotto nel carrello.';
+            $_SESSION['logtype'] = 'success';
 		}
 	}
 
 	public function removeProduct(int $productId) {
 		$this->removeToTotal((float)($this->getProductById($productId)->getPrice())*(int)$_SESSION['cart'][$productId]);
 		unset($_SESSION['cart'][$productId]);
-	}
+        $_SESSION['log'] = 'Prodotto rimosso dal carrello.';
+        $_SESSION['logtype'] = 'success';
+    }
 
-	public function addToTotal(float $price) {
+    public function addToTotal(float $price) {
 		require_once MYCANDIES_PATH.DS.'Entities'.DS.'Cart.php';
 		if ($_SESSION['cart']['info']) {
 			$cart = $_SESSION['cart']['info'];
@@ -165,6 +181,11 @@ class ShopManager {
 
 	public function checkout(array $cart, Authentication $auth) {
 
+        if ($cart['info']->getTotal() == 0) {
+            $_SESSION['log'] = 'Aggiungere elementi al carrello prima di effettuare acquisti!';
+            $_SESSION['logtype'] = 'failure';
+            return;
+        }
 
 		try {
 			$this->dbh->connect();
@@ -181,7 +202,7 @@ class ShopManager {
 
 //				New availability = product availability - product quantity
 				$product = Product::getProductFromId($this->dbh, $productId);
-				$product->updateAvailability($this->dbh, $product->getAvailability() - $productQuantity);
+				$product->updateAvailability($this->dbh, (int)$product->getAvailability() - (int)$productQuantity);
 			}
 
 			$transaction = new Transaction([

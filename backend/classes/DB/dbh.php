@@ -128,6 +128,7 @@ class dbh {
 		$values = rtrim($values, ',');
 
 		$query = 'INSERT INTO `'.$table.'` ('.$parameters.') VALUES ('.$values.')';
+		error_log($query);
 		try {
 			$this->query($query, $fields);
 			return $this->pdo->lastInsertId();
@@ -142,16 +143,17 @@ class dbh {
 		$query = 'UPDATE `'.$table.'` SET ';
 
 		foreach ($fields as $key => $value) {
+		    error_log('Array: '.$key.' => '.$value);
 			if($key != $id)
-				$query .= '`'.$key.'` = :'.$key.',';
+				$query .= '`'.$key.'`=:'.$key.',';
 		}
 
 //		Remove last ',' inserted in foreach statement
 		$query = rtrim($query, ',');
 
-		$query .= ' WHERE `'.$id.'` = :'.$id.'';
+		$query .= ' WHERE `'.$id.'`=:'.$id.'';
 
-		echo $query;
+		error_log($query);
 //		$fields = $this->processDates($fields);
 
 		try {
