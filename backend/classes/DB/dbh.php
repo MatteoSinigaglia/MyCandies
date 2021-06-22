@@ -25,6 +25,7 @@ class dbh {
 		$this->host = 'localhost';
 		$this->db = 'MyCandies';
 		$this->user = 'root';
+        $this->psw = 'root';
 		$this->charset = 'utf8mb4';
 		$this->options = [
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

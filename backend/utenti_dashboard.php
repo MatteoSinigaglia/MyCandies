@@ -34,7 +34,9 @@ foreach ($users as $user) {
 	$userData = $user->getValues();
 	$userRow = '';
 	foreach (array_keys($usersRow) as $property) {
-		$userRow .= str_replace('<user_'.$property.' />', $userData[$property], $usersRow[$property]);
+		$userRow .= str_replace('<user_'.$property.' />',
+                                (isset($userData[$property]) ? $userData[$property] : ''),
+                                $usersRow[$property]);
 	}
 
 	$isAdmin = $administration->isAdmin((int)$userData['id']);
