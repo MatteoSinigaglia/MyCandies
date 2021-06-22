@@ -333,13 +333,17 @@ list-style-type: none;
 margin: 0.3em 0em;
 border-radius: 4px;
 }
-.selectedButton {
+.selectedButton,
+.disabled {
 display: block;
 margin: 0.5em auto;
 background-color: #031808;
 color: white;
 width: 60%;
 text-align: center;
+}
+.disabled {
+width: 30%;
 }
 #mobileMenu,
 #mobileMenuDashboard {
