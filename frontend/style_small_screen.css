@@ -306,6 +306,14 @@ text-align: center;
 .disabled {
 width: 30%;
 }
+.disabledQuantity {
+width: 5%;
+display: block;
+margin: 0.5em auto;
+background-color: #020E0A;
+color: white;
+text-align: center;
+}
 #mobileMenu {
 display: none;
 margin-bottom: 0.5em;
