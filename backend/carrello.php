@@ -37,7 +37,7 @@ if (!isset($cart) || $cart['info']->getTotal() == 0) {
 				<td scope="row" title="Azioni"></td>
 				<td scope="row" title="Totale prodotto"></td>
 			</tr>', $DOM);
-    $DOM = str_replace('<total />', '<td scope="row" title="Totale carello">&euro;0</td>', $DOM);
+    $DOM = str_replace('<total />', '<tr><td scope="row" title="Totale carello">&euro;0</td></tr>', $DOM);
 } else {
 	$productsInCart = '';
 	$products = $shop->getProducts();
