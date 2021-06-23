@@ -21,7 +21,6 @@ class ProductsActivePrinciple {
             $this->setActive_principle_id($data['active_principle_id']);
             $this->setPercentage($data['percentage']);
             if(count($this->errors)) {
-                echo "Questo viene triggerato";
                 throw new EntityException($this->errors, -1);
             }
         }
