@@ -308,8 +308,8 @@ background-color: #020E0A;
 color: white;
 text-align: center;
 }
-.disabledQuantity {
-width: 5%;
+.disabledQuantity.buttons {
+width: 15%;
 display: block;
 margin: 0.5em auto;
 background-color: #020E0A;
