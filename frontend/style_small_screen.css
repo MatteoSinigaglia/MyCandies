@@ -316,6 +316,9 @@ background-color: #020E0A;
 color: white;
 text-align: center;
 }
+#selectedProduct table tr td[title="Quantità"] {
+width: 10%;
+}
 #mobileMenu {
 display: none;
 margin-bottom: 0.5em;
