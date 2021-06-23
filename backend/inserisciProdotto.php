@@ -60,7 +60,7 @@ try {
         $data['active_principle_id'] = $activePrinciplesManager->searchIdByName($_POST['productActivePrinciple'])->getId();
     } else $errOnFields['active_principle_id'] = 'Non è stato scelto nessun principio attivo';
     $insertProduct = new ProductsManager();
-    $success = $insertProduct->insertProduct($data, (empty($data['active_principle_id']) ? null : $data['active_principle_id']), (empty($data['percentage']) ? null : $data['percentage']));
+    $success = $insertProduct->insertProduct($data, $data['active_principle_id'] ?? null, $data['percentage'] ?? null);
 } catch(DBException $e) {
     $result .= '<strong class="formErrors">'.$e->getMessage().'</strong>';
 } catch(EntityException $e) {

@@ -29,12 +29,11 @@ class ProductsActivePrinciple {
     private function setPercentage($percentage) {
         if($percentage == null) {
             $this->errors['percentage'] = 'Non è stata scelta la percentuale di principio attivo';
-        } else if(!preg_match('/([1-9][0-9]{0,3})/',$percentage)) {
+        } else if(!preg_match('/^([1-9][0-9]{0,3})$/',$percentage)) {
             $this->errors['percentage'] = 'La percentuale di principio attivo deve essere un valore intero';
         } else if($percentage > 100 || $percentage < 0) {
             $this->errors['percentage'] = 'La percentuale di principio attivo deve essere compresa tra 0 e 100';
-        }
-        $this->percentage = filter_var($percentage, FILTER_VALIDATE_INT);
+        } else $this->percentage = filter_var($percentage, FILTER_VALIDATE_INT);
     }
 
     private function setActive_principle_id($active_principle_id) {

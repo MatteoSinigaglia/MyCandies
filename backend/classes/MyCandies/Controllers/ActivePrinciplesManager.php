@@ -116,6 +116,7 @@ class ActivePrinciplesManager
             $sideEffect = new SideEffect(Entities\ACTIVE_PRINCIPLES_MANAGER, [
                 'name' => $sideEffectName]);
             $this->T_sideEffects->insert($sideEffect);
+            $this->dbh->transactionCommit();
         } catch (Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;

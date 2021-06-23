@@ -82,7 +82,7 @@ class ProductsManager
             $this->T_productsActivePrinciples->insert($productsActivePrinciples);
             $this->uploadImage(); // carica l'immagine nel server
             $this->dbh->transactionCommit();
-        } catch (Exception $e) {
+        } catch (EntityException | Exception $e) {
             $this->dbh->transactionRollback();
             throw $e;
         } finally {
