@@ -47,6 +47,7 @@ foreach ($users as $user) {
 	$makeAdmin = (!$isAdmin ?
         '<a href="./make_user_admin.php?email=_user_email" name="make_admin"><button class="buttons">Rendi admin</button></a>' :
         '<span class="disabled buttons">Rendi admin</span>');
+
 	$userRow = str_replace( '<remove-user />', $removeUser, $userRow);
 	$userRow = str_replace( '<make_admin />', $makeAdmin, $userRow);
 	$userRow = str_replace('_user_email', urlencode($userData['email']), $userRow);

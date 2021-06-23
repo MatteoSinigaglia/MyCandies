@@ -289,9 +289,22 @@ padding: 0.5em;
 .selectedButton {
 display: block;
 margin: 0.5em auto;
-background-color: #031808;
+background-color: #020E0A;
 color: white;
 width: 60%;
+text-align: center;
+}
+.disabled {
+display: inline-block;
+background-color: #020E0A;
+color: white;
+text-align: center;
+}
+.disabledQuantity {
+width: 5%;
+display: inline-block;
+background-color: #020E0A;
+color: white;
 text-align: center;
 }
 #mobileMenu,
@@ -483,7 +496,6 @@ border: 1px solid #DDD;
 border-radius: 5px;
 background-color: #F5F5F5;
 }
-
 .product-image {
 width: 16em;
 height: 12em;

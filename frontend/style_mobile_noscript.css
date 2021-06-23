@@ -336,9 +336,17 @@ border-radius: 4px;
 .selectedButton {
 display: block;
 margin: 0.5em auto;
+}
+.disabled {
 background-color: #031808;
 color: white;
-width: 60%;
+text-align: center;
+}
+.disabledQuantity {
+width: 5%;
+display: inline-block;
+background-color: #020E0A;
+color: white;
 text-align: center;
 }
 #mobileMenu,
