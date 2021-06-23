@@ -307,6 +307,19 @@ background-color: #020E0A;
 color: white;
 text-align: center;
 }
+#disabledCheckout {
+display: block;
+padding: 0.5em 1em;
+margin: 0 auto;
+border-radius: 5px;
+background-color: #020E0A;
+font-weight: bold;
+font-size: 1em;
+border: 1px solid #DDD;
+color: white;
+width: 15%;
+text-align: center;
+}
 #mobileMenu,
 #mobileMenuDashboard {
 display: none;
