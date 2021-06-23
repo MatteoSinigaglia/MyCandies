@@ -62,6 +62,10 @@ if (!isset($cart) || $cart['info']->getTotal() == 0) {
 	$DOM = str_replace('<productsInCart />', $productsInCart, $DOM);
 	$total = (isset($cart['info']) ? round($cart['info']->getTotal(), 2) : 0);
 	$DOM = str_replace('<total />', '<td scope="row" title="Totale carello">&euro;'.$total.'</td>', $DOM);
+    $checkoutButton = (count($products) > 0 ?
+        '<a href="../backend/purchase.php" id="purchaseButton" name="purchaseButton" class="buttons">Conferma acquisto</a>' :
+        '<span class="disabled buttons"><span class="helps">Carrello vuoto</span></span>');
+    $DOM = str_replace('<checkout-button />', $checkoutButton, $DOM);
 }
 
 if (isset($_SESSION['log'])) {
