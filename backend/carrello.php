@@ -44,10 +44,10 @@ if (!isset($cart) || $cart['info']->getTotal() == 0) {
 	foreach ($products as $product) {
 		$productId = $product->getId();
 		$decreaseProductQuantity = ($shop->isMinimumQuantity($cart[$productId]) ?
-            '<span class="disabledQuantity buttons">Diminuisci quantità prodotto</span>' :
+            '<span class="fa fa-minus disabledQuantity buttons"><span class="helps">Diminuisci quantità prodotto</span></span>' :
             '<a href="../backend/actionsFromCart.php?action=decrease&id='.$productId.'" class="fa fa-minus buttons"><span class="helps">Diminuisci quantità prodotto</span></a>');
 		$increaseProductQuantity = ($shop->isMaximumQuantity($cart[$productId], $product) ?
-            '<span class="disabledQuantity buttons">Aumenta quantità prodotto</span>' :
+            '<span class="fa fa-plus disabledQuantity buttons"><span class="helps">Aumenta quantità prodotto</span></span>' :
             '<a href="../backend/actionsFromCart.php?action=increase&id='.$productId.'" class="fa fa-plus buttons"><span class="helps">Aumenta quantità prodotto</span></a>');
 		$productsInfos =
 			'<tr>
