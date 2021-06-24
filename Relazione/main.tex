@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage{longtable}
+\usepackage{hyperref}
+% draft enable "black blocks" to signal overfull hbox
+
+\usepackage[margin=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabu}
+\setcounter{secnumdepth}{5} % numera i sottoparagrafi
+\graphicspath{ {img/} }
+
+\begin{document}
+
+\input{src/titlePage}
+
+\input{src/abstract}
+\newpage
+\input{src/analisi}
+\newpage
+\input{src/progettazione}
+
+\input{src/layout}
+
+\input{src/comportamento}
+
+\input{src/realizzazione}
+
+\input{src/Testing}
+
+\end{document}
