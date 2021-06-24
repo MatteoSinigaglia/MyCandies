@@ -23,7 +23,7 @@ Per implementare il \textit{responsive web} sono stati definiti 3 intervalli, se
 \subsection{Layout di stampa:} si è scelto di implementare un ulteriore foglio di stile per definire il layout di stampa. Vengono così mostrate solamente le informazioni indispensabili di ciascuna pagina rimuovendo i pulsanti, i messaggi di conferma e di errore e le aree che non portano alcun'arricchimento informativo in una possibile stampa, al fine di ridurre al minimo le risorse utilizzate per effettuare la stampa della pagina. Vengono inoltre rimosse tutte le immagini, ad esclusione dell'immagine raffigurante il prodotto nella pagina di dettaglio del medesimo, necessaria per fornire dettagli visivi al consumatore.
 
 \subsection{Database}
-A supporto del comportamento è stato creato un database relazionale, allo scopo di tenere traccia di prodotti, utenti e transazioni. Il database è in 2NF perché:
+A supporto del comportamento è stato creato un database relazionale, allo scopo di tenere traccia di prodotti, utenti e transazioni. Se necessario è possibile creare il database importando il file "mycandies.sql" che si trova al percorso "MyCandies/backend/database/" e popolarlo importando il file "prodotti.sql" che si trova al percorso "MyCandies/backend/database/Popolamento/". Il database è in 2NF perché:
 \begin{itemize}
     \item è in 1NF;
     \item tutti gli attributi non chiave dipendono dall'intera chiave.
@@ -65,7 +65,7 @@ La parte di \textit{comportamento} realizzata tramite Javascript assicura una de
  L'accessibilità è stata garantita anche attraverso altri strumenti utili all'orientamento e alla navigazione.
  \begin{itemize}
      \item \textbf{Breadcrumb}: le breadcrumb rappresentato la lista di pagine visitate per arrivare alla pagina corrente, che è l'unica senza link. É utile all'utente perché permette di capire dove si trova, come è arrivato in una data pagina e come poter eventualmente tornare alle pagine precedenti. Ogni breadcrumb comincia con il testo "Ti trovi in:" per esplicitare il ruolo di quest'ultima;
-     \item \textbf{Link}: sono stati inseriti diversi link per facilitare la navigazione. In fondo ad ogni pagina, prima del footer, è presente un link "Torna su" per tornare rapidamente all'header. Alcuni di questi con la medesima funzione sono nascosti nelle versioni desktop per renderli visibili agli screen reader. 
+     \item \textbf{Link}: sono stati inseriti diversi link per facilitare la navigazione. In fondo ad ogni pagina, prima del footer, è presente un link "Torna su" per tornare rapidamente all'header, l'utente in questo modo può navigare l'header e se vuole tornare al contenuto rapidamente può usare il link apposito. Alcuni di questi con la medesima funzione sono nascosti nelle versioni desktop per renderli visibili agli screen reader. 
      I link nascosti sopra citati sono resi disponibili a tutti gli utenti nella versione mobile, per garantire un rapido ritorno senza effettuare molto scroll.
      Nel header sono presenti, a seconda delle pagine, dei link visibili agli screen reader per passare al contenuto della pagina, saltando le voci di menù che risulterebbero ripetitive.
      \item \textbf{Marcatori HTML}: Per rendere il sito accessibile si è fatto un corretto uso dei marcatori.
