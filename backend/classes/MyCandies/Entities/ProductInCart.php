@@ -3,8 +3,6 @@
 
 namespace MyCandies\Entities;
 
-require_once __DIR__.DIRECTORY_SEPARATOR.'AbstractEntity.php';
-
 use DB\dbh;
 use DB\Exceptions\DBException;
 
