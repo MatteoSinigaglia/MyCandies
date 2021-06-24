@@ -159,45 +159,6 @@ class dbh {
 		}
 	}
 
-	public function newUser(array $user) {
-		try {
-			$this->connect();
-
-
-			if ($this->find('Customers', 'email', $user['email']) > 0) {
-				throw new InvalidArgumentException('Email already in use', 1);
-			}
-
-			$this->pdo->beginTransaction();
-
-			$table = 'Customers';
-
-			$customer = [
-				'first_name' => $user['first_name'],
-				'last_name' => $user['last_name'],
-				'email' => $user['email'],
-				'password' => $user['password']
-			];
-			$this->insert($table, $customer);
-            $userId = $this->pdo->lastInsertId();
-
-			$this->pdo->commit();
-
-		} catch (InvalidArgumentException $e) {
-			throw $e;
-
-		} catch (PDOException $e) {
-			$this->pdo->rollback();
-			throw $e;
-
-		} catch (Exception $e) {
-			throw $e;
-
-		} finally {
-			$this->disconnect();
-		}
-	}
-
 	public function transactionStart() {
 		try {
 			$this->pdo->beginTransaction();
