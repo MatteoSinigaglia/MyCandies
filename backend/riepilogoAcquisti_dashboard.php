@@ -22,10 +22,10 @@ $rows = '';
 foreach ($transactionsData as $transaction) {
 	$row = '
 		<tr>
-			<td scope="row">'.$transaction['user'].'</td>
-			<td scope="row">'.$transaction['cartId'].'</td>
-			<td scope="row">'.$transaction['datetime'].'</td>
-			<td scope="row">'.$transaction['total'].'</td>
+			<td scope="row" title="Utente">'.$transaction['user'].'</td>
+			<td scope="row" title="Codice">'.$transaction['cartId'].'</td>
+			<td scope="row" title="Data e ora">'.$transaction['datetime'].'</td>
+			<td scope="row" title="Totale">'.$transaction['total'].'</td>
 		</tr>';
 	$rows .= $row;
 }

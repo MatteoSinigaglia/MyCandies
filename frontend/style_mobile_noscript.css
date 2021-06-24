@@ -192,6 +192,7 @@ padding: 1.5em;
 position: relative;
 text-align: right;
 white-space: normal;
+background-color: #F2E8CF;
 }
 .responsiveTable tr td:before {
 font-weight: bold;
@@ -462,7 +463,6 @@ clear: left;
 padding: 1em;
 margin: 1em;
 border-radius: 10px;
-background-color: #F2E8CF;
 }
 #selectedProduct table {
 width: 100%;
