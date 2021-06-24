@@ -6,13 +6,9 @@ use MyCandies\Controllers\ShopManager;
 require_once '..' . DIRECTORY_SEPARATOR . 'paths.php';
 
 if (!isset($_SERVER['HTTP_REFERER'])) {
-//	Php file has been accessed irregularly
 	header('location: ./home.php');
 	die();
 }
-
-//require_once MYCANDIES_PATH.DS.'Controllers'.DS.'Authentication.php';
-//$auth = new Authentication();
 
 if (!isset($_GET['id'])) {
 	header('location: ' . '.' . DS . 'listaProdotti.php');

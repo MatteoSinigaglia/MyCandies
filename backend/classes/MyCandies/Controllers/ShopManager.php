@@ -49,10 +49,6 @@ class ShopManager {
 		$this->users = new Table($this->dbh, 'Customers', 'id', User::class, [Entities\DB]);
 	}
 
-//	private function initCarts() {
-//		$this->carts = new Table($this->dbh, 'Carts', 'id', Cart::class, [Entities\DB]);
-//	}
-
 	private function initProducts() {
 		$this->products = new Table($this->dbh, 'Products', 'id', Product::class, [Entities\DB]);
 	}
@@ -155,7 +151,6 @@ class ShopManager {
 
 	public function getProducts() : ?array {
 		if (!isset($_SESSION['cart']) || count($_SESSION['cart']) < 2)
-//			Cart not set or empty
 			return null;
 
 		$productsInCart = $_SESSION['cart'];
@@ -200,7 +195,6 @@ class ShopManager {
 					'quantity'      =>  $productQuantity]);
 				$productInCart->insert($this->dbh);
 
-//				New availability = product availability - product quantity
 				$product = Product::getProductFromId($this->dbh, $productId);
 				$product->updateAvailability($this->dbh, (int)$product->getAvailability() - (int)$productQuantity);
 			}

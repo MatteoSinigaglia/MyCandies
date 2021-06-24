@@ -11,6 +11,4 @@ abstract class AbstractEntity {
 	abstract protected function toAssociativeArray(): array;
 
 	abstract public function insert(dbh $dbh): int;
-//	abstract public function update(dbh $dbh): void;
-//	abstract public function delete(dbh $dbh): void;
 }

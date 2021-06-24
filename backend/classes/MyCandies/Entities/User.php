@@ -30,22 +30,14 @@ class User extends Entity {
 
 	public function __construct(int $source, array $data=[]) {
 		try {
-//			Ternary operator to remove server's warning
 			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
-
 		} catch (EntityException $e) {
 			throw $e;
 		}
-//	        Switch set of input controls depending on the source of the data
 		switch ($source) {
-
 			case DB:
-//			No controls needed, database is consistent
 				break;
-
 			case REGISTER:
-//			Controls in every field + consistency between password and confirmPassword
-
 				if ($this->isNotValid('email', $data['email']))
 					$errors['email'] = $this->getErrorMessage('email');
 
@@ -75,9 +67,7 @@ class User extends Entity {
 				$this->telephone = $data['telephone'];
 				$this->gender = $this->encodeGender($data['gender']);
 				break;
-
 			case LOGIN:
-//			Controls only in email
 				if ($this->isNotValid('email', $data['email']))
 					$errors['login'] = 'L\'email inserita non è valida';
 				$this->email = $data['email'];

@@ -15,7 +15,6 @@ try {
 	require_once __DIR__.'/classes/MyCandies/Controllers/Authentication.php';
 	$auth = new Authentication();
 
-//	Preposterous control
 	if ($auth->isLoggedIn()) {
 		header('location: ./home.php');
 		die();

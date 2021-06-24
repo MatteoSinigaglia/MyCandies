@@ -14,26 +14,17 @@ try {
 	require_once __DIR__.'/classes/MyCandies/Controllers/Authentication.php';
 	$auth = new Authentication();
 
-//	Preposterous control
 	if ($auth->isLoggedIn()) {
 		header('location: ./home.php');
 		die();
 	}
-
 	$auth->signUp($_POST['user'], $_POST['address']);
 	header('location: ./home.php');
 	die();
-
 } catch (EntityException $e) {
-
-//	Wrong input
 	$errors = $e->getErrors();
-
 } catch (AuthException $e) {
-
-//	Wrong (email, password) due to not registered user wroong password or unexpected error
 	$errors = $e->getSignUpError();
-
 }
 
 $DOM = file_get_contents('../frontend/formCliente.html');

@@ -18,12 +18,9 @@ class Address extends Entity {
 	private $street;
 	private $number;
 
-//	public const REGISTER = 1;
-
 	public function __construct(int $source, array $data= null) {
 		$errors = array();
 		try {
-//			Ternary operator to remove server's warning
 			parent::__construct($source, (isset($data['id']) ? $data['id'] : null));
 		} catch (EntityException $e) {
 			throw $e;
@@ -32,25 +29,19 @@ class Address extends Entity {
 			case DB:
 				break;
 			case REGISTER:
-//				if (!isset($data['country']) || strlen($data['country']) < 1/* || regex check */) {
-//					$errors['country'] = 'Errore inserimento nazione';
-//				}
-//				if (!isset($data['region']) || strlen($data['region']) < 1/* || regex check */) {
-//					$errors['region'] = 'Errore inserimento regione';
-//				}
 				if ($this->isNotValid('province', $data['province']))
 					$errors['province'] = $this->getErrorMessage('province');
 
-				if (!isset($data['city']) || strlen($data['city']) < 1/* || regex check */)
+				if (!isset($data['city']) || strlen($data['city']) < 1)
 					$errors['city'] = $this->getErrorMessage('city');
 
-				if (!isset($data['CAP']) || strlen($data['CAP']) < 1/* || regex check */)
+				if (!isset($data['CAP']) || strlen($data['CAP']) < 1)
 					$errors['CAP'] = $this->getErrorMessage('CAP');
 
-				if (!isset($data['street']) || strlen($data['street']) < 1/* || regex check */)
+				if (!isset($data['street']) || strlen($data['street']) < 1)
 					$errors['street'] = $this->getErrorMessage('street');
 
-				if (!isset($data['number']) || strlen($data['number']) < 1/* || regex check */)
+				if (!isset($data['number']) || strlen($data['number']) < 1)
 					$errors['number'] = $this->getErrorMessage('number');
 
 				$this->country = $data['country'];

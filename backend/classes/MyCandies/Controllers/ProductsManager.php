@@ -80,7 +80,7 @@ class ProductsManager
             $data_products_active_principles['percentage'] = $percentage;
             $productsActivePrinciples = new ProductsActivePrinciple(Entities\PRODUCTS_MANAGER, $data_products_active_principles);
             $this->T_productsActivePrinciples->insert($productsActivePrinciples);
-            $this->uploadImage(); // carica l'immagine nel server
+            $this->uploadImage();
             $this->dbh->transactionCommit();
         } catch (EntityException | Exception $e) {
             $this->dbh->transactionRollback();

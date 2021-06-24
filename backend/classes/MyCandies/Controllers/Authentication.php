@@ -232,7 +232,6 @@ class Authentication {
 
 		session_regenerate_id();
 
-//      User is authenticated, the database data can now be stored in the class' field
 		$this->user = $user;
 
 		try {
@@ -246,7 +245,6 @@ class Authentication {
 
 		$_SESSION['email'] = $this->user->getEmail();
 
-//		In the database is stored the hash of the password
 		$_SESSION['password'] = $this->user->getPassword();
 		$_SESSION['permissions'] = ($isAdmin ? 'admin' : 'user');
 	}
@@ -279,8 +277,6 @@ class Authentication {
 			case 0:
 				$this->user = $user[0];
 				return $this->user->getPassword() === $_SESSION['password'];
-//			case 1:
-//				throw new AuthException('Unexpected event occurred, please contact the site admins.', -1);
 		}
 	}
 
@@ -330,7 +326,6 @@ class Authentication {
 			}
 		}
 
-//		User already set
 		return $this->user->getId();
 	}
 
@@ -343,8 +338,6 @@ class Authentication {
 				$userId = $this->getUserId();
 				$usersAddresses = UsersAddresses::getFromUserId($this->dbh, $userId);
 				$this->userAddress = $usersAddresses[0];
-//				$this->initUsersAddresses();
-//				$this->userAddress = $this->usersAddresses->find(['column' => 'customer_id', 'value' => $userId])[0];
 			}
 
 			return $this->userAddress->getAddressId();
@@ -406,17 +399,12 @@ class Authentication {
 		} catch (EntityException $e) {
 			$errors = (isset($errors) ? $errors + $e->getErrors(): $e->getErrors());
 		}
-
 		if (isset($errors))
-//			Input data contains errors, no changes in database has been made
 			throw new EntityException($errors, -1);
-
-//		Input data is fine
 		if (count($modifiedUserData) > 1)
 			$this->updateUserData($modifiedUserData);
 		if (count($modifiedAddressData) > 1)
 			$this->updateAddressData($modifiedAddressData);
-
 	}
 
 	private function getModifiedFields($oldData, $newData) : ?array {

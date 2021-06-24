@@ -83,7 +83,7 @@ class Product extends Entity
     {
         if (!is_numeric($price)) {
             $this->errors['price'] = 'Il prezzo inserito non è numerico';
-        } else if ($price <= 0 || $price >= 10000) { // è numerico allora ->
+        } else if ($price <= 0 || $price >= 10000) {
             $this->errors['price'] = 'Il prezzo deve essere maggiore di 0 e minore di 10000';
         } else if (!preg_match('/^\d+(.\d{1,2})?\b$/', $price))
             $this->errors['price'] = 'Il prezzo deve avere al massimo due valori decimali, separati da una virgola';
@@ -95,7 +95,7 @@ class Product extends Entity
     public static function validatePrice($price) : string{
         if (!is_numeric($price)) {
             return 'Il prezzo inserito non è numerico';
-        } else if ($price <= 0 || $price >= 10000) { // è numerico allora ->
+        } else if ($price <= 0 || $price >= 10000) {
             return 'Il prezzo deve essere maggiore di 0 e minore di 10000';
         } else if (!preg_match('/^\d+(.\d{1,2})?\b$/', $price))
             return 'Il prezzo deve avere al massimo due valori decimali, separati da una virgola';
@@ -106,7 +106,7 @@ class Product extends Entity
     {
         if (!is_numeric($availability)) {
             $this->errors['availability'] = 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) {
             $this->errors['availability'] = 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             $this->errors['availability'] = 'La quantità deve essere un valore intero';
@@ -119,7 +119,7 @@ class Product extends Entity
     public static function validateAvailability($availability) : string {
         if (!is_numeric($availability)) {
             return 'La quantità inserita non è numerica';
-        } else if ($availability <= 0 || $availability >= 10000000) { // è numerico allora ->
+        } else if ($availability <= 0 || $availability >= 10000000) {
             return 'La quantità deve essere maggiore di 0 e minore di 10000000';
         } else if (!preg_match('/([1-9][0-9]{0,6})/', $availability)) {
             return 'La quantità deve essere un valore intero';
@@ -209,8 +209,6 @@ public function update(dbh $dbh) {
 
 	private function toAssociativeArray() {
     	return [
-//    		'id'            =>  $this->id,
-//		    'category_id'   =>  $this->category_id,
 		    'name'          =>  $this->name,
 		    'description'   =>  $this->description,
 		    'price'         =>  $this->price,

@@ -4,7 +4,6 @@
 namespace MyCandies\Entities;
 
 use MyCandies\Exceptions\EntityException;
-//use MyCandies\Entities;
 
 require_once __DIR__.'/../Exceptions/EntityException.php';
 require_once __DIR__ . '/sources.php';

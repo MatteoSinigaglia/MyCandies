@@ -39,12 +39,6 @@ class Table {
 		$this->constructorArgs = $constructorArgs;
 	}
 
-//	private function query(string $sql, array $parameters = []) {
-//		$query = $this->pdo->prepare($sql);
-//		$query->execute($parameters);
-//		return $query;
-//	}
-
 	/**
 	 * @param string|null $field
 	 * @param mixed|null $value
@@ -67,7 +61,6 @@ class Table {
 	}
 
 	public function findById(int $value) {
-//		think how to handle pk with composite pks
 		$query = 'SELECT * FROM `'.$this->table.'` WHERE `'.$this->primaryKey.'` = :value';
 		$parameters = [
 			'value' => $value
@@ -136,8 +129,6 @@ class Table {
 			}
 			$fields = array_slice_assoc($entity->getValues(Entities\DB), $slice);
 
-
-//			Prevents from inserting manually an id and leaves the responsibility to the DBMS
             error_log('Admin id: '.$fields['id']);
 			if (isset($fields['id']) && !($entity instanceof Entities\Admin)) {
 				unset($fields['id']);
@@ -172,7 +163,6 @@ class Table {
 
 	public function update(array $fields) {
 
-//		think how to handle pk with composite pks
 		$query = 'UPDATE `'.$this->table.'` SET ';
 
 		foreach ($fields as $key => $value) {
@@ -180,7 +170,6 @@ class Table {
 				$query .= '`'.$key.'` = :'.$key.',';
 		}
 
-//		Remove last ',' inserted in foreach statement
 		$query = rtrim($query, ',');
 
 		$query .= ' WHERE `'.$this->primaryKey.'` = :'.$this->primaryKey.'';
@@ -196,7 +185,6 @@ class Table {
 
 	public function delete(int $id) {
 
-//		think how to handle pk with composite pks
 		$query = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->primaryKey . '` = :id';
 		$parameters = [
 			'id' => $id

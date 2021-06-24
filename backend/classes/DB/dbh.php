@@ -94,7 +94,6 @@ class dbh {
 	}
 
 	public function findById(string $table, string $id, int $value, $className, $args =[]) {
-//		think how to handle pk with composite pks
 		$query = 'SELECT * FROM `'.$table.'` WHERE `'.$id.'` = :value';
 		$parameters = [
 			'value' => $value
@@ -119,7 +118,6 @@ class dbh {
 	}
 
 	public function insert(string $table, array $fields) : int {
-//		Should check if duplicate and return the already present id/insert the element
 		$parameters = $values = '';
 		foreach ($fields as $key => $value) {
 			$parameters .= '`'.$key.'`,';
@@ -140,7 +138,6 @@ class dbh {
 
 	public function update(string $table, string $id, array $fields) {
 
-//		think how to handle pk with composite pks
 		$query = 'UPDATE `'.$table.'` SET ';
 
 		foreach ($fields as $key => $value) {
@@ -149,13 +146,11 @@ class dbh {
 				$query .= '`'.$key.'`=:'.$key.',';
 		}
 
-//		Remove last ',' inserted in foreach statement
 		$query = rtrim($query, ',');
 
 		$query .= ' WHERE `'.$id.'`=:'.$id.'';
 
 		error_log($query);
-//		$fields = $this->processDates($fields);
 
 		try {
 			$this->query($query, $fields);
@@ -174,13 +169,9 @@ class dbh {
 			}
 
 			$this->pdo->beginTransaction();
-//			$query = 'CALL insertUser(:first_name,:last_name,:email,:telephone,:password,:sex,:date_of_birth,:country,'.
-//				':region,:province,:city,:CAP,:street,:street_number)';
 
-//			$this->query($query, $user);
 			$table = 'Customers';
 
-//			Take from $user only the Customers' table fields
 			$customer = [
 				'first_name' => $user['first_name'],
 				'last_name' => $user['last_name'],
