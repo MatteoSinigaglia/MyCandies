@@ -12,12 +12,6 @@ class Entity {
 
 	protected $id;
 
-	/**
-	 * Entity constructor.
-	 * @param int $source
-	 * @param mixed|null $id
-	 * @throws EntityException
-	 */
 	public function __construct(int $source, $id=null) {
 		if ($source === DB) {
 			$this->id = (int)$id;
@@ -26,10 +20,6 @@ class Entity {
 		}
 	}
 
-	/**
-	 * @param int $id Represents the id
-	 * @throws EntityException Throws an exception if the id is already set
-	 */
 	public function setId(int $id): void {
 		if (isset($this->id) && $this->id !== 0) {
 			throw new EntityException(['id' => 'Entity already has an id'], -2);
@@ -37,16 +27,10 @@ class Entity {
 		$this->id = $id;
 	}
 
-	/**
-	 * @return int Returns the entity's id
-	 */
 	public function getId(): int {
 		return $this->id;
 	}
 
-	/**
-	 * @return array Returns all entity's attributes as an associative array
-	 */
 	public function getValues() : array {
 		$fields = [];
 		foreach ($this as $key => $value) {
@@ -55,9 +39,6 @@ class Entity {
 		return $fields;
 	}
 
-	/**
-	 * @return array Returns all entity's attributes names
-	 */
 	public function getColumns() : array {
 		$columns = array();
 		foreach ($this as $key => $value) {

@@ -2,14 +2,12 @@
 
 namespace MyCandies\Entities;
 
-require_once __DIR__.DIRECTORY_SEPARATOR.'AbstractEntity.php';
-
 use DB\dbh;
 use DB\Exceptions\DBException;
 use MyCandies\Entities;
 use MyCandies\Exceptions\EntityException;
 
-class Cart extends AbstractEntity {
+class Cart {
 
 	private $total;
 
@@ -28,9 +26,6 @@ class Cart extends AbstractEntity {
 		}
 	}
 
-	/**
-	 * @return int
-	 */
 	public function getTotal(): float {
 		return $this->total;
 	}

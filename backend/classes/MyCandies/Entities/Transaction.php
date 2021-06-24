@@ -47,23 +47,14 @@ class Transaction {
 		}
 	}
 
-	/**
-	 * @return mixed|null
-	 */
 	public function getCustomerId(): int {
 		return $this->customer_id;
 	}
 
-	/**
-	 * @return mixed|null
-	 */
 	public function getCartId(): int {
 		return $this->cart_id;
 	}
 
-	/**
-	 * @return mixed|null
-	 */
 	public function getAddressId(): int {
 		return $this->address_id;
 	}

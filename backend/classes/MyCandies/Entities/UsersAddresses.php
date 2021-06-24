@@ -44,30 +44,18 @@ class UsersAddresses {
 		}
 	}
 
-	/**
-	 * @param mixed $customer_id
-	 */
 	public function setCustomerId($customer_id): void {
 		$this->customer_id = $customer_id;
 	}
 
-	/**
-	 * @param mixed $address_id
-	 */
 	public function setAddressId($address_id): void {
 		$this->address_id = $address_id;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getCustomerId() {
 		return $this->customer_id;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getAddressId() {
 		return $this->address_id;
 	}

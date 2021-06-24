@@ -163,23 +163,14 @@ class User extends Entity {
 		return false;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getEmail() : string {
 		return $this->email;
 	}
 
-	/**
-	 * @return string The user's crypted password
-	 */
 	public function getPassword(): string {
 		return $this->password;
 	}
 
-	/**
-	 * @return false|string|null
-	 */
 	public function getGender() {
 		return $this->gender;
 	}
@@ -205,21 +196,13 @@ class User extends Entity {
 		return $columns;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getFirstName() {
 		return $this->first_name;
 	}
 
-	/**
-	 * @return mixed
-	 */
 	public function getLastName() {
 		return $this->last_name;
 	}
-
-
 
 	public function update(array $fields) {
 		foreach ($fields as $key => $value) {

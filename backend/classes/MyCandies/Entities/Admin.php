@@ -14,11 +14,6 @@ class Admin {
 		$this->user_id = $id;
 	}
 
-    /**
-     * @param dbh $dbh
-     * @return Admin[]
-     * @throws \DB\Exceptions\DBException
-     */
 	static public function selectAll(dbh $dbh) {
 	    return $dbh->findAll('Admins');
     }
@@ -39,9 +34,6 @@ class Admin {
 		return $fields;
 	}
 
-    /**
-     * @return int|null
-     */
     public function getUserId(): ?int {
         return $this->user_id;
     }

@@ -101,9 +101,7 @@ class Authentication {
 			$this->dbh->disconnect();
 		}
 	}
-	/**
-	 * @return bool
-	 */
+
 	private function validEmail() {
 
 		$email = [

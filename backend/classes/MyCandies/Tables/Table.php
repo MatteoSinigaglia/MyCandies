@@ -39,11 +39,6 @@ class Table {
 		$this->constructorArgs = $constructorArgs;
 	}
 
-	/**
-	 * @param string|null $field
-	 * @param mixed|null $value
-	 * @return int The count of elements in the table (with $field = $value if specified)
-	 */
 	public function total(string $field = null, $value = null) : int {
 		$query = 'SELECT COUNT(*) FROM `'.$this->table.'`';
 		$parameters =  [];
