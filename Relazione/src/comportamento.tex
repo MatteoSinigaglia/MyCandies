@@ -1,0 +1,61 @@
+\newpage
+\section{Funzionalità e interazioni}
+\subsection{Javascript}
+Javascript è stato utilizzato per fornire delle funzioni aggiuntive, non essenziali, per il controllo lato client del form e per l'implementazione del menù sui dispositivi mobili. Come già ripetuto, in caso di mancata disponibilità tutto il sito rimane fruibile. 
+Il controllo dei form ha cercato di essere quanto più completo possibile, fornendo indicazioni precise per guidare correttamente l'utente.
+Si è scelto di non implementare il menù "intelligente" per gusto personale degli autori. 
+È stato realizzato un solo foglio Javascript per evitare un numero eccessivo di file scaricati. Il controllo dei form prevede la raccolta di tutti gli errori di inserimento commessi prima della loro visualizzazione. In questo modo l'utente ha la possibilità di visualizzare immediatamente tutti gli errori e può riuscire a correggerli con una sola compilazione. Se invece venissero visualizzati gli errori uno per volta il processo di compilazione diventerebbe lungo e frustrante.
+Nel file checkForms.js sono presenti le seguenti funzioni con relativi ruoli:
+\begin{itemize}
+    \item \textbf{defaultValue()}: il mancato utilizzo di HTML5 ha reso impossibile l'utilizzo del tag \textit{placeholder}. Per l'inserimento dei placeholder si è seguito l'approccio visto in laboratorio. La funzione si occupa di inserire i placeholder nel form corrispondente. Le pagine con form che richiedono il placeholder invocano le funzioni che gestiscono le chiamate nel file Javascript tramite l'evento \textit{onload} nel tag  $<$body$>$, queste ultime invocano \textit{defaultValue()} per inserire i placeholder.
+    L'utilizzo della funzione non è limitata al caricamento, viene invocata anche quando un input perde il focus senza essere stato valorizzato;
+    
+    \item \textbf{noDefaultValue()}: questa funzione ha lo scopo di rimuovere i placeholder dagli input che ricevono il focus dal utente per permettergli di inserire i valori;
+    
+    \item \textbf{Funzioni validazione forms}: ogni form invoca una funzione tramite l'evento \textit{onsubmit} che si occupa di controllare che i campi siano correttamente compilati. Le funzioni in questione sono: \textit{validateLoginForm()}, \textit{validateRegForm()}, \textit{validateInsertionForm()} e \textit{validatePAForm()}. Ognuna di queste funzioni prende tutti gli input che devono essere controllati dal form che le ha invocate e richiamano un'altra funzione di controllo salvandone il valore di ritorno. Un valore \textit{true} corrisponde ad un campo compilato correttamente, un valore \textit{false} corrisponde ad un campo che contiene un errore. La funzione non ritorna al primo errore trovato, altrimenti non sarebbe possibile stampare tutti gli errori presenti. I dati vengono inviati al server sono quando l'evento \textit{onsubmit} riceve un valore true;
+    
+    \item \textbf{Funzione controllo del singolo campo}: queste funzioni vengono invocate dalle funzioni precedenti per ogni campo controllato del form. 
+    Sono le funzioni: \textit{validateLoginField()}, \textit{validateRegField()}, \textit{validateInsertionField()} e \textit{PAFieldValidate()}. Ognuna di esse effettua un controllo per verificare che i valori inseriti rispettino le \textit{regex} stabilite. In caso contrario stampano l'errore riscontrato e ritornano \textit{false}. In caso positivo ritornano \textit{true} o in alcuni casi invocano funzioni esterne che effettuano controlli più precisi e selettivi;
+    
+    \item \textbf{Funzioni per controlli specifici}: si tratta di funzioni che effettuano controlli precisi che non possono essere definiti con un'espressione regolare. Sono le seguenti funzioni:
+    \begin{itemize}
+        \item \textbf{printRightPassword()}: controlla che la password scelta e la password di conferma siano uguali, in caso negativo avvisa l'utente di questa incongruenza, in caso contrario stampa un messaggio di conferma;
+        \item \textbf{validateDate()}: è una funzione per il form di registrazione. Se questa funzione è stata invocata siamo già certi della correttezza del formato inserito. Ci si limita quindi a valutare che una data di nascita sia accettabile (numero di giorni per mesi, un anno non futuro, etc..);
+        \item \textbf{otherCheck()}: invocata nel form di registrazione, effettua controllo specifici sull'età di un utente che tenta di registrarsi, controlla che un numero di cellulare sia accettabile;
+        \item \textbf{specialTest()}: effettua controlli simili a quelli sopra esposti limitatamente alle modifiche apportate tramite il form dell'area personale.
+    \end{itemize}
+    
+    \item \textbf{printError()}: ha la funzione di aggiungere gli errori del relativo form in corrispondenza dell'input esatto in cui l'errore si è verificato. Essa è unica per tutti i form presenti;
+    
+    \item \textbf{removeError()}: il suo compito è quello di eliminare eventuali errori inseriti al di sotto di un campo di input compilato in modo scorretto. Questo è necessario in caso di compilazioni errate multiple per impedire che gli errori si accumulino e/o risultino non aggiornati. Quando viene rilevato un nuovo errore,si invoca \textit{removeError()} che controlla la presenza di un errore ed in caso lo elimina, prima che venga aggiunto quello nuovo corrispondente all'ultima compilazione del form;
+    
+    \item \textbf{loadMenu(), loadMenuDashboard()}: viene invocato nel tag $<$body$>$ tramite \textit{onload} e \textit{onresize} e si occupa di creare un pulsante per il menù e nascondere quest'ultimo nei mobile e in generale nelle finestre con dimensione inferiore al punto di rottura definito;
+    
+    \item \textbf{mobileMenu(), menuDashboard()}: questa funzione definisce il comportamento del pulsante creato con la funzione loadMenu().
+    
+\end{itemize}
+
+\subsection{PHP}
+Tramite PHP è stata realizzata la parte server-side, nonché il comportamento di My Candies. Come da specifiche non sono state utilizzate feature di versioni PHP superiori alla 7.2.
+In particolare:
+\begin{itemize}
+    \item \textbf{Model-view-controller}: il codice è stato organizzato in modo da rispettare il pattern Model-view-controller;
+    \item \textbf{PDO - PHP Data Objects}: è stato utilizzato PDO per accedere al database;
+    \item \textbf{ORM - Object-relational mapping}: ogni entità nel database ha una classe corrispondente in PHP.
+    \item \textbf{Validazione input}: prima di essere inserito nel database qualsiasi dato è validato;
+\end{itemize}
+
+\subsubsection{Model-view-controller}
+È stato scelto il pattern Model-view-controller, dove:
+\begin{itemize}
+    \item \textbf{Model}: il modello è il database, nel codice php rappresentato dalle varie classi del namespace MyCandies/Entities, che si trovano al percorso \texttt{backend/classes/MyCandies/Entities};
+    \item \textbf{View}: la vista è il codice html e css;
+     \item \textbf{Controller}: i controller si occupano di fornire un interfaccia per svolgere diverse operazioni con il modello, in modo da fornire un alto livello di astrazione per le viste, corrispondono al namespace MyCandies/Controllers e si trovano al percorso \\ \texttt{backend/classes/MyCandies/Controllers}.
+\end{itemize}
+\subsubsection{PDO - PHP Data Objects}
+PDO è un interfaccia per accedere a più tipi di database, ha diverse caratteristiche che lo rendono molto vantaggioso, prima fra tutte i Prepared Statements, che permettono di evitare l'attacco Sql-injection.
+I Prepared Statements sono delle query templatizzate, quando la query viene eseguita sono valorizzati i campi richiesti. Questo particolare paradigma rende impossibile eseguire codice malevolo, dato che i valori assegnati alle etichette sono trattati solo e solamente come stringhe e solo successivamente convertiti in int, double, string, etc. Naturalmente è ancora necessario validare l'input prima di inserirlo nel database.
+\subsubsection{ORM - Object-relational mapping}
+Ogni entità presente nel database ha una corrispondente classe in PHP. Esiste un'entità "Entity" che funge da sottotipo per tutte le classi (o entità) che hanno "id" come chiave primaria. Questo paradigma si chiama ORM (Object-relational mapping) e consiste nel permettere di memorizzare, richiamare, aggiornare ed eliminare dati da un database all’interno di paradigmi object-oriented. ORM permette un'astrazione e portabilità più elevate rispetto al tipo di database utilizzato. La creazione di queste classi rappresenta un vantaggio anche grazie a PDO: le select query possono restituire direttamente array contenenti le entità stesse invece di array associativi.
+\subsubsection{Validazione input}
+I controlli di validazione avvengono all'interno delle entità definite, gli eventuali errori sono poi gestiti tramite eccezioni oppure inseriti in un array a seconda dell'entità. Ogni volta che si vuole inserire un record nel database viene costruito un oggetto a partire dagli input inseriti. Durante la costruzione avvengono i controlli e se questi falliscono, gli errori sono segnalati nella vista. La validazione dell'input consiste in espressioni regolari e funzioni fornite da PHP.
